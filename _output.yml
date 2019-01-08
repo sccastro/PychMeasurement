@@ -1,0 +1,15 @@
+bookdown::gitbook:
+  config:
+    toc:
+      collapse: section
+      before: |
+        <li><strong><a href="./">Psychological Measurement in R</a></strong></li>
+    edit:
+      link: https://spencercastro.com/%s
+      text: "Edit"
+    sharing: no
+  css: class_book.css
+
+bookdown::pdf_book:
+  latex_engine: "xelatex"
+

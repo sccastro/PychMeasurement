@@ -1,0 +1,147 @@
+# Importing Data
+
+>“It is a capital mistake to theorize before one has data.” 
+><div style="text-align: right">
+> --- Arthur Conan Doyle </div>
+
+First off...
+
+ <h4>Advanced R Challenges</h4>
+
+
+This challenge is to understand and use this function to read in a series of csv files and transform them into
+one data.frame.
+
+```{r challenge, eval=FALSE}
+
+#Joel's awesome function
+
+combineCSV <- function(fPath){ #see the r base cheatsheet for function syntax
+  # List all files in the path
+  f <- list.files(path = fPath, recursive = TRUE) #see ?list.files
+  
+  #separate files list and place into tibble (This is all the names and subids in the titles of the files)
+  f_split <- as_tibble(str_split(f, "_|/", simplify = TRUE)) %>% #see ?str_split from stringr package, separated by "_"
+    mutate(.id = row_number()) %>% #How does making a row number column help this process?
+    select(".id", everything()) #How does everything() work?
+  
+  #read in all files to list
+  fls <- lapply(str_c(fPath, f), read.csv, header = FALSE) #see ?str_c from stringr and ?lapply from the apply family
+  
+  #convert list to data frame
+  d <- as.data.frame(rbindlist(fls, fill = TRUE, idcol = TRUE)) #see ?rbind_list from the data.table package
+  
+  #join data with identifying information
+  e <- f_split %>% #Join df of names and ids with df of data
+    full_join(d, by = ".id") #See ?full_join
+}
+```
+
+
+
+## Reading files into R
+
+Some of you have .SPSS data, some .txt, and others .csv. All of you will have to identify which function will read your data. The package in the bundle of packages known as the *tidyverse* that performs this job is called <code>readr</code>. The readr package has functions like:
+
+```{r readr functions, eval=FALSE}
+readr::read_csv()
+readr::read_lines()
+readr::read_file_raw()
+```
+
+Other packages can help with weird file types like .SPSS such as the <code>haven</code> package.
+
+```{r haven, eval=FALSE}
+install.packages('haven')
+library(haven)
+haven::read_spss()
+haven::read_sav()
+```
+
+One thing that I like to do before I start working is clearing out my environment and loading my desired packages. You can do that with...
+```{r remove, warning=FALSE, message=FALSE}
+rm(list = ls())
+library(tidyverse)
+
+df <- read_csv("data/WorkingMemoryEyeTracking.csv") #Read in csv and turn into a tibble
+```
+
+## What's a tibble?
+
+>"Tibbles are a modern take on data frames. They keep the features that have stood the test of time, and drop the features that used to be convenient but are now frustrating (i.e. converting character vectors to factors)."
+><div style="text-align: right">
+> --- [Tibbles Page](https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html) </div>
+
+```{r class}
+class(df) #It's a data.frame with attributes for extra info
+```
+
+If you type the name of the tibble...
+
+```{r df}
+df
+```
+
+It automatically shows the first 10 rows. Now type...
+
+```{r data.frame, eval=FALSE}
+as.data.frame(df) #A ton of rows get printed.
+```
+This is the kind of stuff tibbles make nicer.
+
+## Save your dataset:
+```{r save}
+save(df, file = "data/eyedata.RData")
+
+```
+
+Now you can clean your environment...
+
+```{r clean}
+rm(list = ls()) 
+
+```
+
+and load back your data.frame
+
+```{r load}
+load('data/eyedata.RData')
+```
+
+.RData files can hold multiple data.frames, values, or other data types.
+
+
+## Cleaning your data file 
+First let's visualize some stuff
+```{r View}
+View(df)
+```
+
+...or...
+
+```{r head}
+df[1,1:11] #This is subsetting, row = 1, columns equal 1:11 (1 to 11)
+```
+
+
+Looks like we have some messy columns. We can clean them up.
+
+```{r cleaner}
+
+cleaner <- df %>% #This is a pipe (%>%). See the link below to learn about pipes
+  select(-10, -11) %>% #This select function is from dplyr. Type ?dplyr into the console to learn more
+  na.omit() #%>% # I've commented out the pipe, so the last call is to omit NAs. Delete the first # to run the lines below.
+  # group_by(Participant) %>% # This code doesn't run now. Delete the first # to run it.
+  # summarise(count1 = n()) # This code doesn't run now. Delete the first # to run it.
+```
+(to learn about [pipes](https://style.tidyverse.org/pipes.html)...)
+
+We can coerce columns in the data.frame to a factor...
+
+```{r refactor}
+df$Participant <- as.factor(df$Participant)
+
+class(df$Participant)
+```
+
+...and a lot of other transformations that we'll be talking about in the coming classes. For now, please attempt to read in your dataset, save it as a .RData file, clean your environment, load that data file, and start transforming your tibble/data.frame.
