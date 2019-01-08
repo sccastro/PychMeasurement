@@ -5,6 +5,7 @@ rmd_files: [
   "01_BaseRIntro.Rmd",
   "02_DataImport.Rmd",
   "03_DataTransformation.Rmd",
+  "04_TransformationDay2.Rmd",
 ]
 
 before_chapter_script: "_common.R"

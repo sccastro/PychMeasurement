@@ -18,344 +18,399 @@ one data.frame.
 
 ## Data Transformation with Dplyr 
 
-```{r placeholder}
+First, we clean the environment and get the <code>tidyverse</code>, which has <code>dplyr</code>.
+```{r clean}
 rm(list = ls())
-
 library(tidyverse)
 
+```
 
-# ##Get a dataset from your .RData file
-# load('old/ready.RData')
-# 
-# df <- as_tibble(ccolor %>%
-#   select(subject = s, congruency = con, stimulus =S,
-#           response = R, reactionTime = RT))
-# 
-# tbl_df(ccolor) #Converts data to tbl class - Easier to view
-# 
-# #compare the classes
-# class(ccolor)
-# class(tbl_df(ccolor))
-# 
-# glimpse(ccolor) #Gives the same information as clicking the blue circle in the environment panel
-# 
-# View(ccolor) #Gives you a navigable display
-# 
-# # The pipe, aka %>%, takes you a level into the data, so...
-# 
-# ccolor %>%
-#   summarise(count = n()) # is the same as...
-# 
-# summarise(ccolor, count = n())
-# 
-# 
-# #Now let's do some descriptives
-# ccolor %>%
-#   group_by(s) %>%
-#   summarise(nrow(.)) #Harder to read long, so we can spread it out
-# 
-# ccolor %>% 
-#   group_by(s) %>%
-#   summarise(count = nrow(.)) %>% #Let's name this something easy to type and remember, like "count"
-#   spread(key = s, value = count)
-# 
-# #We can also wrap functions around the whole data object
-# 
-# as.matrix(ccolor %>% 
-#   group_by(s) %>%
-#   summarise(count = nrow(.)) %>% 
-#   spread(key = s, value = count)) #or we can subset it
-# 
-# data.frame(ccolor %>% 
-#   group_by(s) %>%
-#   summarise(count = nrow(.)) %>% 
-#   spread(key = s, value = count))[,4:7]
-# 
-# #What happened to the names? Check with colnames()
-# colnames(ccolor %>% 
-#            group_by(s) %>%
-#            summarise(count = nrow(.)) %>% #Let's name this something easy to type and remember, like "count"
-#            spread(key = s, value = count))
-# 
-# #None of these changes are being saved! You can make new objects with the <- operator
-# df <- ccolor #do some stuff here
-# 
-# #Above I used group_by(s), which groups by participant, summarise() with nrow(.), which counts the number of rows,
-# #and spread(), which takes the column s, turns each row into a column, and puts the value argument in that column.
-# 
-# #There's also filter(), gather(), separate(), unite(), select(), distinct(), sample_n(), slice(), and many more.
-# 
-# #For example:
-# as_tibble(ccolor %>%
-#   filter(s == 1))# "==" is a logic operator, which works with most classes of data
-# 
-# class(ccolor$s) 
-# 
-# 
-# ####<ASIDE>#### - for those of you interested in replacing your For Loops, this is how you'd do it.
-# #Here's a quick introduction to the apply family. We can apply class() to muliple columns.
-# 
-# #Say we want to get the class of every column...
-# 
-# apply(ccolor, MARGIN = 2, FUN = class) #Something about changing it to an array loses its class attributes
-# lapply(ccolor, FUN = class) #list apply makes the output of the call a list
-# sapply(ccolor,FUN = class) #simple apply tries to output the simplest outcome
-# #The bottom two assume you mean the columns, while the top one you have to specify 
-# 
-# #tapply is different, because you index (or group) by another variable. Say we want mean RT by subject...
-# tapply(X = ccolor$RT, INDEX = ccolor$s, FUN = mean) #We'd do it like that.
-# 
-# #mapply stands for "multivariate apply', and works like this:
-# # Create a 4x4 matrix
-# Q1 <- matrix(c(rep(1, 4), rep(2, 4), rep(3, 4), rep(4, 4)),4,4)
-# Q1 #Or you could use mapply()
-# mapply(rep, 1:4,4) #repeat 1 through 4, 4 times
-# 
-# #Say you want to mean-center some data
-# dataPoints <- matrix(rnorm(30), nrow=5, ncol=6)
-# # Find means per column with `apply()`
-# dataPoints_means <- apply(dataPoints, 2, mean) #Margin = 2 signifies "do it to the columns"
-# # Find standard deviation with `apply()`
-# dataPoints_sdev <- apply(dataPoints, 2, sd)
-# # Center the points 
-# dataPoints_Trans1 <- sweep(dataPoints, 2, dataPoints_means,"-") #subtract mean from points in columns
-# # Return the result
-# dataPoints_Trans1
-# # Normalize
-# dataPoints_Trans2 <- sweep(dataPoints_Trans1, 2, dataPoints_sdev, "/") #divide new point values by standard deviation in columns
-# # Return the result
-# dataPoints_Trans2
-# # Now you have mean-centered data points, probably for a regression model.
-# 
-# #####</ASIDE>####
-# 
-# #One thing we always want to do is extract rows based on some criteria. For example, in Reaction Time data
-# #we often trim the early responses as anticipatory, and the late responses as outliers.
-# 
-# 
-# # Challenge 1 -------------------------------------------------------------
-# #Find and remove the rows with NAs, save it out to "newdf"
-# ccolor %>%
-#   filter(!complete.cases(.))
-# 
-# ccolor %>%
-#   filter(!is.na(RT))
-# 
-# as_tibble(ccolor %>%
-#   na.omit())
-# 
-# newdf <- ccolor %>%
-#   na.omit() 
-# 
-# # Challenge 2 -------------------------------------------------------------
-# #Filter out RT's below 150 milliseconds and show how many you've filtered out.
-# 
-# # newdf %>%
-# #   filter(...) %>%
-# #   summarise(...)
-# 
-# df2 <- newdf %>%
-#   filter(RT > 150) %>%
-#   summarise(count = n())
-# 
-# # Challenge 3 -------------------------------------------------------------
-# # Get the number of observations (rows) kept and removed with group_by
-# 
-# # newdf %>%
-# #   group_by(...) %>%
-# #   summarise(...)
-# 
-# newdf %>%
-#   group_by(RT > 150) %>%
-#   summarise(n = n()) %>%
-#   mutate(freq = (n / sum(n))*100)
-# 
-# #In papers, you want to report the proportion of data you have removed and the criteria with which you removed that data
-# 
-# 
-# #Now you have the slow responses, but a more appropriate standard might be removing data
-# #above three standard deviations from the mean for each participant's own distribution. 
-# #Let's try that now...
-# newdf %>% #Step 1 is to group by the subject and get the mean and sd
-#   group_by(s) %>%
-#   mutate(mRT = mean(RT), RTsd = sd(RT)) 
-# 
-# newdf %>% #Step 2 is to make a cutoff 3 standard deviations above the mean for each participant
-#   group_by(s) %>%
-#   mutate(mRT = mean(RT), RTsd = sd(RT)) %>%
-#   mutate(cutoff = mRT + 3*RTsd)
-#   
-# 
-# newdf %>% #Step 3 Let's clean up the columns we need and the ones we don't
-#   group_by(s) %>%
-#   mutate(mRT = mean(RT), RTsd = sd(RT)) %>%
-#   mutate(cutoff = mRT + 3*RTsd) %>%
-#   select(-mRT, -RTsd)
-# 
-# 
-# newdf %>% #Step 4 Now let's filter those RTs above the cutoff and count them
-#   group_by(s) %>%
-#   mutate(mRT = mean(RT), RTsd = sd(RT)) %>%
-#   mutate(cutoff = mRT + 3*RTsd) %>%
-#   select(-mRT, -RTsd) %>%
-#   filter(RT > cutoff) %>%
-#   summarise(n = n()) %>% #spread it out so its easy to read
-#   spread(key = s, value = n)
-# 
-# 
-# newdf %>% #We can see the proportion of removed data
-#   group_by(s) %>%
-#   mutate(mRT = mean(RT), RTsd = sd(RT)) %>%
-#   mutate(cutoff = mRT + 3*RTsd) %>%
-#   select(-mRT, -RTsd) %>%
-#   group_by(RT > cutoff | RT < 150) %>%
-#   summarise(n = n()) %>%
-#   mutate(prop = (n/sum(n))*100)
-# 
-# dfclean <- newdf %>% #Save is out as dfclean
-#   group_by(s) %>%
-#   mutate(mRT = mean(RT), RTsd = sd(RT)) %>%
-#   mutate(cutoff = mRT + 3*RTsd) %>%
-#   select(-mRT, -RTsd) %>%
-#   filter(RT < cutoff & RT > 150) #The RTs must be less than the cutoff AND greater than 150 ms
-# 
-# #Now we're ready to do some descriptive statistics with the groups
-# 
-# # Challenge 4 -------------------------------------------------------------
-# # What is the mean reaction time and standard deviation for congruent vs incongruent trials
-# 
-# #hint group_by(the factor you're interested in)
-# dfclean %>%
-#   group_by(con) %>%
-#   summarise(mRT = mean(RT), RTsd = sd(RT))
-# 
-# 
-# # Challenge 5 -------------------------------------------------------------
-# #Get the mean and sd of participant means for congruent vs incongruent trials and compare to the previous outcome
-# dfclean %>%
-#   group_by(s,con) %>%
-#   summarise(gmRT = mean(RT)) %>%
-#   group_by(con) %>%
-#   summarise(mRT = mean(gmRT), RTsd = sd(gmRT))
-# 
-# 
-# 
-# 
-# #This is a quirk of repeated measures fully within designs, as the levels of analysis are nested. More on that later.
-# 
-# #We can quickly visualize some of these things, like the distribution of responses in base R
-# 
-# #Note: Soon we will learn to visualize everything in ggplot2
-# 
-# hist(dfclean$RT, breaks = 100)
-# 
-# #Add a line for the mean
-# hist(dfclean$RT, breaks = 100)
-# abline(v = mean(dfclean$RT),
-#        col = "red",
-#        lwd = 2)
-# #add a line for the median
-# abline(v = median(dfclean$RT),
-#        col = "blue",
-#        lwd = 3)
-# lines(density(dfclean$RT),
-#       lwd = 2, # thickness of line
-#       col = "chocolate3")# density plot
-# 
-# #Add a density plot, 
-# hist(dfclean$RT, breaks = 100,
-#      prob = T)
-# lines(density(dfclean$RT),
-#       lwd = 2, # thickness of line
-#       col = "chocolate3")# density plot
-# abline(v = mean(dfclean$RT),
-#        col = "red",
-#        lwd = 2)
-# #add a line for the median
-# abline(v = median(dfclean$RT),
-#        col = "blue",
-#        lwd = 3)
-# 
-# legend(x = "topright", # location of legend within plot area
-#        c("Density plot", "Mean", "Median"),
-#        col = c("chocolate3", "red", "blue"),
-#        lwd = c(2, 2, 3))
-# 
-# 
-# 
-# #Spreading, Gathering, Separating and Uniting
-# #look at this tibble (data.frame)
-# #Gather and spread are not perfect opposites
-# stocks <- tibble(
-#   year   = c(2015, 2015, 2016, 2016),
-#   half  = c(   1,    2,     1,    2),
-#   return = c(1.88, 0.59, 0.92, 0.17)
-# )
-# 
-# stocks %>% 
-#   spread(year, return) %>% 
-#   gather("year", "return", `2015`:`2016`)
-# 
-# 
-# #You can make data.frames with space using the tribble function
-# people <- tribble(
-#   ~name,             ~key,    ~value,
-#   #-----------------|--------|------
-#   "Phillip Woods",   "age",       45,
-#   "Phillip Woods",   "height",   186,
-#   "Jessica Cordero", "age",       37,
-#   "Jessica Cordero", "height",   156
-# )
-# 
-# people
-# 
-# # Challenge 6 -------------------------------------------------------------
-# #spread people so height and age have their own column
-# 
-# # newpeople <- people %>%
-# #   spread(...)
-# newpeople <- people %>%
-#   spread(key = key, value = value)
-# 
-# 
-# 
-# # Challenge 7 -------------------------------------------------------------
-# #gather newpeople so that height and age are back together
-# 
-# #newpeople %>%
-# #   gather(...)
-# newpeople %>%
-#   gather("key","value", age:height)
-# 
-# 
-# #You can separate or unite columns based upon a separator
-# people %>%
-#   separate(name, into = c("first","last"))
-# 
-# #How did it know? We usually have to specify the separator
-# weirdpeople <- people %>%
-#   separate(name, into = c("befored","afterd"), sep = "d")
-# #Notice that the separator disappears
-# 
-# 
-# # Challenge 8 -------------------------------------------------------------
-# #Unite the two columns above with "d" as a separator
-# weirdpeople %>%
-#   unite(new, befored,afterd,sep = "d")
-# 
-# 
-# #That's a lot to take in, so we'll do questions about this content or 
-# #queries about how to accomplish different data transformations.
+##Get a dataset from your .RData file
 
+```{r load data}
+load('data/ready.RData')
+```
+
+<code>ready.Rdata</code> has multiple dataframes within it. This is the the helpful thing about <code>.RData</code> files. They can contain all of the dataframes you need for a project or analysis.
+
+```{r naming}
+df <- as_tibble(ccolor %>%
+  select(subject = s, congruency = con, stimulus =S,
+          response = R, reactionTime = RT))
+```
+
+
+```{r tbl from df}
+
+tbl_df(ccolor) #Converts data to tbl class - Easier to view
+```
+
+You can compare the classes...
+```{r compare}
+class(ccolor)
+class(tbl_df(ccolor))
+```
+
+or get a glimpse of the data...
+```{r glimpse}
+glimpse(ccolor) #Gives the same information as clicking the blue circle in the environment panel
+```
+
+or get the full thing...
+
+```{r View, eval=FALSE}
+View(ccolor) #Gives you a navigable display
+
+```
+
+##Introduction to "The Pipe"
+
+The pipe, aka <code>%>%</code>, takes you a level into the data, so...
+
+```{r pipe}
+
+ccolor %>%
+  summarise(count = n()) # is the same as...
+
+summarise(ccolor, count = n())
+```
+
+Now let's do some descriptives...
+
+```{r describe}
+ccolor %>%
+  group_by(s) %>%
+  summarise(nrow(.)) 
+
+# (Harder to read long, so we can spread it out)
+
+ccolor %>%
+  group_by(s) %>%
+  summarise(count = nrow(.)) %>% #Let's name this something easy to type and remember, like "count"
+  spread(key = s, value = count)
+```
+
+We can also wrap functions around the whole data object...
+
+```{r wrapping}
+as.matrix(ccolor %>%
+  group_by(s) %>%
+  summarise(count = nrow(.)) %>%
+  spread(key = s, value = count)) #or we can subset it
+
+data.frame(ccolor %>%
+  group_by(s) %>%
+  summarise(count = nrow(.)) %>%
+  spread(key = s, value = count))[,4:7]
 
 ```
 
 
+What happened to the names? What is that X4, X5, stuff? That's what R does when it doesn't know the column names, but in this case it actually does. Check with colnames()
+
+```{r colnames}
+colnames(ccolor %>%
+           group_by(s) %>%
+           summarise(count = nrow(.)) %>% #Let's name this something easy to type and remember, like "count"
+           spread(key = s, value = count))
+
+```
+
+None of these changes are being saved! You can make new objects with the <code><-</code> operator.
+```{r assignment}
+df <- ccolor #do some stuff here
+```
+
+Above I used <code>group_by(s)</code>, which groups by participant, <code>summarise()</code> with <code>nrow(.)</code>, which counts the number of rows,
+and <code>spread()</code>, which takes the column s, turns each row into a column, and puts the value argument in that column.
+
+There's also <code>filter()</code>, <code>gather()</code>, <code>separate()</code>, <code>unite()</code>, <code>select()</code>, <code>distinct()</code>, <code>sample_n()</code>, <code>slice()</code>, and many more.
+
+For example:
+
+```{r filter}
+as_tibble(ccolor %>%
+  filter(s == 1))# "==" is a logic operator, which works with most classes of data
+
+class(ccolor$s)
+```
+
+## Aside on the apply family
+*\<ASIDE\>* - for those of you interested in replacing your For Loops, this is how you'd do it.
+Here's a quick introduction to the apply family. We can apply <code>class()</code> to muliple columns.
+
+Say we want to get the class of every column...
+
+```{r apply}
+apply(ccolor, MARGIN = 2, FUN = class) #Something about changing it to an array loses its class attributes
+lapply(ccolor, FUN = class) #list apply makes the output of the call a list
+sapply(ccolor,FUN = class) #simple apply tries to output the simplest outcome
+```
+
+The bottom two assume you mean the columns, while the top one you have to specify.
+tapply is different, because you index (or group) by another variable. Say we want mean RT by subject...
+
+```{r meanrt}
+tapply(X = ccolor$RT, INDEX = ccolor$s, FUN = mean) #We'd do it like that.
+```
+
+mapply stands for "multivariate apply', and works like this:
+
+```{r mapply}
+# Create a 4x4 matrix
+Q1 <- matrix(c(rep(1, 4), rep(2, 4), rep(3, 4), rep(4, 4)),4,4)
+Q1 #Or you could use mapply()
+mapply(rep, 1:4,4) #repeat 1 through 4, 4 times
+
+```
+
+Say you want to mean-center some data
+```{r matrixstart}
+dataPoints <- matrix(rnorm(30), nrow=5, ncol=6)
+```
+Find means per column with <code>apply()</code>
+```{r savemeans}
+dataPoints_means <- apply(dataPoints, 2, mean) #Margin = 2 signifies "do it to the columns"
+```
+Find standard deviation with <code>apply()</code>
+```{r sds}
+dataPoints_sdev <- apply(dataPoints, 2, sd)
+```
+Center the points 
+```{r sweep}
+dataPoints_Trans1 <- sweep(dataPoints, 2, dataPoints_means,"-") #subtract mean from points in columns
+```
+Return the result
+```{r return1}
+dataPoints_Trans1
+```
+Normalize
+```{r norm}
+dataPoints_Trans2 <- sweep(dataPoints_Trans1, 2, dataPoints_sdev, "/") #divide new point values by standard deviation in columns
+```
+Return the result
+```{r return2}
+dataPoints_Trans2
+```
+Now you have mean-centered data points, probably for a regression model.
+
+*\<\/ASIDE\>*
+
+##Extracting rows
+One thing we always want to do is extract rows based on some criteria. For example, in Reaction Time data
+we often trim the early responses as anticipatory, and the late responses as outliers.
+
+**Challenge 1**: Find and remove the rows with NAs, save it out to "newdf"
+```{r challenge1, results='hide'}
+ccolor %>%
+  filter(!complete.cases(.))
+
+ccolor %>%
+  filter(!is.na(RT))
+
+as_tibble(ccolor %>%
+  na.omit())
+
+newdf <- ccolor %>%
+  na.omit()
+```
+**Challenge 2**: Filter out RT's below 150 milliseconds and show how many you've filtered out.
+```{r challenge2, results='hide', eval=FALSE}
+newdf %>%
+  filter(...) %>%
+  summarise(...)
+
+df2 <- newdf %>%
+  filter(RT > 150) %>%
+  summarise(count = n())
+```
+**Challenge 3**: Get the number of observations (rows) kept and removed with <code>group_by()</code>
+```{r challenge3, results='hide', eval=FALSE}
+newdf %>%
+  group_by(...) %>%
+  summarise(...)
+
+newdf %>%
+  group_by(RT > 150) %>%
+  summarise(n = n()) %>%
+  mutate(freq = (n / sum(n))*100)
+```
+
+In papers, you want to report the proportion of data you have removed and the criteria with which you removed that data.
+
+Now you have the slow responses, but a more appropriate standard might be removing data
+above three standard deviations from the mean for each participant's own distribution.
+Let's try that now...
+```{r removedata}
+newdf %>% #Step 1 is to group by the subject and get the mean and sd
+  group_by(s) %>%
+  mutate(mRT = mean(RT), RTsd = sd(RT))
+
+newdf %>% #Step 2 is to make a cutoff 3 standard deviations above the mean for each participant
+  group_by(s) %>%
+  mutate(mRT = mean(RT), RTsd = sd(RT)) %>%
+  mutate(cutoff = mRT + 3*RTsd)
 
 
+newdf %>% #Step 3 Let's clean up the columns we need and the ones we don't
+  group_by(s) %>%
+  mutate(mRT = mean(RT), RTsd = sd(RT)) %>%
+  mutate(cutoff = mRT + 3*RTsd) %>%
+  select(-mRT, -RTsd)
 
 
+newdf %>% #Step 4 Now let's filter those RTs above the cutoff and count them
+  group_by(s) %>%
+  mutate(mRT = mean(RT), RTsd = sd(RT)) %>%
+  mutate(cutoff = mRT + 3*RTsd) %>%
+  select(-mRT, -RTsd) %>%
+  filter(RT > cutoff) %>%
+  summarise(n = n()) %>% #spread it out so its easy to read
+  spread(key = s, value = n)
 
 
+newdf %>% #We can see the proportion of removed data
+  group_by(s) %>%
+  mutate(mRT = mean(RT), RTsd = sd(RT)) %>%
+  mutate(cutoff = mRT + 3*RTsd) %>%
+  select(-mRT, -RTsd) %>%
+  group_by(RT > cutoff | RT < 150) %>%
+  summarise(n = n()) %>%
+  mutate(prop = (n/sum(n))*100)
 
+dfclean <- newdf %>% #Save it out as dfclean
+  group_by(s) %>%
+  mutate(mRT = mean(RT), RTsd = sd(RT)) %>%
+  mutate(cutoff = mRT + 3*RTsd) %>%
+  select(-mRT, -RTsd) %>%
+  filter(RT < cutoff & RT > 150) #The RTs must be less than the cutoff AND greater than 150 ms
+```
+Now we're ready to do some descriptive statistics with the groups
+
+**Challenge 4**: What is the mean reaction time and standard deviation for congruent vs incongruent trials
+```{r challenge4, results='hide', eval=FALSE}
+#hint group_by(the factor you're interested in)
+dfclean %>%
+  group_by(con) %>%
+  summarise(mRT = mean(RT), RTsd = sd(RT))
+```
+
+**Challenge 5**: Get the mean and sd of participant means for congruent vs incongruent trials and compare to the previous outcome.
+```{r challenge5, results='hide', eval=FALSE}
+dfclean %>%
+  group_by(s,con) %>%
+  summarise(gmRT = mean(RT)) %>%
+  group_by(con) %>%
+  summarise(mRT = mean(gmRT), RTsd = sd(gmRT))
+```
+
+This is a quirk of repeated measures fully within designs, as the levels of analysis are nested. More on that later.
+We can quickly visualize some of these things, like the distribution of responses in base R.
+Note: Soon we will learn to visualize everything in ggplot2.
+
+```{r baseviz}
+hist(dfclean$RT, breaks = 100)
+
+#Add a line for the mean
+hist(dfclean$RT, breaks = 100)
+abline(v = mean(dfclean$RT),
+       col = "red",
+       lwd = 2)
+#add a line for the median
+abline(v = median(dfclean$RT),
+       col = "blue",
+       lwd = 3)
+lines(density(dfclean$RT),
+      lwd = 2, # thickness of line
+      col = "chocolate3")# density plot
+
+#Add a density plot,
+hist(dfclean$RT, breaks = 100,
+     prob = T)
+lines(density(dfclean$RT),
+      lwd = 2, # thickness of line
+      col = "chocolate3")# density plot
+abline(v = mean(dfclean$RT),
+       col = "red",
+       lwd = 2)
+#add a line for the median
+abline(v = median(dfclean$RT),
+       col = "blue",
+       lwd = 3)
+
+legend(x = "topright", # location of legend within plot area
+       c("Density plot", "Mean", "Median"),
+       col = c("chocolate3", "red", "blue"),
+       lwd = c(2, 2, 3))
+
+
+```
+
+##Spreading, Gathering, Separating and Uniting
+look at this <code>tibble(data.frame)</code>
+```{r tibble}
+stocks <- tibble(
+  year   = c(2015, 2015, 2016, 2016),
+  half  = c(   1,    2,     1,    2),
+  return = c(1.88, 0.59, 0.92, 0.17)
+)
+```
+Gather and spread are not perfect opposites
+
+```{r opposites}
+stocks %>% 
+  spread(year, return) %>%
+  gather("year", "return", `2015`:`2016`)
+```
+
+You can make data.frames with space using the <code>tribble()</code> function
+```{r tribble}
+people <- tribble(
+  ~name,             ~key,    ~value,
+  #-----------------|--------|------
+  "Phillip Woods",   "age",       45,
+  "Phillip Woods",   "height",   186,
+  "Jessica Cordero", "age",       37,
+  "Jessica Cordero", "height",   156
+)
+
+people
+
+```
+**Challenge 6**: spread people so height and age have their own column
+```{r challenge6, results='hide', eval=FALSE}
+newpeople <- people %>%
+  spread(...)
+newpeople <- people %>%
+  spread(key = key, value = value)
+```
+
+**Challenge 7**: gather newpeople so that height and age are back together
+```{r chllenge7, results='hide', eval=FALSE}
+newpeople %>%
+  gather(...)
+newpeople %>%
+  gather("key","value", age:height)
+```
+You can separate or unite columns based upon a separator
+```{r separate}
+people %>%
+  separate(name, into = c("first","last"))
+```
+How did it know? We usually have to specify the separator
+```{r magicsep}
+weirdpeople <- people %>%
+  separate(name, into = c("befored","afterd"), sep = "d")
+```
+Notice that the separator disappears.
+
+**Challenge 8**: Unite the two columns above with "d" as a separator
+```{r challenge8, results='hide', eval=FALSE}
+weirdpeople %>%
+  unite(new, befored,afterd,sep = "d")
+
+```
+
+That's a lot to take in, so we'll do questions about this content or 
+queries about how to accomplish different data transformations.
 
