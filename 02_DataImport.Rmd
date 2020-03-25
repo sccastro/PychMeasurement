@@ -1,3 +1,20 @@
+```{r include=FALSE, cache=FALSE}
+set.seed(1014)
+options(digits = 3)
+
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  cache = TRUE,
+  out.width = "70%",
+  fig.align = 'center',
+  fig.width = 6,
+  fig.asp = 0.618,  # 1 / phi
+  fig.show = "hold"
+)
+
+options(dplyr.print_min = 6, dplyr.print_max = 6)
+```
 # Importing Data
 
 >“It is a capital mistake to theorize before one has data.” 
@@ -13,33 +30,39 @@ This challenge is to understand and use this function to read in a series of csv
 one data.frame.
 
 ```{r challenge, eval=FALSE}
+#Take this function and modify it to combine csvs
 
-#Joel's awesome function
-
-combineCSV <- function(fPath){ #see the r base cheatsheet for function syntax
-  # List all files in the path
-  f <- list.files(path = fPath, recursive = TRUE) #see ?list.files
+CombineData <- function(dir) { #See Base R cheatsheet for function format
   
-  #separate files list and place into tibble (This is all the names and subids in the titles of the files)
-  f_split <- as_tibble(str_split(f, "_|/", simplify = TRUE)) %>% #see ?str_split from stringr package, separated by "_"
-    mutate(.id = row_number()) %>% #How does making a row number column help this process?
-    select(".id", everything()) #How does everything() work?
+  filepath <- getwd() #Base R cheatsheet Working Directory
+  setwd(filepath) ##Base R cheatsheet Working Directory
   
-  #read in all files to list
-  fls <- lapply(str_c(fPath, f), read.csv, header = FALSE) #see ?str_c from stringr and ?lapply from the apply family
+  dirs <- list.dirs(path = dir, full.names = TRUE) #get directories
+  files <- list.files(path=dirs, pattern="*.csv", full.names=T, recursive=F) #get files 
+  #in those directories with .csv at the end (see ?regex)
+  subids <- regmatches(files, regexpr("1\\d{3}", files)) # optional (see ?regmatches, ?regex)
+  condition1 <- as.character(lapply(strsplit(files, "_"), "[",4)) # optional (see ?lapply, ?strsplit)
+  condition <- substr(condition1, 4,4) # optional (see ?substr)
   
-  #convert list to data frame
-  d <- as.data.frame(rbindlist(fls, fill = TRUE, idcol = TRUE)) #see ?rbind_list from the data.table package
   
-  #join data with identifying information
-  e <- f_split %>% #Join df of names and ids with df of data
-    full_join(d, by = ".id") #See ?full_join
+  for (i in 1:length(files)) { #See Base R for correct structure of For Loop
+    infile <- read.csv(files[i]) #Read all of the .csv's in files
+    infile$subids <- as.factor(subids[i]) #subject id was in the title of the .csv
+    infile$condition <- as.factor(condition[i]) #condition was in the title of the .csv
+    
+    if(!exists("combined.data")) { #Best practices
+      combined.data <- infile #create new data.frame
+    }
+    else { #OR
+      combined.data <- rbind(combined.data,infile) #row bind new data.frame with infile info
+    }
+  }
+  return(combined.data) #Return your new data.frame
 }
 ```
 
 
-
-## Reading files into R
+# Reading files into R {-}
 
 Some of you have .SPSS data, some .txt, and others .csv. All of you will have to identify which function will read your data. The package in the bundle of packages known as the *tidyverse* that performs this job is called <code>readr</code>. The readr package has functions like:
 

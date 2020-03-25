@@ -11,12 +11,38 @@
 First off...
 
  <h4>Advanced R Challenges</h4>
-
-
+ 
 This challenge is to understand and use this function to read in a series of csv files and transform them into
 one data.frame.
 
-## Data Transformation with Dplyr 
+```{r challenge, eval=FALSE}
+
+#Joel's awesome function
+
+combineCSV <- function(fPath){ #see the r base cheatsheet for function syntax
+  # List all files in the path
+  f <- list.files(path = fPath, recursive = TRUE) #see ?list.files
+  
+  #separate files list and place into tibble (This is all the names and subids in the titles of the files)
+  f_split <- as_tibble(str_split(f, "_|/", simplify = TRUE)) %>% #see ?str_split from stringr package, separated by "_"
+    mutate(.id = row_number()) %>% #How does making a row number column help this process?
+    select(".id", everything()) #How does everything() work?
+  
+  #read in all files to list
+  fls <- lapply(str_c(fPath, f), read.csv, header = FALSE) #see ?str_c from stringr and ?lapply from the apply family
+  
+  #convert list to data frame
+  d <- as.data.frame(rbindlist(fls, fill = TRUE, idcol = TRUE)) #see ?rbind_list from the data.table package
+  
+  #join data with identifying information
+  e <- f_split %>% #Join df of names and ids with df of data
+    full_join(d, by = ".id") #See ?full_join
+}
+```
+
+
+
+## Data Transformation with Dplyr {-}
 
 First, we clean the environment and get the <code>tidyverse</code>, which has <code>dplyr</code>.
 ```{r clean}
@@ -25,7 +51,7 @@ library(tidyverse)
 
 ```
 
-##Get a dataset from your .RData file
+## Get a dataset from your .RData file
 
 ```{r load data}
 load('data/ready.RData')
@@ -63,7 +89,7 @@ View(ccolor) #Gives you a navigable display
 
 ```
 
-##Introduction to "The Pipe"
+## Introduction to "The Pipe"
 
 The pipe, aka <code>%>%</code>, takes you a level into the data, so...
 
@@ -121,6 +147,10 @@ None of these changes are being saved! You can make new objects with the <code><
 df <- ccolor #do some stuff here
 ```
 
+```{r newdf, include=FALSE}
+newdf <- ccolor %>% #do some stuff here
+  na.omit()
+```
 Above I used <code>group_by(s)</code>, which groups by participant, <code>summarise()</code> with <code>nrow(.)</code>, which counts the number of rows,
 and <code>spread()</code>, which takes the column s, turns each row into a column, and puts the value argument in that column.
 
@@ -201,18 +231,8 @@ One thing we always want to do is extract rows based on some criteria. For examp
 we often trim the early responses as anticipatory, and the late responses as outliers.
 
 **Challenge 1**: Find and remove the rows with NAs, save it out to "newdf"
-```{r challenge1, results='hide'}
-ccolor %>%
-  filter(!complete.cases(.))
-
-ccolor %>%
-  filter(!is.na(RT))
-
-as_tibble(ccolor %>%
-  na.omit())
-
-newdf <- ccolor %>%
-  na.omit()
+```{r challenge1, results='hide', eval=FALSE}
+newdf <- ...
 ```
 **Challenge 2**: Filter out RT's below 150 milliseconds and show how many you've filtered out.
 ```{r challenge2, results='hide', eval=FALSE}
@@ -220,9 +240,6 @@ newdf %>%
   filter(...) %>%
   summarise(...)
 
-df2 <- newdf %>%
-  filter(RT > 150) %>%
-  summarise(count = n())
 ```
 **Challenge 3**: Get the number of observations (rows) kept and removed with <code>group_by()</code>
 ```{r challenge3, results='hide', eval=FALSE}
@@ -230,10 +247,6 @@ newdf %>%
   group_by(...) %>%
   summarise(...)
 
-newdf %>%
-  group_by(RT > 150) %>%
-  summarise(n = n()) %>%
-  mutate(freq = (n / sum(n))*100)
 ```
 
 In papers, you want to report the proportion of data you have removed and the criteria with which you removed that data.
@@ -291,17 +304,17 @@ Now we're ready to do some descriptive statistics with the groups
 ```{r challenge4, results='hide', eval=FALSE}
 #hint group_by(the factor you're interested in)
 dfclean %>%
-  group_by(con) %>%
-  summarise(mRT = mean(RT), RTsd = sd(RT))
+  group_by(...) %>%
+  summarise(...)
 ```
 
 **Challenge 5**: Get the mean and sd of participant means for congruent vs incongruent trials and compare to the previous outcome.
 ```{r challenge5, results='hide', eval=FALSE}
 dfclean %>%
-  group_by(s,con) %>%
-  summarise(gmRT = mean(RT)) %>%
-  group_by(con) %>%
-  summarise(mRT = mean(gmRT), RTsd = sd(gmRT))
+  group_by(...) %>%
+  summarise(...) %>%
+  group_by(...) %>%
+  summarise(..., ...)
 ```
 
 This is a quirk of repeated measures fully within designs, as the levels of analysis are nested. More on that later.
@@ -381,36 +394,100 @@ people
 ```{r challenge6, results='hide', eval=FALSE}
 newpeople <- people %>%
   spread(...)
-newpeople <- people %>%
-  spread(key = key, value = value)
+
 ```
 
 **Challenge 7**: gather newpeople so that height and age are back together
-```{r chllenge7, results='hide', eval=FALSE}
+```{r challenge7, results='hide', eval=FALSE}
 newpeople %>%
   gather(...)
-newpeople %>%
-  gather("key","value", age:height)
+
 ```
+
 You can separate or unite columns based upon a separator
-```{r separate}
+```{r peepsep}
 people %>%
   separate(name, into = c("first","last"))
 ```
 How did it know? We usually have to specify the separator
-```{r magicsep}
+
+```{r weirpeep}
 weirdpeople <- people %>%
   separate(name, into = c("befored","afterd"), sep = "d")
 ```
-Notice that the separator disappears.
+Notice that the separator disappears
 
 **Challenge 8**: Unite the two columns above with "d" as a separator
 ```{r challenge8, results='hide', eval=FALSE}
 weirdpeople %>%
-  unite(new, befored,afterd,sep = "d")
+  unite(...)
 
 ```
 
 That's a lot to take in, so we'll do questions about this content or 
 queries about how to accomplish different data transformations.
 
+## Solutions to Challenges
+
+**Challenge 1**: Find and remove the rows with NAs, save it out to "newdf"
+```{r solution1, results='hide'}
+ccolor %>%
+  filter(!complete.cases(.))
+
+ccolor %>%
+  filter(!is.na(RT))
+
+as_tibble(ccolor %>%
+  na.omit())
+
+newdf <- ccolor %>%
+  na.omit()
+```
+**Challenge 2**: Filter out RT's below 150 milliseconds and show how many you've filtered out.
+```{r solution2, results='hide'}
+df2 <- newdf %>%
+  filter(RT > 150) %>%
+  summarise(count = n())
+```
+**Challenge 3**: Get the number of observations (rows) kept and removed with <code>group_by()</code>
+```{r solution3, results='hide'}
+newdf %>%
+  group_by(RT > 150) %>%
+  summarise(n = n()) %>%
+  mutate(freq = (n / sum(n))*100)
+```
+
+**Challenge 4**: What is the mean reaction time and standard deviation for congruent vs incongruent trials
+```{r solution4, results='hide'}
+#hint group_by(the factor you're interested in)
+dfclean %>%
+  group_by(con) %>%
+  summarise(mRT = mean(RT), RTsd = sd(RT))
+```
+
+**Challenge 5**: Get the mean and sd of participant means for congruent vs incongruent trials and compare to the previous outcome.
+```{r solution5, results='hide'}
+dfclean %>%
+  group_by(s,con) %>%
+  summarise(gmRT = mean(RT)) %>%
+  group_by(con) %>%
+  summarise(mRT = mean(gmRT), RTsd = sd(gmRT))
+```
+**Challenge 6**: spread people so height and age have their own column
+```{r solution6, results='hide'}
+newpeople <- people %>%
+  spread(key = key, value = value)
+```
+
+**Challenge 7**: gather newpeople so that height and age are back together
+```{r solution7, results='hide'}
+newpeople %>%
+  gather("key","value", age:height)
+```
+**Challenge 8**: Unite the two columns above with "d" as a separator
+```{r solution8, results='hide'}
+
+weirdpeople %>%
+  unite(new, befored,afterd,sep = "d")
+
+```

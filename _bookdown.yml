@@ -6,6 +6,10 @@ rmd_files: [
   "02_DataImport.Rmd",
   "03_DataTransformation.Rmd",
   "04_TransformationDay2.Rmd",
+  "05_Visualize.Rmd",
+  "06_IntroStats.Rmd",
+  "07_LinearModeling.Rmd",
+  "08_MultilevelModels.Rmd",
 ]
 
 before_chapter_script: "_common.R"

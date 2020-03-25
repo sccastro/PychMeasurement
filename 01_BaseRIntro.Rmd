@@ -27,7 +27,6 @@ Once a package is installed, you can load the functions into your Rstudio enviro
 #To load a package in order to use its functions do this...
 library(datasets)
 library(MASS)
-
 ```
 
 If you want to search through objects (functions, data) within a package do this...
@@ -37,6 +36,7 @@ If you want to search through objects (functions, data) within a package do this
 require(MASS)
 require(datasets)
 MASS::Cars93
+
 data() #list all of the available datasets
 ```
 
@@ -49,6 +49,8 @@ functions, as well as a vignette (real world example of the main functions of th
 help.search('cars') 
 
 help(package = 'dplyr') #If you don't have dplyr installed, this won't work.
+
+
 ```
 
 
@@ -133,7 +135,7 @@ length(cars$type) #or the other... OR
 dim(cars)[1] #subset the dim
 
 #This is useful for for loops if you want to iterate through every row or column of something.
-1:length(cars$type)
+1:length(cars$dist)
 1:dim(cars)[1]
 #NOTE: for loops are a lot slower than vectorized functions (check the advanced R book
 # for a detailed explanation)
@@ -157,7 +159,7 @@ of execution. For example, ...
 ```{r programming for loop, echo=TRUE,results="hide"}
 #Example:
 tic <- Sys.time()
-seq(1,1000, by = 1)
+seq(1,1000000, by = 1)
 Sys.time() - tic
 #Still it's a computer so it'll be pretty fast at this stuff
 tic <- Sys.time()
@@ -165,7 +167,6 @@ for (placeholder in 1:1000) {
   print(placeholder)
 }
 ```
-
 
 
 (Try adding zeros to the end of 1000 and see how long it takes to run.)

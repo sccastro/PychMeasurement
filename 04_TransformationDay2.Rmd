@@ -1,5 +1,51 @@
-#Data Transformation Day 2 
-```{r setup}
+# Data Transformation Day 2 
+
+>“Every day, three times per second, we produce the equivalent of the amount of data that the Library of Congress has in its entire print collection, right? But most of it is like cat videos on YouTube or 13-year-olds exchanging text messages about the next Twilight movie.” 
+><div style="text-align: right">
+> --- Nate Silver </div>
+
+First off...
+
+ <h4>Advanced R Challenges</h4>
+ 
+ Explain how the order of factors changed within the plots for dat2. How do facet_grid and
+facet_wrap work?
+```{r advancedR, eval=FALSE}
+#Can you reorder
+library(ggplot2)
+library(dplyr)
+library(forcats)
+dat2 <- structure(list(School = structure(c(2L, 2L, 2L, 1L, 1L, 1L, 3L, 
+                                            3L, 3L), .Label = c("School1", "School2", "School3"), class = "factor"), 
+                       Year = c(2015L, 2014L, 2013L, 2015L, 2014L, 2013L, 2015L, 
+                                2014L, 2013L), Rate = c(80L, 90L, 11L, 70L, 50L, 30L, 60L, 
+                                                        50L, 40L), Order = c(1L, 1L, 1L, 2L, 2L, 2L, 3L, 3L, 3L), 
+                       Order2 = c(1L, 2L, 3L, 1L, 2L, 3L, 1L, 2L, 3L), 
+                       Order3 = structure(c(NA_integer_,
+                                            NA_integer_, NA_integer_, NA_integer_, NA_integer_, NA_integer_, 
+                                            NA_integer_, NA_integer_, NA_integer_), 
+                                          .Label = c("School2","School1","School3"), class = "factor")),
+                  .Names = c("School","Year", "Rate", "Order", "Order2", "Order3"), 
+                  row.names = c(NA,-9L), class = c("tbl_df", "tbl", "data.frame")) %>%
+  mutate(School = fct_relevel(School, c("School2","School1","School3")))
+
+
+
+p <- ggplot(dat2, aes(x=reorder(Year,Order2), Rate), labels = c("School1","School2","School3")) +
+  geom_bar(stat = "identity", width = 0.5)
+p + facet_grid(. ~School)
+
+
+dat2 %>%
+  mutate(School = fct_relevel(School, c("School2","School1","School3"))) %>%
+  ggplot(aes(x=reorder(Year,Order2), Rate), labels = c("School1","School2","School3")) +
+  geom_bar(stat = "identity", width = 0.5) +
+  facet_grid(. ~School)
+```
+ 
+#Day 2 {-}
+
+```{r setup, echo=FALSE,include=FALSE}
 # install.packages("forcats") # You might need this because it doesn't load with the tidyverse.
 rm(list = ls())
 require(tidyverse)
@@ -10,10 +56,6 @@ require(forcats)
 Much of this lesson can be found in the "factors" chapter of R for Data Science by Hadley Wickham: http://r4ds.had.co.nz/factors.html
 
 ```{r eval=FALSE}
-levels(gss_cat$rincome)
-#Releveling factors with forcats
-df <- forcats::gss_cat
-
 ?gss_cat #See more about the variables in our dataset
 
 View(gss_cat)
@@ -33,9 +75,13 @@ gss_cat %>%
 gss_cat %>%
   count(race) %>%
   mutate(freq = (n / sum(n))*100) #We can see relative proportions in the sample
+
+levels(gss_cat$rincome)
+#Releveling factors with forcats
+df <- forcats::gss_cat
 ```
 
-```{r}
+```{r ggplotintro}
 #Remember, none of these outcomes are being saved into any objects with <- 
 #This is just for visualizing and exploring the data.
 
@@ -164,8 +210,9 @@ We put it at the end! Now age and income are ordered! However, larger numbers
 map to the top (Larger is higher in conceptual metaphor theory)
 
 ```{r plotfixed, eval=FALSE}
-ggplot(rincome_summary, aes(age,fct_relevel(desc(rincome), "Not applicable"))) +
+ggplot(rincome_summary, aes(age,x = fct_relevel(desc(rincome), "Not applicable"))) +
   geom_point() 
+
 ```
 
 This doesn't work in the aes() function, so we have to do it earlier!
@@ -187,14 +234,13 @@ ordered_rincome <- rincome_summary %>%
 
 ggplot(ordered_rincome, aes(age,rincome)) +
   geom_point()
-
 ```
 
 Let's do some more reordering:
 
 ```{r plotage}
-by_age <- df %>% #Get data.frame
-  filter(!is.na(age)) %>% #Get rid of Na's in age to do maths
+by_age <- data.frame(df) %>% #Get data.frame
+  na.omit() %>% #Get rid of Na's in age to do maths
   count(age, marital) %>% # count observations by age and marital status
   group_by(age) %>% #Group by age for the following summary
   mutate(prop = n / sum(n)) #Get proportion of counts per age
@@ -214,11 +260,14 @@ Let's get researched colors for proper visualization best practices from:
  Brewer, Cynthia A., 200x. http://www.ColorBrewer.org, accessed 09/27/2018.
 ```{r colorBrewer}
 library(RColorBrewer)
-display.brewer.all()
+
 
 brewer.pal.info
 
 pal1 <- brewer.pal(n = 6, "Dark2") #Try different palettes
+
+
+display.brewer.all()
 
 ggplot(by_age, aes(age, prop, colour = fct_reorder2(marital, age, prop))) +
   scale_color_brewer(palette = "Dark2") +
@@ -340,15 +389,36 @@ df
 ```
 
 What is the proportion of race in each religion?
-```{r proportion}
-# df %>%
-#   group_by(relig) %>%
-#   count(...) %>%
-#   mutate(prop = ...)
+```{r proportion, eval=FALSE}
+df %>%
+  group_by(relig) %>%
+  count(...) %>%
+  mutate(prop = ...)
 ```
 
 Try to plot it
-```{r tryplot}
+```{r tryplot, eval=FALSE}
+df %>%
+  group_by(relig) %>%
+  count(race) %>%
+  mutate(prop = n/sum(n)) %>%
+  ggplot(aes(relig, ..., fill = ...)) + 
+  geom_bar(stat = "...", position = "...") +
+  theme(...)
+```
+
+##Solutions
+
+Play 1
+```{r play1}
+View(df %>%
+  group_by(relig) %>%
+  count(race) %>%
+  mutate(prop = n/sum(n)))
+```
+
+Play 2
+```{r play2}
 df %>%
   group_by(relig) %>%
   count(race) %>%
@@ -370,5 +440,4 @@ df %>%
   count(relig, race) %>%
   group_by(relig) %>%
   mutate(prop = n/sum(n))
-
 ```
