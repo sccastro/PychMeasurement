@@ -32,7 +32,7 @@ First off...
  
 APPLY A "MIXED EFFECTS" MODEL TO YOUR DATASET (if it doesn't make sense with your data, find a dataset for within and between variables in "datasets")
 
-##Steps of Multilevel Models {-}
+## Steps of Multilevel Models {-}
 
 ##Step 1. Get your data
 ```{r some data}

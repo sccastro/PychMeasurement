@@ -18,7 +18,7 @@ require(tidyverse)
 require(stats)
 ```
 
-# Steps of Linear Models {-}
+## Steps of Linear Models {-}
 
 ## Step 1. Get your data
 ```{r histstem}

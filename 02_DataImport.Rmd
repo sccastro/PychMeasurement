@@ -62,7 +62,7 @@ CombineData <- function(dir) { #See Base R cheatsheet for function format
 ```
 
 
-# Reading files into R {-}
+## Reading files into R {-}
 
 Some of you have .SPSS data, some .txt, and others .csv. All of you will have to identify which function will read your data. The package in the bundle of packages known as the *tidyverse* that performs this job is called <code>readr</code>. The readr package has functions like:
 
