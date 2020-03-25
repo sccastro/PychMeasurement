@@ -2,7 +2,7 @@
 knit: "bookdown::render_book"
 title: "Psychological Measurement in R"
 author: ["[Spencer Castro](https://www.spencercastro.com)"]
-date: "`r format(Sys.time(), '%a %b %d %Y')`"
+date: "Wed Mar 25 2020"
 description: "As a modern Psychologist, we can no longer be purely theoretical hypothesis generators, experimentalists, statisticians, or clinicians; now we must strive to be methodologically sound, balance experimental design against convenient populations, keep up with the ever-changing landscape of statistical tests and their caveats, and learn rudimentary computer programming on top of that! Therefore we need a tool that balances the comprehensibility of human language with the flexibility to keep up with developing statistical methods and the power to analyze any dataset. Enter R, the open-source statistical computing and graphics language with a powerful Integrated Development Environment (the Rstudio IDE), a robust community of developers, data scientists, and experts (who respond to questions!), and too many reputable online resources to read in a lifetime. The impetus to learn something new on top of your ongoing research may be hard to summon, but this course is designed to integrate your ongoing research projects into mastering R, and to provide tools for streamlining projects in the future."
 url: 'https\://spencercastro.com'
 github-repo: sccastro/PsychMeasurement
@@ -24,28 +24,9 @@ always_allow_html: true
 </div>
 
 # Syllabus
-```{r Class Info, echo=FALSE, message=FALSE}
-require(tidyverse)
-getSeason <- function(DATES) {
-    WS <- as.Date("2012-12-15", format = "%Y-%m-%d") # Winter Solstice
-    SE <- as.Date("2012-3-15",  format = "%Y-%m-%d") # Spring Equinox
-    SS <- as.Date("2012-6-15",  format = "%Y-%m-%d") # Summer Solstice
-    FE <- as.Date("2012-9-15",  format = "%Y-%m-%d") # Fall Equinox
-
-    # Convert dates from any year to 2012 dates
-    d <- as.Date(strftime(DATES, format="2012-%m-%d"))
-
-    ifelse (d >= WS | d < SE, "Winter",
-      ifelse (d >= SE & d < SS, "Spring",
-        ifelse (d >= SS & d < FE, "Summer", "Fall")))
-}
 
 
-Semester <- getSeason(as.POSIXct(Sys.Date()))
-calendar_year <- strsplit(as.character(Sys.Date()),split = "-")[[1]][1]
-```
-
-`r Semester`, `r calendar_year`
+Spring, 2020
 
 _This syllabus is not a binding legal contract. With reasonable notice to students, the instructor may modify the syllabus and course schedule at any time, to accommodate the needs of the class. Should you have any questions or concerns, it is your responsibility to contact the instructor for clarification._
 
@@ -202,72 +183,124 @@ https://registrar.utah.edu/academic-calendars/fall2018.php
 
 ## Course Schedule
 
-```{r calendar, echo=FALSE}
-'%ni%' <- Negate('%in%')
-require(chron)
-require(lubridate)
-#Goal: auto-fill dates for a class for a semester.
-clssdays <- function(classday,Semester = "Spring", Year = "2019") {
-  if (Semester == "Spring"){
-    allclass <- seq(ymd(paste0(Year,'-01-07')),ymd(paste0(Year,'-05-01')), by = 'day')
-    holidays <- c(ymd(paste0(Year,'-01-21')),ymd(paste0(Year,'-02-18')),seq.Date(from = ymd(paste0(Year,'-03-10')),to = ymd(paste0(Year,'-03-17')),by = 'day'))
-    Dates <- format(allclass[classday == weekdays(allclass) & allclass %ni% holidays],"%b %d")
-    dfdate <- data.frame(Dates)
-    return(dfdate)
-  } else {
-    allclass <- seq(ymd(paste0(Year,'-08-19')),ymd(paste0(Year,'-12-13')), by = 'day')
-    holidays <- c(ymd(paste0(Year,'-09-02')),seq.Date(from = ymd(paste0(Year,'-10-06')),to = ymd(paste0(Year,'-10-13')),by = 'day'),
-                  seq.Date(from = ymd(paste0(Year,'-11-28')),to = ymd(paste0(Year,'-12-01')),by = 'day'))
-    Dates <- format(allclass[classday == weekdays(allclass) & allclass %ni% holidays],"%b %d")
-    dfdate <- data.frame(Dates)
-    return(dfdate)
-  }
-
-}
-
-urls <- c("https://www.rstudio.com/wp-content/uploads/2016/05/base-r.pdf",
-          "https://ugoproto.github.io/ugo_r_doc/data-import.pdf",
-          "https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf",
-          "https://ugoproto.github.io/ugo_r_doc/dplyr.pdf",
-          "https://www.rstudio.com/wp-content/uploads/2015/04/ggplot2-cheatsheet.pdf",
-          "http://www.fon.hum.uva.nl/paul/lot2015/Navarro2014.pdf",
-          "http://www.bodowinter.com/tutorial/bw_LME_tutorial1.pdf",
-          "http://www.bodowinter.com/tutorial/bw_LME_tutorial2.pdf",
-          "https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf",
-          "https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf",
-          "https://shiny.rstudio.com/images/shiny-cheatsheet.pdf",
-          "https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_purrr.pdf",
-          "http://edrub.in/CheatSheets/cheatSheetStringr.pdf")
-
-schedule <- cbind(clssdays(classday = "Monday"),
-      "Topic/Description" = c("Introduction/Installation","R commands/tricks","Intro to reading data/Data Workshop",
-                            "Cleaning data/Data Workshop", "Dplyr and Tidyr","Visualizing with ggplot/Data
-Workshop","Intro to stats in R","More stats in R","Still more stats in R","Rmarkdown","class?","Rmarkdown help",
-"Bonus Material – Shiny?","Class Optional"),
-      "Reading/Work" = c("syllabus",paste0("Swirl tutorial/[base-R](",urls[1],")"),"Create StackOverflow account",
-                         paste0("Swirl tutorial/[data-import](",urls[2],")"),
-                         paste0("Swirl tutorial/[data-wrangling](",urls[3],")"),
-                         paste0("Swirl tutorial/[data-transformation](",urls[4],")"),
-                         paste0("Swirl tutorial/[data-vizualization-2.1](",urls[5],")"),
-                         paste0("Swirl tutorial/[Navarro](",urls[6],")"),
-                         paste0("Swirl tutorial/[MLM tutorial](",urls[7],")"),
-                         paste0("[MLM tutorial](",urls[8],")"),
-                         paste0("[Rmarkdown-2.0](",urls[9],")"),
-                         paste0("[rmarkdown-reference](",urls[10],")"),
-                         paste0("[shiny](",urls[11],")"),
-                         paste0("[purrr](",urls[12],")","/[strings](",urls[13],")")),
-      "Project Milesone/task" = c("","Obtaining a Dataset","Ask your first question on StackOverflow","Dataset Read into R",
-                                  "Make an Rproject","","Tidy Dataset","","","","Analysis Complete","","Rmarkdown Document",
-                                  "Methods & Results Due"))
-
-
-library(kableExtra)
-schedule %>%
-  kable(format = "html",booktabs = TRUE) %>%
-  kable_styling(bootstrap_options = c("striped", "hover", "responsive")) %>%
-  column_spec(1, width = "7em") 
-  
 
 ```
+#> Loading required package: chron
+#> NOTE: The default cutoff when expanding a 2-digit year
+#> to a 4-digit year will change from 30 to 69 by Aug 2020
+#> (as for Date and POSIXct in base R.)
+#> Loading required package: lubridate
+#> 
+#> Attaching package: 'lubridate'
+#> The following objects are masked from 'package:chron':
+#> 
+#>     days, hours, minutes, seconds, years
+#> The following object is masked from 'package:base':
+#> 
+#>     date
+#> 
+#> Attaching package: 'kableExtra'
+#> The following object is masked from 'package:dplyr':
+#> 
+#>     group_rows
+```
+
+<table class="table table-striped table-hover table-responsive" style="margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Dates </th>
+   <th style="text-align:left;"> Topic/Description </th>
+   <th style="text-align:left;"> Reading/Work </th>
+   <th style="text-align:left;"> Project Milesone/task </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;width: 7em; "> Jan 07 </td>
+   <td style="text-align:left;"> Introduction/Installation </td>
+   <td style="text-align:left;"> syllabus </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 7em; "> Jan 14 </td>
+   <td style="text-align:left;"> R commands/tricks </td>
+   <td style="text-align:left;"> Swirl tutorial/[base-R](https://www.rstudio.com/wp-content/uploads/2016/05/base-r.pdf) </td>
+   <td style="text-align:left;"> Obtaining a Dataset </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 7em; "> Jan 28 </td>
+   <td style="text-align:left;"> Intro to reading data/Data Workshop </td>
+   <td style="text-align:left;"> Create StackOverflow account </td>
+   <td style="text-align:left;"> Ask your first question on StackOverflow </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 7em; "> Feb 04 </td>
+   <td style="text-align:left;"> Cleaning data/Data Workshop </td>
+   <td style="text-align:left;"> Swirl tutorial/[data-import](https://ugoproto.github.io/ugo_r_doc/data-import.pdf) </td>
+   <td style="text-align:left;"> Dataset Read into R </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 7em; "> Feb 11 </td>
+   <td style="text-align:left;"> Dplyr and Tidyr </td>
+   <td style="text-align:left;"> Swirl tutorial/[data-wrangling](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf) </td>
+   <td style="text-align:left;"> Make an Rproject </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 7em; "> Feb 25 </td>
+   <td style="text-align:left;"> Visualizing with ggplot/Data
+Workshop </td>
+   <td style="text-align:left;"> Swirl tutorial/[data-transformation](https://ugoproto.github.io/ugo_r_doc/dplyr.pdf) </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 7em; "> Mar 04 </td>
+   <td style="text-align:left;"> Intro to stats in R </td>
+   <td style="text-align:left;"> Swirl tutorial/[data-vizualization-2.1](https://www.rstudio.com/wp-content/uploads/2015/04/ggplot2-cheatsheet.pdf) </td>
+   <td style="text-align:left;"> Tidy Dataset </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 7em; "> Mar 18 </td>
+   <td style="text-align:left;"> More stats in R </td>
+   <td style="text-align:left;"> Swirl tutorial/[Navarro](http://www.fon.hum.uva.nl/paul/lot2015/Navarro2014.pdf) </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 7em; "> Mar 25 </td>
+   <td style="text-align:left;"> Still more stats in R </td>
+   <td style="text-align:left;"> Swirl tutorial/[MLM tutorial](http://www.bodowinter.com/tutorial/bw_LME_tutorial1.pdf) </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 7em; "> Apr 01 </td>
+   <td style="text-align:left;"> Rmarkdown </td>
+   <td style="text-align:left;"> [MLM tutorial](http://www.bodowinter.com/tutorial/bw_LME_tutorial2.pdf) </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 7em; "> Apr 08 </td>
+   <td style="text-align:left;"> class? </td>
+   <td style="text-align:left;"> [Rmarkdown-2.0](https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) </td>
+   <td style="text-align:left;"> Analysis Complete </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 7em; "> Apr 15 </td>
+   <td style="text-align:left;"> Rmarkdown help </td>
+   <td style="text-align:left;"> [rmarkdown-reference](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf) </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 7em; "> Apr 22 </td>
+   <td style="text-align:left;"> Bonus Material – Shiny? </td>
+   <td style="text-align:left;"> [shiny](https://shiny.rstudio.com/images/shiny-cheatsheet.pdf) </td>
+   <td style="text-align:left;"> Rmarkdown Document </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;width: 7em; "> Apr 29 </td>
+   <td style="text-align:left;"> Class Optional </td>
+   <td style="text-align:left;"> [purrr](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_purrr.pdf)/[strings](http://edrub.in/CheatSheets/cheatSheetStringr.pdf) </td>
+   <td style="text-align:left;"> Methods &amp; Results Due </td>
+  </tr>
+</tbody>
+</table>
 
 

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Importing Data | Psychological Measurement in R</title>
+  <meta name="description" content="As a modern Psychologist, we can no longer be purely theoretical hypothesis generators, experimentalists, statisticians, or clinicians; now we must strive to be methodologically sound, balance experimental design against convenient populations, keep up with the ever-changing landscape of statistical tests and their caveats, and learn rudimentary computer programming on top of that! Therefore we need a tool that balances the comprehensibility of human language with the flexibility to keep up with developing statistical methods and the power to analyze any dataset. Enter R, the open-source statistical computing and graphics language with a powerful Integrated Development Environment (the Rstudio IDE), a robust community of developers, data scientists, and experts (who respond to questions!), and too many reputable online resources to read in a lifetime. The impetus to learn something new on top of your ongoing research may be hard to summon, but this course is designed to integrate your ongoing research projects into mastering R, and to provide tools for streamlining projects in the future." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Importing Data | Psychological Measurement in R" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://spencercastro.com" />
+  <meta property="og:image" content="https://spencercastro.comimages/UPsychLogo.jpg" />
+  <meta property="og:description" content="As a modern Psychologist, we can no longer be purely theoretical hypothesis generators, experimentalists, statisticians, or clinicians; now we must strive to be methodologically sound, balance experimental design against convenient populations, keep up with the ever-changing landscape of statistical tests and their caveats, and learn rudimentary computer programming on top of that! Therefore we need a tool that balances the comprehensibility of human language with the flexibility to keep up with developing statistical methods and the power to analyze any dataset. Enter R, the open-source statistical computing and graphics language with a powerful Integrated Development Environment (the Rstudio IDE), a robust community of developers, data scientists, and experts (who respond to questions!), and too many reputable online resources to read in a lifetime. The impetus to learn something new on top of your ongoing research may be hard to summon, but this course is designed to integrate your ongoing research projects into mastering R, and to provide tools for streamlining projects in the future." />
+  <meta name="github-repo" content="sccastro/PsychMeasurement" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Importing Data | Psychological Measurement in R" />
+  
+  <meta name="twitter:description" content="As a modern Psychologist, we can no longer be purely theoretical hypothesis generators, experimentalists, statisticians, or clinicians; now we must strive to be methodologically sound, balance experimental design against convenient populations, keep up with the ever-changing landscape of statistical tests and their caveats, and learn rudimentary computer programming on top of that! Therefore we need a tool that balances the comprehensibility of human language with the flexibility to keep up with developing statistical methods and the power to analyze any dataset. Enter R, the open-source statistical computing and graphics language with a powerful Integrated Development Environment (the Rstudio IDE), a robust community of developers, data scientists, and experts (who respond to questions!), and too many reputable online resources to read in a lifetime. The impetus to learn something new on top of your ongoing research may be hard to summon, but this course is designed to integrate your ongoing research projects into mastering R, and to provide tools for streamlining projects in the future." />
+  <meta name="twitter:image" content="https://spencercastro.comimages/UPsychLogo.jpg" />
+
+<meta name="author" content="Spencer Castro" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="introduction.html"/>
+<link rel="next" href="data-transformation.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="class_book.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="./">Psychological Measurement in R</a></strong></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="1" data-path="syllabus.html"><a href="syllabus.html"><i class="fa fa-check"></i><b>1</b> Syllabus</a><ul>
+<li class="chapter" data-level="1.1" data-path="syllabus.html"><a href="syllabus.html#course-overview"><i class="fa fa-check"></i><b>1.1</b> Course Overview</a></li>
+<li class="chapter" data-level="1.2" data-path="syllabus.html"><a href="syllabus.html#learning-outcomes-course-objectives"><i class="fa fa-check"></i><b>1.2</b> Learning Outcomes &amp; Course Objectives</a></li>
+<li class="chapter" data-level="1.3" data-path="syllabus.html"><a href="syllabus.html#course-format"><i class="fa fa-check"></i><b>1.3</b> Course Format</a></li>
+<li class="chapter" data-level="1.4" data-path="syllabus.html"><a href="syllabus.html#evaluation-methodsassignments"><i class="fa fa-check"></i><b>1.4</b> Evaluation Methods/Assignments</a></li>
+<li class="chapter" data-level="1.5" data-path="syllabus.html"><a href="syllabus.html#grading-policy"><i class="fa fa-check"></i><b>1.5</b> Grading Policy</a></li>
+<li class="chapter" data-level="1.6" data-path="syllabus.html"><a href="syllabus.html#student-rights-and-responsibilities"><i class="fa fa-check"></i><b>1.6</b> Student Rights and Responsibilities</a></li>
+<li class="chapter" data-level="1.7" data-path="syllabus.html"><a href="syllabus.html#department-of-psychology-undergraduate-academic-misconduct-policy"><i class="fa fa-check"></i><b>1.7</b> Department of Psychology Undergraduate Academic Misconduct Policy</a></li>
+<li class="chapter" data-level="1.8" data-path="syllabus.html"><a href="syllabus.html#course-policies"><i class="fa fa-check"></i><b>1.8</b> Course Policies</a></li>
+<li class="chapter" data-level="1.9" data-path="syllabus.html"><a href="syllabus.html#university-attendance-requirements"><i class="fa fa-check"></i><b>1.9</b> University Attendance Requirements</a></li>
+<li class="chapter" data-level="1.10" data-path="syllabus.html"><a href="syllabus.html#student-support-accommodations"><i class="fa fa-check"></i><b>1.10</b> Student Support &amp; Accommodations</a></li>
+<li class="chapter" data-level="1.11" data-path="syllabus.html"><a href="syllabus.html#academic-calendar"><i class="fa fa-check"></i><b>1.11</b> Academic Calendar</a></li>
+<li class="chapter" data-level="1.12" data-path="syllabus.html"><a href="syllabus.html#course-schedule"><i class="fa fa-check"></i><b>1.12</b> Course Schedule</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#baser-walkthrough"><i class="fa fa-check"></i>BaseR walkthrough</a></li>
+<li class="chapter" data-level="2.1" data-path="introduction.html"><a href="introduction.html#help"><i class="fa fa-check"></i><b>2.1</b> Help</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction.html"><a href="introduction.html#vectors"><i class="fa fa-check"></i><b>2.2</b> VECTORS</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction.html"><a href="introduction.html#programming"><i class="fa fa-check"></i><b>2.3</b> PROGRAMMING</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="introduction.html"><a href="introduction.html#for-loop"><i class="fa fa-check"></i><b>2.3.1</b> For loop</a></li>
+<li class="chapter" data-level="2.3.2" data-path="introduction.html"><a href="introduction.html#while-loop"><i class="fa fa-check"></i><b>2.3.2</b> While loop</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="introduction.html"><a href="introduction.html#assignment-1"><i class="fa fa-check"></i><b>2.4</b> Assignment 1</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="importing-data.html"><a href="importing-data.html"><i class="fa fa-check"></i><b>3</b> Importing Data</a><ul>
+<li class="chapter" data-level="" data-path="importing-data.html"><a href="importing-data.html#reading-files-into-r"><i class="fa fa-check"></i>Reading files into R</a></li>
+<li class="chapter" data-level="3.1" data-path="importing-data.html"><a href="importing-data.html#whats-a-tibble"><i class="fa fa-check"></i><b>3.1</b> What’s a tibble?</a></li>
+<li class="chapter" data-level="3.2" data-path="importing-data.html"><a href="importing-data.html#save-your-dataset"><i class="fa fa-check"></i><b>3.2</b> Save your dataset:</a></li>
+<li class="chapter" data-level="3.3" data-path="importing-data.html"><a href="importing-data.html#cleaning-your-data-file"><i class="fa fa-check"></i><b>3.3</b> Cleaning your data file</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>4</b> Data Transformation</a><ul>
+<li class="chapter" data-level="" data-path="data-transformation.html"><a href="data-transformation.html#data-transformation-with-dplyr"><i class="fa fa-check"></i>Data Transformation with Dplyr</a></li>
+<li class="chapter" data-level="4.1" data-path="data-transformation.html"><a href="data-transformation.html#get-a-dataset-from-your-.rdata-file"><i class="fa fa-check"></i><b>4.1</b> Get a dataset from your .RData file</a></li>
+<li class="chapter" data-level="4.2" data-path="data-transformation.html"><a href="data-transformation.html#introduction-to-the-pipe"><i class="fa fa-check"></i><b>4.2</b> Introduction to “The Pipe”</a></li>
+<li class="chapter" data-level="4.3" data-path="data-transformation.html"><a href="data-transformation.html#aside-on-the-apply-family"><i class="fa fa-check"></i><b>4.3</b> Aside on the apply family</a></li>
+<li class="chapter" data-level="4.4" data-path="data-transformation.html"><a href="data-transformation.html#solutions-to-challenges"><i class="fa fa-check"></i><b>4.4</b> Solutions to Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-transformation-day-2.html"><a href="data-transformation-day-2.html"><i class="fa fa-check"></i><b>5</b> Data Transformation Day 2</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-transformation-day-2.html"><a href="data-transformation-day-2.html#rcolorbrewer"><i class="fa fa-check"></i><b>5.1</b> RcolorBrewer</a></li>
+<li class="chapter" data-level="5.2" data-path="data-transformation-day-2.html"><a href="data-transformation-day-2.html#modifying-factor-levels"><i class="fa fa-check"></i><b>5.2</b> Modifying Factor Levels</a></li>
+<li class="chapter" data-level="5.3" data-path="data-transformation-day-2.html"><a href="data-transformation-day-2.html#play-time"><i class="fa fa-check"></i><b>5.3</b> Play time</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="visualization-with-ggplot2.html"><a href="visualization-with-ggplot2.html"><i class="fa fa-check"></i><b>6</b> Visualization with ggplot2</a><ul>
+<li class="chapter" data-level="6.1" data-path="visualization-with-ggplot2.html"><a href="visualization-with-ggplot2.html#statistical-transformations"><i class="fa fa-check"></i><b>6.1</b> Statistical Transformations</a></li>
+<li class="chapter" data-level="6.2" data-path="visualization-with-ggplot2.html"><a href="visualization-with-ggplot2.html#changing-the-position"><i class="fa fa-check"></i><b>6.2</b> Changing the position</a></li>
+<li class="chapter" data-level="6.3" data-path="visualization-with-ggplot2.html"><a href="visualization-with-ggplot2.html#coordinates"><i class="fa fa-check"></i><b>6.3</b> Coordinates</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="visualization-with-ggplot2.html"><a href="visualization-with-ggplot2.html#plot-maps-if-you-want"><i class="fa fa-check"></i><b>6.3.1</b> Plot maps if you want</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html"><i class="fa fa-check"></i><b>7</b> Introduction to Statistics</a><ul>
+<li class="chapter" data-level="7.0.1" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#descriptive-stats"><i class="fa fa-check"></i><b>7.0.1</b> Descriptive Stats</a></li>
+<li class="chapter" data-level="7.0.2" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#measures-of-central-tendency"><i class="fa fa-check"></i><b>7.0.2</b> Measures of Central Tendency</a></li>
+<li class="chapter" data-level="7.0.3" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#measures-of-variability"><i class="fa fa-check"></i><b>7.0.3</b> Measures of Variability</a></li>
+<li class="chapter" data-level="7.1" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#clinical-trial-example"><i class="fa fa-check"></i><b>7.1</b> Clinical Trial Example</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#chi-square-goodness-of-fit-test-pearson-1900-review"><i class="fa fa-check"></i><b>7.1.1</b> Chi Square goodness-of-fit test (Pearson, 1900) Review</a></li>
+<li class="chapter" data-level="7.1.2" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#chi-square-test-of-independence"><i class="fa fa-check"></i><b>7.1.2</b> Chi-square test of independence</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="linear-models.html"><a href="linear-models.html"><i class="fa fa-check"></i><b>8</b> Linear Models</a><ul>
+<li class="chapter" data-level="" data-path="linear-models.html"><a href="linear-models.html#steps-of-linear-models"><i class="fa fa-check"></i>Steps of Linear Models</a></li>
+<li class="chapter" data-level="8.1" data-path="linear-models.html"><a href="linear-models.html#step-1.-get-your-data"><i class="fa fa-check"></i><b>8.1</b> Step 1. Get your data</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="multilevel-models.html"><a href="multilevel-models.html"><i class="fa fa-check"></i><b>9</b> Multilevel Models</a><ul>
+<li class="chapter" data-level="" data-path="multilevel-models.html"><a href="multilevel-models.html#steps-of-multilevel-models"><i class="fa fa-check"></i>Steps of Multilevel Models</a><ul>
+<li class="chapter" data-level="9.0.1" data-path="multilevel-models.html"><a href="multilevel-models.html#mixed-models-in-r"><i class="fa fa-check"></i><b>9.0.1</b> Mixed models in R</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Psychological Measurement in R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="importing-data" class="section level1">
+<h1><span class="header-section-number">3</span> Importing Data</h1>
+<blockquote>
+“It is a capital mistake to theorize before one has data.”
+<div style="text-align: right">
+— Arthur Conan Doyle
+</div>
+</blockquote>
+<p>First off…</p>
+<h4>
+Advanced R Challenges
+</h4>
+<p>This challenge is to understand and use this function to read in a series of csv files and transform them into
+one data.frame.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co">#Take this function and modify it to combine csvs</span></a>
+<a class="sourceLine" id="cb17-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">CombineData &lt;-<span class="st"> </span><span class="cf">function</span>(dir) { <span class="co">#See Base R cheatsheet for function format</span></a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">  </a>
+<a class="sourceLine" id="cb17-5" data-line-number="5">  filepath &lt;-<span class="st"> </span><span class="kw">getwd</span>() <span class="co">#Base R cheatsheet Working Directory</span></a>
+<a class="sourceLine" id="cb17-6" data-line-number="6">  <span class="kw">setwd</span>(filepath) <span class="co">##Base R cheatsheet Working Directory</span></a>
+<a class="sourceLine" id="cb17-7" data-line-number="7">  </a>
+<a class="sourceLine" id="cb17-8" data-line-number="8">  dirs &lt;-<span class="st"> </span><span class="kw">list.dirs</span>(<span class="dt">path =</span> dir, <span class="dt">full.names =</span> <span class="ot">TRUE</span>) <span class="co">#get directories</span></a>
+<a class="sourceLine" id="cb17-9" data-line-number="9">  files &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="dt">path=</span>dirs, <span class="dt">pattern=</span><span class="st">&quot;*.csv&quot;</span>, <span class="dt">full.names=</span>T, <span class="dt">recursive=</span>F) <span class="co">#get files </span></a>
+<a class="sourceLine" id="cb17-10" data-line-number="10">  <span class="co">#in those directories with .csv at the end (see ?regex)</span></a>
+<a class="sourceLine" id="cb17-11" data-line-number="11">  subids &lt;-<span class="st"> </span><span class="kw">regmatches</span>(files, <span class="kw">regexpr</span>(<span class="st">&quot;1</span><span class="ch">\\</span><span class="st">d{3}&quot;</span>, files)) <span class="co"># optional (see ?regmatches, ?regex)</span></a>
+<a class="sourceLine" id="cb17-12" data-line-number="12">  condition1 &lt;-<span class="st"> </span><span class="kw">as.character</span>(<span class="kw">lapply</span>(<span class="kw">strsplit</span>(files, <span class="st">&quot;_&quot;</span>), <span class="st">&quot;[&quot;</span>,<span class="dv">4</span>)) <span class="co"># optional (see ?lapply, ?strsplit)</span></a>
+<a class="sourceLine" id="cb17-13" data-line-number="13">  condition &lt;-<span class="st"> </span><span class="kw">substr</span>(condition1, <span class="dv">4</span>,<span class="dv">4</span>) <span class="co"># optional (see ?substr)</span></a>
+<a class="sourceLine" id="cb17-14" data-line-number="14">  </a>
+<a class="sourceLine" id="cb17-15" data-line-number="15">  </a>
+<a class="sourceLine" id="cb17-16" data-line-number="16">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(files)) { <span class="co">#See Base R for correct structure of For Loop</span></a>
+<a class="sourceLine" id="cb17-17" data-line-number="17">    infile &lt;-<span class="st"> </span><span class="kw">read.csv</span>(files[i]) <span class="co">#Read all of the .csv&#39;s in files</span></a>
+<a class="sourceLine" id="cb17-18" data-line-number="18">    infile<span class="op">$</span>subids &lt;-<span class="st"> </span><span class="kw">as.factor</span>(subids[i]) <span class="co">#subject id was in the title of the .csv</span></a>
+<a class="sourceLine" id="cb17-19" data-line-number="19">    infile<span class="op">$</span>condition &lt;-<span class="st"> </span><span class="kw">as.factor</span>(condition[i]) <span class="co">#condition was in the title of the .csv</span></a>
+<a class="sourceLine" id="cb17-20" data-line-number="20">    </a>
+<a class="sourceLine" id="cb17-21" data-line-number="21">    <span class="cf">if</span>(<span class="op">!</span><span class="kw">exists</span>(<span class="st">&quot;combined.data&quot;</span>)) { <span class="co">#Best practices</span></a>
+<a class="sourceLine" id="cb17-22" data-line-number="22">      combined.data &lt;-<span class="st"> </span>infile <span class="co">#create new data.frame</span></a>
+<a class="sourceLine" id="cb17-23" data-line-number="23">    }</a>
+<a class="sourceLine" id="cb17-24" data-line-number="24">    <span class="cf">else</span> { <span class="co">#OR</span></a>
+<a class="sourceLine" id="cb17-25" data-line-number="25">      combined.data &lt;-<span class="st"> </span><span class="kw">rbind</span>(combined.data,infile) <span class="co">#row bind new data.frame with infile info</span></a>
+<a class="sourceLine" id="cb17-26" data-line-number="26">    }</a>
+<a class="sourceLine" id="cb17-27" data-line-number="27">  }</a>
+<a class="sourceLine" id="cb17-28" data-line-number="28">  <span class="kw">return</span>(combined.data) <span class="co">#Return your new data.frame</span></a>
+<a class="sourceLine" id="cb17-29" data-line-number="29">}</a></code></pre></div>
+<div id="reading-files-into-r" class="section level2 unnumbered">
+<h2>Reading files into R</h2>
+<p>Some of you have .SPSS data, some .txt, and others .csv. All of you will have to identify which function will read your data. The package in the bundle of packages known as the <em>tidyverse</em> that performs this job is called <code>readr</code>. The readr package has functions like:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1">readr<span class="op">::</span><span class="kw">read_csv</span>()</a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">readr<span class="op">::</span><span class="kw">read_lines</span>()</a>
+<a class="sourceLine" id="cb18-3" data-line-number="3">readr<span class="op">::</span><span class="kw">read_file_raw</span>()</a></code></pre></div>
+<p>Other packages can help with weird file types like .SPSS such as the <code>haven</code> package.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&#39;haven&#39;</span>)</a>
+<a class="sourceLine" id="cb19-2" data-line-number="2"><span class="kw">library</span>(haven)</a>
+<a class="sourceLine" id="cb19-3" data-line-number="3">haven<span class="op">::</span><span class="kw">read_spss</span>()</a>
+<a class="sourceLine" id="cb19-4" data-line-number="4">haven<span class="op">::</span><span class="kw">read_sav</span>()</a></code></pre></div>
+<p>One thing that I like to do before I start working is clearing out my environment and loading my desired packages. You can do that with…</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</a>
+<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb20-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb20-4" data-line-number="4">df &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/WorkingMemoryEyeTracking.csv&quot;</span>) <span class="co">#Read in csv and turn into a tibble</span></a></code></pre></div>
+</div>
+<div id="whats-a-tibble" class="section level2">
+<h2><span class="header-section-number">3.1</span> What’s a tibble?</h2>
+<blockquote>
+“Tibbles are a modern take on data frames. They keep the features that have stood the test of time, and drop the features that used to be convenient but are now frustrating (i.e. converting character vectors to factors).”
+<div style="text-align: right">
+— <a href="https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html">Tibbles Page</a>
+</div>
+</blockquote>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw">class</span>(df) <span class="co">#It&#39;s a data.frame with attributes for extra info</span></a>
+<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="co">#&gt; [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</span></a></code></pre></div>
+<p>If you type the name of the tibble…</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">df</a>
+<a class="sourceLine" id="cb22-2" data-line-number="2"><span class="co">#&gt; # A tibble: 1,600 x 11</span></a>
+<a class="sourceLine" id="cb22-3" data-line-number="3"><span class="co">#&gt;   Participant Block version Trial Difficulty Part  Start  Stop PicNumber</span></a>
+<a class="sourceLine" id="cb22-4" data-line-number="4"><span class="co">#&gt;         &lt;int&gt; &lt;int&gt; &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;      &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;int&gt;</span></a>
+<a class="sourceLine" id="cb22-5" data-line-number="5"><span class="co">#&gt; 1        1002     1 normal      1 easy       ques…  48.6  54.4        37</span></a>
+<a class="sourceLine" id="cb22-6" data-line-number="6"><span class="co">#&gt; 2        1002     1 normal      1 easy       anws…  54.8  56.8        37</span></a>
+<a class="sourceLine" id="cb22-7" data-line-number="7"><span class="co">#&gt; 3        1002     1 normal      2 hard       ques…  59    64.3        18</span></a>
+<a class="sourceLine" id="cb22-8" data-line-number="8"><span class="co">#&gt; 4        1002     1 normal      2 hard       anws…  64    65.8        18</span></a>
+<a class="sourceLine" id="cb22-9" data-line-number="9"><span class="co">#&gt; 5        1002     1 normal      3 hard       ques…  68    73.6        20</span></a>
+<a class="sourceLine" id="cb22-10" data-line-number="10"><span class="co">#&gt; 6        1002     1 normal      3 hard       anws…  73.8  75          20</span></a>
+<a class="sourceLine" id="cb22-11" data-line-number="11"><span class="co">#&gt; # ... with 1,594 more rows, and 2 more variables: video &lt;chr&gt;, X11 &lt;chr&gt;</span></a></code></pre></div>
+<p>It automatically shows the first 10 rows. Now type…</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="kw">as.data.frame</span>(df) <span class="co">#A ton of rows get printed.</span></a></code></pre></div>
+<p>This is the kind of stuff tibbles make nicer.</p>
+</div>
+<div id="save-your-dataset" class="section level2">
+<h2><span class="header-section-number">3.2</span> Save your dataset:</h2>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw">save</span>(df, <span class="dt">file =</span> <span class="st">&quot;data/eyedata.RData&quot;</span>)</a></code></pre></div>
+<p>Now you can clean your environment…</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>()) </a></code></pre></div>
+<p>and load back your data.frame</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">load</span>(<span class="st">&#39;data/eyedata.RData&#39;</span>)</a></code></pre></div>
+<p>.RData files can hold multiple data.frames, values, or other data types.</p>
+</div>
+<div id="cleaning-your-data-file" class="section level2">
+<h2><span class="header-section-number">3.3</span> Cleaning your data file</h2>
+<p>First let’s visualize some stuff</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="kw">View</span>(df)</a></code></pre></div>
+<p>…or…</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">df[<span class="dv">1</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">11</span>] <span class="co">#This is subsetting, row = 1, columns equal 1:11 (1 to 11)</span></a>
+<a class="sourceLine" id="cb28-2" data-line-number="2"><span class="co">#&gt; # A tibble: 1 x 11</span></a>
+<a class="sourceLine" id="cb28-3" data-line-number="3"><span class="co">#&gt;   Participant Block version Trial Difficulty Part  Start  Stop PicNumber</span></a>
+<a class="sourceLine" id="cb28-4" data-line-number="4"><span class="co">#&gt;         &lt;int&gt; &lt;int&gt; &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;      &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;int&gt;</span></a>
+<a class="sourceLine" id="cb28-5" data-line-number="5"><span class="co">#&gt; 1        1002     1 normal      1 easy       ques…  48.6  54.4        37</span></a>
+<a class="sourceLine" id="cb28-6" data-line-number="6"><span class="co">#&gt; # ... with 2 more variables: video &lt;chr&gt;, X11 &lt;chr&gt;</span></a></code></pre></div>
+<p>Looks like we have some messy columns. We can clean them up.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb29-2" data-line-number="2">cleaner &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="co">#This is a pipe (%&gt;%). See the link below to learn about pipes</span></a>
+<a class="sourceLine" id="cb29-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span><span class="dv">10</span>, <span class="dv">-11</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co">#This select function is from dplyr. Type ?dplyr into the console to learn more</span></a>
+<a class="sourceLine" id="cb29-4" data-line-number="4"><span class="st">  </span><span class="kw">na.omit</span>() <span class="co">#%&gt;% # I&#39;ve commented out the pipe, so the last call is to omit NAs. Delete the first # to run the lines below.</span></a>
+<a class="sourceLine" id="cb29-5" data-line-number="5">  <span class="co"># group_by(Participant) %&gt;% # This code doesn&#39;t run now. Delete the first # to run it.</span></a>
+<a class="sourceLine" id="cb29-6" data-line-number="6">  <span class="co"># summarise(count1 = n()) # This code doesn&#39;t run now. Delete the first # to run it.</span></a></code></pre></div>
+<p>(to learn about <a href="https://style.tidyverse.org/pipes.html">pipes</a>…)</p>
+<p>We can coerce columns in the data.frame to a factor…</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1">df<span class="op">$</span>Participant &lt;-<span class="st"> </span><span class="kw">as.factor</span>(df<span class="op">$</span>Participant)</a>
+<a class="sourceLine" id="cb30-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb30-3" data-line-number="3"><span class="kw">class</span>(df<span class="op">$</span>Participant)</a>
+<a class="sourceLine" id="cb30-4" data-line-number="4"><span class="co">#&gt; [1] &quot;factor&quot;</span></a></code></pre></div>
+<p>…and a lot of other transformations that we’ll be talking about in the coming classes. For now, please attempt to read in your dataset, save it as a .RData file, clean your environment, load that data file, and start transforming your tibble/data.frame.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-transformation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://spencercastro.com/02_DataImport.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

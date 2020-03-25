@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 Syllabus | Psychological Measurement in R</title>
+  <meta name="description" content="As a modern Psychologist, we can no longer be purely theoretical hypothesis generators, experimentalists, statisticians, or clinicians; now we must strive to be methodologically sound, balance experimental design against convenient populations, keep up with the ever-changing landscape of statistical tests and their caveats, and learn rudimentary computer programming on top of that! Therefore we need a tool that balances the comprehensibility of human language with the flexibility to keep up with developing statistical methods and the power to analyze any dataset. Enter R, the open-source statistical computing and graphics language with a powerful Integrated Development Environment (the Rstudio IDE), a robust community of developers, data scientists, and experts (who respond to questions!), and too many reputable online resources to read in a lifetime. The impetus to learn something new on top of your ongoing research may be hard to summon, but this course is designed to integrate your ongoing research projects into mastering R, and to provide tools for streamlining projects in the future." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1 Syllabus | Psychological Measurement in R" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://spencercastro.com" />
+  <meta property="og:image" content="https://spencercastro.comimages/UPsychLogo.jpg" />
+  <meta property="og:description" content="As a modern Psychologist, we can no longer be purely theoretical hypothesis generators, experimentalists, statisticians, or clinicians; now we must strive to be methodologically sound, balance experimental design against convenient populations, keep up with the ever-changing landscape of statistical tests and their caveats, and learn rudimentary computer programming on top of that! Therefore we need a tool that balances the comprehensibility of human language with the flexibility to keep up with developing statistical methods and the power to analyze any dataset. Enter R, the open-source statistical computing and graphics language with a powerful Integrated Development Environment (the Rstudio IDE), a robust community of developers, data scientists, and experts (who respond to questions!), and too many reputable online resources to read in a lifetime. The impetus to learn something new on top of your ongoing research may be hard to summon, but this course is designed to integrate your ongoing research projects into mastering R, and to provide tools for streamlining projects in the future." />
+  <meta name="github-repo" content="sccastro/PsychMeasurement" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 Syllabus | Psychological Measurement in R" />
+  
+  <meta name="twitter:description" content="As a modern Psychologist, we can no longer be purely theoretical hypothesis generators, experimentalists, statisticians, or clinicians; now we must strive to be methodologically sound, balance experimental design against convenient populations, keep up with the ever-changing landscape of statistical tests and their caveats, and learn rudimentary computer programming on top of that! Therefore we need a tool that balances the comprehensibility of human language with the flexibility to keep up with developing statistical methods and the power to analyze any dataset. Enter R, the open-source statistical computing and graphics language with a powerful Integrated Development Environment (the Rstudio IDE), a robust community of developers, data scientists, and experts (who respond to questions!), and too many reputable online resources to read in a lifetime. The impetus to learn something new on top of your ongoing research may be hard to summon, but this course is designed to integrate your ongoing research projects into mastering R, and to provide tools for streamlining projects in the future." />
+  <meta name="twitter:image" content="https://spencercastro.comimages/UPsychLogo.jpg" />
+
+<meta name="author" content="Spencer Castro" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="introduction.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="class_book.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="./">Psychological Measurement in R</a></strong></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="1" data-path="syllabus.html"><a href="syllabus.html"><i class="fa fa-check"></i><b>1</b> Syllabus</a><ul>
+<li class="chapter" data-level="1.1" data-path="syllabus.html"><a href="syllabus.html#course-overview"><i class="fa fa-check"></i><b>1.1</b> Course Overview</a></li>
+<li class="chapter" data-level="1.2" data-path="syllabus.html"><a href="syllabus.html#learning-outcomes-course-objectives"><i class="fa fa-check"></i><b>1.2</b> Learning Outcomes &amp; Course Objectives</a></li>
+<li class="chapter" data-level="1.3" data-path="syllabus.html"><a href="syllabus.html#course-format"><i class="fa fa-check"></i><b>1.3</b> Course Format</a></li>
+<li class="chapter" data-level="1.4" data-path="syllabus.html"><a href="syllabus.html#evaluation-methodsassignments"><i class="fa fa-check"></i><b>1.4</b> Evaluation Methods/Assignments</a></li>
+<li class="chapter" data-level="1.5" data-path="syllabus.html"><a href="syllabus.html#grading-policy"><i class="fa fa-check"></i><b>1.5</b> Grading Policy</a></li>
+<li class="chapter" data-level="1.6" data-path="syllabus.html"><a href="syllabus.html#student-rights-and-responsibilities"><i class="fa fa-check"></i><b>1.6</b> Student Rights and Responsibilities</a></li>
+<li class="chapter" data-level="1.7" data-path="syllabus.html"><a href="syllabus.html#department-of-psychology-undergraduate-academic-misconduct-policy"><i class="fa fa-check"></i><b>1.7</b> Department of Psychology Undergraduate Academic Misconduct Policy</a></li>
+<li class="chapter" data-level="1.8" data-path="syllabus.html"><a href="syllabus.html#course-policies"><i class="fa fa-check"></i><b>1.8</b> Course Policies</a></li>
+<li class="chapter" data-level="1.9" data-path="syllabus.html"><a href="syllabus.html#university-attendance-requirements"><i class="fa fa-check"></i><b>1.9</b> University Attendance Requirements</a></li>
+<li class="chapter" data-level="1.10" data-path="syllabus.html"><a href="syllabus.html#student-support-accommodations"><i class="fa fa-check"></i><b>1.10</b> Student Support &amp; Accommodations</a></li>
+<li class="chapter" data-level="1.11" data-path="syllabus.html"><a href="syllabus.html#academic-calendar"><i class="fa fa-check"></i><b>1.11</b> Academic Calendar</a></li>
+<li class="chapter" data-level="1.12" data-path="syllabus.html"><a href="syllabus.html#course-schedule"><i class="fa fa-check"></i><b>1.12</b> Course Schedule</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#baser-walkthrough"><i class="fa fa-check"></i>BaseR walkthrough</a></li>
+<li class="chapter" data-level="2.1" data-path="introduction.html"><a href="introduction.html#help"><i class="fa fa-check"></i><b>2.1</b> Help</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction.html"><a href="introduction.html#vectors"><i class="fa fa-check"></i><b>2.2</b> VECTORS</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction.html"><a href="introduction.html#programming"><i class="fa fa-check"></i><b>2.3</b> PROGRAMMING</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="introduction.html"><a href="introduction.html#for-loop"><i class="fa fa-check"></i><b>2.3.1</b> For loop</a></li>
+<li class="chapter" data-level="2.3.2" data-path="introduction.html"><a href="introduction.html#while-loop"><i class="fa fa-check"></i><b>2.3.2</b> While loop</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="introduction.html"><a href="introduction.html#assignment-1"><i class="fa fa-check"></i><b>2.4</b> Assignment 1</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="importing-data.html"><a href="importing-data.html"><i class="fa fa-check"></i><b>3</b> Importing Data</a><ul>
+<li class="chapter" data-level="" data-path="importing-data.html"><a href="importing-data.html#reading-files-into-r"><i class="fa fa-check"></i>Reading files into R</a></li>
+<li class="chapter" data-level="3.1" data-path="importing-data.html"><a href="importing-data.html#whats-a-tibble"><i class="fa fa-check"></i><b>3.1</b> What’s a tibble?</a></li>
+<li class="chapter" data-level="3.2" data-path="importing-data.html"><a href="importing-data.html#save-your-dataset"><i class="fa fa-check"></i><b>3.2</b> Save your dataset:</a></li>
+<li class="chapter" data-level="3.3" data-path="importing-data.html"><a href="importing-data.html#cleaning-your-data-file"><i class="fa fa-check"></i><b>3.3</b> Cleaning your data file</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>4</b> Data Transformation</a><ul>
+<li class="chapter" data-level="" data-path="data-transformation.html"><a href="data-transformation.html#data-transformation-with-dplyr"><i class="fa fa-check"></i>Data Transformation with Dplyr</a></li>
+<li class="chapter" data-level="4.1" data-path="data-transformation.html"><a href="data-transformation.html#get-a-dataset-from-your-.rdata-file"><i class="fa fa-check"></i><b>4.1</b> Get a dataset from your .RData file</a></li>
+<li class="chapter" data-level="4.2" data-path="data-transformation.html"><a href="data-transformation.html#introduction-to-the-pipe"><i class="fa fa-check"></i><b>4.2</b> Introduction to “The Pipe”</a></li>
+<li class="chapter" data-level="4.3" data-path="data-transformation.html"><a href="data-transformation.html#aside-on-the-apply-family"><i class="fa fa-check"></i><b>4.3</b> Aside on the apply family</a></li>
+<li class="chapter" data-level="4.4" data-path="data-transformation.html"><a href="data-transformation.html#solutions-to-challenges"><i class="fa fa-check"></i><b>4.4</b> Solutions to Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-transformation-day-2.html"><a href="data-transformation-day-2.html"><i class="fa fa-check"></i><b>5</b> Data Transformation Day 2</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-transformation-day-2.html"><a href="data-transformation-day-2.html#rcolorbrewer"><i class="fa fa-check"></i><b>5.1</b> RcolorBrewer</a></li>
+<li class="chapter" data-level="5.2" data-path="data-transformation-day-2.html"><a href="data-transformation-day-2.html#modifying-factor-levels"><i class="fa fa-check"></i><b>5.2</b> Modifying Factor Levels</a></li>
+<li class="chapter" data-level="5.3" data-path="data-transformation-day-2.html"><a href="data-transformation-day-2.html#play-time"><i class="fa fa-check"></i><b>5.3</b> Play time</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="visualization-with-ggplot2.html"><a href="visualization-with-ggplot2.html"><i class="fa fa-check"></i><b>6</b> Visualization with ggplot2</a><ul>
+<li class="chapter" data-level="6.1" data-path="visualization-with-ggplot2.html"><a href="visualization-with-ggplot2.html#statistical-transformations"><i class="fa fa-check"></i><b>6.1</b> Statistical Transformations</a></li>
+<li class="chapter" data-level="6.2" data-path="visualization-with-ggplot2.html"><a href="visualization-with-ggplot2.html#changing-the-position"><i class="fa fa-check"></i><b>6.2</b> Changing the position</a></li>
+<li class="chapter" data-level="6.3" data-path="visualization-with-ggplot2.html"><a href="visualization-with-ggplot2.html#coordinates"><i class="fa fa-check"></i><b>6.3</b> Coordinates</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="visualization-with-ggplot2.html"><a href="visualization-with-ggplot2.html#plot-maps-if-you-want"><i class="fa fa-check"></i><b>6.3.1</b> Plot maps if you want</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html"><i class="fa fa-check"></i><b>7</b> Introduction to Statistics</a><ul>
+<li class="chapter" data-level="7.0.1" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#descriptive-stats"><i class="fa fa-check"></i><b>7.0.1</b> Descriptive Stats</a></li>
+<li class="chapter" data-level="7.0.2" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#measures-of-central-tendency"><i class="fa fa-check"></i><b>7.0.2</b> Measures of Central Tendency</a></li>
+<li class="chapter" data-level="7.0.3" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#measures-of-variability"><i class="fa fa-check"></i><b>7.0.3</b> Measures of Variability</a></li>
+<li class="chapter" data-level="7.1" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#clinical-trial-example"><i class="fa fa-check"></i><b>7.1</b> Clinical Trial Example</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#chi-square-goodness-of-fit-test-pearson-1900-review"><i class="fa fa-check"></i><b>7.1.1</b> Chi Square goodness-of-fit test (Pearson, 1900) Review</a></li>
+<li class="chapter" data-level="7.1.2" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#chi-square-test-of-independence"><i class="fa fa-check"></i><b>7.1.2</b> Chi-square test of independence</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="linear-models.html"><a href="linear-models.html"><i class="fa fa-check"></i><b>8</b> Linear Models</a><ul>
+<li class="chapter" data-level="" data-path="linear-models.html"><a href="linear-models.html#steps-of-linear-models"><i class="fa fa-check"></i>Steps of Linear Models</a></li>
+<li class="chapter" data-level="8.1" data-path="linear-models.html"><a href="linear-models.html#step-1.-get-your-data"><i class="fa fa-check"></i><b>8.1</b> Step 1. Get your data</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="multilevel-models.html"><a href="multilevel-models.html"><i class="fa fa-check"></i><b>9</b> Multilevel Models</a><ul>
+<li class="chapter" data-level="" data-path="multilevel-models.html"><a href="multilevel-models.html#steps-of-multilevel-models"><i class="fa fa-check"></i>Steps of Multilevel Models</a><ul>
+<li class="chapter" data-level="9.0.1" data-path="multilevel-models.html"><a href="multilevel-models.html#mixed-models-in-r"><i class="fa fa-check"></i><b>9.0.1</b> Mixed models in R</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Psychological Measurement in R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="syllabus" class="section level1">
+<h1><span class="header-section-number">1</span> Syllabus</h1>
+<p>Spring, 2020</p>
+<p><em>This syllabus is not a binding legal contract. With reasonable notice to students, the instructor may modify the syllabus and course schedule at any time, to accommodate the needs of the class. Should you have any questions or concerns, it is your responsibility to contact the instructor for clarification.</em></p>
+<div id="course-overview" class="section level2">
+<h2><span class="header-section-number">1.1</span> Course Overview</h2>
+<blockquote>
+“Visualization can surprise you, but it doesn’t scale well. Modelling scales well, but it can’t surprise you.”
+<div style="text-align: right">
+— Hadley Wickham
+</div>
+</blockquote>
+<p>In this course we will cover an introduction to:</p>
+<ol style="list-style-type: decimal">
+<li>Installation of R, R studio, and the most used packages</li>
+<li>How to use StackOverflow, Rstudio Community, Cross Validated, and other sources for help</li>
+<li>The “art” of debugging</li>
+<li>designing an experiment for desired output of data</li>
+<li>Data wrangling with the Tidyverse</li>
+<li>Data visualization with ggplot</li>
+<li>Potential guest lectures for basic stats and packages to use.</li>
+<li>Writing reports with R Markdown</li>
+</ol>
+<p>We will also attempt to instill some best practices such as creating a file of personal functions that perform analyses you perform often, naming files properly, and keeping your directory trees organized within a project. This course is also designed to allow more advanced students to challenge themselves with more material. Here are some bonus goals to attempt:</p>
+<ol style="list-style-type: decimal">
+<li>Creating a file of personal functions. (including Morey (2008) confidence intervals for plots of repeated measures designs, turning date of birth to age, creating a “not in” search function, etc.)</li>
+<li>Meta data with Attributes</li>
+<li>Incorporating html with Rmarkdown</li>
+<li>Introduction to making a Shiny application</li>
+<li>Workshops after class for help with projects (On days with no CNS brown bag)</li>
+</ol>
+</div>
+<div id="learning-outcomes-course-objectives" class="section level2">
+<h2><span class="header-section-number">1.2</span> Learning Outcomes &amp; Course Objectives</h2>
+<p>By the end of this course, students should be able to design a study with the desired data output in mind, process that data into a “tidy” format, analyze that data with desired statistical methods, and visualize that data in a formatted report using R. Students should also be able to apply concepts and strategies, such as debugging and trouble shooting basic R functions, searching data frames with regular expressions, and utilizing online resources to tackle challenges with their own data. Finally, students should be able to individually create a project that:</p>
+<ol style="list-style-type: decimal">
+<li>Converts a raw dataset into a “tidy” format</li>
+<li>Applies Desired Analyses</li>
+<li>Produces publishable visualizations</li>
+<li>And reports these an analyses in a polished Rmarkdown format</li>
+</ol>
+<p>The end result of this class should be an Rmarkdown report or an Rmarkdown website with analyses and visualizations. The most apt way to organize this report would be to write it as the Methods and Results section of an APA paper.</p>
+</div>
+<div id="course-format" class="section level2">
+<h2><span class="header-section-number">1.3</span> Course Format</h2>
+<p>This will be a workshop-styled course, with many of the lectures requiring students to follow along in Rstudio on their personal computers. If you do not have access to a computer, we will have to either check one out from the library for classes or find another solution for providing a computer.</p>
+<p><strong>Schedule</strong>: This syllabus outlines the deadlines for project milestones and the Final Project due date. There will be weekly problem set practices, but these will be optional. For project milestones, the day the assignment is listed is the day the assignment is due. All assignments will be due by midnight, 12:00am. The schedule is subject to change. Stay tuned for announcements on assignment due dates and changes.</p>
+<p><strong>Class Website</strong>: There is a website for the class on canvas. Log on to the site through Campus Information Services (CIS) The link is here: <a href="https://go.utah.edu/cas/login" class="uri">https://go.utah.edu/cas/login</a>. I will post code, links to R resources, and other tutorials online. We will use the class website to turn in and return assignments. In addition, there will be a discussion board available for questions/comments. Finally, we will begin and update a Frequently Asked Questions (FAQ) page for the class on the website.</p>
+<p>Check that you have access to the website by using the link above, typing in your uID and password, and checking that the tab for the class is present. If it is not, please let me know by E- mail. If you have technical problems with the website, you can go either to Teaching &amp; Learning Technologies (TLT) (classhelp.utah.edu) or UOnline (uonline.utah.edu). If that does not help, please contact the TLT Help Desk at 801-581-6112 (8:00 am – 5:00 pm M-F Mountain Time) or Campus Help Desk at 801-581-4000.</p>
+<p><strong>Contacting the Professor</strong>: This is more a general rule for undergraduates, but I’m keeping it in here as a best practice. When contacting a TA or Professor, your email must have proof that you attempted to access the desired information in question in 3 ways. These ways should include looking through this syllabus, exploring the canvas site, and finally using the FAQ page or using Google. Once you include proof of these attempts in your email your question will be answered. Please put your full name either in the “From” line (instead of just your uNID) or at the end of your message. It may take up to <strong>72 hours</strong> for me to respond to e-mail (and marking something as “urgent” may have no effect in response time).</p>
+</div>
+<div id="evaluation-methodsassignments" class="section level2">
+<h2><span class="header-section-number">1.4</span> Evaluation Methods/Assignments</h2>
+<p>Assignments will be graded within 1 week of their due date, allowing for adequate feedback as the class moves forward. You will receive a check+ for successfully completing the milestone, a check for turning in your project as it has progressed, and a check- for failing to meet the milestone deadline or otherwise turning in late work. The Final Project will be graded as successfully creating an Rmarkdown report or website, and will receive the same checks for the 3 levels of completion. A final paper will be the Methods and Results section of an APA formatted manuscript.</p>
+<p><strong>Class Participation</strong>: Activities that fall under class participation include activities online. There will be assignments such as registering for a Stack Overflow account and asking a question.
+Class participation also includes contributing to lecture time and helping with other students’ projects during workshop time after 3pm. If you plan to miss a class, please send me an email so I can provide extra materials or information about what we’ll be covering. This is a small class so we should be able to accommodate everyone and optimize completion of your personal projects.</p>
+<p><strong>Project Milestones</strong>: Project milestones will consist of:</p>
+<ol style="list-style-type: decimal">
+<li>Obtaining a dataset and uploading the raw file to the site</li>
+<li>Reading this file into R with the Rstudio IDE</li>
+<li>Converting this file to a “tidy” format</li>
+<li>Creating visualizations and determining why one is the best way to visualize the data</li>
+<li>Performing desired analyses</li>
+</ol>
+<p>Each milestone will be 20 points, full points for successful completion, 18 for turning in a project as it has progressed, and 15 for late work.</p>
+<p><strong>Presentation</strong>: Everyone will sign up for a time to present their dataset and what they have learned about it up to that point. Depending on where we are in the class, this may be just describing the participant number, demographics, and experimental design, or it could be a completed analysis. Completing the presentation will receive full points (40).</p>
+<p><strong>Final Project</strong>: Successfully creating an Rmarkdown file or Rmarkdown website with a description of the data, a visualization, some analysis, and any interesting conclusions will receive full points (120). Submitting a file in progress by the deadline will receive a minimum of 100 points, and submitting late work will receive 80 points.</p>
+<p><strong>Final Paper</strong>: Creating an APA methods and results section for your data and submitting it on time will receive full points (120). Submitting a paper in progress by the deadline will receive a minimum of 100 point, and submitting late work will receive 80 points.</p>
+</div>
+<div id="grading-policy" class="section level2">
+<h2><span class="header-section-number">1.5</span> Grading Policy</h2>
+<p>Points are allocated to each assignment and test, with the point total of 400. The highest score under 400 in the class will be 100%. 90% of that score will be in the A range, 80% in the B range, etc. [See lower limit for grades below].</p>
+<div align="center">
+<div style="width: 100%; margin:0 left;text-align: left;">
+<table>
+<thead>
+<tr class="header">
+<th>Evaluation Method</th>
+<th>Points</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Participation</td>
+<td>20</td>
+<td>5%</td>
+</tr>
+<tr class="even">
+<td>Project Milestones</td>
+<td>100</td>
+<td>25%</td>
+</tr>
+<tr class="odd">
+<td>Presentation</td>
+<td>40</td>
+<td>10%</td>
+</tr>
+<tr class="even">
+<td>Final Project</td>
+<td>120</td>
+<td>30%</td>
+</tr>
+<tr class="odd">
+<td>Final Paper</td>
+<td>120</td>
+<td>30%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><strong>Lower limit for grades</strong>: A (93%), A- (90%), B+ (87%), B (83%), B- (80%), C+ (77%), C (73%), C- (70%), D+
+(67%), D (63%), D- (60%), E (&lt;60%)</p>
+</div>
+<div id="student-rights-and-responsibilities" class="section level2">
+<h2><span class="header-section-number">1.6</span> Student Rights and Responsibilities</h2>
+<p>All students are expected to maintain professional behavior in the classroom setting, according to the Student Code, detailed in the Student Handbook. Students have specific rights in the classroom as detailed in Article III of the Code. The Code also specifies proscribed conduct (Article XI) that involves cheating on tests, plagiarism, and/or collusion, as well as fraud, theft, etc. Students should read the Code carefully and know they are responsible for the content. According to Faculty Rules and Regulations, it is the faculty responsibility to enforce responsible classroom behaviors. Students have the right to appeal such action to the Student Behavior Committee. For Student Rights and Responsibilities, see <a href="http://www.regulations.utah.edu/academics/6-400.html" class="uri">http://www.regulations.utah.edu/academics/6-400.html</a></p>
+</div>
+<div id="department-of-psychology-undergraduate-academic-misconduct-policy" class="section level2">
+<h2><span class="header-section-number">1.7</span> Department of Psychology Undergraduate Academic Misconduct Policy</h2>
+<p>The Department of Psychology has a zero tolerance policy for academic misconduct. Academic misconduct includes cheating, plagiarizing, research misconduct, misrepresenting one’s work, and inappropriately collaborating. This applies to any work students turn in for evaluation or course credit. Definitions can be found in the Student Code at <a href="http://www.regulations.utah.edu/academics/6-" class="uri">http://www.regulations.utah.edu/academics/6-</a> 400.html
+If you are suspected of academic misconduct, the process proceeds according to the rules found in the Student Code, University Policy 6-400(V). <strong>If you are found responsible for misconduct, consequences range from failure on the assignment to dismissal from the program</strong>, consistent with both University and Psychology Department Policy.</p>
+<p>Minor offenses (plagiarism in written work) include failure to use citations correctly, because of lack of understanding of proper procedures for crediting ideas, rather than intention to cheat (with no evidence of lifted/stolen text. Major Offenses include:
+1. Cheating on a test, quiz, problem set, or other independent work
+2. Plagiarism in written work: Copying any quantity of text from another source or another student without quoting and citing the copied text.
+3. Plagiarism in written work: Flagrant misuse of citations, such that a student clearly attempted to represent ideas that were not his/hers as if they were, even if the ideas were presented in the student’s own words.
+Both minor and major offenses will have consequences, as outlined in the full Psychology Department Policy (which you can find here in PDF format).</p>
+<p>Assignments turned in on Canvas can be screened using Turnitin, and the above policy will be followed when misconduct is found. This is important for the scope of the final papers in this class, especially if students plan to submit their final papers for publication.</p>
+</div>
+<div id="course-policies" class="section level2">
+<h2><span class="header-section-number">1.8</span> Course Policies</h2>
+<p>This course will involve a large portion of working on projects in class. This means students’ attendance and participation is very important to successfully completing the objectives of the course.</p>
+<ul>
+<li>Attendance &amp; Punctuality: There will be no attendance.</li>
+<li>Food &amp; Drink. Please bring it.</li>
+<li>Cell Phones &amp; Computers: Cell phones should be off, just like when you are in a movie theater. Computers should be on and running Rstudio.</li>
+<li>Electronic/equipment failure: In the case of a loss of powerpoint video or audio for examples, concepts will be demonstrated on the blackboard and project work can be done on personal computers.</li>
+<li>CANVAS: please log in to canvas for course changes and announcements. The syllabus, project milestones, and other assignments will all be on canvas.</li>
+</ul>
+</div>
+<div id="university-attendance-requirements" class="section level2">
+<h2><span class="header-section-number">1.9</span> University Attendance Requirements</h2>
+<p>The University expects regular attendance at all class meetings. Instructors must communicate any particular attendance requirements of the course to students in writing on or before the first class meeting. Students are responsible for acquainting themselves with and satisfying the entire range of academic objectives and requirements as defined by the instructor.</p>
+<p>Students absent from class to participate in officially sanctioned University activities (e.g., band, debate, student government, intercollegiate athletics) or religious obligations, or with instructor’s approval, shall be permitted to make up both assignments and examinations. The University expects its departments and programs that take students away from class meetings to schedule such events in a way that will minimize hindrance of the student’s orderly completion of course requirements. Such units must provide a written statement to the students describing the activity and stating as precisely as possible the dates of the required absence. The involved students must deliver this documentation to their instructors, before the absence.</p>
+<p>Except in cases of sudden illness or emergency, students shall in advance of the absence arrange with the instructor to make up assignments.</p>
+<p>Unexpected University facility closures due to weather, emergency or disaster may occur from time to time. Students may be required to complete coursework missed due to these or other class cancellations; however, instructors requiring mandatory make-up sessions may not penalize students if they are unable to attend due to time conflicts, etc.</p>
+</div>
+<div id="student-support-accommodations" class="section level2">
+<h2><span class="header-section-number">1.10</span> Student Support &amp; Accommodations</h2>
+<p><strong>Americans with Disabilities Act (ADA) Statement</strong>
+The University of Utah seeks to provide equal access to its programs, services and activities for people with disabilities. If you will need accommodations in the class, reasonable prior notice needs to be given to the Center for Disability Services, 162 Olpin Union Building, 581-5020 (V/TDD). CDS will work with you and the instructor to make arrangements for accommodations. All information in this course can be made available in alternative format with prior notification to the Center for Disability Services.</p>
+<p>More information can be found in the CDS Student Handbook: <a href="http://disability.utah.edu/documents/CDS-Student-Handbook.pdf" class="uri">http://disability.utah.edu/documents/CDS-Student-Handbook.pdf</a>.</p>
+<p><strong>Scheduling Accommodations</strong>
+<em>Example</em>: Consistent with Section Q of the University’s Policy for Instruction and Evaluation, to be found at <a href="http://regulations.utah.edu/academics/6-100.php" class="uri">http://regulations.utah.edu/academics/6-100.php</a>, I am willing to accommodate university activities as well as values-based obligations (including religious or other values-based activities) that conflict with course activities. No later than the end of the second week of the semester, please send me an e-mail with the nature and date of your anticipated absence (earlier if your conflict occurs before that deadline). That will give us time to work out a way for you to make up any missed work.</p>
+<p><strong>Content Accommodations</strong>
+There will be no content accommodations in this class. Please review the syllabus and topics carefully and be sure that you are able to engage all of the topics we will be covering this semester.</p>
+<p><strong>Wellness Statement</strong>
+Personal concerns such as stress, anxiety, relationship difficulties, depression, cross-cultural differences, etc., can interfere with a student’s ability to succeed and thrive at the University of Utah. For helpful resources contact the Center for Student Wellness - www.wellness.utah.edu (801-581-7776). The Counseling Center is another excellent resource, offering services that include counseling and a mindfulness clinic (see <a href="http://counselingcenter.utah.edu" class="uri">http://counselingcenter.utah.edu</a>).</p>
+<p><strong>Veterans Center</strong>
+If you are a student veteran, I want you to know that the U of Utah has a Veterans Support Center on campus. They are located in Room 161 in the Olpin Union Building. Hours: M-F 8-5pm. Please visit their website for more information about what support they offer, a list of ongoing events and links to outside resources: <a href="http://veteranscenter.utah.edu" class="uri">http://veteranscenter.utah.edu</a>. Please also let me know if you need any additional support in this class for any reason.</p>
+<p><strong>LGBT Resource Center</strong>
+If you are a member of the LGBTQ community, I want you to know that my classroom is a safe zone. Additionally, please know that the U of Utah has an LGBT Resource Center on campus. They are located in Room 409 in the Oplin Union Building. Hours: M-F 8-5pm. You can visit their website to find more information about the support they can offer, a list of events through the center and links to additional resources: <a href="http://lgbt.utah.edu/" class="uri">http://lgbt.utah.edu/</a>. Please also let me know if there is any additional support you need in this class.</p>
+<p><strong>Learners of English as an Additional/Second Language</strong>
+If you are an English language learner, please be aware of several resources on campus that will support you with your language development and writing. These resources include: the Department of Linguistics ESL Program (<a href="http://linguistics.utah.edu/esl-program/" class="uri">http://linguistics.utah.edu/esl-program/</a>); the Writing Center (<a href="http://writingcenter.utah.edu/" class="uri">http://writingcenter.utah.edu/</a>); the Writing Program (<a href="http://writing-program.utah.edu/" class="uri">http://writing-program.utah.edu/</a>); the English Language Institute (<a href="http://continue.utah.edu/eli/" class="uri">http://continue.utah.edu/eli/</a>). Please let me know if there is any additional support you would like to discuss for this class.</p>
+</div>
+<div id="academic-calendar" class="section level2">
+<h2><span class="header-section-number">1.11</span> Academic Calendar</h2>
+<p><a href="https://registrar.utah.edu/academic-calendars/fall2018.php" class="uri">https://registrar.utah.edu/academic-calendars/fall2018.php</a></p>
+</div>
+<div id="course-schedule" class="section level2">
+<h2><span class="header-section-number">1.12</span> Course Schedule</h2>
+<table class="table table-striped table-hover table-responsive" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Dates
+</th>
+<th style="text-align:left;">
+Topic/Description
+</th>
+<th style="text-align:left;">
+Reading/Work
+</th>
+<th style="text-align:left;">
+Project Milesone/task
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 7em; ">
+Jan 07
+</td>
+<td style="text-align:left;">
+Introduction/Installation
+</td>
+<td style="text-align:left;">
+syllabus
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 7em; ">
+Jan 14
+</td>
+<td style="text-align:left;">
+R commands/tricks
+</td>
+<td style="text-align:left;">
+Swirl tutorial/<a href="https://www.rstudio.com/wp-content/uploads/2016/05/base-r.pdf">base-R</a>
+</td>
+<td style="text-align:left;">
+Obtaining a Dataset
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 7em; ">
+Jan 28
+</td>
+<td style="text-align:left;">
+Intro to reading data/Data Workshop
+</td>
+<td style="text-align:left;">
+Create StackOverflow account
+</td>
+<td style="text-align:left;">
+Ask your first question on StackOverflow
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 7em; ">
+Feb 04
+</td>
+<td style="text-align:left;">
+Cleaning data/Data Workshop
+</td>
+<td style="text-align:left;">
+Swirl tutorial/<a href="https://ugoproto.github.io/ugo_r_doc/data-import.pdf">data-import</a>
+</td>
+<td style="text-align:left;">
+Dataset Read into R
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 7em; ">
+Feb 11
+</td>
+<td style="text-align:left;">
+Dplyr and Tidyr
+</td>
+<td style="text-align:left;">
+Swirl tutorial/<a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">data-wrangling</a>
+</td>
+<td style="text-align:left;">
+Make an Rproject
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 7em; ">
+Feb 25
+</td>
+<td style="text-align:left;">
+Visualizing with ggplot/Data
+Workshop
+</td>
+<td style="text-align:left;">
+Swirl tutorial/<a href="https://ugoproto.github.io/ugo_r_doc/dplyr.pdf">data-transformation</a>
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 7em; ">
+Mar 04
+</td>
+<td style="text-align:left;">
+Intro to stats in R
+</td>
+<td style="text-align:left;">
+Swirl tutorial/<a href="https://www.rstudio.com/wp-content/uploads/2015/04/ggplot2-cheatsheet.pdf">data-vizualization-2.1</a>
+</td>
+<td style="text-align:left;">
+Tidy Dataset
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 7em; ">
+Mar 18
+</td>
+<td style="text-align:left;">
+More stats in R
+</td>
+<td style="text-align:left;">
+Swirl tutorial/<a href="http://www.fon.hum.uva.nl/paul/lot2015/Navarro2014.pdf">Navarro</a>
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 7em; ">
+Mar 25
+</td>
+<td style="text-align:left;">
+Still more stats in R
+</td>
+<td style="text-align:left;">
+Swirl tutorial/<a href="http://www.bodowinter.com/tutorial/bw_LME_tutorial1.pdf">MLM tutorial</a>
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 7em; ">
+Apr 01
+</td>
+<td style="text-align:left;">
+Rmarkdown
+</td>
+<td style="text-align:left;">
+<a href="http://www.bodowinter.com/tutorial/bw_LME_tutorial2.pdf">MLM tutorial</a>
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 7em; ">
+Apr 08
+</td>
+<td style="text-align:left;">
+class?
+</td>
+<td style="text-align:left;">
+<a href="https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf">Rmarkdown-2.0</a>
+</td>
+<td style="text-align:left;">
+Analysis Complete
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 7em; ">
+Apr 15
+</td>
+<td style="text-align:left;">
+Rmarkdown help
+</td>
+<td style="text-align:left;">
+<a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">rmarkdown-reference</a>
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 7em; ">
+Apr 22
+</td>
+<td style="text-align:left;">
+Bonus Material – Shiny?
+</td>
+<td style="text-align:left;">
+<a href="https://shiny.rstudio.com/images/shiny-cheatsheet.pdf">shiny</a>
+</td>
+<td style="text-align:left;">
+Rmarkdown Document
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 7em; ">
+Apr 29
+</td>
+<td style="text-align:left;">
+Class Optional
+</td>
+<td style="text-align:left;">
+<a href="https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_purrr.pdf">purrr</a>/<a href="http://edrub.in/CheatSheets/cheatSheetStringr.pdf">strings</a>
+</td>
+<td style="text-align:left;">
+Methods &amp; Results Due
+</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="introduction.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://spencercastro.com/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Psychological Measurement in R</title>
+  <meta name="description" content="As a modern Psychologist, we can no longer be purely theoretical hypothesis generators, experimentalists, statisticians, or clinicians; now we must strive to be methodologically sound, balance experimental design against convenient populations, keep up with the ever-changing landscape of statistical tests and their caveats, and learn rudimentary computer programming on top of that! Therefore we need a tool that balances the comprehensibility of human language with the flexibility to keep up with developing statistical methods and the power to analyze any dataset. Enter R, the open-source statistical computing and graphics language with a powerful Integrated Development Environment (the Rstudio IDE), a robust community of developers, data scientists, and experts (who respond to questions!), and too many reputable online resources to read in a lifetime. The impetus to learn something new on top of your ongoing research may be hard to summon, but this course is designed to integrate your ongoing research projects into mastering R, and to provide tools for streamlining projects in the future." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Psychological Measurement in R" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://spencercastro.com" />
+  <meta property="og:image" content="https://spencercastro.comimages/UPsychLogo.jpg" />
+  <meta property="og:description" content="As a modern Psychologist, we can no longer be purely theoretical hypothesis generators, experimentalists, statisticians, or clinicians; now we must strive to be methodologically sound, balance experimental design against convenient populations, keep up with the ever-changing landscape of statistical tests and their caveats, and learn rudimentary computer programming on top of that! Therefore we need a tool that balances the comprehensibility of human language with the flexibility to keep up with developing statistical methods and the power to analyze any dataset. Enter R, the open-source statistical computing and graphics language with a powerful Integrated Development Environment (the Rstudio IDE), a robust community of developers, data scientists, and experts (who respond to questions!), and too many reputable online resources to read in a lifetime. The impetus to learn something new on top of your ongoing research may be hard to summon, but this course is designed to integrate your ongoing research projects into mastering R, and to provide tools for streamlining projects in the future." />
+  <meta name="github-repo" content="sccastro/PsychMeasurement" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Psychological Measurement in R" />
+  
+  <meta name="twitter:description" content="As a modern Psychologist, we can no longer be purely theoretical hypothesis generators, experimentalists, statisticians, or clinicians; now we must strive to be methodologically sound, balance experimental design against convenient populations, keep up with the ever-changing landscape of statistical tests and their caveats, and learn rudimentary computer programming on top of that! Therefore we need a tool that balances the comprehensibility of human language with the flexibility to keep up with developing statistical methods and the power to analyze any dataset. Enter R, the open-source statistical computing and graphics language with a powerful Integrated Development Environment (the Rstudio IDE), a robust community of developers, data scientists, and experts (who respond to questions!), and too many reputable online resources to read in a lifetime. The impetus to learn something new on top of your ongoing research may be hard to summon, but this course is designed to integrate your ongoing research projects into mastering R, and to provide tools for streamlining projects in the future." />
+  <meta name="twitter:image" content="https://spencercastro.comimages/UPsychLogo.jpg" />
+
+<meta name="author" content="Spencer Castro" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="syllabus.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="class_book.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="./">Psychological Measurement in R</a></strong></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="1" data-path="syllabus.html"><a href="syllabus.html"><i class="fa fa-check"></i><b>1</b> Syllabus</a><ul>
+<li class="chapter" data-level="1.1" data-path="syllabus.html"><a href="syllabus.html#course-overview"><i class="fa fa-check"></i><b>1.1</b> Course Overview</a></li>
+<li class="chapter" data-level="1.2" data-path="syllabus.html"><a href="syllabus.html#learning-outcomes-course-objectives"><i class="fa fa-check"></i><b>1.2</b> Learning Outcomes &amp; Course Objectives</a></li>
+<li class="chapter" data-level="1.3" data-path="syllabus.html"><a href="syllabus.html#course-format"><i class="fa fa-check"></i><b>1.3</b> Course Format</a></li>
+<li class="chapter" data-level="1.4" data-path="syllabus.html"><a href="syllabus.html#evaluation-methodsassignments"><i class="fa fa-check"></i><b>1.4</b> Evaluation Methods/Assignments</a></li>
+<li class="chapter" data-level="1.5" data-path="syllabus.html"><a href="syllabus.html#grading-policy"><i class="fa fa-check"></i><b>1.5</b> Grading Policy</a></li>
+<li class="chapter" data-level="1.6" data-path="syllabus.html"><a href="syllabus.html#student-rights-and-responsibilities"><i class="fa fa-check"></i><b>1.6</b> Student Rights and Responsibilities</a></li>
+<li class="chapter" data-level="1.7" data-path="syllabus.html"><a href="syllabus.html#department-of-psychology-undergraduate-academic-misconduct-policy"><i class="fa fa-check"></i><b>1.7</b> Department of Psychology Undergraduate Academic Misconduct Policy</a></li>
+<li class="chapter" data-level="1.8" data-path="syllabus.html"><a href="syllabus.html#course-policies"><i class="fa fa-check"></i><b>1.8</b> Course Policies</a></li>
+<li class="chapter" data-level="1.9" data-path="syllabus.html"><a href="syllabus.html#university-attendance-requirements"><i class="fa fa-check"></i><b>1.9</b> University Attendance Requirements</a></li>
+<li class="chapter" data-level="1.10" data-path="syllabus.html"><a href="syllabus.html#student-support-accommodations"><i class="fa fa-check"></i><b>1.10</b> Student Support &amp; Accommodations</a></li>
+<li class="chapter" data-level="1.11" data-path="syllabus.html"><a href="syllabus.html#academic-calendar"><i class="fa fa-check"></i><b>1.11</b> Academic Calendar</a></li>
+<li class="chapter" data-level="1.12" data-path="syllabus.html"><a href="syllabus.html#course-schedule"><i class="fa fa-check"></i><b>1.12</b> Course Schedule</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#baser-walkthrough"><i class="fa fa-check"></i>BaseR walkthrough</a></li>
+<li class="chapter" data-level="2.1" data-path="introduction.html"><a href="introduction.html#help"><i class="fa fa-check"></i><b>2.1</b> Help</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction.html"><a href="introduction.html#vectors"><i class="fa fa-check"></i><b>2.2</b> VECTORS</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction.html"><a href="introduction.html#programming"><i class="fa fa-check"></i><b>2.3</b> PROGRAMMING</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="introduction.html"><a href="introduction.html#for-loop"><i class="fa fa-check"></i><b>2.3.1</b> For loop</a></li>
+<li class="chapter" data-level="2.3.2" data-path="introduction.html"><a href="introduction.html#while-loop"><i class="fa fa-check"></i><b>2.3.2</b> While loop</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="introduction.html"><a href="introduction.html#assignment-1"><i class="fa fa-check"></i><b>2.4</b> Assignment 1</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="importing-data.html"><a href="importing-data.html"><i class="fa fa-check"></i><b>3</b> Importing Data</a><ul>
+<li class="chapter" data-level="" data-path="importing-data.html"><a href="importing-data.html#reading-files-into-r"><i class="fa fa-check"></i>Reading files into R</a></li>
+<li class="chapter" data-level="3.1" data-path="importing-data.html"><a href="importing-data.html#whats-a-tibble"><i class="fa fa-check"></i><b>3.1</b> What’s a tibble?</a></li>
+<li class="chapter" data-level="3.2" data-path="importing-data.html"><a href="importing-data.html#save-your-dataset"><i class="fa fa-check"></i><b>3.2</b> Save your dataset:</a></li>
+<li class="chapter" data-level="3.3" data-path="importing-data.html"><a href="importing-data.html#cleaning-your-data-file"><i class="fa fa-check"></i><b>3.3</b> Cleaning your data file</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>4</b> Data Transformation</a><ul>
+<li class="chapter" data-level="" data-path="data-transformation.html"><a href="data-transformation.html#data-transformation-with-dplyr"><i class="fa fa-check"></i>Data Transformation with Dplyr</a></li>
+<li class="chapter" data-level="4.1" data-path="data-transformation.html"><a href="data-transformation.html#get-a-dataset-from-your-.rdata-file"><i class="fa fa-check"></i><b>4.1</b> Get a dataset from your .RData file</a></li>
+<li class="chapter" data-level="4.2" data-path="data-transformation.html"><a href="data-transformation.html#introduction-to-the-pipe"><i class="fa fa-check"></i><b>4.2</b> Introduction to “The Pipe”</a></li>
+<li class="chapter" data-level="4.3" data-path="data-transformation.html"><a href="data-transformation.html#aside-on-the-apply-family"><i class="fa fa-check"></i><b>4.3</b> Aside on the apply family</a></li>
+<li class="chapter" data-level="4.4" data-path="data-transformation.html"><a href="data-transformation.html#solutions-to-challenges"><i class="fa fa-check"></i><b>4.4</b> Solutions to Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-transformation-day-2.html"><a href="data-transformation-day-2.html"><i class="fa fa-check"></i><b>5</b> Data Transformation Day 2</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-transformation-day-2.html"><a href="data-transformation-day-2.html#rcolorbrewer"><i class="fa fa-check"></i><b>5.1</b> RcolorBrewer</a></li>
+<li class="chapter" data-level="5.2" data-path="data-transformation-day-2.html"><a href="data-transformation-day-2.html#modifying-factor-levels"><i class="fa fa-check"></i><b>5.2</b> Modifying Factor Levels</a></li>
+<li class="chapter" data-level="5.3" data-path="data-transformation-day-2.html"><a href="data-transformation-day-2.html#play-time"><i class="fa fa-check"></i><b>5.3</b> Play time</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="visualization-with-ggplot2.html"><a href="visualization-with-ggplot2.html"><i class="fa fa-check"></i><b>6</b> Visualization with ggplot2</a><ul>
+<li class="chapter" data-level="6.1" data-path="visualization-with-ggplot2.html"><a href="visualization-with-ggplot2.html#statistical-transformations"><i class="fa fa-check"></i><b>6.1</b> Statistical Transformations</a></li>
+<li class="chapter" data-level="6.2" data-path="visualization-with-ggplot2.html"><a href="visualization-with-ggplot2.html#changing-the-position"><i class="fa fa-check"></i><b>6.2</b> Changing the position</a></li>
+<li class="chapter" data-level="6.3" data-path="visualization-with-ggplot2.html"><a href="visualization-with-ggplot2.html#coordinates"><i class="fa fa-check"></i><b>6.3</b> Coordinates</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="visualization-with-ggplot2.html"><a href="visualization-with-ggplot2.html#plot-maps-if-you-want"><i class="fa fa-check"></i><b>6.3.1</b> Plot maps if you want</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html"><i class="fa fa-check"></i><b>7</b> Introduction to Statistics</a><ul>
+<li class="chapter" data-level="7.0.1" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#descriptive-stats"><i class="fa fa-check"></i><b>7.0.1</b> Descriptive Stats</a></li>
+<li class="chapter" data-level="7.0.2" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#measures-of-central-tendency"><i class="fa fa-check"></i><b>7.0.2</b> Measures of Central Tendency</a></li>
+<li class="chapter" data-level="7.0.3" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#measures-of-variability"><i class="fa fa-check"></i><b>7.0.3</b> Measures of Variability</a></li>
+<li class="chapter" data-level="7.1" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#clinical-trial-example"><i class="fa fa-check"></i><b>7.1</b> Clinical Trial Example</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#chi-square-goodness-of-fit-test-pearson-1900-review"><i class="fa fa-check"></i><b>7.1.1</b> Chi Square goodness-of-fit test (Pearson, 1900) Review</a></li>
+<li class="chapter" data-level="7.1.2" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html#chi-square-test-of-independence"><i class="fa fa-check"></i><b>7.1.2</b> Chi-square test of independence</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="linear-models.html"><a href="linear-models.html"><i class="fa fa-check"></i><b>8</b> Linear Models</a><ul>
+<li class="chapter" data-level="" data-path="linear-models.html"><a href="linear-models.html#steps-of-linear-models"><i class="fa fa-check"></i>Steps of Linear Models</a></li>
+<li class="chapter" data-level="8.1" data-path="linear-models.html"><a href="linear-models.html#step-1.-get-your-data"><i class="fa fa-check"></i><b>8.1</b> Step 1. Get your data</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="multilevel-models.html"><a href="multilevel-models.html"><i class="fa fa-check"></i><b>9</b> Multilevel Models</a><ul>
+<li class="chapter" data-level="" data-path="multilevel-models.html"><a href="multilevel-models.html#steps-of-multilevel-models"><i class="fa fa-check"></i>Steps of Multilevel Models</a><ul>
+<li class="chapter" data-level="9.0.1" data-path="multilevel-models.html"><a href="multilevel-models.html#mixed-models-in-r"><i class="fa fa-check"></i><b>9.0.1</b> Mixed models in R</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Psychological Measurement in R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Psychological Measurement in R</h1>
+<p class="author"><em><a href="https://www.spencercastro.com">Spencer Castro</a></em></p>
+<p class="date"><em>Wed Mar 25 2020</em></p>
+</div>
+<div id="welcome" class="section level1 unnumbered">
+<h1>Welcome</h1>
+<p><a href="UPsychLogo.jpg"><img src="UPsychLogo.jpg" width="325" height="220" alt="Cover image" align="left" style="margin: 0 1em 0 1em" /></a>
+As a modern Psychologist, we can no longer be purely theoretical hypothesis generators, experimentalists, statisticians, or clinicians; now we must strive to be methodologically sound, balance experimental design against convenient populations, keep up with the ever-changing landscape of statistical tests and their caveats, and learn rudimentary computer programming on top of that! Therefore we need a tool that balances the comprehensibility of human language with the flexibility to keep up with developing statistical methods and the power to analyze any dataset. Enter R, the open-source statistical computing and graphics language with a powerful Integrated Development Environment (the Rstudio IDE), a robust community of developers, data scientists, and experts (who respond to questions!), and too many reputable online resources to read in a lifetime. The impetus to learn something new on top of your ongoing research may be hard to summon, but this course is designed to integrate your ongoing research projects into mastering R, and to provide tools for streamlining projects in the future.</p>
+<div style="text-align: center">
+<blockquote>
+<p>“I know R but I don’t know Y.”
+—Alan Moore</p>
+</blockquote>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="syllabus.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://spencercastro.com/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

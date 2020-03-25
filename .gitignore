@@ -10,8 +10,8 @@
 *_files
 _main.rds
 _book
-*.md
-*.html
+# *.md
+# *.html
 search_index.json
 libs
 *.rds
