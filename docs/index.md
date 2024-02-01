@@ -11,7 +11,7 @@ site: bookdown::bookdown_site
 documentclass: book
 always_allow_html: true
 bookdown::gitbook:
-  css: class_book.css
+  css: css/class_book.css
   toc:
     collapse: section
   toolbar:
@@ -22,7 +22,7 @@ bookdown::gitbook:
   sharing: false
   info: yes
   bookdown::html_book:
-    css: class_book.css
+    css: css/class_book.css
     
 ---
 
@@ -40,7 +40,7 @@ bookdown::gitbook:
 # Syllabus
 
 
-Spring, 2022
+Spring, 2024
 
 _This syllabus is not a binding legal contract. With reasonable notice to students, the instructor may modify the syllabus and course schedule at any time, to accommodate the needs of the class. Should you have any questions or concerns, it is your responsibility to contact the instructor for clarification._
 
