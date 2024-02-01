@@ -12,6 +12,9 @@ rmd_files: [
   "06_IntroStats.Rmd",
   "07_LinearModeling.Rmd",
   "08_MultilevelModels.Rmd",
+  "09_Rmarkdown.Rmd",
+  "10_Blogdown.Rmd",
+  "11_ShinyApps.Rmd"
 ]
 
 before_chapter_script: "_common.R"

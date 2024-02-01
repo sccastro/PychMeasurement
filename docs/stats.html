@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Stats | Psychological Measurement in R</title>
+  <meta name="description" content="As a modern Psychologist, we can no longer be purely theoretical hypothesis generators, experimentalists, statisticians, or clinicians; now we must strive to be methodologically sound, balance experimental design against convenient populations, keep up with the ever-changing landscape of statistical tests and their caveats, and learn rudimentary computer programming on top of that! Therefore we need a tool that balances the comprehensibility of human language with the flexibility to keep up with developing statistical methods and the power to analyze any dataset. Enter R, the open-source statistical computing and graphics language with a powerful Integrated Development Environment (the Rstudio IDE), a robust community of developers, data scientists, and experts (who respond to questions!), and too many reputable online resources to read in a lifetime. The impetus to learn something new on top of your ongoing research may be hard to summon, but this course is designed to integrate your ongoing research projects into mastering R, and to provide tools for streamlining projects in the future." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Stats | Psychological Measurement in R" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://spencercastro.com" />
+  <meta property="og:image" content="https://spencercastro.comimages/UPsychLogo.jpg" />
+  <meta property="og:description" content="As a modern Psychologist, we can no longer be purely theoretical hypothesis generators, experimentalists, statisticians, or clinicians; now we must strive to be methodologically sound, balance experimental design against convenient populations, keep up with the ever-changing landscape of statistical tests and their caveats, and learn rudimentary computer programming on top of that! Therefore we need a tool that balances the comprehensibility of human language with the flexibility to keep up with developing statistical methods and the power to analyze any dataset. Enter R, the open-source statistical computing and graphics language with a powerful Integrated Development Environment (the Rstudio IDE), a robust community of developers, data scientists, and experts (who respond to questions!), and too many reputable online resources to read in a lifetime. The impetus to learn something new on top of your ongoing research may be hard to summon, but this course is designed to integrate your ongoing research projects into mastering R, and to provide tools for streamlining projects in the future." />
+  <meta name="github-repo" content="sccastro/PsychMeasurement" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Stats | Psychological Measurement in R" />
+  
+  <meta name="twitter:description" content="As a modern Psychologist, we can no longer be purely theoretical hypothesis generators, experimentalists, statisticians, or clinicians; now we must strive to be methodologically sound, balance experimental design against convenient populations, keep up with the ever-changing landscape of statistical tests and their caveats, and learn rudimentary computer programming on top of that! Therefore we need a tool that balances the comprehensibility of human language with the flexibility to keep up with developing statistical methods and the power to analyze any dataset. Enter R, the open-source statistical computing and graphics language with a powerful Integrated Development Environment (the Rstudio IDE), a robust community of developers, data scientists, and experts (who respond to questions!), and too many reputable online resources to read in a lifetime. The impetus to learn something new on top of your ongoing research may be hard to summon, but this course is designed to integrate your ongoing research projects into mastering R, and to provide tools for streamlining projects in the future." />
+  <meta name="twitter:image" content="https://spencercastro.comimages/UPsychLogo.jpg" />
+
+<meta name="author" content="Spencer Castro" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="introduction-to-statistics.html"/>
+<link rel="next" href="linear-models.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="class_book.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="./">Psychological Measurement in R</a></strong></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="1" data-path="syllabus.html"><a href="syllabus.html"><i class="fa fa-check"></i><b>1</b> Syllabus</a><ul>
+<li class="chapter" data-level="1.1" data-path="syllabus.html"><a href="syllabus.html#course-overview"><i class="fa fa-check"></i><b>1.1</b> Course Overview</a></li>
+<li class="chapter" data-level="1.2" data-path="syllabus.html"><a href="syllabus.html#learning-outcomes-course-objectives"><i class="fa fa-check"></i><b>1.2</b> Learning Outcomes &amp; Course Objectives</a></li>
+<li class="chapter" data-level="1.3" data-path="syllabus.html"><a href="syllabus.html#course-format"><i class="fa fa-check"></i><b>1.3</b> Course Format</a></li>
+<li class="chapter" data-level="1.4" data-path="syllabus.html"><a href="syllabus.html#evaluation-methodsassignments"><i class="fa fa-check"></i><b>1.4</b> Evaluation Methods/Assignments</a></li>
+<li class="chapter" data-level="1.5" data-path="syllabus.html"><a href="syllabus.html#grading-policy"><i class="fa fa-check"></i><b>1.5</b> Grading Policy</a></li>
+<li class="chapter" data-level="1.6" data-path="syllabus.html"><a href="syllabus.html#student-rights-and-responsibilities"><i class="fa fa-check"></i><b>1.6</b> Student Rights and Responsibilities</a></li>
+<li class="chapter" data-level="1.7" data-path="syllabus.html"><a href="syllabus.html#department-of-psychology-undergraduate-academic-misconduct-policy"><i class="fa fa-check"></i><b>1.7</b> Department of Psychology Undergraduate Academic Misconduct Policy</a></li>
+<li class="chapter" data-level="1.8" data-path="syllabus.html"><a href="syllabus.html#course-policies"><i class="fa fa-check"></i><b>1.8</b> Course Policies</a></li>
+<li class="chapter" data-level="1.9" data-path="syllabus.html"><a href="syllabus.html#university-attendance-requirements"><i class="fa fa-check"></i><b>1.9</b> University Attendance Requirements</a></li>
+<li class="chapter" data-level="1.10" data-path="syllabus.html"><a href="syllabus.html#student-support-accommodations"><i class="fa fa-check"></i><b>1.10</b> Student Support &amp; Accommodations</a></li>
+<li class="chapter" data-level="1.11" data-path="syllabus.html"><a href="syllabus.html#academic-calendar"><i class="fa fa-check"></i><b>1.11</b> Academic Calendar</a></li>
+<li class="chapter" data-level="1.12" data-path="syllabus.html"><a href="syllabus.html#course-schedule"><i class="fa fa-check"></i><b>1.12</b> Course Schedule</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#baser-walkthrough"><i class="fa fa-check"></i>BaseR walkthrough</a></li>
+<li class="chapter" data-level="2.1" data-path="introduction.html"><a href="introduction.html#help"><i class="fa fa-check"></i><b>2.1</b> Help</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction.html"><a href="introduction.html#vectors"><i class="fa fa-check"></i><b>2.2</b> VECTORS</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction.html"><a href="introduction.html#programming"><i class="fa fa-check"></i><b>2.3</b> PROGRAMMING</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="introduction.html"><a href="introduction.html#for-loop"><i class="fa fa-check"></i><b>2.3.1</b> For loop</a></li>
+<li class="chapter" data-level="2.3.2" data-path="introduction.html"><a href="introduction.html#while-loop"><i class="fa fa-check"></i><b>2.3.2</b> While loop</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="introduction.html"><a href="introduction.html#assignment-1"><i class="fa fa-check"></i><b>2.4</b> Assignment 1</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="importing-data.html"><a href="importing-data.html"><i class="fa fa-check"></i><b>3</b> Importing Data</a><ul>
+<li class="chapter" data-level="" data-path="importing-data.html"><a href="importing-data.html#reading-files-into-r"><i class="fa fa-check"></i>Reading files into R</a></li>
+<li class="chapter" data-level="3.1" data-path="importing-data.html"><a href="importing-data.html#whats-a-tibble"><i class="fa fa-check"></i><b>3.1</b> What’s a tibble?</a></li>
+<li class="chapter" data-level="3.2" data-path="importing-data.html"><a href="importing-data.html#save-your-dataset"><i class="fa fa-check"></i><b>3.2</b> Save your dataset:</a></li>
+<li class="chapter" data-level="3.3" data-path="importing-data.html"><a href="importing-data.html#cleaning-your-data-file"><i class="fa fa-check"></i><b>3.3</b> Cleaning your data file</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>4</b> Data Transformation</a><ul>
+<li class="chapter" data-level="" data-path="data-transformation.html"><a href="data-transformation.html#data-transformation-with-dplyr"><i class="fa fa-check"></i>Data Transformation with Dplyr</a></li>
+<li class="chapter" data-level="4.1" data-path="data-transformation.html"><a href="data-transformation.html#get-a-dataset-from-your-.rdata-file"><i class="fa fa-check"></i><b>4.1</b> Get a dataset from your .RData file</a></li>
+<li class="chapter" data-level="4.2" data-path="data-transformation.html"><a href="data-transformation.html#introduction-to-the-pipe"><i class="fa fa-check"></i><b>4.2</b> Introduction to “The Pipe”</a></li>
+<li class="chapter" data-level="4.3" data-path="data-transformation.html"><a href="data-transformation.html#aside-on-the-apply-family"><i class="fa fa-check"></i><b>4.3</b> Aside on the apply family</a></li>
+<li class="chapter" data-level="4.4" data-path="data-transformation.html"><a href="data-transformation.html#solutions-to-challenges"><i class="fa fa-check"></i><b>4.4</b> Solutions to Challenges</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-transformation-day-2.html"><a href="data-transformation-day-2.html"><i class="fa fa-check"></i><b>5</b> Data Transformation Day 2</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-transformation-day-2.html"><a href="data-transformation-day-2.html#rcolorbrewer"><i class="fa fa-check"></i><b>5.1</b> RcolorBrewer</a></li>
+<li class="chapter" data-level="5.2" data-path="data-transformation-day-2.html"><a href="data-transformation-day-2.html#modifying-factor-levels"><i class="fa fa-check"></i><b>5.2</b> Modifying Factor Levels</a></li>
+<li class="chapter" data-level="5.3" data-path="data-transformation-day-2.html"><a href="data-transformation-day-2.html#play-time"><i class="fa fa-check"></i><b>5.3</b> Play time</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="visualization-with-ggplot2.html"><a href="visualization-with-ggplot2.html"><i class="fa fa-check"></i><b>6</b> Visualization with ggplot2</a><ul>
+<li class="chapter" data-level="6.1" data-path="visualization-with-ggplot2.html"><a href="visualization-with-ggplot2.html#statistical-transformations"><i class="fa fa-check"></i><b>6.1</b> Statistical Transformations</a></li>
+<li class="chapter" data-level="6.2" data-path="visualization-with-ggplot2.html"><a href="visualization-with-ggplot2.html#changing-the-position"><i class="fa fa-check"></i><b>6.2</b> Changing the position</a></li>
+<li class="chapter" data-level="6.3" data-path="visualization-with-ggplot2.html"><a href="visualization-with-ggplot2.html#coordinates"><i class="fa fa-check"></i><b>6.3</b> Coordinates</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="visualization-with-ggplot2.html"><a href="visualization-with-ggplot2.html#plot-maps-if-you-want"><i class="fa fa-check"></i><b>6.3.1</b> Plot maps if you want</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="introduction-to-statistics.html"><a href="introduction-to-statistics.html"><i class="fa fa-check"></i><b>7</b> Introduction to Statistics</a></li>
+<li class="chapter" data-level="" data-path="stats.html"><a href="stats.html"><i class="fa fa-check"></i>Stats</a><ul>
+<li class="chapter" data-level="7.1" data-path="stats.html"><a href="stats.html#steps-of-visualization"><i class="fa fa-check"></i><b>7.1</b> Steps of Visualization</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="stats.html"><a href="stats.html#descriptive-stats"><i class="fa fa-check"></i><b>7.1.1</b> Descriptive Stats</a></li>
+<li class="chapter" data-level="7.1.2" data-path="stats.html"><a href="stats.html#measures-of-central-tendency"><i class="fa fa-check"></i><b>7.1.2</b> Measures of Central Tendency</a></li>
+<li class="chapter" data-level="7.1.3" data-path="stats.html"><a href="stats.html#measures-of-variability"><i class="fa fa-check"></i><b>7.1.3</b> Measures of Variability</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="stats.html"><a href="stats.html#clinical-trial-example"><i class="fa fa-check"></i><b>7.2</b> Clinical Trial Example</a></li>
+<li class="chapter" data-level="7.3" data-path="stats.html"><a href="stats.html#categorical-data-navarro-pg.-351"><i class="fa fa-check"></i><b>7.3</b> Categorical Data – Navarro pg. 351</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="stats.html"><a href="stats.html#chi-square-goodness-of-fit-test-pearson-1900-review"><i class="fa fa-check"></i><b>7.3.1</b> Chi Square goodness-of-fit test (Pearson, 1900) Review</a></li>
+<li class="chapter" data-level="7.3.2" data-path="stats.html"><a href="stats.html#chi-square-test-of-independence"><i class="fa fa-check"></i><b>7.3.2</b> Chi-square test of independence</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="stats.html"><a href="stats.html#assumptions"><i class="fa fa-check"></i><b>7.4</b> Assumptions</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="stats.html"><a href="stats.html#shapiro-normality-test"><i class="fa fa-check"></i><b>7.4.1</b> Shapiro normality test</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="stats.html"><a href="stats.html#one-way-anova"><i class="fa fa-check"></i><b>7.5</b> One-Way ANOVA</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="linear-models.html"><a href="linear-models.html"><i class="fa fa-check"></i><b>8</b> Linear Models</a><ul>
+<li class="chapter" data-level="" data-path="linear-models.html"><a href="linear-models.html#steps-of-linear-models"><i class="fa fa-check"></i>Steps of Linear Models</a></li>
+<li class="chapter" data-level="8.1" data-path="linear-models.html"><a href="linear-models.html#step-1.-get-your-data"><i class="fa fa-check"></i><b>8.1</b> Step 1. Get your data</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="multilevel-models.html"><a href="multilevel-models.html"><i class="fa fa-check"></i><b>9</b> Multilevel Models</a><ul>
+<li class="chapter" data-level="" data-path="multilevel-models.html"><a href="multilevel-models.html#steps-of-multilevel-models"><i class="fa fa-check"></i>Steps of Multilevel Models</a><ul>
+<li class="chapter" data-level="9.0.1" data-path="multilevel-models.html"><a href="multilevel-models.html#mixed-models-in-r"><i class="fa fa-check"></i><b>9.0.1</b> Mixed models in R</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Psychological Measurement in R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="stats" class="section level1 unnumbered">
+<h1>Stats</h1>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb156-1" data-line-number="1"><span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>());<span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb156-2" data-line-number="2"><span class="kw">require</span>(tidyverse)</a>
+<a class="sourceLine" id="cb156-3" data-line-number="3"><span class="co">#install.packages(&quot;lsr&quot;)</span></a></code></pre></div>
+<div id="steps-of-visualization" class="section level2">
+<h2><span class="header-section-number">7.1</span> Steps of Visualization</h2>
+<p>From Navarro, Page 105…</p>
+<div id="descriptive-stats" class="section level3">
+<h3><span class="header-section-number">7.1.1</span> Descriptive Stats</h3>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb157-1" data-line-number="1"><span class="kw">load</span>(<span class="st">&quot;~/Dropbox/RCOURSE/books_resources/data/aflsmall.Rdata&quot;</span>)</a>
+<a class="sourceLine" id="cb157-2" data-line-number="2"><span class="kw">library</span>(lsr)</a>
+<a class="sourceLine" id="cb157-3" data-line-number="3">lsr<span class="op">::</span><span class="kw">who</span>()</a>
+<a class="sourceLine" id="cb157-4" data-line-number="4"><span class="co">#&gt;    -- Name --      -- Class --   -- Size --</span></a>
+<a class="sourceLine" id="cb157-5" data-line-number="5"><span class="co">#&gt;    afl.finalists   factor        400       </span></a>
+<a class="sourceLine" id="cb157-6" data-line-number="6"><span class="co">#&gt;    afl.margins     numeric       176</span></a></code></pre></div>
+<p>The afl.margins variable contains the winning margin (number of points) for all 176 home and away games played during the 2010 season.</p>
+<p>Quick Afl rules:
+There are 4 posts, to score:
+- Goal (through the two middle posts): 6 points
+- Behind (through the outside posts): 1 point
+- Ball touched (through any sets of posts): 1 point
+- Hits one of the middle posts: 1 point</p>
+<p>(Scores are high as you will see)</p>
+<p>Here’s a vector of winner-loser scores for 176 games in 2010 afl.margins</p>
+<p>Let’s make sense of this mess.</p>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb158-1" data-line-number="1"><span class="kw">hist</span>(afl.margins, <span class="dt">breaks=</span><span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb158-2" data-line-number="2"><span class="kw">stem</span>(afl.margins)</a>
+<a class="sourceLine" id="cb158-3" data-line-number="3"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb158-4" data-line-number="4"><span class="co">#&gt;   The decimal point is 1 digit(s) to the right of the |</span></a>
+<a class="sourceLine" id="cb158-5" data-line-number="5"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb158-6" data-line-number="6"><span class="co">#&gt;    0 | 001111223333333344567788888999999</span></a>
+<a class="sourceLine" id="cb158-7" data-line-number="7"><span class="co">#&gt;    1 | 0000011122234456666899999</span></a>
+<a class="sourceLine" id="cb158-8" data-line-number="8"><span class="co">#&gt;    2 | 00011222333445566667788999999</span></a>
+<a class="sourceLine" id="cb158-9" data-line-number="9"><span class="co">#&gt;    3 | 01223555566666678888899</span></a>
+<a class="sourceLine" id="cb158-10" data-line-number="10"><span class="co">#&gt;    4 | 012334444477788899</span></a>
+<a class="sourceLine" id="cb158-11" data-line-number="11"><span class="co">#&gt;    5 | 00002233445556667</span></a>
+<a class="sourceLine" id="cb158-12" data-line-number="12"><span class="co">#&gt;    6 | 0113455678</span></a>
+<a class="sourceLine" id="cb158-13" data-line-number="13"><span class="co">#&gt;    7 | 01123556</span></a>
+<a class="sourceLine" id="cb158-14" data-line-number="14"><span class="co">#&gt;    8 | 122349</span></a>
+<a class="sourceLine" id="cb158-15" data-line-number="15"><span class="co">#&gt;    9 | 458</span></a>
+<a class="sourceLine" id="cb158-16" data-line-number="16"><span class="co">#&gt;   10 | 148</span></a>
+<a class="sourceLine" id="cb158-17" data-line-number="17"><span class="co">#&gt;   11 | 6</span></a></code></pre></div>
+<p><img src="06_IntroStats_files/figure-html/histstem-1.png" width="70%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="measures-of-central-tendency" class="section level3">
+<h3><span class="header-section-number">7.1.2</span> Measures of Central Tendency</h3>
+<p>mean calculation</p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb159-1" data-line-number="1"><span class="kw">sum</span>(afl.margins)<span class="op">/</span><span class="kw">length</span>(afl.margins)</a>
+<a class="sourceLine" id="cb159-2" data-line-number="2"><span class="co">#&gt; [1] 35.3</span></a></code></pre></div>
+<p>OR</p>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb160-1" data-line-number="1"><span class="kw">mean</span>(afl.margins)</a>
+<a class="sourceLine" id="cb160-2" data-line-number="2"><span class="co">#&gt; [1] 35.3</span></a></code></pre></div>
+<p><strong>Challenge 1</strong>
+Get the mean of the first five game margins.</p>
+<p><strong>Challenge 2</strong>
+Get the median game margin.</p>
+<p>Great metaphor for the two: The mean is basically the “centre of gravity” of the data set. If you imagine that the histogram of the data is a solid object, then the point on which you could balance it (as if on a see-saw) is the mean. In contrast, the median is the middle observation. Half of the observations are smaller, and half of the observations are larger.</p>
+<p>You can trim the mean:</p>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb161-1" data-line-number="1"><span class="kw">mean</span>( <span class="dt">x =</span> afl.margins, <span class="dt">trim =</span> <span class="fl">.05</span>) <span class="co">#Trims 5% of the data off either side</span></a>
+<a class="sourceLine" id="cb161-2" data-line-number="2"><span class="co">#&gt; [1] 33.8</span></a>
+<a class="sourceLine" id="cb161-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb161-4" data-line-number="4"><span class="fl">.05</span><span class="op">*</span><span class="dv">176</span> <span class="co">#How many scores are trimmed total</span></a>
+<a class="sourceLine" id="cb161-5" data-line-number="5"><span class="co">#&gt; [1] 8.8</span></a></code></pre></div>
+<p>Get the Mode</p>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb162-1" data-line-number="1"><span class="kw">mode</span>(afl.margins)</a>
+<a class="sourceLine" id="cb162-2" data-line-number="2"><span class="co">#&gt; [1] &quot;numeric&quot;</span></a></code></pre></div>
+<p>You can create the function from just doing the math.</p>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb163-1" data-line-number="1">getmode &lt;-<span class="st"> </span><span class="cf">function</span>(v) {</a>
+<a class="sourceLine" id="cb163-2" data-line-number="2">  uniqv &lt;-<span class="st"> </span><span class="kw">unique</span>(v)</a>
+<a class="sourceLine" id="cb163-3" data-line-number="3">  uniqv[<span class="kw">which.max</span>(<span class="kw">tabulate</span>(<span class="kw">match</span>(v, uniqv)))]</a>
+<a class="sourceLine" id="cb163-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb163-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb163-6" data-line-number="6"><span class="kw">getmode</span>(afl.margins)</a>
+<a class="sourceLine" id="cb163-7" data-line-number="7"><span class="co">#&gt; [1] 3</span></a></code></pre></div>
+<p>Mode on a character vector?</p>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb164-1" data-line-number="1">lsr<span class="op">::</span><span class="kw">modeOf</span>(afl.finalists)</a>
+<a class="sourceLine" id="cb164-2" data-line-number="2"><span class="co">#&gt; [1] &quot;Geelong&quot;</span></a>
+<a class="sourceLine" id="cb164-3" data-line-number="3"><span class="kw">table</span>(afl.finalists)</a>
+<a class="sourceLine" id="cb164-4" data-line-number="4"><span class="co">#&gt; afl.finalists</span></a>
+<a class="sourceLine" id="cb164-5" data-line-number="5"><span class="co">#&gt;         Adelaide         Brisbane          Carlton      Collingwood </span></a>
+<a class="sourceLine" id="cb164-6" data-line-number="6"><span class="co">#&gt;               26               25               26               28 </span></a>
+<a class="sourceLine" id="cb164-7" data-line-number="7"><span class="co">#&gt;         Essendon          Fitzroy        Fremantle          Geelong </span></a>
+<a class="sourceLine" id="cb164-8" data-line-number="8"><span class="co">#&gt;               32                0                6               39 </span></a>
+<a class="sourceLine" id="cb164-9" data-line-number="9"><span class="co">#&gt;         Hawthorn        Melbourne  North Melbourne    Port Adelaide </span></a>
+<a class="sourceLine" id="cb164-10" data-line-number="10"><span class="co">#&gt;               27               28               28               17 </span></a>
+<a class="sourceLine" id="cb164-11" data-line-number="11"><span class="co">#&gt;         Richmond         St Kilda           Sydney       West Coast </span></a>
+<a class="sourceLine" id="cb164-12" data-line-number="12"><span class="co">#&gt;                6               24               26               38 </span></a>
+<a class="sourceLine" id="cb164-13" data-line-number="13"><span class="co">#&gt; Western Bulldogs </span></a>
+<a class="sourceLine" id="cb164-14" data-line-number="14"><span class="co">#&gt;               24</span></a></code></pre></div>
+<p>How often does the mode occur?</p>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb165-1" data-line-number="1"><span class="kw">maxFreq</span>( <span class="dt">x =</span> afl.finalists )</a>
+<a class="sourceLine" id="cb165-2" data-line-number="2"><span class="co">#&gt; [1] 39</span></a></code></pre></div>
+</div>
+<div id="measures-of-variability" class="section level3">
+<h3><span class="header-section-number">7.1.3</span> Measures of Variability</h3>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb166-1" data-line-number="1"><span class="kw">max</span>(afl.margins)</a>
+<a class="sourceLine" id="cb166-2" data-line-number="2"><span class="co">#&gt; [1] 116</span></a>
+<a class="sourceLine" id="cb166-3" data-line-number="3"><span class="kw">min</span>(afl.margins)</a>
+<a class="sourceLine" id="cb166-4" data-line-number="4"><span class="co">#&gt; [1] 0</span></a>
+<a class="sourceLine" id="cb166-5" data-line-number="5"><span class="kw">range</span>( afl.margins )</a>
+<a class="sourceLine" id="cb166-6" data-line-number="6"><span class="co">#&gt; [1]   0 116</span></a>
+<a class="sourceLine" id="cb166-7" data-line-number="7"><span class="kw">quantile</span>( <span class="dt">x =</span> afl.margins, <span class="dt">probs =</span> <span class="fl">.5</span>)</a>
+<a class="sourceLine" id="cb166-8" data-line-number="8"><span class="co">#&gt;  50% </span></a>
+<a class="sourceLine" id="cb166-9" data-line-number="9"><span class="co">#&gt; 30.5</span></a>
+<a class="sourceLine" id="cb166-10" data-line-number="10"><span class="kw">quantile</span>(afl.margins, <span class="dt">probs =</span> <span class="kw">c</span>(.<span class="dv">25</span>,.<span class="dv">5</span>,.<span class="dv">75</span>))</a>
+<a class="sourceLine" id="cb166-11" data-line-number="11"><span class="co">#&gt;  25%  50%  75% </span></a>
+<a class="sourceLine" id="cb166-12" data-line-number="12"><span class="co">#&gt; 12.8 30.5 50.5</span></a>
+<a class="sourceLine" id="cb166-13" data-line-number="13"><span class="kw">IQR</span>( <span class="dt">x =</span> afl.margins ) <span class="co"># Inter-quartile range</span></a>
+<a class="sourceLine" id="cb166-14" data-line-number="14"><span class="co">#&gt; [1] 37.8</span></a></code></pre></div>
+<p>OR</p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb167-1" data-line-number="1"><span class="kw">quantile</span>(afl.margins, <span class="dt">probs =</span> <span class="fl">.75</span>) <span class="op">-</span><span class="st"> </span><span class="kw">quantile</span>(afl.margins, <span class="dt">probs =</span> <span class="fl">.25</span>)</a>
+<a class="sourceLine" id="cb167-2" data-line-number="2"><span class="co">#&gt;  75% </span></a>
+<a class="sourceLine" id="cb167-3" data-line-number="3"><span class="co">#&gt; 37.8</span></a></code></pre></div>
+<p>Mean absolute deviation</p>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" data-line-number="1">lsr<span class="op">::</span><span class="kw">aad</span>(afl.margins)</a>
+<a class="sourceLine" id="cb168-2" data-line-number="2"><span class="co">#&gt; [1] 21.1</span></a></code></pre></div>
+<p>what does aad do?</p>
+<p>hint:</p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb169-1" data-line-number="1">aad <span class="co">#You can look into functions by not adding the ()</span></a>
+<a class="sourceLine" id="cb169-2" data-line-number="2"><span class="co">#&gt; function (x, na.rm = FALSE) </span></a>
+<a class="sourceLine" id="cb169-3" data-line-number="3"><span class="co">#&gt; {</span></a>
+<a class="sourceLine" id="cb169-4" data-line-number="4"><span class="co">#&gt;     if (!is(x, &quot;numeric&quot;) &amp; !is(x, &quot;integer&quot;)) {</span></a>
+<a class="sourceLine" id="cb169-5" data-line-number="5"><span class="co">#&gt;         stop(&quot;\&quot;x\&quot; must be numeric&quot;)</span></a>
+<a class="sourceLine" id="cb169-6" data-line-number="6"><span class="co">#&gt;     }</span></a>
+<a class="sourceLine" id="cb169-7" data-line-number="7"><span class="co">#&gt;     if (!is(na.rm, &quot;logical&quot;) | length(na.rm) != 1) {</span></a>
+<a class="sourceLine" id="cb169-8" data-line-number="8"><span class="co">#&gt;         stop(&quot;\&quot;na.rm\&quot; must be a single logical value&quot;)</span></a>
+<a class="sourceLine" id="cb169-9" data-line-number="9"><span class="co">#&gt;     }</span></a>
+<a class="sourceLine" id="cb169-10" data-line-number="10"><span class="co">#&gt;     if (na.rm) {</span></a>
+<a class="sourceLine" id="cb169-11" data-line-number="11"><span class="co">#&gt;         x &lt;- x[!is.na(x)]</span></a>
+<a class="sourceLine" id="cb169-12" data-line-number="12"><span class="co">#&gt;     }</span></a>
+<a class="sourceLine" id="cb169-13" data-line-number="13"><span class="co">#&gt;     y &lt;- mean(abs(x - mean(x)))</span></a>
+<a class="sourceLine" id="cb169-14" data-line-number="14"><span class="co">#&gt;     return(y)</span></a>
+<a class="sourceLine" id="cb169-15" data-line-number="15"><span class="co">#&gt; }</span></a>
+<a class="sourceLine" id="cb169-16" data-line-number="16"><span class="co">#&gt; &lt;bytecode: 0x7fa5be4e5550&gt;</span></a>
+<a class="sourceLine" id="cb169-17" data-line-number="17"><span class="co">#&gt; &lt;environment: namespace:lsr&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb170-1" data-line-number="1"><span class="kw">mean</span>(<span class="kw">abs</span>(afl.margins <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(afl.margins)))</a>
+<a class="sourceLine" id="cb170-2" data-line-number="2"><span class="co">#&gt; [1] 21.1</span></a></code></pre></div>
+<p>Variance (mean squared deviation)</p>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb171-1" data-line-number="1"><span class="kw">mean</span>( (afl.margins <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(afl.margins) )<span class="op">^</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb171-2" data-line-number="2"><span class="co">#&gt; [1] 676</span></a>
+<a class="sourceLine" id="cb171-3" data-line-number="3"><span class="kw">var</span>(afl.margins)</a>
+<a class="sourceLine" id="cb171-4" data-line-number="4"><span class="co">#&gt; [1] 680</span></a>
+<a class="sourceLine" id="cb171-5" data-line-number="5"><span class="kw">sd</span>(afl.margins)</a>
+<a class="sourceLine" id="cb171-6" data-line-number="6"><span class="co">#&gt; [1] 26.1</span></a></code></pre></div>
+<p><strong>Challenge 3</strong> Show the standard deviation in a graph.</p>
+<p><strong>Challenge 4</strong> Calculate histogram, but do not draw it.</p>
+<p>Skew and kurtosis from psych library</p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb172-1" data-line-number="1"><span class="kw">library</span>(psych)</a>
+<a class="sourceLine" id="cb172-2" data-line-number="2"><span class="kw">skew</span>(afl.margins)</a>
+<a class="sourceLine" id="cb172-3" data-line-number="3"><span class="co">#&gt; [1] 0.767</span></a>
+<a class="sourceLine" id="cb172-4" data-line-number="4"><span class="kw">kurtosi</span>(afl.margins)</a>
+<a class="sourceLine" id="cb172-5" data-line-number="5"><span class="co">#&gt; [1] 0.0296</span></a></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb173-1" data-line-number="1">q &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="st">&quot;too flat&quot;</span>, <span class="st">&quot;platykurtic&quot;</span>, <span class="st">&quot;negative&quot;</span>),</a>
+<a class="sourceLine" id="cb173-2" data-line-number="2">      <span class="kw">rbind</span>(<span class="kw">c</span>(<span class="st">&quot;just pointy enough&quot;</span>, <span class="st">&quot;mesokurtic&quot;</span>, <span class="st">&quot;zero&quot;</span>),</a>
+<a class="sourceLine" id="cb173-3" data-line-number="3"><span class="kw">c</span>(<span class="st">&quot;too pointy&quot;</span>, <span class="st">&quot;leptokurtic&quot;</span>, <span class="st">&quot;positive&quot;</span>)))</a>
+<a class="sourceLine" id="cb173-4" data-line-number="4"><span class="kw">colnames</span>(q) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;informal term&quot;</span>, <span class="st">&quot;technical name&quot;</span>, <span class="st">&quot;kurtosis value&quot;</span>)</a>
+<a class="sourceLine" id="cb173-5" data-line-number="5"><span class="kw">data.frame</span>(q)</a>
+<a class="sourceLine" id="cb173-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb173-7" data-line-number="7"><span class="co">#        informal.term technical.name kurtosis.value</span></a>
+<a class="sourceLine" id="cb173-8" data-line-number="8"><span class="co"># 1           too flat    platykurtic       negative</span></a>
+<a class="sourceLine" id="cb173-9" data-line-number="9"><span class="co"># 2 just pointy enough     mesokurtic           zero</span></a>
+<a class="sourceLine" id="cb173-10" data-line-number="10"><span class="co"># 3         too pointy    leptokurtic       positive</span></a></code></pre></div>
+<p>Get it all</p>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb174-1" data-line-number="1"><span class="kw">describe</span>(afl.margins)</a>
+<a class="sourceLine" id="cb174-2" data-line-number="2"><span class="co">#&gt;    vars   n mean   sd median trimmed  mad min max range skew kurtosis   se</span></a>
+<a class="sourceLine" id="cb174-3" data-line-number="3"><span class="co">#&gt; X1    1 176 35.3 26.1   30.5    32.8 28.9   0 116   116 0.77     0.03 1.97</span></a></code></pre></div>
+</div>
+</div>
+<div id="clinical-trial-example" class="section level2">
+<h2><span class="header-section-number">7.2</span> Clinical Trial Example</h2>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb175-1" data-line-number="1"><span class="co">#New dataset</span></a>
+<a class="sourceLine" id="cb175-2" data-line-number="2"><span class="kw">load</span>(<span class="st">&quot;~/Dropbox/RCOURSE/books_resources/data/clinicaltrial.Rdata&quot;</span>)</a>
+<a class="sourceLine" id="cb175-3" data-line-number="3">psych<span class="op">::</span><span class="kw">describe</span>(clin.trial)</a>
+<a class="sourceLine" id="cb175-4" data-line-number="4"><span class="co">#&gt;           vars  n mean   sd median trimmed  mad min max range skew kurtosis</span></a>
+<a class="sourceLine" id="cb175-5" data-line-number="5"><span class="co">#&gt; drug*        1 18 2.00 0.84   2.00    2.00 1.48 1.0 3.0   2.0 0.00    -1.66</span></a>
+<a class="sourceLine" id="cb175-6" data-line-number="6"><span class="co">#&gt; therapy*     2 18 1.50 0.51   1.50    1.50 0.74 1.0 2.0   1.0 0.00    -2.11</span></a>
+<a class="sourceLine" id="cb175-7" data-line-number="7"><span class="co">#&gt; mood.gain    3 18 0.88 0.53   0.85    0.88 0.67 0.1 1.8   1.7 0.13    -1.44</span></a>
+<a class="sourceLine" id="cb175-8" data-line-number="8"><span class="co">#&gt;             se</span></a>
+<a class="sourceLine" id="cb175-9" data-line-number="9"><span class="co">#&gt; drug*     0.20</span></a>
+<a class="sourceLine" id="cb175-10" data-line-number="10"><span class="co">#&gt; therapy*  0.12</span></a>
+<a class="sourceLine" id="cb175-11" data-line-number="11"><span class="co">#&gt; mood.gain 0.13</span></a>
+<a class="sourceLine" id="cb175-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb175-13" data-line-number="13"><span class="kw">describeBy</span>(clin.trial, <span class="dt">group =</span> <span class="kw">c</span>(<span class="st">&quot;drug&quot;</span>,<span class="st">&quot;therapy&quot;</span>))</a>
+<a class="sourceLine" id="cb175-14" data-line-number="14"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb175-15" data-line-number="15"><span class="co">#&gt;  Descriptive statistics by group </span></a>
+<a class="sourceLine" id="cb175-16" data-line-number="16"><span class="co">#&gt; drug: placebo</span></a>
+<a class="sourceLine" id="cb175-17" data-line-number="17"><span class="co">#&gt; therapy: no.therapy</span></a>
+<a class="sourceLine" id="cb175-18" data-line-number="18"><span class="co">#&gt;           vars n mean  sd median trimmed mad min max range skew kurtosis   se</span></a>
+<a class="sourceLine" id="cb175-19" data-line-number="19"><span class="co">#&gt; drug*        1 3  1.0 0.0    1.0     1.0 0.0 1.0 1.0   0.0  NaN      NaN 0.00</span></a>
+<a class="sourceLine" id="cb175-20" data-line-number="20"><span class="co">#&gt; therapy*     2 3  1.0 0.0    1.0     1.0 0.0 1.0 1.0   0.0  NaN      NaN 0.00</span></a>
+<a class="sourceLine" id="cb175-21" data-line-number="21"><span class="co">#&gt; mood.gain    3 3  0.3 0.2    0.3     0.3 0.3 0.1 0.5   0.4    0    -2.33 0.12</span></a>
+<a class="sourceLine" id="cb175-22" data-line-number="22"><span class="co">#&gt; ------------------------------------------------------------ </span></a>
+<a class="sourceLine" id="cb175-23" data-line-number="23"><span class="co">#&gt; drug: anxifree</span></a>
+<a class="sourceLine" id="cb175-24" data-line-number="24"><span class="co">#&gt; therapy: no.therapy</span></a>
+<a class="sourceLine" id="cb175-25" data-line-number="25"><span class="co">#&gt;           vars n mean  sd median trimmed mad min max range skew kurtosis   se</span></a>
+<a class="sourceLine" id="cb175-26" data-line-number="26"><span class="co">#&gt; drug*        1 3  2.0 0.0    2.0     2.0 0.0 2.0 2.0   0.0  NaN      NaN 0.00</span></a>
+<a class="sourceLine" id="cb175-27" data-line-number="27"><span class="co">#&gt; therapy*     2 3  1.0 0.0    1.0     1.0 0.0 1.0 1.0   0.0  NaN      NaN 0.00</span></a>
+<a class="sourceLine" id="cb175-28" data-line-number="28"><span class="co">#&gt; mood.gain    3 3  0.4 0.2    0.4     0.4 0.3 0.2 0.6   0.4    0    -2.33 0.12</span></a>
+<a class="sourceLine" id="cb175-29" data-line-number="29"><span class="co">#&gt; ------------------------------------------------------------ </span></a>
+<a class="sourceLine" id="cb175-30" data-line-number="30"><span class="co">#&gt; drug: joyzepam</span></a>
+<a class="sourceLine" id="cb175-31" data-line-number="31"><span class="co">#&gt; therapy: no.therapy</span></a>
+<a class="sourceLine" id="cb175-32" data-line-number="32"><span class="co">#&gt;           vars n mean   sd median trimmed  mad min max range skew kurtosis   se</span></a>
+<a class="sourceLine" id="cb175-33" data-line-number="33"><span class="co">#&gt; drug*        1 3 3.00 0.00    3.0    3.00 0.00 3.0 3.0   0.0  NaN      NaN 0.00</span></a>
+<a class="sourceLine" id="cb175-34" data-line-number="34"><span class="co">#&gt; therapy*     2 3 1.00 0.00    1.0    1.00 0.00 1.0 1.0   0.0  NaN      NaN 0.00</span></a>
+<a class="sourceLine" id="cb175-35" data-line-number="35"><span class="co">#&gt; mood.gain    3 3 1.47 0.21    1.4    1.47 0.15 1.3 1.7   0.4 0.29    -2.33 0.12</span></a>
+<a class="sourceLine" id="cb175-36" data-line-number="36"><span class="co">#&gt; ------------------------------------------------------------ </span></a>
+<a class="sourceLine" id="cb175-37" data-line-number="37"><span class="co">#&gt; drug: placebo</span></a>
+<a class="sourceLine" id="cb175-38" data-line-number="38"><span class="co">#&gt; therapy: CBT</span></a>
+<a class="sourceLine" id="cb175-39" data-line-number="39"><span class="co">#&gt;           vars n mean  sd median trimmed  mad min max range skew kurtosis   se</span></a>
+<a class="sourceLine" id="cb175-40" data-line-number="40"><span class="co">#&gt; drug*        1 3  1.0 0.0    1.0     1.0 0.00 1.0 1.0   0.0  NaN      NaN 0.00</span></a>
+<a class="sourceLine" id="cb175-41" data-line-number="41"><span class="co">#&gt; therapy*     2 3  2.0 0.0    2.0     2.0 0.00 2.0 2.0   0.0  NaN      NaN 0.00</span></a>
+<a class="sourceLine" id="cb175-42" data-line-number="42"><span class="co">#&gt; mood.gain    3 3  0.6 0.3    0.6     0.6 0.44 0.3 0.9   0.6    0    -2.33 0.17</span></a>
+<a class="sourceLine" id="cb175-43" data-line-number="43"><span class="co">#&gt; ------------------------------------------------------------ </span></a>
+<a class="sourceLine" id="cb175-44" data-line-number="44"><span class="co">#&gt; drug: anxifree</span></a>
+<a class="sourceLine" id="cb175-45" data-line-number="45"><span class="co">#&gt; therapy: CBT</span></a>
+<a class="sourceLine" id="cb175-46" data-line-number="46"><span class="co">#&gt;           vars n mean   sd median trimmed  mad min max range  skew kurtosis</span></a>
+<a class="sourceLine" id="cb175-47" data-line-number="47"><span class="co">#&gt; drug*        1 3 2.00 0.00    2.0    2.00 0.00 2.0 2.0   0.0   NaN      NaN</span></a>
+<a class="sourceLine" id="cb175-48" data-line-number="48"><span class="co">#&gt; therapy*     2 3 2.00 0.00    2.0    2.00 0.00 2.0 2.0   0.0   NaN      NaN</span></a>
+<a class="sourceLine" id="cb175-49" data-line-number="49"><span class="co">#&gt; mood.gain    3 3 1.03 0.21    1.1    1.03 0.15 0.8 1.2   0.4 -0.29    -2.33</span></a>
+<a class="sourceLine" id="cb175-50" data-line-number="50"><span class="co">#&gt;             se</span></a>
+<a class="sourceLine" id="cb175-51" data-line-number="51"><span class="co">#&gt; drug*     0.00</span></a>
+<a class="sourceLine" id="cb175-52" data-line-number="52"><span class="co">#&gt; therapy*  0.00</span></a>
+<a class="sourceLine" id="cb175-53" data-line-number="53"><span class="co">#&gt; mood.gain 0.12</span></a>
+<a class="sourceLine" id="cb175-54" data-line-number="54"><span class="co">#&gt; ------------------------------------------------------------ </span></a>
+<a class="sourceLine" id="cb175-55" data-line-number="55"><span class="co">#&gt; drug: joyzepam</span></a>
+<a class="sourceLine" id="cb175-56" data-line-number="56"><span class="co">#&gt; therapy: CBT</span></a>
+<a class="sourceLine" id="cb175-57" data-line-number="57"><span class="co">#&gt;           vars n mean   sd median trimmed  mad min max range skew kurtosis   se</span></a>
+<a class="sourceLine" id="cb175-58" data-line-number="58"><span class="co">#&gt; drug*        1 3  3.0 0.00    3.0     3.0 0.00 3.0 3.0   0.0  NaN      NaN 0.00</span></a>
+<a class="sourceLine" id="cb175-59" data-line-number="59"><span class="co">#&gt; therapy*     2 3  2.0 0.00    2.0     2.0 0.00 2.0 2.0   0.0  NaN      NaN 0.00</span></a>
+<a class="sourceLine" id="cb175-60" data-line-number="60"><span class="co">#&gt; mood.gain    3 3  1.5 0.26    1.4     1.5 0.15 1.3 1.8   0.5 0.32    -2.33 0.15</span></a>
+<a class="sourceLine" id="cb175-61" data-line-number="61"></a>
+<a class="sourceLine" id="cb175-62" data-line-number="62"><span class="kw">by</span>(<span class="dt">data =</span> clin.trial, <span class="dt">INDICES =</span> clin.trial<span class="op">$</span>therapy, <span class="dt">FUN =</span> describe)</a>
+<a class="sourceLine" id="cb175-63" data-line-number="63"><span class="co">#&gt; clin.trial$therapy: no.therapy</span></a>
+<a class="sourceLine" id="cb175-64" data-line-number="64"><span class="co">#&gt;           vars n mean   sd median trimmed  mad min max range skew kurtosis   se</span></a>
+<a class="sourceLine" id="cb175-65" data-line-number="65"><span class="co">#&gt; drug*        1 9 2.00 0.87    2.0    2.00 1.48 1.0 3.0   2.0 0.00    -1.81 0.29</span></a>
+<a class="sourceLine" id="cb175-66" data-line-number="66"><span class="co">#&gt; therapy*     2 9 1.00 0.00    1.0    1.00 0.00 1.0 1.0   0.0  NaN      NaN 0.00</span></a>
+<a class="sourceLine" id="cb175-67" data-line-number="67"><span class="co">#&gt; mood.gain    3 9 0.72 0.59    0.5    0.72 0.44 0.1 1.7   1.6 0.51    -1.59 0.20</span></a>
+<a class="sourceLine" id="cb175-68" data-line-number="68"><span class="co">#&gt; ------------------------------------------------------------ </span></a>
+<a class="sourceLine" id="cb175-69" data-line-number="69"><span class="co">#&gt; clin.trial$therapy: CBT</span></a>
+<a class="sourceLine" id="cb175-70" data-line-number="70"><span class="co">#&gt;           vars n mean   sd median trimmed  mad min max range  skew kurtosis</span></a>
+<a class="sourceLine" id="cb175-71" data-line-number="71"><span class="co">#&gt; drug*        1 9 2.00 0.87    2.0    2.00 1.48 1.0 3.0   2.0  0.00    -1.81</span></a>
+<a class="sourceLine" id="cb175-72" data-line-number="72"><span class="co">#&gt; therapy*     2 9 2.00 0.00    2.0    2.00 0.00 2.0 2.0   0.0   NaN      NaN</span></a>
+<a class="sourceLine" id="cb175-73" data-line-number="73"><span class="co">#&gt; mood.gain    3 9 1.04 0.45    1.1    1.04 0.44 0.3 1.8   1.5 -0.03    -1.12</span></a>
+<a class="sourceLine" id="cb175-74" data-line-number="74"><span class="co">#&gt;             se</span></a>
+<a class="sourceLine" id="cb175-75" data-line-number="75"><span class="co">#&gt; drug*     0.29</span></a>
+<a class="sourceLine" id="cb175-76" data-line-number="76"><span class="co">#&gt; therapy*  0.00</span></a>
+<a class="sourceLine" id="cb175-77" data-line-number="77"><span class="co">#&gt; mood.gain 0.15</span></a>
+<a class="sourceLine" id="cb175-78" data-line-number="78"><span class="kw">by</span>(<span class="dt">data =</span> clin.trial, <span class="dt">INDICES =</span> clin.trial<span class="op">$</span>therapy, <span class="dt">FUN =</span> summary)</a>
+<a class="sourceLine" id="cb175-79" data-line-number="79"><span class="co">#&gt; clin.trial$therapy: no.therapy</span></a>
+<a class="sourceLine" id="cb175-80" data-line-number="80"><span class="co">#&gt;        drug         therapy    mood.gain    </span></a>
+<a class="sourceLine" id="cb175-81" data-line-number="81"><span class="co">#&gt;  placebo :3   no.therapy:9   Min.   :0.100  </span></a>
+<a class="sourceLine" id="cb175-82" data-line-number="82"><span class="co">#&gt;  anxifree:3   CBT       :0   1st Qu.:0.300  </span></a>
+<a class="sourceLine" id="cb175-83" data-line-number="83"><span class="co">#&gt;  joyzepam:3                  Median :0.500  </span></a>
+<a class="sourceLine" id="cb175-84" data-line-number="84"><span class="co">#&gt;                              Mean   :0.722  </span></a>
+<a class="sourceLine" id="cb175-85" data-line-number="85"><span class="co">#&gt;                              3rd Qu.:1.300  </span></a>
+<a class="sourceLine" id="cb175-86" data-line-number="86"><span class="co">#&gt;                              Max.   :1.700  </span></a>
+<a class="sourceLine" id="cb175-87" data-line-number="87"><span class="co">#&gt; ------------------------------------------------------------ </span></a>
+<a class="sourceLine" id="cb175-88" data-line-number="88"><span class="co">#&gt; clin.trial$therapy: CBT</span></a>
+<a class="sourceLine" id="cb175-89" data-line-number="89"><span class="co">#&gt;        drug         therapy    mood.gain   </span></a>
+<a class="sourceLine" id="cb175-90" data-line-number="90"><span class="co">#&gt;  placebo :3   no.therapy:0   Min.   :0.30  </span></a>
+<a class="sourceLine" id="cb175-91" data-line-number="91"><span class="co">#&gt;  anxifree:3   CBT       :9   1st Qu.:0.80  </span></a>
+<a class="sourceLine" id="cb175-92" data-line-number="92"><span class="co">#&gt;  joyzepam:3                  Median :1.10  </span></a>
+<a class="sourceLine" id="cb175-93" data-line-number="93"><span class="co">#&gt;                              Mean   :1.04  </span></a>
+<a class="sourceLine" id="cb175-94" data-line-number="94"><span class="co">#&gt;                              3rd Qu.:1.30  </span></a>
+<a class="sourceLine" id="cb175-95" data-line-number="95"><span class="co">#&gt;                              Max.   :1.80</span></a></code></pre></div>
+<p>##Correlations
+Here is an example of correlations with the mtcars dataset from <code>datasets</code>.</p>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb176-1" data-line-number="1">df &lt;-<span class="st"> </span>datasets<span class="op">::</span>mtcars</a>
+<a class="sourceLine" id="cb176-2" data-line-number="2"><span class="kw">cor</span>(mtcars<span class="op">$</span>mpg, mtcars<span class="op">$</span>disp)</a>
+<a class="sourceLine" id="cb176-3" data-line-number="3"><span class="co">#&gt; [1] -0.848</span></a>
+<a class="sourceLine" id="cb176-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb176-5" data-line-number="5"><span class="kw">plot</span>(mtcars<span class="op">$</span>mpg, mtcars<span class="op">$</span>disp)</a></code></pre></div>
+<p><img src="06_IntroStats_files/figure-html/correlations-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>Here’s the work dataset from Navarro.</p>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb177-1" data-line-number="1"><span class="kw">load</span>(<span class="st">&quot;~/Dropbox/RCOURSE/books_resources/data/work.Rdata&quot;</span>)</a>
+<a class="sourceLine" id="cb177-2" data-line-number="2"><span class="kw">head</span>(work)</a>
+<a class="sourceLine" id="cb177-3" data-line-number="3"><span class="co">#&gt;   hours tasks pay day   weekday week day.type</span></a>
+<a class="sourceLine" id="cb177-4" data-line-number="4"><span class="co">#&gt; 1   7.2    14  41   1   Tuesday    1  weekday</span></a>
+<a class="sourceLine" id="cb177-5" data-line-number="5"><span class="co">#&gt; 2   7.4    11  39   2 Wednesday    1  weekday</span></a>
+<a class="sourceLine" id="cb177-6" data-line-number="6"><span class="co">#&gt; 3   6.6    14  13   3  Thursday    1  weekday</span></a>
+<a class="sourceLine" id="cb177-7" data-line-number="7"><span class="co">#&gt; 4   6.5    22  47   4    Friday    1  weekday</span></a>
+<a class="sourceLine" id="cb177-8" data-line-number="8"><span class="co">#&gt; 5   3.1     5   4   5  Saturday    1  weekend</span></a>
+<a class="sourceLine" id="cb177-9" data-line-number="9"><span class="co">#&gt; 6   3.0     7  12   6    Sunday    1  weekend</span></a></code></pre></div>
+<p>and here’s a correlation between work hours and pay.</p>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb178-1" data-line-number="1"><span class="kw">cor</span>(work<span class="op">$</span>hours, work<span class="op">$</span>pay)</a>
+<a class="sourceLine" id="cb178-2" data-line-number="2"><span class="co">#&gt; [1] 0.76</span></a>
+<a class="sourceLine" id="cb178-3" data-line-number="3"><span class="kw">plot</span>(work<span class="op">$</span>hours, work<span class="op">$</span>pay)</a>
+<a class="sourceLine" id="cb178-4" data-line-number="4">lsr<span class="op">::</span><span class="kw">correlate</span>(work) <span class="co">#Gives a correlation table</span></a>
+<a class="sourceLine" id="cb178-5" data-line-number="5"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb178-6" data-line-number="6"><span class="co">#&gt; CORRELATIONS</span></a>
+<a class="sourceLine" id="cb178-7" data-line-number="7"><span class="co">#&gt; ============</span></a>
+<a class="sourceLine" id="cb178-8" data-line-number="8"><span class="co">#&gt; - correlation type:  pearson </span></a>
+<a class="sourceLine" id="cb178-9" data-line-number="9"><span class="co">#&gt; - correlations shown only when both variables are numeric</span></a>
+<a class="sourceLine" id="cb178-10" data-line-number="10"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb178-11" data-line-number="11"><span class="co">#&gt;           hours  tasks   pay    day weekday   week day.type</span></a>
+<a class="sourceLine" id="cb178-12" data-line-number="12"><span class="co">#&gt; hours         .  0.800 0.760 -0.049       .  0.018        .</span></a>
+<a class="sourceLine" id="cb178-13" data-line-number="13"><span class="co">#&gt; tasks     0.800      . 0.720 -0.072       . -0.013        .</span></a>
+<a class="sourceLine" id="cb178-14" data-line-number="14"><span class="co">#&gt; pay       0.760  0.720     .  0.137       .  0.196        .</span></a>
+<a class="sourceLine" id="cb178-15" data-line-number="15"><span class="co">#&gt; day      -0.049 -0.072 0.137      .       .  0.990        .</span></a>
+<a class="sourceLine" id="cb178-16" data-line-number="16"><span class="co">#&gt; weekday       .      .     .      .       .      .        .</span></a>
+<a class="sourceLine" id="cb178-17" data-line-number="17"><span class="co">#&gt; week      0.018 -0.013 0.196  0.990       .      .        .</span></a>
+<a class="sourceLine" id="cb178-18" data-line-number="18"><span class="co">#&gt; day.type      .      .     .      .       .      .        .</span></a>
+<a class="sourceLine" id="cb178-19" data-line-number="19">lsr<span class="op">::</span><span class="kw">correlate</span>(work, <span class="dt">corr.method =</span> <span class="st">&quot;spearman&quot;</span>)</a>
+<a class="sourceLine" id="cb178-20" data-line-number="20"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb178-21" data-line-number="21"><span class="co">#&gt; CORRELATIONS</span></a>
+<a class="sourceLine" id="cb178-22" data-line-number="22"><span class="co">#&gt; ============</span></a>
+<a class="sourceLine" id="cb178-23" data-line-number="23"><span class="co">#&gt; - correlation type:  spearman </span></a>
+<a class="sourceLine" id="cb178-24" data-line-number="24"><span class="co">#&gt; - correlations shown only when both variables are numeric</span></a>
+<a class="sourceLine" id="cb178-25" data-line-number="25"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb178-26" data-line-number="26"><span class="co">#&gt;           hours  tasks   pay    day weekday   week day.type</span></a>
+<a class="sourceLine" id="cb178-27" data-line-number="27"><span class="co">#&gt; hours         .  0.805 0.745 -0.047       .  0.010        .</span></a>
+<a class="sourceLine" id="cb178-28" data-line-number="28"><span class="co">#&gt; tasks     0.805      . 0.730 -0.068       . -0.008        .</span></a>
+<a class="sourceLine" id="cb178-29" data-line-number="29"><span class="co">#&gt; pay       0.745  0.730     .  0.094       .  0.154        .</span></a>
+<a class="sourceLine" id="cb178-30" data-line-number="30"><span class="co">#&gt; day      -0.047 -0.068 0.094      .       .  0.990        .</span></a>
+<a class="sourceLine" id="cb178-31" data-line-number="31"><span class="co">#&gt; weekday       .      .     .      .       .      .        .</span></a>
+<a class="sourceLine" id="cb178-32" data-line-number="32"><span class="co">#&gt; week      0.010 -0.008 0.154  0.990       .      .        .</span></a>
+<a class="sourceLine" id="cb178-33" data-line-number="33"><span class="co">#&gt; day.type      .      .     .      .       .      .        .</span></a>
+<a class="sourceLine" id="cb178-34" data-line-number="34"><span class="kw">cor.test</span>(mtcars<span class="op">$</span>mpg, mtcars<span class="op">$</span>disp) <span class="co">#For paired samples</span></a>
+<a class="sourceLine" id="cb178-35" data-line-number="35"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb178-36" data-line-number="36"><span class="co">#&gt;  Pearson&#39;s product-moment correlation</span></a>
+<a class="sourceLine" id="cb178-37" data-line-number="37"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb178-38" data-line-number="38"><span class="co">#&gt; data:  mtcars$mpg and mtcars$disp</span></a>
+<a class="sourceLine" id="cb178-39" data-line-number="39"><span class="co">#&gt; t = -9, df = 30, p-value = 9e-10</span></a>
+<a class="sourceLine" id="cb178-40" data-line-number="40"><span class="co">#&gt; alternative hypothesis: true correlation is not equal to 0</span></a>
+<a class="sourceLine" id="cb178-41" data-line-number="41"><span class="co">#&gt; 95 percent confidence interval:</span></a>
+<a class="sourceLine" id="cb178-42" data-line-number="42"><span class="co">#&gt;  -0.923 -0.708</span></a>
+<a class="sourceLine" id="cb178-43" data-line-number="43"><span class="co">#&gt; sample estimates:</span></a>
+<a class="sourceLine" id="cb178-44" data-line-number="44"><span class="co">#&gt;    cor </span></a>
+<a class="sourceLine" id="cb178-45" data-line-number="45"><span class="co">#&gt; -0.848</span></a></code></pre></div>
+<p><img src="06_IntroStats_files/figure-html/workcors-1.png" width="70%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="categorical-data-navarro-pg.-351" class="section level2">
+<h2><span class="header-section-number">7.3</span> Categorical Data – Navarro pg. 351</h2>
+<div id="chi-square-goodness-of-fit-test-pearson-1900-review" class="section level3">
+<h3><span class="header-section-number">7.3.1</span> Chi Square goodness-of-fit test (Pearson, 1900) Review</h3>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb179-1" data-line-number="1"><span class="kw">load</span>(<span class="st">&quot;~/Dropbox/RCOURSE/books_resources/data/randomness.Rdata&quot;</span>)</a>
+<a class="sourceLine" id="cb179-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb179-3" data-line-number="3"><span class="kw">head</span>(cards)</a>
+<a class="sourceLine" id="cb179-4" data-line-number="4"><span class="co">#&gt;      id choice_1 choice_2</span></a>
+<a class="sourceLine" id="cb179-5" data-line-number="5"><span class="co">#&gt; 1 subj1   spades    clubs</span></a>
+<a class="sourceLine" id="cb179-6" data-line-number="6"><span class="co">#&gt; 2 subj2 diamonds    clubs</span></a>
+<a class="sourceLine" id="cb179-7" data-line-number="7"><span class="co">#&gt; 3 subj3   hearts    clubs</span></a>
+<a class="sourceLine" id="cb179-8" data-line-number="8"><span class="co">#&gt; 4 subj4   spades    clubs</span></a>
+<a class="sourceLine" id="cb179-9" data-line-number="9"><span class="co">#&gt; 5 subj5   hearts   spades</span></a>
+<a class="sourceLine" id="cb179-10" data-line-number="10"><span class="co">#&gt; 6 subj6    clubs   hearts</span></a>
+<a class="sourceLine" id="cb179-11" data-line-number="11">observed &lt;-<span class="st"> </span><span class="kw">table</span>(cards<span class="op">$</span>choice_<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb179-12" data-line-number="12">observed</a>
+<a class="sourceLine" id="cb179-13" data-line-number="13"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb179-14" data-line-number="14"><span class="co">#&gt;    clubs diamonds   hearts   spades </span></a>
+<a class="sourceLine" id="cb179-15" data-line-number="15"><span class="co">#&gt;       35       51       64       50</span></a></code></pre></div>
+<p>H0 - all four suits are chosen with equal probability<br />
+H1 - at least one of the suit-choice probabilities isn’t .25</p>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb180-1" data-line-number="1">probabilities &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">clubs =</span> <span class="fl">.25</span>, <span class="dt">diamonds =</span> <span class="fl">.25</span>, <span class="dt">hearts =</span> <span class="fl">.25</span>, <span class="dt">spades =</span> <span class="fl">.25</span>)</a>
+<a class="sourceLine" id="cb180-2" data-line-number="2">probabilities</a>
+<a class="sourceLine" id="cb180-3" data-line-number="3"><span class="co">#&gt;    clubs diamonds   hearts   spades </span></a>
+<a class="sourceLine" id="cb180-4" data-line-number="4"><span class="co">#&gt;     0.25     0.25     0.25     0.25</span></a>
+<a class="sourceLine" id="cb180-5" data-line-number="5">N &lt;-<span class="st"> </span><span class="kw">length</span>(cards[,<span class="dv">1</span>])</a>
+<a class="sourceLine" id="cb180-6" data-line-number="6">expected &lt;-<span class="st"> </span>N<span class="op">*</span>probabilities <span class="co">#expected frequencies</span></a>
+<a class="sourceLine" id="cb180-7" data-line-number="7">expected</a>
+<a class="sourceLine" id="cb180-8" data-line-number="8"><span class="co">#&gt;    clubs diamonds   hearts   spades </span></a>
+<a class="sourceLine" id="cb180-9" data-line-number="9"><span class="co">#&gt;       50       50       50       50</span></a>
+<a class="sourceLine" id="cb180-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb180-11" data-line-number="11">observed <span class="op">-</span><span class="st"> </span>expected</a>
+<a class="sourceLine" id="cb180-12" data-line-number="12"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb180-13" data-line-number="13"><span class="co">#&gt;    clubs diamonds   hearts   spades </span></a>
+<a class="sourceLine" id="cb180-14" data-line-number="14"><span class="co">#&gt;      -15        1       14        0</span></a></code></pre></div>
+<p>Get absolute difference (no negative or positive)</p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb181-1" data-line-number="1"><span class="kw">sum</span>(((observed <span class="op">-</span><span class="st"> </span>expected)<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>expected)</a>
+<a class="sourceLine" id="cb181-2" data-line-number="2"><span class="co">#&gt; [1] 8.44</span></a>
+<a class="sourceLine" id="cb181-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb181-4" data-line-number="4"><span class="kw">qchisq</span>(<span class="dt">p =</span> <span class="fl">.95</span>, <span class="dt">df =</span> <span class="dv">3</span>) <span class="co">#Gives you a value to reject the null hypothesis</span></a>
+<a class="sourceLine" id="cb181-5" data-line-number="5"><span class="co">#&gt; [1] 7.81</span></a></code></pre></div>
+<p>If we want the p-value we can calculate with…</p>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb182-1" data-line-number="1"><span class="kw">pchisq</span>(<span class="dt">q =</span> <span class="kw">sum</span>(((observed <span class="op">-</span><span class="st"> </span>expected)<span class="op">^</span><span class="dv">2</span>)<span class="op">/</span>expected), <span class="dt">df =</span> <span class="dv">3</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb182-2" data-line-number="2"><span class="co">#&gt; [1] 0.0377</span></a></code></pre></div>
+<p>Degrees of freedom is outcomes (k) - 1</p>
+<p>How to skip all those steps:</p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb183-1" data-line-number="1">lsr<span class="op">::</span><span class="kw">goodnessOfFitTest</span>(cards<span class="op">$</span>choice_<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb183-2" data-line-number="2"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb183-3" data-line-number="3"><span class="co">#&gt;      Chi-square test against specified probabilities</span></a>
+<a class="sourceLine" id="cb183-4" data-line-number="4"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb183-5" data-line-number="5"><span class="co">#&gt; Data variable:   cards$choice_1 </span></a>
+<a class="sourceLine" id="cb183-6" data-line-number="6"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb183-7" data-line-number="7"><span class="co">#&gt; Hypotheses: </span></a>
+<a class="sourceLine" id="cb183-8" data-line-number="8"><span class="co">#&gt;    null:        true probabilities are as specified</span></a>
+<a class="sourceLine" id="cb183-9" data-line-number="9"><span class="co">#&gt;    alternative: true probabilities differ from those specified</span></a>
+<a class="sourceLine" id="cb183-10" data-line-number="10"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb183-11" data-line-number="11"><span class="co">#&gt; Descriptives: </span></a>
+<a class="sourceLine" id="cb183-12" data-line-number="12"><span class="co">#&gt;          observed freq. expected freq. specified prob.</span></a>
+<a class="sourceLine" id="cb183-13" data-line-number="13"><span class="co">#&gt; clubs                35             50            0.25</span></a>
+<a class="sourceLine" id="cb183-14" data-line-number="14"><span class="co">#&gt; diamonds             51             50            0.25</span></a>
+<a class="sourceLine" id="cb183-15" data-line-number="15"><span class="co">#&gt; hearts               64             50            0.25</span></a>
+<a class="sourceLine" id="cb183-16" data-line-number="16"><span class="co">#&gt; spades               50             50            0.25</span></a>
+<a class="sourceLine" id="cb183-17" data-line-number="17"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb183-18" data-line-number="18"><span class="co">#&gt; Test results: </span></a>
+<a class="sourceLine" id="cb183-19" data-line-number="19"><span class="co">#&gt;    X-squared statistic:  8.44 </span></a>
+<a class="sourceLine" id="cb183-20" data-line-number="20"><span class="co">#&gt;    degrees of freedom:  3 </span></a>
+<a class="sourceLine" id="cb183-21" data-line-number="21"><span class="co">#&gt;    p-value:  0.038</span></a></code></pre></div>
+<p>Specify null hypothesis:</p>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb184-1" data-line-number="1">nullProbs &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">clubs =</span> <span class="fl">.2</span>, <span class="dt">diamonds =</span> <span class="fl">.3</span>, <span class="dt">hearts =</span> <span class="fl">.3</span>, <span class="dt">spades =</span> <span class="fl">.2</span>)</a>
+<a class="sourceLine" id="cb184-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb184-3" data-line-number="3"><span class="kw">goodnessOfFitTest</span>(cards<span class="op">$</span>choice_<span class="dv">1</span>, <span class="dt">p =</span> nullProbs)</a>
+<a class="sourceLine" id="cb184-4" data-line-number="4"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb184-5" data-line-number="5"><span class="co">#&gt;      Chi-square test against specified probabilities</span></a>
+<a class="sourceLine" id="cb184-6" data-line-number="6"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb184-7" data-line-number="7"><span class="co">#&gt; Data variable:   cards$choice_1 </span></a>
+<a class="sourceLine" id="cb184-8" data-line-number="8"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb184-9" data-line-number="9"><span class="co">#&gt; Hypotheses: </span></a>
+<a class="sourceLine" id="cb184-10" data-line-number="10"><span class="co">#&gt;    null:        true probabilities are as specified</span></a>
+<a class="sourceLine" id="cb184-11" data-line-number="11"><span class="co">#&gt;    alternative: true probabilities differ from those specified</span></a>
+<a class="sourceLine" id="cb184-12" data-line-number="12"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb184-13" data-line-number="13"><span class="co">#&gt; Descriptives: </span></a>
+<a class="sourceLine" id="cb184-14" data-line-number="14"><span class="co">#&gt;          observed freq. expected freq. specified prob.</span></a>
+<a class="sourceLine" id="cb184-15" data-line-number="15"><span class="co">#&gt; clubs                35             40             0.2</span></a>
+<a class="sourceLine" id="cb184-16" data-line-number="16"><span class="co">#&gt; diamonds             51             60             0.3</span></a>
+<a class="sourceLine" id="cb184-17" data-line-number="17"><span class="co">#&gt; hearts               64             60             0.3</span></a>
+<a class="sourceLine" id="cb184-18" data-line-number="18"><span class="co">#&gt; spades               50             40             0.2</span></a>
+<a class="sourceLine" id="cb184-19" data-line-number="19"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb184-20" data-line-number="20"><span class="co">#&gt; Test results: </span></a>
+<a class="sourceLine" id="cb184-21" data-line-number="21"><span class="co">#&gt;    X-squared statistic:  4.74 </span></a>
+<a class="sourceLine" id="cb184-22" data-line-number="22"><span class="co">#&gt;    degrees of freedom:  3 </span></a>
+<a class="sourceLine" id="cb184-23" data-line-number="23"><span class="co">#&gt;    p-value:  0.192</span></a></code></pre></div>
+</div>
+<div id="chi-square-test-of-independence" class="section level3">
+<h3><span class="header-section-number">7.3.2</span> Chi-square test of independence</h3>
+<p>Get the chapek9 dataset:</p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb185-1" data-line-number="1"><span class="kw">load</span>(<span class="st">&quot;~/Dropbox/RCOURSE/books_resources/data/chapek9.Rdata&quot;</span>)</a>
+<a class="sourceLine" id="cb185-2" data-line-number="2"><span class="kw">summary</span>(chapek9)</a>
+<a class="sourceLine" id="cb185-3" data-line-number="3"><span class="co">#&gt;   species      choice   </span></a>
+<a class="sourceLine" id="cb185-4" data-line-number="4"><span class="co">#&gt;  robot:87   puppy : 28  </span></a>
+<a class="sourceLine" id="cb185-5" data-line-number="5"><span class="co">#&gt;  human:93   flower: 43  </span></a>
+<a class="sourceLine" id="cb185-6" data-line-number="6"><span class="co">#&gt;             data  :109</span></a></code></pre></div>
+<p>This is a screening test to determine of somebody is a human or a robot. The entity is asked whether they prefer a puppy, a flower, or a properly formatted database.</p>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb186-1" data-line-number="1"><span class="kw">xtabs</span>(<span class="dt">formula =</span> <span class="op">~</span>choice<span class="op">+</span>species, <span class="dt">data =</span> chapek9)</a>
+<a class="sourceLine" id="cb186-2" data-line-number="2"><span class="co">#&gt;         species</span></a>
+<a class="sourceLine" id="cb186-3" data-line-number="3"><span class="co">#&gt; choice   robot human</span></a>
+<a class="sourceLine" id="cb186-4" data-line-number="4"><span class="co">#&gt;   puppy     13    15</span></a>
+<a class="sourceLine" id="cb186-5" data-line-number="5"><span class="co">#&gt;   flower    30    13</span></a>
+<a class="sourceLine" id="cb186-6" data-line-number="6"><span class="co">#&gt;   data      44    65</span></a></code></pre></div>
+<ol style="list-style-type: decimal">
+<li>Null, variables are independent</li>
+<li>Alternative, variables are related</li>
+</ol>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb187-1" data-line-number="1"><span class="kw">associationTest</span>(<span class="dt">formula =</span> <span class="op">~</span>choice<span class="op">+</span>species, <span class="dt">data =</span> chapek9)</a>
+<a class="sourceLine" id="cb187-2" data-line-number="2"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb187-3" data-line-number="3"><span class="co">#&gt;      Chi-square test of categorical association</span></a>
+<a class="sourceLine" id="cb187-4" data-line-number="4"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb187-5" data-line-number="5"><span class="co">#&gt; Variables:   choice, species </span></a>
+<a class="sourceLine" id="cb187-6" data-line-number="6"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb187-7" data-line-number="7"><span class="co">#&gt; Hypotheses: </span></a>
+<a class="sourceLine" id="cb187-8" data-line-number="8"><span class="co">#&gt;    null:        variables are independent of one another</span></a>
+<a class="sourceLine" id="cb187-9" data-line-number="9"><span class="co">#&gt;    alternative: some contingency exists between variables</span></a>
+<a class="sourceLine" id="cb187-10" data-line-number="10"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb187-11" data-line-number="11"><span class="co">#&gt; Observed contingency table:</span></a>
+<a class="sourceLine" id="cb187-12" data-line-number="12"><span class="co">#&gt;         species</span></a>
+<a class="sourceLine" id="cb187-13" data-line-number="13"><span class="co">#&gt; choice   robot human</span></a>
+<a class="sourceLine" id="cb187-14" data-line-number="14"><span class="co">#&gt;   puppy     13    15</span></a>
+<a class="sourceLine" id="cb187-15" data-line-number="15"><span class="co">#&gt;   flower    30    13</span></a>
+<a class="sourceLine" id="cb187-16" data-line-number="16"><span class="co">#&gt;   data      44    65</span></a>
+<a class="sourceLine" id="cb187-17" data-line-number="17"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb187-18" data-line-number="18"><span class="co">#&gt; Expected contingency table under the null hypothesis:</span></a>
+<a class="sourceLine" id="cb187-19" data-line-number="19"><span class="co">#&gt;         species</span></a>
+<a class="sourceLine" id="cb187-20" data-line-number="20"><span class="co">#&gt; choice   robot human</span></a>
+<a class="sourceLine" id="cb187-21" data-line-number="21"><span class="co">#&gt;   puppy   13.5  14.5</span></a>
+<a class="sourceLine" id="cb187-22" data-line-number="22"><span class="co">#&gt;   flower  20.8  22.2</span></a>
+<a class="sourceLine" id="cb187-23" data-line-number="23"><span class="co">#&gt;   data    52.7  56.3</span></a>
+<a class="sourceLine" id="cb187-24" data-line-number="24"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb187-25" data-line-number="25"><span class="co">#&gt; Test results: </span></a>
+<a class="sourceLine" id="cb187-26" data-line-number="26"><span class="co">#&gt;    X-squared statistic:  10.7 </span></a>
+<a class="sourceLine" id="cb187-27" data-line-number="27"><span class="co">#&gt;    degrees of freedom:  2 </span></a>
+<a class="sourceLine" id="cb187-28" data-line-number="28"><span class="co">#&gt;    p-value:  0.005 </span></a>
+<a class="sourceLine" id="cb187-29" data-line-number="29"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb187-30" data-line-number="30"><span class="co">#&gt; Other information: </span></a>
+<a class="sourceLine" id="cb187-31" data-line-number="31"><span class="co">#&gt;    estimated effect size (Cramer&#39;s v):  0.244</span></a></code></pre></div>
+<p>Most typical way to do the test…</p>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb188-1" data-line-number="1"><span class="kw">chisq.test</span>(observed, <span class="dt">p =</span> <span class="kw">c</span>(.<span class="dv">2</span>,.<span class="dv">3</span>,.<span class="dv">3</span>,.<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb188-2" data-line-number="2"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb188-3" data-line-number="3"><span class="co">#&gt;  Chi-squared test for given probabilities</span></a>
+<a class="sourceLine" id="cb188-4" data-line-number="4"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb188-5" data-line-number="5"><span class="co">#&gt; data:  observed</span></a>
+<a class="sourceLine" id="cb188-6" data-line-number="6"><span class="co">#&gt; X-squared = 5, df = 3, p-value = 0.2</span></a>
+<a class="sourceLine" id="cb188-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb188-8" data-line-number="8"><span class="kw">chisq.test</span>(<span class="kw">xtabs</span>(<span class="dt">formula =</span> <span class="op">~</span>choice<span class="op">+</span>species, <span class="dt">data =</span> chapek9))</a>
+<a class="sourceLine" id="cb188-9" data-line-number="9"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb188-10" data-line-number="10"><span class="co">#&gt;  Pearson&#39;s Chi-squared test</span></a>
+<a class="sourceLine" id="cb188-11" data-line-number="11"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb188-12" data-line-number="12"><span class="co">#&gt; data:  xtabs(formula = ~choice + species, data = chapek9)</span></a>
+<a class="sourceLine" id="cb188-13" data-line-number="13"><span class="co">#&gt; X-squared = 11, df = 2, p-value = 0.005</span></a></code></pre></div>
+<p>(Also see <code>?fisher.test()</code>, <code>mcnemar.test()</code>)</p>
+<p>##T.TEST
+Load harpo dataset</p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb189-1" data-line-number="1"><span class="kw">load</span>(<span class="st">&quot;~/Dropbox/RCOURSE/books_resources/data/harpo.Rdata&quot;</span>)</a></code></pre></div>
+<p>…and describe it:</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb190-1" data-line-number="1"><span class="kw">head</span>(harpo)</a>
+<a class="sourceLine" id="cb190-2" data-line-number="2"><span class="co">#&gt;   grade      tutor</span></a>
+<a class="sourceLine" id="cb190-3" data-line-number="3"><span class="co">#&gt; 1    65  Anastasia</span></a>
+<a class="sourceLine" id="cb190-4" data-line-number="4"><span class="co">#&gt; 2    72 Bernadette</span></a>
+<a class="sourceLine" id="cb190-5" data-line-number="5"><span class="co">#&gt; 3    66 Bernadette</span></a>
+<a class="sourceLine" id="cb190-6" data-line-number="6"><span class="co">#&gt; 4    74  Anastasia</span></a>
+<a class="sourceLine" id="cb190-7" data-line-number="7"><span class="co">#&gt; 5    73  Anastasia</span></a>
+<a class="sourceLine" id="cb190-8" data-line-number="8"><span class="co">#&gt; 6    71 Bernadette</span></a>
+<a class="sourceLine" id="cb190-9" data-line-number="9"><span class="kw">describeBy</span>(harpo,<span class="dt">group =</span> <span class="st">&quot;tutor&quot;</span>)</a>
+<a class="sourceLine" id="cb190-10" data-line-number="10"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb190-11" data-line-number="11"><span class="co">#&gt;  Descriptive statistics by group </span></a>
+<a class="sourceLine" id="cb190-12" data-line-number="12"><span class="co">#&gt; group: Anastasia</span></a>
+<a class="sourceLine" id="cb190-13" data-line-number="13"><span class="co">#&gt;        vars  n mean sd median trimmed mad min max range  skew kurtosis   se</span></a>
+<a class="sourceLine" id="cb190-14" data-line-number="14"><span class="co">#&gt; grade     1 15 74.5  9     76    74.8 8.9  55  90    35 -0.32    -0.51 2.32</span></a>
+<a class="sourceLine" id="cb190-15" data-line-number="15"><span class="co">#&gt; tutor*    2 15  1.0  0      1     1.0 0.0   1   1     0   NaN      NaN 0.00</span></a>
+<a class="sourceLine" id="cb190-16" data-line-number="16"><span class="co">#&gt; ------------------------------------------------------------ </span></a>
+<a class="sourceLine" id="cb190-17" data-line-number="17"><span class="co">#&gt; group: Bernadette</span></a>
+<a class="sourceLine" id="cb190-18" data-line-number="18"><span class="co">#&gt;        vars  n mean   sd median trimmed  mad min max range  skew kurtosis   se</span></a>
+<a class="sourceLine" id="cb190-19" data-line-number="19"><span class="co">#&gt; grade     1 18 69.1 5.77     69    69.2 5.19  56  79    23 -0.48    -0.39 1.36</span></a>
+<a class="sourceLine" id="cb190-20" data-line-number="20"><span class="co">#&gt; tutor*    2 18  2.0 0.00      2     2.0 0.00   2   2     0   NaN      NaN 0.00</span></a></code></pre></div>
+<p>Here’s the independent samples t.test:</p>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb191-1" data-line-number="1">lsr<span class="op">::</span><span class="kw">independentSamplesTTest</span>(<span class="dt">formula =</span> grade<span class="op">~</span>tutor,</a>
+<a class="sourceLine" id="cb191-2" data-line-number="2">                             <span class="dt">data =</span> harpo,</a>
+<a class="sourceLine" id="cb191-3" data-line-number="3">                             <span class="dt">var.equal =</span> T)</a>
+<a class="sourceLine" id="cb191-4" data-line-number="4"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb191-5" data-line-number="5"><span class="co">#&gt;    Student&#39;s independent samples t-test </span></a>
+<a class="sourceLine" id="cb191-6" data-line-number="6"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb191-7" data-line-number="7"><span class="co">#&gt; Outcome variable:   grade </span></a>
+<a class="sourceLine" id="cb191-8" data-line-number="8"><span class="co">#&gt; Grouping variable:  tutor </span></a>
+<a class="sourceLine" id="cb191-9" data-line-number="9"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb191-10" data-line-number="10"><span class="co">#&gt; Descriptive statistics: </span></a>
+<a class="sourceLine" id="cb191-11" data-line-number="11"><span class="co">#&gt;             Anastasia Bernadette</span></a>
+<a class="sourceLine" id="cb191-12" data-line-number="12"><span class="co">#&gt;    mean        74.533     69.056</span></a>
+<a class="sourceLine" id="cb191-13" data-line-number="13"><span class="co">#&gt;    std dev.     8.999      5.775</span></a>
+<a class="sourceLine" id="cb191-14" data-line-number="14"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb191-15" data-line-number="15"><span class="co">#&gt; Hypotheses: </span></a>
+<a class="sourceLine" id="cb191-16" data-line-number="16"><span class="co">#&gt;    null:        population means equal for both groups</span></a>
+<a class="sourceLine" id="cb191-17" data-line-number="17"><span class="co">#&gt;    alternative: different population means in each group</span></a>
+<a class="sourceLine" id="cb191-18" data-line-number="18"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb191-19" data-line-number="19"><span class="co">#&gt; Test results: </span></a>
+<a class="sourceLine" id="cb191-20" data-line-number="20"><span class="co">#&gt;    t-statistic:  2.12 </span></a>
+<a class="sourceLine" id="cb191-21" data-line-number="21"><span class="co">#&gt;    degrees of freedom:  31 </span></a>
+<a class="sourceLine" id="cb191-22" data-line-number="22"><span class="co">#&gt;    p-value:  0.043 </span></a>
+<a class="sourceLine" id="cb191-23" data-line-number="23"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb191-24" data-line-number="24"><span class="co">#&gt; Other information: </span></a>
+<a class="sourceLine" id="cb191-25" data-line-number="25"><span class="co">#&gt;    two-sided 95% confidence interval:  [0.197, 10.759] </span></a>
+<a class="sourceLine" id="cb191-26" data-line-number="26"><span class="co">#&gt;    estimated effect size (Cohen&#39;s d):  0.74</span></a></code></pre></div>
+<p>OR</p>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" data-line-number="1"><span class="kw">t.test</span>(grade<span class="op">~</span>tutor, <span class="dt">data =</span> harpo, <span class="dt">var.equal =</span> T, <span class="dt">paired =</span> F, <span class="dt">conf.level =</span> <span class="fl">.95</span>)</a>
+<a class="sourceLine" id="cb192-2" data-line-number="2"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb192-3" data-line-number="3"><span class="co">#&gt;  Two Sample t-test</span></a>
+<a class="sourceLine" id="cb192-4" data-line-number="4"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb192-5" data-line-number="5"><span class="co">#&gt; data:  grade by tutor</span></a>
+<a class="sourceLine" id="cb192-6" data-line-number="6"><span class="co">#&gt; t = 2, df = 31, p-value = 0.04</span></a>
+<a class="sourceLine" id="cb192-7" data-line-number="7"><span class="co">#&gt; alternative hypothesis: true difference in means is not equal to 0</span></a>
+<a class="sourceLine" id="cb192-8" data-line-number="8"><span class="co">#&gt; 95 percent confidence interval:</span></a>
+<a class="sourceLine" id="cb192-9" data-line-number="9"><span class="co">#&gt;   0.197 10.759</span></a>
+<a class="sourceLine" id="cb192-10" data-line-number="10"><span class="co">#&gt; sample estimates:</span></a>
+<a class="sourceLine" id="cb192-11" data-line-number="11"><span class="co">#&gt;  mean in group Anastasia mean in group Bernadette </span></a>
+<a class="sourceLine" id="cb192-12" data-line-number="12"><span class="co">#&gt;                     74.5                     69.1</span></a></code></pre></div>
+<p>##Effect Size</p>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb193-1" data-line-number="1"><span class="kw">cohensD</span>(grade<span class="op">~</span>tutor, <span class="dt">data =</span> harpo, <span class="dt">method =</span> <span class="st">&quot;pooled&quot;</span>)</a>
+<a class="sourceLine" id="cb193-2" data-line-number="2"><span class="co">#&gt; [1] 0.74</span></a>
+<a class="sourceLine" id="cb193-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb193-4" data-line-number="4"><span class="kw">cohensD</span>(grade<span class="op">~</span>tutor, <span class="dt">data =</span> harpo, <span class="dt">method =</span> <span class="st">&quot;unequal&quot;</span>)</a>
+<a class="sourceLine" id="cb193-5" data-line-number="5"><span class="co">#&gt; [1] 0.724</span></a></code></pre></div>
+</div>
+</div>
+<div id="assumptions" class="section level2">
+<h2><span class="header-section-number">7.4</span> Assumptions</h2>
+<p>Check some plots, and you can look at normality.</p>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" data-line-number="1"><span class="kw">hist</span>(harpo<span class="op">$</span>grade, <span class="dt">breaks =</span> <span class="dv">15</span>)</a>
+<a class="sourceLine" id="cb194-2" data-line-number="2"><span class="kw">qqnorm</span>(harpo<span class="op">$</span>grade)</a></code></pre></div>
+<p><img src="06_IntroStats_files/figure-html/qqnorm-1.png" width="70%" style="display: block; margin: auto;" /><img src="06_IntroStats_files/figure-html/qqnorm-2.png" width="70%" style="display: block; margin: auto;" /></p>
+<div id="shapiro-normality-test" class="section level3">
+<h3><span class="header-section-number">7.4.1</span> Shapiro normality test</h3>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb195-1" data-line-number="1"><span class="kw">shapiro.test</span>(harpo<span class="op">$</span>grade)</a>
+<a class="sourceLine" id="cb195-2" data-line-number="2"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb195-3" data-line-number="3"><span class="co">#&gt;  Shapiro-Wilk normality test</span></a>
+<a class="sourceLine" id="cb195-4" data-line-number="4"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb195-5" data-line-number="5"><span class="co">#&gt; data:  harpo$grade</span></a>
+<a class="sourceLine" id="cb195-6" data-line-number="6"><span class="co">#&gt; W = 1, p-value = 1</span></a></code></pre></div>
+<p>Or use wilcoxon test for non-normal samples:</p>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb196-1" data-line-number="1"><span class="kw">wilcox.test</span>(grade<span class="op">~</span>tutor, <span class="dt">data =</span> harpo)</a>
+<a class="sourceLine" id="cb196-2" data-line-number="2"><span class="co">#&gt; Warning in wilcox.test.default(x = c(65, 74, 73, 83, 76, 65, 86, 70, 80, :</span></a>
+<a class="sourceLine" id="cb196-3" data-line-number="3"><span class="co">#&gt; cannot compute exact p-value with ties</span></a>
+<a class="sourceLine" id="cb196-4" data-line-number="4"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb196-5" data-line-number="5"><span class="co">#&gt;  Wilcoxon rank sum test with continuity correction</span></a>
+<a class="sourceLine" id="cb196-6" data-line-number="6"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb196-7" data-line-number="7"><span class="co">#&gt; data:  grade by tutor</span></a>
+<a class="sourceLine" id="cb196-8" data-line-number="8"><span class="co">#&gt; W = 190, p-value = 0.05</span></a>
+<a class="sourceLine" id="cb196-9" data-line-number="9"><span class="co">#&gt; alternative hypothesis: true location shift is not equal to 0</span></a></code></pre></div>
+</div>
+</div>
+<div id="one-way-anova" class="section level2">
+<h2><span class="header-section-number">7.5</span> One-Way ANOVA</h2>
+<p>back to the clin.trial dataset</p>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb197-1" data-line-number="1"><span class="kw">aggregate</span>(mood.gain <span class="op">~</span>drug, clin.trial, mean)</a>
+<a class="sourceLine" id="cb197-2" data-line-number="2"><span class="co">#&gt;       drug mood.gain</span></a>
+<a class="sourceLine" id="cb197-3" data-line-number="3"><span class="co">#&gt; 1  placebo     0.450</span></a>
+<a class="sourceLine" id="cb197-4" data-line-number="4"><span class="co">#&gt; 2 anxifree     0.717</span></a>
+<a class="sourceLine" id="cb197-5" data-line-number="5"><span class="co">#&gt; 3 joyzepam     1.483</span></a>
+<a class="sourceLine" id="cb197-6" data-line-number="6"><span class="kw">aggregate</span>(mood.gain <span class="op">~</span>drug, clin.trial, sd)</a>
+<a class="sourceLine" id="cb197-7" data-line-number="7"><span class="co">#&gt;       drug mood.gain</span></a>
+<a class="sourceLine" id="cb197-8" data-line-number="8"><span class="co">#&gt; 1  placebo     0.281</span></a>
+<a class="sourceLine" id="cb197-9" data-line-number="9"><span class="co">#&gt; 2 anxifree     0.392</span></a>
+<a class="sourceLine" id="cb197-10" data-line-number="10"><span class="co">#&gt; 3 joyzepam     0.214</span></a></code></pre></div>
+<p>Here’s a plot of means with sd errorbars.</p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb198-1" data-line-number="1">clin.trial <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb198-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(drug) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb198-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">m.mood =</span> <span class="kw">mean</span>(mood.gain), <span class="dt">sd.mood =</span> <span class="kw">sd</span>(mood.gain)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb198-4" data-line-number="4"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> drug, <span class="dt">y =</span> m.mood)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme_classic</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb198-5" data-line-number="5"><span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">2</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb198-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymax =</span> m.mood <span class="op">+</span><span class="st"> </span>sd.mood, </a>
+<a class="sourceLine" id="cb198-7" data-line-number="7">                    <span class="dt">ymin =</span> m.mood <span class="op">-</span><span class="st"> </span>sd.mood), <span class="dt">width =</span> <span class="fl">.25</span>)</a></code></pre></div>
+<p><img src="06_IntroStats_files/figure-html/fullplot-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>…and now for the anova…</p>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb199-1" data-line-number="1">my.anova &lt;-<span class="st"> </span><span class="kw">aov</span>(<span class="dt">formula =</span> mood.gain<span class="op">~</span>drug, <span class="dt">data =</span> clin.trial)</a></code></pre></div>
+<p>What is this <code>my.anova</code> object?</p>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb200-1" data-line-number="1"><span class="kw">class</span>(my.anova)</a>
+<a class="sourceLine" id="cb200-2" data-line-number="2"><span class="co">#&gt; [1] &quot;aov&quot; &quot;lm&quot;</span></a>
+<a class="sourceLine" id="cb200-3" data-line-number="3"><span class="kw">names</span>(my.anova)</a>
+<a class="sourceLine" id="cb200-4" data-line-number="4"><span class="co">#&gt;  [1] &quot;coefficients&quot;  &quot;residuals&quot;     &quot;effects&quot;       &quot;rank&quot;         </span></a>
+<a class="sourceLine" id="cb200-5" data-line-number="5"><span class="co">#&gt;  [5] &quot;fitted.values&quot; &quot;assign&quot;        &quot;qr&quot;            &quot;df.residual&quot;  </span></a>
+<a class="sourceLine" id="cb200-6" data-line-number="6"><span class="co">#&gt;  [9] &quot;contrasts&quot;     &quot;xlevels&quot;       &quot;call&quot;          &quot;terms&quot;        </span></a>
+<a class="sourceLine" id="cb200-7" data-line-number="7"><span class="co">#&gt; [13] &quot;model&quot;</span></a>
+<a class="sourceLine" id="cb200-8" data-line-number="8"><span class="kw">summary</span>(my.anova)</a>
+<a class="sourceLine" id="cb200-9" data-line-number="9"><span class="co">#&gt;             Df Sum Sq Mean Sq F value  Pr(&gt;F)    </span></a>
+<a class="sourceLine" id="cb200-10" data-line-number="10"><span class="co">#&gt; drug         2   3.45   1.727    18.6 8.6e-05 ***</span></a>
+<a class="sourceLine" id="cb200-11" data-line-number="11"><span class="co">#&gt; Residuals   15   1.39   0.093                    </span></a>
+<a class="sourceLine" id="cb200-12" data-line-number="12"><span class="co">#&gt; ---</span></a>
+<a class="sourceLine" id="cb200-13" data-line-number="13"><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></a></code></pre></div>
+<p>Here’s a test of effect size for the ANOVA</p>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb201-1" data-line-number="1">lsr<span class="op">::</span><span class="kw">etaSquared</span>(my.anova)</a>
+<a class="sourceLine" id="cb201-2" data-line-number="2"><span class="co">#&gt;      eta.sq eta.sq.part</span></a>
+<a class="sourceLine" id="cb201-3" data-line-number="3"><span class="co">#&gt; drug  0.713       0.713</span></a></code></pre></div>
+<p>and posthoc pairwise comparisons of levels of a factor</p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb202-1" data-line-number="1"><span class="kw">posthocPairwiseT</span>(my.anova, <span class="dt">p.adjust.method =</span> <span class="st">&quot;none&quot;</span>)</a>
+<a class="sourceLine" id="cb202-2" data-line-number="2"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb202-3" data-line-number="3"><span class="co">#&gt;  Pairwise comparisons using t tests with pooled SD </span></a>
+<a class="sourceLine" id="cb202-4" data-line-number="4"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb202-5" data-line-number="5"><span class="co">#&gt; data:  mood.gain and drug </span></a>
+<a class="sourceLine" id="cb202-6" data-line-number="6"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb202-7" data-line-number="7"><span class="co">#&gt;          placebo anxifree</span></a>
+<a class="sourceLine" id="cb202-8" data-line-number="8"><span class="co">#&gt; anxifree 0.2     -       </span></a>
+<a class="sourceLine" id="cb202-9" data-line-number="9"><span class="co">#&gt; joyzepam 3e-05   6e-04   </span></a>
+<a class="sourceLine" id="cb202-10" data-line-number="10"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb202-11" data-line-number="11"><span class="co">#&gt; P value adjustment method: none</span></a></code></pre></div>
+<p>or corrected for assumptions</p>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb203-1" data-line-number="1"><span class="kw">posthocPairwiseT</span>(my.anova, <span class="dt">p.adjust.method =</span> <span class="st">&quot;bonferroni&quot;</span>)</a>
+<a class="sourceLine" id="cb203-2" data-line-number="2"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb203-3" data-line-number="3"><span class="co">#&gt;  Pairwise comparisons using t tests with pooled SD </span></a>
+<a class="sourceLine" id="cb203-4" data-line-number="4"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb203-5" data-line-number="5"><span class="co">#&gt; data:  mood.gain and drug </span></a>
+<a class="sourceLine" id="cb203-6" data-line-number="6"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb203-7" data-line-number="7"><span class="co">#&gt;          placebo anxifree</span></a>
+<a class="sourceLine" id="cb203-8" data-line-number="8"><span class="co">#&gt; anxifree 0.451   -       </span></a>
+<a class="sourceLine" id="cb203-9" data-line-number="9"><span class="co">#&gt; joyzepam 9e-05   0.002   </span></a>
+<a class="sourceLine" id="cb203-10" data-line-number="10"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb203-11" data-line-number="11"><span class="co">#&gt; P value adjustment method: bonferroni</span></a></code></pre></div>
+<p>and a test for homogeneity of variance from the <code>car</code> package.</p>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb204-1" data-line-number="1"><span class="kw">require</span>(car) <span class="co">#Test for homogeneity of variance</span></a>
+<a class="sourceLine" id="cb204-2" data-line-number="2">car<span class="op">::</span><span class="kw">leveneTest</span>(my.anova)</a>
+<a class="sourceLine" id="cb204-3" data-line-number="3"><span class="co">#&gt; Levene&#39;s Test for Homogeneity of Variance (center = median)</span></a>
+<a class="sourceLine" id="cb204-4" data-line-number="4"><span class="co">#&gt;       Df F value Pr(&gt;F)</span></a>
+<a class="sourceLine" id="cb204-5" data-line-number="5"><span class="co">#&gt; group  2    1.47   0.26</span></a>
+<a class="sourceLine" id="cb204-6" data-line-number="6"><span class="co">#&gt;       15</span></a></code></pre></div>
+<p>##AAAANNDD Regression</p>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb205-1" data-line-number="1"><span class="kw">load</span>(<span class="st">&quot;~/Dropbox/RCOURSE/books_resources/data/parenthood.Rdata&quot;</span>)</a>
+<a class="sourceLine" id="cb205-2" data-line-number="2"><span class="kw">head</span>(parenthood)</a>
+<a class="sourceLine" id="cb205-3" data-line-number="3"><span class="co">#&gt;   dan.sleep baby.sleep dan.grump day</span></a>
+<a class="sourceLine" id="cb205-4" data-line-number="4"><span class="co">#&gt; 1      7.59      10.18        56   1</span></a>
+<a class="sourceLine" id="cb205-5" data-line-number="5"><span class="co">#&gt; 2      7.91      11.66        60   2</span></a>
+<a class="sourceLine" id="cb205-6" data-line-number="6"><span class="co">#&gt; 3      5.14       7.92        82   3</span></a>
+<a class="sourceLine" id="cb205-7" data-line-number="7"><span class="co">#&gt; 4      7.71       9.61        55   4</span></a>
+<a class="sourceLine" id="cb205-8" data-line-number="8"><span class="co">#&gt; 5      6.68       9.75        67   5</span></a>
+<a class="sourceLine" id="cb205-9" data-line-number="9"><span class="co">#&gt; 6      5.99       5.04        72   6</span></a></code></pre></div>
+<p>Here’s the linear model.</p>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb206-1" data-line-number="1">regres1 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> dan.grump<span class="op">~</span>dan.sleep, <span class="dt">data =</span> parenthood)</a></code></pre></div>
+<p>You can plot it and print a summary.</p>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb207-1" data-line-number="1"><span class="kw">plot</span>(regres1)</a>
+<a class="sourceLine" id="cb207-2" data-line-number="2"><span class="kw">summary</span>(regres1)</a>
+<a class="sourceLine" id="cb207-3" data-line-number="3"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb207-4" data-line-number="4"><span class="co">#&gt; Call:</span></a>
+<a class="sourceLine" id="cb207-5" data-line-number="5"><span class="co">#&gt; lm(formula = dan.grump ~ dan.sleep, data = parenthood)</span></a>
+<a class="sourceLine" id="cb207-6" data-line-number="6"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb207-7" data-line-number="7"><span class="co">#&gt; Residuals:</span></a>
+<a class="sourceLine" id="cb207-8" data-line-number="8"><span class="co">#&gt;     Min      1Q  Median      3Q     Max </span></a>
+<a class="sourceLine" id="cb207-9" data-line-number="9"><span class="co">#&gt; -11.025  -2.213  -0.399   2.681  11.750 </span></a>
+<a class="sourceLine" id="cb207-10" data-line-number="10"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb207-11" data-line-number="11"><span class="co">#&gt; Coefficients:</span></a>
+<a class="sourceLine" id="cb207-12" data-line-number="12"><span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span></a>
+<a class="sourceLine" id="cb207-13" data-line-number="13"><span class="co">#&gt; (Intercept)  125.956      3.016    41.8   &lt;2e-16 ***</span></a>
+<a class="sourceLine" id="cb207-14" data-line-number="14"><span class="co">#&gt; dan.sleep     -8.937      0.429   -20.9   &lt;2e-16 ***</span></a>
+<a class="sourceLine" id="cb207-15" data-line-number="15"><span class="co">#&gt; ---</span></a>
+<a class="sourceLine" id="cb207-16" data-line-number="16"><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></a>
+<a class="sourceLine" id="cb207-17" data-line-number="17"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb207-18" data-line-number="18"><span class="co">#&gt; Residual standard error: 4.33 on 98 degrees of freedom</span></a>
+<a class="sourceLine" id="cb207-19" data-line-number="19"><span class="co">#&gt; Multiple R-squared:  0.816,  Adjusted R-squared:  0.814 </span></a>
+<a class="sourceLine" id="cb207-20" data-line-number="20"><span class="co">#&gt; F-statistic:  435 on 1 and 98 DF,  p-value: &lt;2e-16</span></a></code></pre></div>
+<p><img src="06_IntroStats_files/figure-html/unnamed-chunk-6-1.png" width="70%" style="display: block; margin: auto;" /><img src="06_IntroStats_files/figure-html/unnamed-chunk-6-2.png" width="70%" style="display: block; margin: auto;" /><img src="06_IntroStats_files/figure-html/unnamed-chunk-6-3.png" width="70%" style="display: block; margin: auto;" /><img src="06_IntroStats_files/figure-html/unnamed-chunk-6-4.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>Here’s a model with an interaction.</p>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" data-line-number="1">regres2 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> dan.grump<span class="op">~</span>dan.sleep <span class="op">*</span><span class="st"> </span>baby.sleep, <span class="dt">data =</span> parenthood)</a></code></pre></div>
+<p>Finally, you can plot 3 predictors in a 3d plot.</p>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" data-line-number="1"><span class="kw">scatter3d</span>(<span class="dt">z =</span> parenthood<span class="op">$</span>baby.sleep, </a>
+<a class="sourceLine" id="cb209-2" data-line-number="2">          <span class="dt">x =</span> parenthood<span class="op">$</span>dan.grump, </a>
+<a class="sourceLine" id="cb209-3" data-line-number="3">          <span class="dt">y =</span> parenthood<span class="op">$</span>dan.sleep)</a>
+<a class="sourceLine" id="cb209-4" data-line-number="4"><span class="co">#&gt; Loading required namespace: rgl</span></a>
+<a class="sourceLine" id="cb209-5" data-line-number="5"><span class="co">#&gt; Loading required namespace: mgcv</span></a></code></pre></div>
+<p>These statistics are presented very quickly and have a large background of omitted information, assumptions, and history. You should seek out readings or classes that focus on statistics before employing these tests. This lesson only covers how to apply these tests to data in the context of R.</p>
+<p>##Solutions
+<strong>Challenge 1</strong>
+Get the mean of the first five game margins.</p>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb210-1" data-line-number="1"><span class="kw">mean</span>(afl.margins[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</a>
+<a class="sourceLine" id="cb210-2" data-line-number="2"><span class="co">#&gt; [1] 36.6</span></a></code></pre></div>
+<p><strong>Challenge 2</strong>
+Get the median game margin.</p>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb211-1" data-line-number="1"><span class="kw">median</span>(afl.margins)</a>
+<a class="sourceLine" id="cb211-2" data-line-number="2"><span class="co">#&gt; [1] 30.5</span></a></code></pre></div>
+<p>…pretty close…</p>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb212-1" data-line-number="1"><span class="dv">176</span><span class="op">/</span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb212-2" data-line-number="2"><span class="co">#&gt; [1] 88</span></a>
+<a class="sourceLine" id="cb212-3" data-line-number="3"><span class="kw">sort</span>(afl.margins)[<span class="dv">88</span>]</a>
+<a class="sourceLine" id="cb212-4" data-line-number="4"><span class="co">#&gt; [1] 30</span></a></code></pre></div>
+<p><strong>Challenge 3</strong> Show the standard deviation in a graph.</p>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb213-1" data-line-number="1">my_hist=<span class="kw">hist</span>(afl.margins, <span class="dt">breaks=</span><span class="dv">10</span>  , <span class="dt">plot=</span>F)</a>
+<a class="sourceLine" id="cb213-2" data-line-number="2"><span class="co"># Color vector</span></a>
+<a class="sourceLine" id="cb213-3" data-line-number="3">my_color=<span class="st"> </span><span class="kw">ifelse</span>(my_hist<span class="op">$</span>breaks <span class="op">&lt;</span><span class="st"> </span>(<span class="kw">mean</span>(afl.margins) <span class="op">-</span><span class="st"> </span><span class="kw">sd</span>(afl.margins)), <span class="st">&quot;purple&quot;</span> , <span class="kw">ifelse</span> (my_hist<span class="op">$</span>breaks <span class="op">&gt;=</span>(<span class="kw">mean</span>(afl.margins) <span class="op">+</span><span class="st"> </span><span class="kw">sd</span>(afl.margins)), <span class="st">&quot;purple&quot;</span>, <span class="kw">rgb</span>(<span class="fl">0.2</span>,<span class="fl">0.2</span>,<span class="fl">0.2</span>,<span class="fl">0.2</span>) ))</a>
+<a class="sourceLine" id="cb213-4" data-line-number="4"><span class="co"># Final plot</span></a>
+<a class="sourceLine" id="cb213-5" data-line-number="5"><span class="kw">plot</span>(my_hist, <span class="dt">col=</span>my_color , <span class="dt">border=</span>F , <span class="dt">main=</span><span class="st">&quot;&quot;</span> , <span class="dt">xlab=</span><span class="st">&quot;value of the variable&quot;</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">125</span>))</a>
+<a class="sourceLine" id="cb213-6" data-line-number="6"><span class="kw">abline</span>(<span class="dt">v =</span> <span class="kw">mean</span>(afl.margins), <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>)</a></code></pre></div>
+<p><img src="06_IntroStats_files/figure-html/solutions-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p><strong>Challenge 4</strong> Calculate histogram, but do not draw it.</p>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb214-1" data-line-number="1"><span class="kw">hist</span>(afl.margins, <span class="dt">breaks=</span><span class="dv">10</span>  , <span class="dt">plot=</span>F)</a>
+<a class="sourceLine" id="cb214-2" data-line-number="2"><span class="co">#&gt; $breaks</span></a>
+<a class="sourceLine" id="cb214-3" data-line-number="3"><span class="co">#&gt;  [1]   0  10  20  30  40  50  60  70  80  90 100 110 120</span></a>
+<a class="sourceLine" id="cb214-4" data-line-number="4"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb214-5" data-line-number="5"><span class="co">#&gt; $counts</span></a>
+<a class="sourceLine" id="cb214-6" data-line-number="6"><span class="co">#&gt;  [1] 38 23 27 23 21 14 10  7  6  3  3  1</span></a>
+<a class="sourceLine" id="cb214-7" data-line-number="7"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb214-8" data-line-number="8"><span class="co">#&gt; $density</span></a>
+<a class="sourceLine" id="cb214-9" data-line-number="9"><span class="co">#&gt;  [1] 0.021591 0.013068 0.015341 0.013068 0.011932 0.007955 0.005682 0.003977</span></a>
+<a class="sourceLine" id="cb214-10" data-line-number="10"><span class="co">#&gt;  [9] 0.003409 0.001705 0.001705 0.000568</span></a>
+<a class="sourceLine" id="cb214-11" data-line-number="11"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb214-12" data-line-number="12"><span class="co">#&gt; $mids</span></a>
+<a class="sourceLine" id="cb214-13" data-line-number="13"><span class="co">#&gt;  [1]   5  15  25  35  45  55  65  75  85  95 105 115</span></a>
+<a class="sourceLine" id="cb214-14" data-line-number="14"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb214-15" data-line-number="15"><span class="co">#&gt; $xname</span></a>
+<a class="sourceLine" id="cb214-16" data-line-number="16"><span class="co">#&gt; [1] &quot;afl.margins&quot;</span></a>
+<a class="sourceLine" id="cb214-17" data-line-number="17"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb214-18" data-line-number="18"><span class="co">#&gt; $equidist</span></a>
+<a class="sourceLine" id="cb214-19" data-line-number="19"><span class="co">#&gt; [1] TRUE</span></a>
+<a class="sourceLine" id="cb214-20" data-line-number="20"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb214-21" data-line-number="21"><span class="co">#&gt; attr(,&quot;class&quot;)</span></a>
+<a class="sourceLine" id="cb214-22" data-line-number="22"><span class="co">#&gt; [1] &quot;histogram&quot;</span></a></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction-to-statistics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="linear-models.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://spencercastro.com/06_IntroStats.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

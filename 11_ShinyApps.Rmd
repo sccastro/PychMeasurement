@@ -1,0 +1,209 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
+# Shiny Applications
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+We will use shiny apps to create dynamic visualizations of data
+that can be hosted on websites or from your R console.
+
+**Challenge 1**
+
+Install shiny app:
+
+```{r, eval=FALSE}
+install.packages("shiny")
+```
+
+Optional installs
+```{r, eval=FALSE}
+
+install.packages("shinyjs")
+install.packages("shinystan")
+install.packages("shinythemes")
+```
+Open the folder code and open 01-template.R and click run app
+
+Run the lines there to see the structure of a shiny app.
+
+This is the simplest version of a shiny app that can be made.
+It creates html to display the text and has no dynamic inputs or
+outputs.
+
+Now to 02-hist-app.R
+
+
+Run the lines there to see the structure of a shiny app.
+
+Now you see inputs and output
+
+**Challenge 2**
+
+Run this shiny app. Screenshot the app.
+
+```{r}
+
+
+library(shiny)
+ui <- fluidPage("hello world") #This is the User Interface (ui),
+# it generates html for you so you don't have to do it. Run this line by itself
+# and then type ui into your console and hit enter.
+
+#What do you see?
+
+server <- function(input, output) {} #This is where the R code does work.
+# Run this line by itself and then hit enter
+
+#What do you see?
+shinyApp(ui = ui, server = server) #This starts the app running 
+#from you laptop. While it is running, you can see that it has opened
+# a port to your local laptop in the console. To stop it, close the
+# window or hit the stop sign.
+
+```
+
+
+
+```{r}
+# library(shiny)
+
+ui <- fluidPage(
+  sliderInput(inputId = "num", #Here you can see we set up a slider for the user
+    label = "Choose a number", #It has a label, which are instructions
+    value = 25, min = 1, max = 100), #It has a default value, a min and a max
+  plotOutput("hist"), #And you  have to make sure to plot it
+  sliderInput(inputId = "num2", #Here you can see we set up a slider for the user
+              label = "Choose a number", #It has a label, which are instructions
+              value = 25, min = 1, max = 100), #It has a default value, a min and a max
+  plotOutput("hist2") #And you  have to make sure to plot it
+)
+
+#This is what ui looks like:
+# <div class="container-fluid">
+#   <div class="form-group shiny-input-container">
+#   <label class="control-label" for="num">Choose a number</label>
+#   <input class="js-range-slider" id="num" 
+#           data-min="1" data-max="100" data-from="25" 
+#           data-step="1" data-grid="true" data-grid-num="9.9" 
+#           data-grid-snap="false" data-prettify-separator="," 
+#           data-prettify-enabled="true" data-keyboard="true" 
+#           data-data-type="number"/>
+#   </div>
+#   <div id="hist" class="shiny-plot-output" style="width: 100% ; height: 400px"></div>
+#   </div>
+
+```
+
+Now for the server function. You use the previously learned R syntax to 
+create a function. You give it the arguments input and output.
+Then if you have outputs, you need to save the output to "output$name" with the
+assignment operator <-
+
+**Challenge 3**
+
+Run this shiny app. Screenshot the app.
+
+```{r}
+
+
+server <- function(input, output) { #Now we've added input and output to the arguments
+  output$hist <- renderPlot({ #output$hist is the saved plot, renderPlot builds it
+    hist(rnorm(input$num)) #This creates the histogram with information from input
+  })
+  output$hist2 <- renderPlot({ #output$hist is the saved plot, renderPlot builds it
+    hist(rnorm(input$num2)) #This creates the histogram with information from input  
+  }) 
+}
+
+shinyApp(ui = ui, server = server)#This creates and runs the app
+
+
+```
+
+Note: the name in plotOutput() "hist" of the ui function is the same as 
+output$hist. These are mapped together to provide the information for the graph.
+Also, what you save into output should be something built with a renderName() 
+function. You can:
+
+- renderDataTable()
+- renderImage()
+- renderPlot()
+- renderPrint()
+- renderTable()
+- renderText()
+- renderUI()
+
+For outputs you have:
+
+- plotOutput()
+- textOutput()
+- dataTableOutput()
+- imageOutput()
+- tableOutput()
+- uiOutput()
+
+# 01-kmeans-app
+
+**Challenge 4**
+
+Run this shiny app. Screenshot the app with Petal_Length by Sepal_Width selected.
+
+```{r}
+
+palette(c("#E41A1C", "#377EB8", "#4DAF4A", "#984EA3",
+  "#FF7F00", "#FFFF33", "#A65628", "#F781BF", "#999999"))
+
+library(shiny)
+
+#Let's remember what the dataset iris looks like
+View(iris)
+
+ui <- fluidPage(
+  headerPanel('Iris k-means clustering'), #This is the title
+  sidebarPanel( #This is the sidebar with buttons:
+    selectInput('xcol', 'X Variable', names(iris)), #xcol is the value, X Variable the label
+    selectInput('ycol', 'Y Variable', names(iris), #ycol is the value, Y Variable the label
+      selected = names(iris)[[2]]),
+    numericInput('clusters', 'Cluster count', 3,
+      min = 1, max = 9)
+  ),
+  mainPanel(
+    plotOutput('plot1')
+  )
+)
+
+
+server <- function(input, output) {
+
+  selectedData <- reactive({ #We'll talk about reactives in a bit
+    iris[, c(input$xcol, input$ycol)]
+  })
+
+  clusters <- reactive({
+    kmeans(selectedData(), input$clusters)
+  })
+
+  output$plot1 <- renderPlot({ #This creates the plot that you want to see
+    #with dynamic changes
+    par(mar = c(5.1, 4.1, 0, 1)) #this creates the window position
+    plot(selectedData(), #The we plot the clusters from above with selectedData()
+         col = clusters()$cluster, #How many clusters
+         pch = 20, cex = 3) #Color and size default
+    points(clusters()$centers, pch = 4, cex = 4, lwd = 4)
+  })
+
+}
+
+shinyApp(ui = ui, server = server)
+```
+
+
+**Challenge 5**
+
+Run your own data with the above code. See if you can replace the numeric variables of the iris dataset with your own. Screenshot the results.

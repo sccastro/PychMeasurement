@@ -17,12 +17,12 @@ Create a custom theme for your graphs!
 ```r
 require(tidyverse)
 #> Loading required package: tidyverse
-#> -- Attaching packages ---------------------------------------------------- tidyverse 1.3.0 --
-#> v ggplot2 3.2.1     v purrr   0.3.3
-#> v tibble  2.1.3     v dplyr   0.8.4
-#> v tidyr   1.0.2     v stringr 1.4.0
-#> v readr   1.3.1     v forcats 0.5.0
-#> -- Conflicts ------------------------------------------------------- tidyverse_conflicts() --
+#> ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
+#> ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+#> ✓ tibble  3.1.6     ✓ dplyr   1.0.7
+#> ✓ tidyr   1.1.3     ✓ stringr 1.4.0
+#> ✓ readr   1.4.0     ✓ forcats 0.5.1
+#> ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 #> x dplyr::filter() masks stats::filter()
 #> x dplyr::lag()    masks stats::lag()
 #Example 1.
@@ -83,11 +83,9 @@ xkcd_line(d$x, d$one, 'red')
 xkcd_line(d$x, d$two, 'blue')
 ```
 
+<img src="05_Visualize_files/figure-html/advancedR-1.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/advancedR-2.png" width="70%" style="display: block; margin: auto;" />
 
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/advancedR-1} \includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/advancedR-2} \end{center}
-
-#Steps of Visualization {-}
+## Steps of Visualization {-}
 
 Step 1: Get some data
 
@@ -98,14 +96,38 @@ Step 1: Get some data
 kable(ggplot2::mpg[1,1:11])
 ```
 
-
-\begin{tabular}{l|l|r|r|r|l|l|r|r|l|l}
-\hline
-manufacturer & model & displ & year & cyl & trans & drv & cty & hwy & fl & class\\
-\hline
-audi & a4 & 1.8 & 1999 & 4 & auto(l5) & f & 18 & 29 & p & compact\\
-\hline
-\end{tabular}
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> manufacturer </th>
+   <th style="text-align:left;"> model </th>
+   <th style="text-align:right;"> displ </th>
+   <th style="text-align:right;"> year </th>
+   <th style="text-align:right;"> cyl </th>
+   <th style="text-align:left;"> trans </th>
+   <th style="text-align:left;"> drv </th>
+   <th style="text-align:right;"> cty </th>
+   <th style="text-align:right;"> hwy </th>
+   <th style="text-align:left;"> fl </th>
+   <th style="text-align:left;"> class </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> audi </td>
+   <td style="text-align:left;"> a4 </td>
+   <td style="text-align:right;"> 1.8 </td>
+   <td style="text-align:right;"> 1999 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> auto(l5) </td>
+   <td style="text-align:left;"> f </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 29 </td>
+   <td style="text-align:left;"> p </td>
+   <td style="text-align:left;"> compact </td>
+  </tr>
+</tbody>
+</table>
 Let's save it to something...
 
 ```r
@@ -124,18 +146,18 @@ or print them to the console...
 dim(df)
 #> [1] 234  11
 str(df) #what kind of classes are we dealing with?
-#> Classes 'tbl_df', 'tbl' and 'data.frame':	234 obs. of  11 variables:
-#>  $ manufacturer: chr  "audi" "audi" "audi" "audi" ...
-#>  $ model       : chr  "a4" "a4" "a4" "a4" ...
-#>  $ displ       : num  1.8 1.8 2 2 2.8 2.8 3.1 1.8 1.8 2 ...
-#>  $ year        : int  1999 1999 2008 2008 1999 1999 2008 1999 1999 2008 ...
-#>  $ cyl         : int  4 4 4 4 6 6 6 4 4 4 ...
-#>  $ trans       : chr  "auto(l5)" "manual(m5)" "manual(m6)" "auto(av)" ...
-#>  $ drv         : chr  "f" "f" "f" "f" ...
-#>  $ cty         : int  18 21 20 21 16 18 18 18 16 20 ...
-#>  $ hwy         : int  29 29 31 30 26 26 27 26 25 28 ...
-#>  $ fl          : chr  "p" "p" "p" "p" ...
-#>  $ class       : chr  "compact" "compact" "compact" "compact" ...
+#> tibble [234 × 11] (S3: tbl_df/tbl/data.frame)
+#>  $ manufacturer: chr [1:234] "audi" "audi" "audi" "audi" ...
+#>  $ model       : chr [1:234] "a4" "a4" "a4" "a4" ...
+#>  $ displ       : num [1:234] 1.8 1.8 2 2 2.8 2.8 3.1 1.8 1.8 2 ...
+#>  $ year        : int [1:234] 1999 1999 2008 2008 1999 1999 2008 1999 1999 2008 ...
+#>  $ cyl         : int [1:234] 4 4 4 4 6 6 6 4 4 4 ...
+#>  $ trans       : chr [1:234] "auto(l5)" "manual(m5)" "manual(m6)" "auto(av)" ...
+#>  $ drv         : chr [1:234] "f" "f" "f" "f" ...
+#>  $ cty         : int [1:234] 18 21 20 21 16 18 18 18 16 20 ...
+#>  $ hwy         : int [1:234] 29 29 31 30 26 26 27 26 25 28 ...
+#>  $ fl          : chr [1:234] "p" "p" "p" "p" ...
+#>  $ class       : chr [1:234] "compact" "compact" "compact" "compact" ...
 ```
 Where can I read more about this dataset?
 
@@ -169,14 +191,12 @@ plot(mpg$displ)
 plot(mpg$cty, mpg$hwy)
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/ezplots-1} \includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/ezplots-2} \includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/ezplots-3} \end{center}
+<img src="05_Visualize_files/figure-html/ezplots-1.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/ezplots-2.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/ezplots-3.png" width="70%" style="display: block; margin: auto;" />
 However, the ggplot package offers a structure and flexibility to create
 almost any plot you can imagine. Other packages work with ggplot to
 create the rest.
 
-##ggplot2
+## ggplot2
 Remember this scaffolding for your ggplots:
 
 ```r
@@ -196,13 +216,11 @@ This is usually how we start:
 
 ```r
 df %>% #the tibble
-  ggplot(aes(x = displ, y = hwy)) + #the x and y coordinates (what goes on the axes)
+  ggplot(mapping = aes(x = displ, y = hwy)) + #the x and y coordinates (what goes on the axes)
   geom_point() #marks that represent the data values
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/baseggplot-1} \end{center}
+<img src="05_Visualize_files/figure-html/baseggplot-1.png" width="70%" style="display: block; margin: auto;" />
 You can do the same with qplot(), which is short for quick plot...
 
 
@@ -210,9 +228,7 @@ You can do the same with qplot(), which is short for quick plot...
 qplot(x = displ, y = hwy, data = df, geom = "point")
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/qplot-1} \end{center}
+<img src="05_Visualize_files/figure-html/qplot-1.png" width="70%" style="display: block; margin: auto;" />
 
 **Challenge 1**
 What does "displ" mean? What does "hwy" mean? What is the relationship between these variables? 
@@ -228,9 +244,7 @@ df %>%
 #> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/smooth-1} \end{center}
+<img src="05_Visualize_files/figure-html/smooth-1.png" width="70%" style="display: block; margin: auto;" />
 Remember, this is equivalent to the example written above...
 
 ```r
@@ -239,9 +253,7 @@ ggplot(data = df, mapping = aes(x = displ, y = hwy)) +
 #> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/equivalent-1} \end{center}
+<img src="05_Visualize_files/figure-html/equivalent-1.png" width="70%" style="display: block; margin: auto;" />
 We can get some useful information out of this plot, like cars that don't follow the trend.
 
 
@@ -251,9 +263,7 @@ ggplot(data = df, mapping = aes(x = displ, y = hwy)) +
 #> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/outlier-1} \end{center}
+<img src="05_Visualize_files/figure-html/outlier-1.png" width="70%" style="display: block; margin: auto;" />
 These cars don't follow the trend, getting higher mpg with bigger engines. We can identify these cars in the data.frame...
 
 **Challenge 2**
@@ -262,6 +272,9 @@ Get the cars that were identified in blue and print the data.frame (tibble)
 ```r
 View(df %>%
   filter(displ > 5 & hwy > 20))
+#> Warning in system2("/usr/bin/otool", c("-L", shQuote(DSO)), stdout = TRUE):
+#> running command ''/usr/bin/otool' -L '/Library/Frameworks/R.framework/Resources/
+#> modules/R_de.so'' had status 1
 ```
 
 All of these cars have an "fl" of "p". What does that mean? 
@@ -274,9 +287,7 @@ unique(df$fl)
 ggplot(mpg, aes(x=fl, y=hwy)) + geom_boxplot() + facet_wrap(~cyl, nrow=1)
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/unnamed-chunk-3-1} \end{center}
+<img src="05_Visualize_files/figure-html/unnamed-chunk-3-1.png" width="70%" style="display: block; margin: auto;" />
 
 You can add a third variable, like class, to a two dimensional scatterplot by mapping it to an aesthetic. An aesthetic is a visual property of the objects in your plot.Aesthetics include things like the size, the shape, or the color of your points. You can display a point in 
 different ways by changing the values of its aesthetic properties.
@@ -287,9 +298,7 @@ ggplot(data = df) +
   geom_point(mapping = aes(x = displ, y = hwy, color = class))
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/coloring-1} \end{center}
+<img src="05_Visualize_files/figure-html/coloring-1.png" width="70%" style="display: block; margin: auto;" />
 Notice that a legend is automatically created.
 Grouping variables, such as color, might include:
 
@@ -300,7 +309,7 @@ shape (of points)
 linetype
 size
 
-##Linetypes
+## Linetypes
 
 Here are the linetypes
 
@@ -317,11 +326,9 @@ generateRLineTypes<-function(){
 generateRLineTypes()
 ```
 
+<img src="05_Visualize_files/figure-html/linetypes-1.png" width="70%" style="display: block; margin: auto;" />
 
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/linetypes-1} \end{center}
-
-##Symbols
+## Symbols
 
 Here's an example of symbols and their numbers
 
@@ -333,15 +340,9 @@ ggplot() +
   scale_shape_identity() +
   geom_point(data=d, mapping=aes(x=p%%16, y=p%/%16, shape=p), size=5, fill="red") +
   geom_text(data=d, mapping=aes(x=p%%16, y=p%/%16+0.25, label=p), size=3)
-#> Warning in grid.Call.graphics(C_points, x$x, x$y, x$pch, x$size): font width
-#> unknown for character 0x7f
-#> Warning in grid.Call.graphics(C_points, x$x, x$y, x$pch, x$size): font metrics
-#> unknown for character 0x7f
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/symbols-1} \end{center}
+<img src="05_Visualize_files/figure-html/symbols-1.png" width="70%" style="display: block; margin: auto;" />
 There are 32 quickly referenced geoms, including:
 
 geom_abline   
@@ -371,9 +372,7 @@ df %>%
   geom_line(aes(linetype = class)) + geom_point(aes(color = class))
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/linetype-1} \end{center}
+<img src="05_Visualize_files/figure-html/linetype-1.png" width="70%" style="display: block; margin: auto;" />
 
 **Challenge 3**
 What happens if you move the grouping aesthetic "color = class" to the ggplot() function? Why?    
@@ -386,7 +385,7 @@ df %>%
 ```
 
 
-##Play time
+## Play time
 Keep in mind which geoms you would like to apply to your data.
 
 ```r
@@ -412,9 +411,7 @@ df %>%
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/play-1} \includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/play-2} \includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/play-3} \end{center}
+<img src="05_Visualize_files/figure-html/play-1.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/play-2.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/play-3.png" width="70%" style="display: block; margin: auto;" />
 
 If you really want to create some ridiculous plots...
 
@@ -491,9 +488,7 @@ df %>%
 #> Warning in theme_xkcd(): Not xkcd fonts installed! See vignette("xkcd-intro")
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/themes-1} \includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/themes-2} \includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/themes-3} \includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/themes-4} \includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/themes-5} \end{center}
+<img src="05_Visualize_files/figure-html/themes-1.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/themes-2.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/themes-3.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/themes-4.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/themes-5.png" width="70%" style="display: block; margin: auto;" />
 Now for serious plots
 
 
@@ -505,9 +500,7 @@ ggplot(data = df) +
   geom_point(mapping = aes(x = displ, y = hwy, color = "blue"))
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/darkgreen-1} \end{center}
+<img src="05_Visualize_files/figure-html/darkgreen-1.png" width="70%" style="display: block; margin: auto;" />
 Why are the dots not blue?
 
 
@@ -519,9 +512,7 @@ ggplot(data = df) +
   facet_wrap(~ class, nrow = 2)
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/wrapping-1} \end{center}
+<img src="05_Visualize_files/figure-html/wrapping-1.png" width="70%" style="display: block; margin: auto;" />
 facet_grid takes slightly different arguments, and facets the plot on two variables...
 
 ```r
@@ -530,9 +521,7 @@ ggplot(data = df) +
   facet_grid(drv ~ cyl)
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/grid-1} \end{center}
+<img src="05_Visualize_files/figure-html/grid-1.png" width="70%" style="display: block; margin: auto;" />
 If you prefer to not facet in the rows or columns dimension, use a . instead of a variable name, e.g. + facet_grid(. ~ cyl).
 
 ...facet on a continuous variable?
@@ -543,9 +532,7 @@ ggplot(data = df) +
   facet_wrap(~cty)
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/wrapcont-1} \end{center}
+<img src="05_Visualize_files/figure-html/wrapcont-1.png" width="70%" style="display: block; margin: auto;" />
 
 
 **Challenge 5**   
@@ -557,9 +544,7 @@ ggplot(data = df) +
   facet_grid(drv ~ .)
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/challenge5-1} \end{center}
+<img src="05_Visualize_files/figure-html/challenge5-1.png" width="70%" style="display: block; margin: auto;" />
 hint: try switching the . and drv
 
 
@@ -573,9 +558,7 @@ ggplot(data = df, mapping = aes(x = displ, y = hwy)) +
 #> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/se-1} \end{center}
+<img src="05_Visualize_files/figure-html/se-1.png" width="70%" style="display: block; margin: auto;" />
 Notice how we used the filter function in the geom function?
 
 
@@ -593,9 +576,7 @@ ggplot(data = df) +
   theme_classic()
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/daimonddim-1} \end{center}
+<img src="05_Visualize_files/figure-html/daimonddim-1.png" width="70%" style="display: block; margin: auto;" />
 In this case, the geom_bar function has a "count" statistic. <code>count</code> is the default statistic for <code>geom_bar()</code> You can change it
 
 ```r
@@ -604,9 +585,7 @@ ggplot(data = df) +
   theme_classic()
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/dens-1} \end{center}
+<img src="05_Visualize_files/figure-html/dens-1.png" width="70%" style="display: block; margin: auto;" />
 ...but it doesn't make sense because we have a categorical variable on the x-axis. Remember...
 
 ```r
@@ -618,7 +597,7 @@ We can also do the counting beforehand and then plot with the "identity" statist
 df %>%
   group_by(cut) %>%
   count() 
-#> # A tibble: 5 x 2
+#> # A tibble: 5 × 2
 #> # Groups:   cut [5]
 #>   cut           n
 #>   <ord>     <int>
@@ -637,9 +616,7 @@ df %>%
   theme_classic()
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/classic-1} \end{center}
+<img src="05_Visualize_files/figure-html/classic-1.png" width="70%" style="display: block; margin: auto;" />
 Now we had to specify the y value because that is how high the bar should be.
 
 We can also use geom_point with stat = "identity", which usually creates scatterplots
@@ -653,9 +630,7 @@ df %>%
   theme_classic()
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/cutgroup-1} \end{center}
+<img src="05_Visualize_files/figure-html/cutgroup-1.png" width="70%" style="display: block; margin: auto;" />
 Here's a cool trick, we can use proportion in the argument to get fractions of the whole:
 
 ```r
@@ -663,9 +638,7 @@ ggplot(data = df) +
   geom_bar(mapping = aes(x = cut, y = ..prop.., group = 1))
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/group1-1} \end{center}
+<img src="05_Visualize_files/figure-html/group1-1.png" width="70%" style="display: block; margin: auto;" />
 Notice that we had to specify the computed variable in dots .."stat"..
 
 ```r
@@ -673,9 +646,7 @@ ggplot(data = df) +
   geom_bar(mapping = aes(x = cut, y = ..count.., group = 1))
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/ycount-1} \end{center}
+<img src="05_Visualize_files/figure-html/ycount-1.png" width="70%" style="display: block; margin: auto;" />
 also you have to specify that the proportion is out of a group of 1 and not cut. Otherwise they would all be a proportion of 1 for their group.
 
 We can do this before in the data.frame as well:
@@ -689,9 +660,7 @@ df %>%
   ggplot() + geom_bar(aes(x = cut, y = prop), stat = "identity")
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/sum-1} \end{center}
+<img src="05_Visualize_files/figure-html/sum-1.png" width="70%" style="display: block; margin: auto;" />
 You can get summary stats inside ggplot with stat_summary:
 
 
@@ -703,11 +672,12 @@ ggplot(data = df) +
     fun.ymax = max,
     fun.y = median
   )
+#> Warning: `fun.y` is deprecated. Use `fun` instead.
+#> Warning: `fun.ymin` is deprecated. Use `fun.min` instead.
+#> Warning: `fun.ymax` is deprecated. Use `fun.max` instead.
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/allstats-1} \end{center}
+<img src="05_Visualize_files/figure-html/allstats-1.png" width="70%" style="display: block; margin: auto;" />
 
 ## Changing the position
 We can also fill, stack, dodge and jitter our geoms:
@@ -722,9 +692,7 @@ ggplot(data = df) +
   geom_bar(mapping = aes(x = cut, fill = clarity)) #fill by a group NOT on the x axis
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/positions-1} \includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/positions-2} \includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/positions-3} \end{center}
+<img src="05_Visualize_files/figure-html/positions-1.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/positions-2.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/positions-3.png" width="70%" style="display: block; margin: auto;" />
 Remember colorBrewer?
 
 ```r
@@ -735,9 +703,7 @@ ggplot(data = df) +
   scale_fill_brewer(palette = 4) + theme_bw()
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/brewer-1} \end{center}
+<img src="05_Visualize_files/figure-html/brewer-1.png" width="70%" style="display: block; margin: auto;" />
 The stacking is performed automatically by the position adjustment specified by the position argument. If you don’t want a stacked bar chart, you can use one of three other options: "identity", "dodge" or "fill".
 
 position = "identity" will place each object exactly where it falls in the context of the graph. 
@@ -750,9 +716,7 @@ ggplot(data = df, mapping = aes(x = cut, colour = clarity)) +
   geom_bar(fill = NA, position = "identity") + theme_classic()
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/bars-1} \includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/bars-2} \end{center}
+<img src="05_Visualize_files/figure-html/bars-1.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/bars-2.png" width="70%" style="display: block; margin: auto;" />
 The identity position adjustment is more useful for 2d geoms, like points, where it is the default.
 
 position = "fill" works like stacking, but makes each set of stacked bars the same height. 
@@ -763,9 +727,7 @@ ggplot(data = df) +
   geom_bar(mapping = aes(x = cut, fill = clarity), position = "fill")
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/masbars-1} \end{center}
+<img src="05_Visualize_files/figure-html/masbars-1.png" width="70%" style="display: block; margin: auto;" />
 position = "dodge" places overlapping objects directly beside one another. 
 This makes it easier to compare individual values.
 
@@ -778,22 +740,24 @@ ggplot(data = df, aes(x = price, y = carat)) +
   geom_point(position = "jitter") + theme_light() #position jitter adds randomness
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/jitter-1} \includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/jitter-2} \end{center}
+<img src="05_Visualize_files/figure-html/jitter-1.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/jitter-2.png" width="70%" style="display: block; margin: auto;" />
 There are packages that deal with overplotting, but some geoms make this easy as well.
 
 ```r
+mprice <- df %>%
+  group_by(cut,round(carat, 0)) %>%
+  summarise(mprice = mean(price))
+#> `summarise()` has grouped output by 'cut'. You can override using the `.groups`
+#> argument.
+
 ggplot(data = df, aes(x = price, y = carat)) +
-  geom_bin2d()
+  geom_bin2d() 
 
 ggplot(data = df, aes(x = price, y = carat)) +
   geom_density2d() + theme_classic()
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/bin2d-1} \includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/bin2d-2} \end{center}
+<img src="05_Visualize_files/figure-html/bin2d-1.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/bin2d-2.png" width="70%" style="display: block; margin: auto;" />
 
 ## Coordinates
 
@@ -805,9 +769,7 @@ ggplot(df, aes(x = cut, y = depth)) +
   coord_flip()
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/coords-1} \includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/coords-2} \end{center}
+<img src="05_Visualize_files/figure-html/coords-1.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/coords-2.png" width="70%" style="display: block; margin: auto;" />
 
 ### Plot maps if you want
 
@@ -838,9 +800,7 @@ ggplot(newplaces, aes(long, lat, group = group)) +
   coord_quickmap() #This adds lat and long
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/maps-1} \includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/maps-2} \end{center}
+<img src="05_Visualize_files/figure-html/maps-1.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/maps-2.png" width="70%" style="display: block; margin: auto;" />
 Plot with flipped axes or in polar coordinates...
 
 ```r
@@ -857,8 +817,6 @@ bar + coord_flip()
 bar + coord_polar()
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/polar-1} \includegraphics[width=0.7\linewidth]{05_Visualize_files/figure-latex/polar-2} \end{center}
+<img src="05_Visualize_files/figure-html/polar-1.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/polar-2.png" width="70%" style="display: block; margin: auto;" />
 So much you can do!
 

@@ -44,12 +44,11 @@ dat2 %>%
   facet_grid(. ~School)
 ```
  
-#Day 2 {-}
+## Day 2 {-}
 
 
 
-##Note: 
-Much of this lesson can be found in the "factors" chapter of R for Data Science by Hadley Wickham: http://r4ds.had.co.nz/factors.html
+_Note_: Much of this lesson can be found in the "factors" chapter of R for Data Science by Hadley Wickham: http://r4ds.had.co.nz/factors.html
 
 
 ```r
@@ -58,10 +57,11 @@ Much of this lesson can be found in the "factors" chapter of R for Data Science 
 View(gss_cat)
 ```
 
+
 ```r
 gss_cat %>%
   count(race) #We can see counts of each race or religion
-#> # A tibble: 3 x 2
+#> # A tibble: 3 × 2
 #>   race      n
 #>   <fct> <int>
 #> 1 Other  1959
@@ -71,7 +71,7 @@ gss_cat %>%
 gss_cat %>%
   count(relig) %>%
   arrange(desc(n)) #We can arrange them in descending order on the count column (n)
-#> # A tibble: 15 x 2
+#> # A tibble: 15 × 2
 #>   relig          n
 #>   <fct>      <int>
 #> 1 Protestant 10846
@@ -80,11 +80,11 @@ gss_cat %>%
 #> 4 Christian    689
 #> 5 Jewish       388
 #> 6 Other        224
-#> # ... with 9 more rows
+#> # … with 9 more rows
 
 gss_cat %>%
   count(age) #Or we can count by age...
-#> # A tibble: 73 x 2
+#> # A tibble: 73 × 2
 #>     age     n
 #>   <int> <int>
 #> 1    18    91
@@ -93,13 +93,13 @@ gss_cat %>%
 #> 4    21   278
 #> 5    22   298
 #> 6    23   361
-#> # ... with 67 more rows
+#> # … with 67 more rows
 
 
 gss_cat %>%
   count(race) %>%
   mutate(freq = (n / sum(n))*100) #We can see relative proportions in the sample
-#> # A tibble: 3 x 3
+#> # A tibble: 3 × 3
 #>   race      n  freq
 #>   <fct> <int> <dbl>
 #> 1 Other  1959  9.12
@@ -116,6 +116,7 @@ df <- forcats::gss_cat
 ```
 
 
+
 ```r
 #Remember, none of these outcomes are being saved into any objects with <- 
 #This is just for visualizing and exploring the data.
@@ -124,7 +125,7 @@ df <- forcats::gss_cat
 require(ggplot2) #We will get more into ggplot next week, 
 #but for now here is an introduction.
 
-ggplot(data = gss_cat, mapping = aes(race)) +
+ggplot(data = gss_cat, mapping = aes(x =race)) +
   geom_bar()
 
 
@@ -135,9 +136,7 @@ ggplot(gss_cat, aes(race)) +
   scale_x_discrete(drop = FALSE)
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{04_TransformationDay2_files/figure-latex/ggplotintro-1} \includegraphics[width=0.7\linewidth]{04_TransformationDay2_files/figure-latex/ggplotintro-2} \end{center}
+<img src="04_TransformationDay2_files/figure-html/ggplotintro-1.png" width="70%" style="display: block; margin: auto;" /><img src="04_TransformationDay2_files/figure-html/ggplotintro-2.png" width="70%" style="display: block; margin: auto;" />
 
 When working with factors, the two most common operations are:
 1. Changing the order of the levels
@@ -156,11 +155,11 @@ Note: if you put () on the outside of your assignment, it will also print
 (relig_summary <- df %>% #Get your data.frame and pipe into the columns
   group_by(relig) %>% #group by religion so that each summary will be for one religion
   summarise( #Get a summary for the following transformations
-    age = mean(age, na.rm = TRUE), #Get the mean of age and name it "age"
+    age = mean(age, na.rm = T), #Get the mean of age and name it "age"
     tvhours = mean(tvhours, na.rm = TRUE), #Get the mean of tv hours and name it "tvhours"
     n = n() #Count the number of observations in each group
   ))
-#> # A tibble: 15 x 4
+#> # A tibble: 15 × 4
 #>   relig                     age tvhours     n
 #>   <fct>                   <dbl>   <dbl> <int>
 #> 1 No answer                49.5    2.72    93
@@ -169,12 +168,12 @@ Note: if you put () on the outside of your assignment, it will also print
 #> 4 Native american          38.9    3.46    23
 #> 5 Christian                40.1    2.79   689
 #> 6 Orthodox-christian       50.4    2.42    95
-#> # ... with 9 more rows
+#> # … with 9 more rows
 ```
 Because there were NA's and we wanted to do math we needed to remove them with:
 na.rm = TRUE
 
-##Change the order of the levels
+## Change the order of the levels
 
 Plot with ggplot, arguments are ggplot(data, mapping) + geom_type()
 mapping is usually paired with the aes() function, which refers to aesthetics
@@ -186,21 +185,17 @@ ggplot(data = relig_summary,
   geom_point()
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{04_TransformationDay2_files/figure-latex/plotrelig-1} \end{center}
+<img src="04_TransformationDay2_files/figure-html/plotrelig-1.png" width="70%" style="display: block; margin: auto;" />
 
 Interesting, but we could pack more info into this visualization
 
 
 ```r
-ggplot(relig_summary, aes(tvhours, fct_reorder(relig, tvhours))) +
+ggplot(relig_summary, aes(x = tvhours, y = fct_reorder(.f = relig, .x = tvhours))) +
   geom_point()
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{04_TransformationDay2_files/figure-latex/plotmore-1} \end{center}
+<img src="04_TransformationDay2_files/figure-html/plotmore-1.png" width="70%" style="display: block; margin: auto;" />
 
 Now we have reordered religion by tv hours watched.
 
@@ -213,9 +208,7 @@ ggplot(relig_summary, aes(tvhours, fct_reorder(relig, desc(tvhours)))) +
   geom_point() 
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{04_TransformationDay2_files/figure-latex/plotdescend-1} \end{center}
+<img src="04_TransformationDay2_files/figure-html/plotdescend-1.png" width="70%" style="display: block; margin: auto;" />
 We just put desc() around tvhours
 
 As you start making more complicated transformations,
@@ -229,6 +222,12 @@ relig_summary %>%
   ggplot(aes(tvhours, relig)) +
   geom_point()
 
+mtv <- relig_summary %>%
+  summarise(mtv = mean(tvhours))
+
+relig_summary %>% ggplot(aes(x = tvhours, y = relig, color = relig)
+) + geom_point() + geom_vline(aes(xintercept = mtv$mtv)) 
+
 levels(relig_summary$relig)
 #>  [1] "No answer"               "Don't know"             
 #>  [3] "Inter-nondenominational" "Native american"        
@@ -241,7 +240,7 @@ levels(relig_summary$relig)
 
 (testlevel <- relig_summary %>%
   mutate(relig = fct_reorder(relig, tvhours)))
-#> # A tibble: 15 x 4
+#> # A tibble: 15 × 4
 #>   relig                     age tvhours     n
 #>   <fct>                   <dbl>   <dbl> <int>
 #> 1 No answer                49.5    2.72    93
@@ -250,7 +249,7 @@ levels(relig_summary$relig)
 #> 4 Native american          38.9    3.46    23
 #> 5 Christian                40.1    2.79   689
 #> 6 Orthodox-christian       50.4    2.42    95
-#> # ... with 9 more rows
+#> # … with 9 more rows
 
 levels(testlevel$relig) #The levels have changed even if the visualization did not.
 #>  [1] "Other eastern"           "Hinduism"               
@@ -263,9 +262,7 @@ levels(testlevel$relig) #The levels have changed even if the visualization did n
 #> [15] "Don't know"              "Not applicable"
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{04_TransformationDay2_files/figure-latex/fct_reorder-1} \end{center}
+<img src="04_TransformationDay2_files/figure-html/fct_reorder-1.png" width="70%" style="display: block; margin: auto;" /><img src="04_TransformationDay2_files/figure-html/fct_reorder-2.png" width="70%" style="display: block; margin: auto;" />
 
 This is most important for plotting
 
@@ -280,7 +277,7 @@ Let's look at how average age varies across reported income level:
     tvhours = mean(tvhours, na.rm = TRUE), #Mean tvhours named "tvhours"
     n = n() #Count number of observations in each column
   ))
-#> # A tibble: 16 x 4
+#> # A tibble: 16 × 4
 #>   rincome          age tvhours     n
 #>   <fct>          <dbl>   <dbl> <int>
 #> 1 No answer       45.5    2.90   183
@@ -289,15 +286,13 @@ Let's look at how average age varies across reported income level:
 #> 4 $25000 or more  44.2    2.23  7363
 #> 5 $20000 - 24999  41.5    2.78  1283
 #> 6 $15000 - 19999  40.0    2.91  1048
-#> # ... with 10 more rows
+#> # … with 10 more rows
 
 ggplot(rincome_summary, aes(age, fct_reorder(rincome, age))) + 
   geom_point()
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{04_TransformationDay2_files/figure-latex/plotcount-1} \end{center}
+<img src="04_TransformationDay2_files/figure-html/plotcount-1.png" width="70%" style="display: block; margin: auto;" />
 
 Reported income is an ordinal variable so it should be reported that way
 However fct_reorder will often create an arbitrary order by the second argument
@@ -310,9 +305,7 @@ ggplot(rincome_summary, aes(age, fct_relevel(rincome))) +
   geom_point()
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{04_TransformationDay2_files/figure-latex/fct_relevel ordered-1} \end{center}
+<img src="04_TransformationDay2_files/figure-html/fct_relevel ordered-1.png" width="70%" style="display: block; margin: auto;" />
 
 Now "Not applicable" is up at the top away from the other "special responses"
 Let's fix that:
@@ -322,9 +315,7 @@ ggplot(rincome_summary, aes(age, fct_relevel(rincome, "Not applicable"))) +
   geom_point()
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{04_TransformationDay2_files/figure-latex/plotNAs-1} \end{center}
+<img src="04_TransformationDay2_files/figure-html/plotNAs-1.png" width="70%" style="display: block; margin: auto;" />
 We put it at the end! Now age and income are ordered! However, larger numbers
 map to the top (Larger is higher in conceptual metaphor theory)
 
@@ -361,9 +352,7 @@ ggplot(ordered_rincome, aes(age,rincome)) +
   geom_point()
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{04_TransformationDay2_files/figure-latex/plotfull-1} \includegraphics[width=0.7\linewidth]{04_TransformationDay2_files/figure-latex/plotfull-2} \end{center}
+<img src="04_TransformationDay2_files/figure-html/plotfull-1.png" width="70%" style="display: block; margin: auto;" /><img src="04_TransformationDay2_files/figure-html/plotfull-2.png" width="70%" style="display: block; margin: auto;" />
 
 Let's do some more reordering:
 
@@ -383,9 +372,7 @@ ggplot(by_age, aes(age, prop, colour = fct_reorder2(marital, age, prop))) +
   labs(colour = "marital")
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{04_TransformationDay2_files/figure-latex/plotage-1} \includegraphics[width=0.7\linewidth]{04_TransformationDay2_files/figure-latex/plotage-2} \end{center}
+<img src="04_TransformationDay2_files/figure-html/plotage-1.png" width="70%" style="display: block; margin: auto;" /><img src="04_TransformationDay2_files/figure-html/plotage-2.png" width="70%" style="display: block; margin: auto;" />
 
 
 ## RcolorBrewer
@@ -457,9 +444,7 @@ ggplot(by_age, aes(age, prop, colour = fct_reorder2(marital, age, prop))) +
   scale_color_brewer(type = "qual")
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{04_TransformationDay2_files/figure-latex/colorBrewer-1} \includegraphics[width=0.7\linewidth]{04_TransformationDay2_files/figure-latex/colorBrewer-2} \includegraphics[width=0.7\linewidth]{04_TransformationDay2_files/figure-latex/colorBrewer-3} \includegraphics[width=0.7\linewidth]{04_TransformationDay2_files/figure-latex/colorBrewer-4} \end{center}
+<img src="04_TransformationDay2_files/figure-html/colorBrewer-1.png" width="70%" style="display: block; margin: auto;" /><img src="04_TransformationDay2_files/figure-html/colorBrewer-2.png" width="70%" style="display: block; margin: auto;" /><img src="04_TransformationDay2_files/figure-html/colorBrewer-3.png" width="70%" style="display: block; margin: auto;" /><img src="04_TransformationDay2_files/figure-html/colorBrewer-4.png" width="70%" style="display: block; margin: auto;" />
 
 Finally, for bar plots, you can use <code>fct_infreq()</code> to order levels in increasing frequency: this is the simplest type of reordering because it doesn’t need any extra variables. You may want to combine with <code>fct_rev()</code>.
 
@@ -471,9 +456,7 @@ df %>%
   geom_bar()
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{04_TransformationDay2_files/figure-latex/marital-1} \end{center}
+<img src="04_TransformationDay2_files/figure-html/marital-1.png" width="70%" style="display: block; margin: auto;" />
 Notice that you can pipe these arguments WITHIN the mutate() function!
 
 **Challenge 1**
@@ -490,11 +473,13 @@ ggplot(df, aes(year,fill = relig)) +
   scale_fill_brewer(palette = "Set3")
 #> Warning in RColorBrewer::brewer.pal(n, pal): n too large, allowed maximum for palette Set3 is 12
 #> Returning the palette you asked for with that many colors
+
+ggplot(df, aes(year,fill = fct_lump(relig,n = 8))) + 
+  geom_histogram(bins = 8) +
+  scale_fill_brewer(palette = "Set3")
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{04_TransformationDay2_files/figure-latex/challenge1-1} \end{center}
+<img src="04_TransformationDay2_files/figure-html/challenge1-1.png" width="70%" style="display: block; margin: auto;" /><img src="04_TransformationDay2_files/figure-html/challenge1-2.png" width="70%" style="display: block; margin: auto;" />
 
 How would you determine this?
 
@@ -505,7 +490,7 @@ Here's a count of the levels in party_id
 
 ```r
 df %>% count(partyid)
-#> # A tibble: 10 x 2
+#> # A tibble: 10 × 2
 #>   partyid                n
 #>   <fct>              <int>
 #> 1 No answer            154
@@ -514,7 +499,7 @@ df %>% count(partyid)
 #> 4 Strong republican   2314
 #> 5 Not str republican  3032
 #> 6 Ind,near rep        1791
-#> # ... with 4 more rows
+#> # … with 4 more rows
 ```
 <code>fct_recode</code> let's us rename variables (new varname left = old varname right)
 
@@ -530,7 +515,7 @@ df %>%
                               "Democrat, strong"      = "Strong democrat"
   )) %>%
   count(partyid) #Count party ID
-#> # A tibble: 10 x 2
+#> # A tibble: 10 × 2
 #>   partyid                   n
 #>   <fct>                 <int>
 #> 1 No answer               154
@@ -539,7 +524,7 @@ df %>%
 #> 4 Republican, strong     2314
 #> 5 Republican, weak       3032
 #> 6 Independent, near rep  1791
-#> # ... with 4 more rows
+#> # … with 4 more rows
 ```
 
 <code>fct_recode()</code> will leave levels that aren’t explicitly mentioned as is, 
@@ -558,7 +543,7 @@ df %>%
                                 dem = c("Not str democrat", "Strong democrat")
   )) %>%
   count(partyid)
-#> # A tibble: 4 x 2
+#> # A tibble: 4 × 2
 #>   partyid     n
 #>   <fct>   <int>
 #> 1 other     548
@@ -576,7 +561,7 @@ That’s the job of <code>fct_lump()</code>
 ```r
 df %>%
   count(relig) #This is before lumping
-#> # A tibble: 15 x 2
+#> # A tibble: 15 × 2
 #>   relig                       n
 #>   <fct>                   <int>
 #> 1 No answer                  93
@@ -585,12 +570,12 @@ df %>%
 #> 4 Native american            23
 #> 5 Christian                 689
 #> 6 Orthodox-christian         95
-#> # ... with 9 more rows
+#> # … with 9 more rows
 
 df %>%
   mutate(marital = fct_lump(marital)) %>%
   count(marital)
-#> # A tibble: 4 x 2
+#> # A tibble: 4 × 2
 #>   marital           n
 #>   <fct>         <int>
 #> 1 Never married  5416
@@ -601,7 +586,7 @@ df %>%
 df %>%
   mutate(relig = fct_lump(relig)) %>%
   count(relig) #This is default after lumping
-#> # A tibble: 2 x 2
+#> # A tibble: 2 × 2
 #>   relig          n
 #>   <fct>      <int>
 #> 1 Protestant 10846
@@ -626,7 +611,7 @@ You can collapse across specified lumps...
 df %>%
   mutate(relig = fct_lump(relig, n = 10)) %>% #Specify lumps here
   count(relig, sort = TRUE)
-#> # A tibble: 10 x 2
+#> # A tibble: 10 × 2
 #>   relig          n
 #>   <fct>      <int>
 #> 1 Protestant 10846
@@ -635,7 +620,7 @@ df %>%
 #> 4 Christian    689
 #> 5 Other        458
 #> 6 Jewish       388
-#> # ... with 4 more rows
+#> # … with 4 more rows
 ```
 
 ## Play time 
@@ -644,16 +629,16 @@ Answer some interesting questions about this dataset
 
 ```r
 df
-#> # A tibble: 21,483 x 9
-#>    year marital      age race  rincome    partyid     relig     denom    tvhours
-#>   <int> <fct>      <int> <fct> <fct>      <fct>       <fct>     <fct>      <int>
-#> 1  2000 Never mar~    26 White $8000 to ~ Ind,near r~ Protesta~ Souther~      12
-#> 2  2000 Divorced      48 White $8000 to ~ Not str re~ Protesta~ Baptist~      NA
-#> 3  2000 Widowed       67 White Not appli~ Independent Protesta~ No deno~       2
-#> 4  2000 Never mar~    39 White Not appli~ Ind,near r~ Orthodox~ Not app~       4
-#> 5  2000 Divorced      25 White Not appli~ Not str de~ None      Not app~       1
-#> 6  2000 Married       25 White $20000 - ~ Strong dem~ Protesta~ Souther~      NA
-#> # ... with 2.148e+04 more rows
+#> # A tibble: 21,483 × 9
+#>    year marital         age race  rincome        partyid   relig  denom  tvhours
+#>   <int> <fct>         <int> <fct> <fct>          <fct>     <fct>  <fct>    <int>
+#> 1  2000 Never married    26 White $8000 to 9999  Ind,near… Prote… South…      12
+#> 2  2000 Divorced         48 White $8000 to 9999  Not str … Prote… Bapti…      NA
+#> 3  2000 Widowed          67 White Not applicable Independ… Prote… No de…       2
+#> 4  2000 Never married    39 White Not applicable Ind,near… Ortho… Not a…       4
+#> 5  2000 Divorced         25 White Not applicable Not str … None   Not a…       1
+#> 6  2000 Married          25 White $20000 - 24999 Strong d… Prote… South…      NA
+#> # … with 21,477 more rows
 ```
 
 What is the proportion of race in each religion?
@@ -677,7 +662,7 @@ df %>%
   theme(...)
 ```
 
-##Solutions
+## Solutions
 
 Play 1
 
@@ -686,6 +671,9 @@ View(df %>%
   group_by(relig) %>%
   count(race) %>%
   mutate(prop = n/sum(n)))
+#> Warning in system2("/usr/bin/otool", c("-L", shQuote(DSO)), stdout = TRUE):
+#> running command ''/usr/bin/otool' -L '/Library/Frameworks/R.framework/Resources/
+#> modules/R_de.so'' had status 1
 ```
 
 Play 2
@@ -695,7 +683,7 @@ df %>%
   group_by(relig) %>%
   count(race) %>%
   mutate(prop = n/sum(n)) %>%
-  ggplot(aes(relig, prop, fill = race)) + 
+  ggplot(mapping = aes(relig, prop, fill = relig)) + 
   geom_bar(stat = "identity", position = "dodge") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
@@ -703,7 +691,7 @@ df %>%
   group_by(relig) %>%
   count(race) %>%
   mutate(prop = n/sum(n)) %>%
-  ggplot(aes(relig, prop, color = race)) +
+  ggplot(mapping = aes(x = relig, y = prop, color = race)) +
   geom_line(aes(group = race)) + geom_point() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
@@ -712,7 +700,7 @@ df %>%
   count(relig, race) %>%
   group_by(relig) %>%
   mutate(prop = n/sum(n))
-#> # A tibble: 44 x 4
+#> # A tibble: 44 × 4
 #> # Groups:   relig [15]
 #>   relig      race      n  prop
 #>   <fct>      <fct> <int> <dbl>
@@ -722,9 +710,7 @@ df %>%
 #> 4 Don't know Other     3 0.2  
 #> 5 Don't know Black     3 0.2  
 #> 6 Don't know White     9 0.6  
-#> # ... with 38 more rows
+#> # … with 38 more rows
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{04_TransformationDay2_files/figure-latex/play2-1} \includegraphics[width=0.7\linewidth]{04_TransformationDay2_files/figure-latex/play2-2} \end{center}
+<img src="04_TransformationDay2_files/figure-html/play2-1.png" width="70%" style="display: block; margin: auto;" /><img src="04_TransformationDay2_files/figure-html/play2-2.png" width="70%" style="display: block; margin: auto;" />

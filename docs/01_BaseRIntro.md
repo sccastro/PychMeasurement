@@ -1,21 +1,29 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
 # Introduction
 
->"At the heart of quantitative reasoning is a single question: Compared to what?"
-><div style="text-align: right">
-> ---Edward Tufte </div>
+> "At the heart of quantitative reasoning is a single question: Compared to what?"
+>
+> ::: {style="text-align: right"}
+> ---Edward Tufte
+> :::
 
 First off...
 
- <h4>Advanced R Challenges</h4>
+<h4>Advanced R Challenges</h4>
 
 Write a for loop to combine multiple .csv files, (each file representing one participant's data) and output a <code>data.frame</code>. Save that <code>data.frame</code> to a <code>.RData</code> file.
 
-
-## BaseR walkthrough {-}
+## BaseR walkthrough {.unnumbered}
 
 [R](https://www.r-project.org/) is mostly made up of a bunch of user-developed functions aimed at a specific purpose or task. These functions are wrapped in bundles called **Packages** that can be downloaded from [CRAN](https://cran.r-project.org/). However, [R](https://www.r-project.org/) and [Rstudio](https://www.rstudio.com/) have built-in calls to download these packages.
 
 To get packages, you can use...
+
 
 ```r
 #To install a new package... (These are comments. Explain every line of your code with these.)
@@ -25,14 +33,14 @@ install.packages("datasets")
 
 Once a package is installed, you can load the functions into your Rstudio environment using...
 
+
 ```r
 #To load a package in order to use its functions do this...
 library(datasets)
 library(MASS)
 ```
 
-If you want to search through objects (functions, data) within a package do this...
-<code>datasets::<tab></code>
+If you want to search through objects (functions, data) within a package do this... <code>datasets::<tab></code>
 
 
 ```r
@@ -45,8 +53,8 @@ data() #list all of the available datasets
 ```
 
 ## Help
-The help function is very useful. All packages are required to have documentation of their
-functions, as well as a vignette (real world example of the main functions of their package)
+
+The help function is very useful. All packages are required to have documentation of their functions, as well as a vignette (real world example of the main functions of their package)
 
 
 ```r
@@ -56,7 +64,6 @@ help.search('cars')
 help(package = 'dplyr') #If you don't have dplyr installed, this won't work.
 
 ```
-
 
 
 ```r
@@ -86,7 +93,7 @@ levels(MASS::Cars93$Type)
 #What happens if you use levels or class on cars instead of Cars93?
 ```
 
-This symbol <code><-</code> is how you assign objects to something in R 
+This symbol <code>\<-</code> is how you assign objects to something in R
 
 
 ```r
@@ -119,6 +126,7 @@ seq(2,10,by=1)
 #> [1]  2  3  4  5  6  7  8  9 10
 #How would you go from 10 to 2 by 1 in a sequence?
 ```
+
 The <code>c()</code> is short for *combine*. From the help call <code>?c</code>, "The default method combines its arguments to form a vector. All arguments are coerced to a common type which is the type of the returned value, and all attributes except names are removed."
 
 
@@ -150,9 +158,11 @@ newV2[3:5]
 #> [1] "4" "5" "6"
 cars[,2] <- dim(cars)[1]
 ```
+
 ## PROGRAMMING
 
 Like many programming languages, R has the ability to easily create vectors and two-dimensional data. You can look at preexisting datasets and subset them, or create vectors of numbers for iteration with for loops and while loops.
+
 
 ```r
 
@@ -175,6 +185,16 @@ dim(cars)[1] #subset the dim
 # for a detailed explanation)
 ```
 
+There are 5 basic types of objects in the R language:
+
+  * Vectors - Atomic vectors can store homogeneous data types such as character, doubles, integers, raw, logical, and complex. A single element variable is also said to be vector.
+  * Data Frames - Data frames are 2-dimensional tabular data object in R programming. Data frames consists of multiple columns and each column represents a vector. Columns in data frame can have different modes of data unlike matrices.
+  * Lists - List can contain heterogeneous data types such as vectors or another lists.
+  * Matrices - To store values as 2-Dimensional array, matrices are used in R. Data, number of rows and columns are defined in the matrix() function.
+  * Arrays - array() function is used to create n-dimensional array. This function takes dim attribute as an argument and creates required length of each dimension as specified in the attribute.
+
+
+
 Also like many programming languages you can measure how long code takes to run by checking the system time of your computer
 
 
@@ -182,11 +202,10 @@ Also like many programming languages you can measure how long code takes to run 
 
 #You can check the speed of something with...
 Sys.time()
-#> [1] "2020-03-25 15:19:12 PDT"
+#> [1] "2022-01-05 14:24:03 PST"
 ```
 
-You do this by saving Sys.time() to a variable and then subtracting the variable from Sys.time() at the end
-of execution. For example, ...
+You do this by saving Sys.time() to a variable and then subtracting the variable from Sys.time() at the end of execution. For example, ...
 
 ### For loop
 
@@ -203,7 +222,6 @@ for (placeholder in 1:1000) {
 }
 ```
 
-
 (Try adding zeros to the end of 1000 and see how long it takes to run.)
 
 ### While loop
@@ -218,7 +236,7 @@ while(i < 1000) {
 #What happened?
 ```
 
-###Ifelse statement
+### Ifelse statement
 
 
 ```r
@@ -233,7 +251,7 @@ if (i > 0) {
 #> [1] "boo"
 ```
 
-###Function
+### Function
 
 
 ```r
@@ -248,6 +266,7 @@ newfunction(10)
 ```
 
 ## Assignment 1
+
 Read your own dataset into R. Some of you have .SPSS data, some .txt, and others .csv. All of you will have to identify which function will read your data. Then, assign it to a variable and save that variable to a <code>.RData</code> file.
 
 
@@ -266,6 +285,3 @@ df <- read.<your datatype>("PATH TO YOUR DATA/FILENAME.DATATYPE") #assigns your 
 save(df, file="NAMEYOURFILE.RData")
 
 ```
-
-
-

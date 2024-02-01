@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # Linear Models
 >"All models are wrong, but some are useful."
 ><div style="text-align: right">
@@ -10,9 +15,18 @@
 First off...
 
  <h4>Advanced R Challenges</h4>
-STUFF HERE
 
-```{r load}
+Create a linear model for the Navarro data set "clinical trials" that predicts how the treatment of drugs and therapy affect mood gain. Is it a good model fit? What are the outcomes? Visualize the analysis.
+
+```{r advanced challenge, eval=F}
+load('data/clinicaltrial.Rdata')
+
+mod1 <- lm(FORMULA, DATA)
+
+```
+
+
+```{r load,warning=FALSE,message=FALSE}
 rm(list = ls()); par(mfrow = c(1,1))
 require(tidyverse)
 require(stats)
@@ -39,34 +53,27 @@ my.df
 ```
 
 
-O.k.,	 now	 we’ll	 proceed	 with	 the	 linear	model.	We	 take	 our	 formula	 above	 and feed	it	into	 the	lm() function	…	 except	 that	we	 omit	 the	 “ε”	 term,	 because	 the linear	model	function	doesn’t	need	you	to	specify	this.
-```{r hold, eval=FALSE}
-xmdl = lm(pitch ~ sex, my.df)   #The arguments are:
+O.k.,	 now	 we’ll	 proceed	 with	 the	 linear	model.	We	 take	 our	 formula	 above	 and feed	it	into	 the	lm() function	…	 except	 that	we omit	 the	 “ε”	 term,	 because	 the linear	model	function	doesn’t	need	you	to	specify	this.
+```{r hold}
+xmdl <-  lm(pitch ~ sex, my.df)   #The arguments are:
 # lm(formula = DV by IV,data = my.df)
 
 summary(xmdl)
 
 # Multiple R-squared:  0.921,	Adjusted R-squared:  0.9012 
 
-# “Multiple	R-Squared”.	This	
-# refers	 to	 the	 statistic	 R2 which	 is	 a	 measure	 of “variance	 explained”	 or	 if	 you	
-# prefer	less	causal	language,	it	is	a	measure	of	“variance	accounted	for”.	R2 values	
-# range	from	0	to	1.	
+```
+“Multiple	R-Squared”. This	refers to the statistic $R^2$ which is a	measure	of “variance explained”	or if you	prefer less causal language, it is a	measure	of “variance	accounted	for”.	$R^2$ values range from 0 to 1.
 
-#...92.1%	of	the	stuff	that’s	happening	in	our	dataset	is	“explained” by	
-# our	model.
-
-# In	 this	case,	because	we	have	only	one	 thing	in	our	model	doing	 the	
-# explaining	(the	fixed	effect	“sex”),	the	R2 reflects	how	much	variance in our	data	is	
-# accounted	for	by	differences	between	males	and	females.
+..92.1%	of	the	stuff	that’s	happening	in	our	dataset	is	“explained” by	our	model. In this case,	because	we	have	only	one	 thing	in	our	model	doing	 the	explaining	(the fixed effect “sex”),	the	$R^2$ reflects	how	much	variance in our	data	is	accounted	for	by	differences	between	males	and	females.
 
 
+**Challenge 1**
 
-# Challenge 1 -------------------------------------------------------------
+Pick one dependent variable and one independent variable in your data.frame (It doesn't really need to make sense for now, just that you set it up and run it.) Replace the variables with your own...
 
-#Pick one dependent variable and one independent variable in your data.frame
-#(It doesn't really need to make sense for now, just that you set it up and run it.)
-#Replace the variables with your own...
+```{r challenge 1}
+
 newdf <- df %>%
   select(Sex,Voice.Pitch) %>%
   mutate(Voice.Pitch = as.numeric(as.character(Voice.Pitch)))
@@ -76,33 +83,35 @@ my.lm <- lm(formula = Voice.Pitch ~ Sex, data = newdf)
 
 summary(my.lm)
 
-#Now back to the tutorial!
 
+```
 
-# Coefficients:
-#   Estimate Std. Error t value Pr(>|t|)    
-#   (Intercept)   226.33      10.18  22.224 2.43e-05 ***
-#   sexmale       -98.33      14.40  -6.827  0.00241 ** 
+Now back to the tutorial!
 
+But	why	does	it	say	“sexmale” rather	than	just	“sex”,	which	is	how	we	named	our	fixed	effect? And	where	did	the	females	go?	If	you	look	at	the	estimate	in	the	row	that	starts	with “(Intercept)”,	you’ll	see	that	the	value	is	226.33 Hz.	This	looks	like	it	 could	 be	 the estimated	 mean	 of	 the	 female	 voice	 pitches.	 If	 you	 type	 the	following…
 
-# But	why	does	it	say	“sexmale” rather	than	just	“sex”,	which	is	how	we	named	our	
-# fixed	effect?	And	where	did	the	females	go?	If	you	look	at	the	estimate	in	the	row	
-# that	starts	with	“(Intercept)”,	you’ll	see	that	the	value	is	226.33 Hz.	This	looks	like	
-# it	 could	 be	 the	 estimated	 mean	 of	 the	 female	 voice	 pitches.	 If	 you	 type	 the	
-# following…
+```{r m2f}
 
 mean(my.df[my.df$sex=="female",]$pitch)
 mean(my.df[my.df$sex=="male",]$pitch)
+```
 
-# …	you’ll	get	the	mean	of	female	voice	pitch	values,	and	you’ll	see	that	this	value	is	
-# very	similar	to	the	estimate	value	in	the	“(Intercept)”	column.
-scatter.smooth(x = my.df$sex, my.df$pitch,ylab = "Pitch (Hz)",xlab = "Sex", ylim = c(75,300))
+...you’ll	get	the	mean	of	female	voice	pitch	values,	and	you’ll	see	that	this	value	is very	similar	to	the	estimate	value	in	the	“(Intercept)”	column. 
 
-plot(pitch~sex, my.df)
+```{r smooth, warning=FALSE, message=FALSE}
+my.df$sexcode <- c(rep(0,3),rep(1,3))
 
+scatter.smooth(x = my.df$sexcode, y = my.df$pitch, ylab = "Pitch (Hz)", xlab = "Sex",)
 
-#Or with ggplot
+plot(pitch~sexcode, my.df)
+```
+
+Or with ggplot
+
+```{r ggplot}
 coef(xmdl)
+
+sapply(X = my.df, class)
 
 require(forcats)
 my.df %>%
@@ -112,31 +121,33 @@ my.df %>%
   geom_point() +
   geom_abline(intercept = coef(xmdl)[1],slope = coef(xmdl)[2]) +
   theme_classic() + coord_cartesian(xlim = c(-.5,1.5), ylim = c(0,300))
-  
+```  
 
 
-# Challenge 2 -------------------------------------------------------------
+**Challenge 2**
 
-#Why did I have to go through all this trouble of getting the slope and intercept,
-#and then changing Sex from a categorical factor to a numerical continuous variable?
+Why did I have to go through all this trouble of getting the slope and intercept, and then changing Sex from a categorical factor to a numerical continuous variable?
 
-#Explain the geom_abline call.
+Explain the <code>geom_abline</code> call.
 
-#What happens if I remove the as.character() from the mutate argument on line 90?
+What happens if I remove the <code>as.character(sex)</code> from the mutate argument on line above?
+
+```{r remove character, eval=FALSE}
 
 my.df %>%
   mutate(sex = fct_recode(sex, "0" = "female", "1" = "male")) %>%
-  mutate(sex = as.numeric(as.character(sex))) %>%
+  mutate(sex = as.numeric(sex)) %>%
   ggplot(aes(x= sex,y=pitch)) +
   geom_point() +
   geom_abline(intercept = coef(xmdl)[1],slope = coef(xmdl)[2]) +
   theme_classic() + coord_cartesian(xlim = c(-.5,1.5), ylim = c(0,300))
+```
 
+**Challenge 3**
 
-# Challenge 3 -------------------------------------------------------------
+How does <code>coord_cartesian()</code> work? Does it transform any of the stats performed?
 
-#How does coord_cartesian() work? Does it transform any of the stats performed?
-
+```{r coord_cartesian}
 my.df %>%
   mutate(sex = fct_recode(sex, "0" = "female", "1" = "male")) %>%
   mutate(sex = as.numeric(as.character(sex))) %>%
@@ -147,14 +158,16 @@ my.df %>%
   geom_vline(aes(xintercept = 0), linetype = 2, alpha = .7) + 
   geom_hline(aes(yintercept = 0), linetype = 2, alpha = .7)
 
+```
 
 
-# Challenge 4 -------------------------------------------------------------
+**Challenge 4**
 
-# Can you put the labels "female" and "male" back on the x-axis?
+Can you put the labels "female" and "male" back on the x-axis?
 
+Hint: Try scale_x_...
 
-# Hint: Try scale_x_...
+```{r challenge 4}
 
 my.df %>%
   mutate(sex = fct_recode(sex, "0" = "female", "1" = "male")) %>%
@@ -166,66 +179,54 @@ my.df %>%
   geom_vline(aes(xintercept = 0), linetype = 2, alpha = .7) + 
   geom_hline(aes(yintercept = 0), linetype = 2, alpha = .7) + 
   scale_x_continuous(breaks = c(0,1),labels = c("female","male"))
+```
 
+Now back to the tutorial.
 
-# Now back to the tutorial.
+* Advantages of thinking of categorical things as slopes
+  + It transfers to thinking about non-categorial things as slopes.
 
-# Advantages of thinking of categorical things as slopes.
-# It transfers to thinking about non-categorial things as slopes.
+```{r xmdl}
 
 age = c(14,23,35,48,52,67)
 pitch = c(252,244,240,233,212,204)
 my.df = data.frame(age,pitch)
 xmdl = lm(pitch ~ age, my.df)
 summary(xmdl)
+```
 
 
+**Challenge 5**
 
-# Challenge 5 -------------------------------------------------------------
+Plot Voice Pitch by Age with a trend line.
 
-# Plot Voice Pitch by Age with a trend line.
-
-
-
+So how does age relate to voice pitch?
 
 
-# Coefficients:
-#   Estimate Std. Error t value Pr(>|t|)    
-#   (Intercept) 267.0765     6.8522   38.98 2.59e-06 ***
-#   age          -0.9099     0.1569   -5.80  0.00439 ** 
+Meaningful and meaningless intercepts. How can we make the intercept age = 0 more meaningful? We can center on the average age of our sample...
 
-#So how does age relate to voice pitch?
-
-
-
-# Meaningful and meaningless intercepts. How can we make the intercept
-# age = 0 more meaningful?We can center on the average age of our sample...
-
+```{r xmdl center}
 my.df$age.c = my.df$age - mean(my.df$age)
 xmdl = lm(pitch ~ age.c, my.df)
 summary(xmdl)
-
-# Coefficients:
-#   Estimate Std. Error t value Pr(>|t|)    
-#   (Intercept) 230.8333     2.8113   82.11 1.32e-07 ***
-#   age.c        -0.9099     0.1569   -5.80  0.00439 ** 
+```
 
 
 
 
+**Some assumptions**
 
-# Some assumptions --------------------------------------------------------
-
-# Linearity
-# Linear models assume that the relationship between your variables is linear, no way!
-
+* Linearity
+  + Linear models assume that the relationship between your variables is linear, no way!
 
 
-#There are a bunch of tests you can do. Remember these
 
-#Residuals are how far the data point is from the linear model line.
+There are a bunch of tests you can do. Remember these residuals are how far the data point is from the linear model line.
 
-# (The red lines indicate the residual values)
+(The red lines indicate the residual values)
+
+```{r residuals}
+
 ggplot(data = my.df, aes(x = age, y = pitch)) +
   geom_smooth(method = "lm", size = .5, se = F, color = "black") +
   geom_errorbar(aes(ymin = pitch, 
@@ -238,30 +239,35 @@ resid(xmdl)
 
 plot(x = fitted(xmdl),y = residuals(xmdl))
 abline(a = 0, b = 0, lty = 3)
+```
+
+* Colinearity of independent variables (or predictors)
+  + Well, we only have one predictor
 
 
-# Colinearity of independent variables (or predictors)
+* Heteroskedasticity
+  + Approximately equal variances across your sample
 
-# Well, we only have one predictor
-
-
-# Heteroskedasticity
-
-# Approximately equal variances across your sample
-
+```{r hetero}
 plot(rnorm(100),rnorm(100))
 abline(a = 0, b = 0, lty = 3)
+```
 
-# Normality of residuals
 
+* Normality of residuals
+
+```{r rormality}
 hist(residuals(xmdl), breaks = 6)
 
 qqnorm(residuals(xmdl))
 # Seen above with...
 plot(xmdl)
+```
 
 
-#Absence of influential data points...
+Absence of influential data points...
+```{r dfbeta}
+
 dfbeta(xmdl)
 # (Intercept)       age.c
 # 1  -0.8002664  0.06437573
@@ -276,12 +282,15 @@ dfbeta(xmdl)
 Finally... Independence! Each observation must be independent from the others. We will deal with repeated measures corrections to linear models by including participants as a random effect (among other things).
 
 
-##Solutions   
+## Solutions   
 
-###Challenge 2
-If you look back at the boxplot that we constructed earlier, you can see that the value 202.588 Hz seems to fall halfway between males and females (in the informal condition) – and this is indeed what this intercept represents. It’s the average of our data for the informal condition.
+### Challenge 2
+If you look back at the box plot that we constructed earlier, you can see that the value 202.588 Hz seems to fall halfway between males and females (in the informal condition) – and this is indeed what this intercept represents. It’s the average of our data for the informal condition.
 
-###Challenge 4
+### Challenge 3
+<code>coord_cartesian()</code> works by changing the frame of the data without removing any data points from the summary statistics, such as the best-fit line. So even if the data points are not plotted within the graph, the best-fit line still accounts for the points not shown when its slope is calculated. 
+
+### Challenge 4
 ```{r challenge4, eval=FALSE}
 my.df %>%
   mutate(sex = fct_recode(sex, "0" = "female", "1" = "male")) %>%
@@ -295,12 +304,14 @@ my.df %>%
   scale_x_continuous(breaks = c(0,1),labels = c("female","male"))
 ```
 
-###Challenge 5 
+### Challenge 5 
 ```{r challenge5, eval=FALSE}
 my.df %>%
   ggplot(aes(x = age,y = pitch)) + 
   geom_point() + theme_classic() +
-  geom_smooth(method = "lm",se = F, color = "black", size = .5)
+  geom_smooth(method = "lm",se = F, color = "black", size = .5) +
+  # scale_y_continuous(n.breaks = 50) +
+  # coord_cartesian()
 ```
 
 
