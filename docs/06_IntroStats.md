@@ -18,7 +18,7 @@ This challenge doesn't have much to do with stats. It's just a fun way to vizual
 #Create a visual word cloud from a manuscript or publication from your own work.
 library(tidyverse) #Load the tidyverse
 library(textreadr) #Load the package 'textreadr'
-
+library(car)
 
 rawtext <- read_docx("path/to/your/file.docx") #Read a word file .doc or .docx and save it to rawtext
 rawtext <- read_document("path/to/your/file.pdf") #Read a pdf and save it to rawtext
@@ -40,13 +40,12 @@ density<- d %>% #Using dplyr and magritr, go into your data.frame with %>%
 require('wordcloud') #Get the wordcloud package
 require('RColorBrewer')
 pal2 <- brewer.pal(8,"Dark2") #Create a brewer pallete ... see ?
-png("ModelingCognitiveWorkload.png", width=750,height=600) #Open a png file to write into
+# png("ModelingCognitiveWorkload.png", width=750,height=600) #Open a png file to write into
 #call wordcloud within the png file, you could also call wordcloud outside of the png file
 wordcloud(density$text1, density$count, scale=c(4,.5),min.freq=1,max.words=Inf, random.order=FALSE, rot.per=.15, colors=pal2)
-dev.off() #close the png file
+# dev.off() #close the png file
 ```
 
-#Stats {-}
 
 Wordl Website
 
@@ -75,38 +74,41 @@ require('wordcloud')
 require('RColorBrewer')
 pal2 <- rev(c(rep(brewer.pal(n = 9, "Greens"),15),rep(brewer.pal(n = 8, "Purples"),16),
               "#FEC44F","#CC4C02"))
-png("wordcloud_reddit.png", width=750,height=700)
+# png("wordcloud_reddit.png", width=750,height=700)
 wordcloud(density$text1, density$count, scale=c(4,.5),min.freq=1,max.words=Inf, 
           random.order=F, rot.per=.15, colors=pal2,ordered.colors = T)
-dev.off()
+# dev.off()
+
 ```
 
 ![](wordcloud_reddit.png)
+
+## Stats {-} 
 
 
 ```r
 rm(list = ls());par(mfrow = c(1,1))
 require(tidyverse)
 #> Loading required package: tidyverse
-#> -- Attaching packages ---------------------------------------------------- tidyverse 1.3.0 --
-#> v ggplot2 3.2.1     v purrr   0.3.3
-#> v tibble  2.1.3     v dplyr   0.8.4
-#> v tidyr   1.0.2     v stringr 1.4.0
-#> v readr   1.3.1     v forcats 0.5.0
-#> -- Conflicts ------------------------------------------------------- tidyverse_conflicts() --
+#> ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
+#> ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+#> ✓ tibble  3.1.6     ✓ dplyr   1.0.7
+#> ✓ tidyr   1.1.3     ✓ stringr 1.4.0
+#> ✓ readr   1.4.0     ✓ forcats 0.5.1
+#> ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 #> x dplyr::filter() masks stats::filter()
 #> x dplyr::lag()    masks stats::lag()
 #install.packages("lsr")
 ```
 
-##Steps of Visualization
+## Steps of Visualization
 
 From Navarro, Page 105...
 
 ### Descriptive Stats
 
 ```r
-load("~/Dropbox/RCOURSE/books_resources/data/aflsmall.Rdata")
+load("~/Dropbox/Teaching/MIST130DatAnOpt_22/books_resources/data/aflsmall.Rdata")
 library(lsr)
 lsr::who()
 #>    -- Name --      -- Class --   -- Size --
@@ -149,9 +151,7 @@ stem(afl.margins)
 #>   11 | 6
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{06_IntroStats_files/figure-latex/histstem-1} \end{center}
+<img src="06_IntroStats_files/figure-html/histstem-1.png" width="70%" style="display: block; margin: auto;" />
 
 ### Measures of Central Tendency
 mean calculation
@@ -185,12 +185,14 @@ mean( x = afl.margins, trim = .05) #Trims 5% of the data off either side
 .05*176 #How many scores are trimmed total
 #> [1] 8.8
 ```
+
 Get the Mode
 
 ```r
-mode(afl.margins)
-#> [1] "numeric"
+modeOf(afl.margins)
+#> [1] 3
 ```
+
 You can create the function from just doing the math.
 
 ```r
@@ -199,9 +201,13 @@ getmode <- function(v) {
   uniqv[which.max(tabulate(match(v, uniqv)))]
 }
 
+# uniquv <- unique(afl.margins)
+# uniquv[which.max(tabulate(match(afl.margins,uniquv)))]
+
 getmode(afl.margins)
 #> [1] 3
 ```
+
 Mode on a character vector?
 
 ```r
@@ -220,12 +226,16 @@ table(afl.finalists)
 #> Western Bulldogs 
 #>               24
 ```
+
 How often does the mode occur?
 
 ```r
 maxFreq( x = afl.finalists )
 #> [1] 39
+maxFreq(x = afl.margins)
+#> [1] 8
 ```
+
 ### Measures of Variability
 
 
@@ -245,6 +255,7 @@ quantile(afl.margins, probs = c(.25,.5,.75))
 IQR( x = afl.margins ) # Inter-quartile range
 #> [1] 37.8
 ```
+
 OR
 
 ```r
@@ -252,12 +263,14 @@ quantile(afl.margins, probs = .75) - quantile(afl.margins, probs = .25)
 #>  75% 
 #> 37.8
 ```
+
 Mean absolute deviation
 
 ```r
 lsr::aad(afl.margins)
 #> [1] 21.1
 ```
+
 what does aad do?   
 
 hint:
@@ -266,10 +279,10 @@ hint:
 aad #You can look into functions by not adding the ()
 #> function (x, na.rm = FALSE) 
 #> {
-#>     if (!is(x, "numeric") & !is(x, "integer")) {
+#>     if (!methods::is(x, "numeric") & !methods::is(x, "integer")) {
 #>         stop("\"x\" must be numeric")
 #>     }
-#>     if (!is(na.rm, "logical") | length(na.rm) != 1) {
+#>     if (!methods::is(na.rm, "logical") | length(na.rm) != 1) {
 #>         stop("\"na.rm\" must be a single logical value")
 #>     }
 #>     if (na.rm) {
@@ -278,7 +291,7 @@ aad #You can look into functions by not adding the ()
 #>     y <- mean(abs(x - mean(x)))
 #>     return(y)
 #> }
-#> <bytecode: 0x7fe8b7092828>
+#> <bytecode: 0x7fa22388bbd8>
 #> <environment: namespace:lsr>
 ```
 
@@ -286,6 +299,7 @@ aad #You can look into functions by not adding the ()
 mean(abs(afl.margins - mean(afl.margins)))
 #> [1] 21.1
 ```
+
 Variance (mean squared deviation)
 
 ```r
@@ -339,11 +353,13 @@ describe(afl.margins)
 #>    vars   n mean   sd median trimmed  mad min max range skew kurtosis   se
 #> X1    1 176 35.3 26.1   30.5    32.8 28.9   0 116   116 0.77     0.03 1.97
 ```
+
 ## Clinical Trial Example
 
 ```r
+library(psych)
 #New dataset
-load("~/Dropbox/RCOURSE/books_resources/data/clinicaltrial.Rdata")
+load("~/Dropbox/Teaching/MIST130DatAnOpt_22/books_resources/data/clinicaltrial.Rdata")
 psych::describe(clin.trial)
 #>           vars  n mean   sd median trimmed  mad min max range skew kurtosis
 #> drug*        1 18 2.00 0.84   2.00    2.00 1.48 1.0 3.0   2.0 0.00    -1.66
@@ -439,7 +455,7 @@ by(data = clin.trial, INDICES = clin.trial$therapy, FUN = summary)
 #>                              Max.   :1.80
 ```
 
-##Correlations
+## Correlations
 Here is an example of correlations with the mtcars dataset from <code>datasets</code>.
 
 ```r
@@ -450,14 +466,12 @@ cor(mtcars$mpg, mtcars$disp)
 plot(mtcars$mpg, mtcars$disp)
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{06_IntroStats_files/figure-latex/correlations-1} \end{center}
+<img src="06_IntroStats_files/figure-html/correlations-1.png" width="70%" style="display: block; margin: auto;" />
 
 Here's the work dataset from Navarro.
 
 ```r
-load("~/Dropbox/RCOURSE/books_resources/data/work.Rdata")
+load("~/Dropbox/Teaching/MIST130DatAnOpt_22/books_resources/data/work.Rdata")
 head(work)
 #>   hours tasks pay day   weekday week day.type
 #> 1   7.2    14  41   1   Tuesday    1  weekday
@@ -516,17 +530,29 @@ cor.test(mtcars$mpg, mtcars$disp) #For paired samples
 #> sample estimates:
 #>    cor 
 #> -0.848
+
+cor.test(mtcars$wt, mtcars$disp)
+#> 
+#> 	Pearson's product-moment correlation
+#> 
+#> data:  mtcars$wt and mtcars$disp
+#> t = 11, df = 30, p-value = 1e-11
+#> alternative hypothesis: true correlation is not equal to 0
+#> 95 percent confidence interval:
+#>  0.781 0.944
+#> sample estimates:
+#>   cor 
+#> 0.888
 ```
 
+<img src="06_IntroStats_files/figure-html/workcors-1.png" width="70%" style="display: block; margin: auto;" />
 
-
-\begin{center}\includegraphics[width=0.7\linewidth]{06_IntroStats_files/figure-latex/workcors-1} \end{center}
 ## Categorical Data -- Navarro pg. 351
 
 ### Chi Square goodness-of-fit test (Pearson, 1900) Review
 
 ```r
-load("~/Dropbox/RCOURSE/books_resources/data/randomness.Rdata")
+load("~/Dropbox/Teaching/MIST130DatAnOpt_22/books_resources/data/randomness.Rdata")
 
 head(cards)
 #>      id choice_1 choice_2
@@ -542,6 +568,7 @@ observed
 #>    clubs diamonds   hearts   spades 
 #>       35       51       64       50
 ```
+
 H0 - all four suits are chosen with equal probability   
 H1 - at least one of the suit-choice probabilities isn't .25    
 
@@ -572,12 +599,14 @@ sum(((observed - expected)^2)/expected)
 qchisq(p = .95, df = 3) #Gives you a value to reject the null hypothesis
 #> [1] 7.81
 ```
+
 If we want the p-value we can calculate with...
 
 ```r
 pchisq(q = sum(((observed - expected)^2)/expected), df = 3, lower.tail = FALSE)
 #> [1] 0.0377
 ```
+
 Degrees of freedom is outcomes (k) - 1
 
 How to skip all those steps:
@@ -605,12 +634,13 @@ lsr::goodnessOfFitTest(cards$choice_1)
 #>    degrees of freedom:  3 
 #>    p-value:  0.038
 ```
+
 Specify null hypothesis:
 
 ```r
 nullProbs <- c(clubs = .2, diamonds = .3, hearts = .3, spades = .2)
 
-goodnessOfFitTest(cards$choice_1, p = nullProbs)
+lsr::goodnessOfFitTest(cards$choice_1, p = nullProbs)
 #> 
 #>      Chi-square test against specified probabilities
 #> 
@@ -632,18 +662,19 @@ goodnessOfFitTest(cards$choice_1, p = nullProbs)
 #>    degrees of freedom:  3 
 #>    p-value:  0.192
 ```
+
 ### Chi-square test of independence
 Get the chapek9 dataset:
 
 ```r
-load("~/Dropbox/RCOURSE/books_resources/data/chapek9.Rdata")
+load("~/Dropbox/Teaching/MIST130DatAnOpt_22/books_resources/data/chapek9.Rdata")
 summary(chapek9)
 #>   species      choice   
 #>  robot:87   puppy : 28  
 #>  human:93   flower: 43  
 #>             data  :109
 ```
-This is a screening test to determine of somebody is a human or a robot. The entity is asked whether they prefer a puppy, a flower, or a properly formatted database.
+This is a screening test to determine if somebody is a human or a robot. The entity is asked whether they prefer a puppy, a flower, or a properly formatted database.
 
 ```r
 xtabs(formula = ~choice+species, data = chapek9)
@@ -653,12 +684,13 @@ xtabs(formula = ~choice+species, data = chapek9)
 #>   flower    30    13
 #>   data      44    65
 ```
+
 1. Null, variables are independent
 2. Alternative, variables are related
 
 
 ```r
-associationTest(formula = ~choice+species, data = chapek9)
+lsr::associationTest(formula = ~choice+species, data = chapek9)
 #> 
 #>      Chi-square test of categorical association
 #> 
@@ -710,12 +742,13 @@ chisq.test(xtabs(formula = ~choice+species, data = chapek9))
 ```
 (Also see <code>?fisher.test()</code>, <code>mcnemar.test()</code>)
 
-##T.TEST
+## T.TEST
 Load harpo dataset
 
 ```r
-load("~/Dropbox/RCOURSE/books_resources/data/harpo.Rdata")
+load("~/Dropbox/Teaching/MIST130DatAnOpt_22/books_resources/data/harpo.Rdata")
 ```
+
 ...and describe it:
 
 ```r
@@ -730,16 +763,17 @@ head(harpo)
 describeBy(harpo,group = "tutor")
 #> 
 #>  Descriptive statistics by group 
-#> group: Anastasia
+#> tutor: Anastasia
 #>        vars  n mean sd median trimmed mad min max range  skew kurtosis   se
 #> grade     1 15 74.5  9     76    74.8 8.9  55  90    35 -0.32    -0.51 2.32
 #> tutor*    2 15  1.0  0      1     1.0 0.0   1   1     0   NaN      NaN 0.00
 #> ------------------------------------------------------------ 
-#> group: Bernadette
+#> tutor: Bernadette
 #>        vars  n mean   sd median trimmed  mad min max range  skew kurtosis   se
 #> grade     1 18 69.1 5.77     69    69.2 5.19  56  79    23 -0.48    -0.39 1.36
 #> tutor*    2 18  2.0 0.00      2     2.0 0.00   2   2     0   NaN      NaN 0.00
 ```
+
 Here's the independent samples t.test:
 
 ```r
@@ -770,6 +804,7 @@ lsr::independentSamplesTTest(formula = grade~tutor,
 #>    two-sided 95% confidence interval:  [0.197, 10.759] 
 #>    estimated effect size (Cohen's d):  0.74
 ```
+
 OR
 
 ```r
@@ -779,7 +814,7 @@ t.test(grade~tutor, data = harpo, var.equal = T, paired = F, conf.level = .95)
 #> 
 #> data:  grade by tutor
 #> t = 2, df = 31, p-value = 0.04
-#> alternative hypothesis: true difference in means is not equal to 0
+#> alternative hypothesis: true difference in means between group Anastasia and group Bernadette is not equal to 0
 #> 95 percent confidence interval:
 #>   0.197 10.759
 #> sample estimates:
@@ -787,16 +822,17 @@ t.test(grade~tutor, data = harpo, var.equal = T, paired = F, conf.level = .95)
 #>                     74.5                     69.1
 ```
 
-##Effect Size
+## Effect Size
 
 ```r
-cohensD(grade~tutor, data = harpo, method = "pooled")
+lsr::cohensD(grade~tutor, data = harpo, method = "pooled")
 #> [1] 0.74
 
-cohensD(grade~tutor, data = harpo, method = "unequal")
+lsr::cohensD(grade~tutor, data = harpo, method = "unequal")
 #> [1] 0.724
 ```
-##Assumptions
+
+## Assumptions
 Check some plots, and you can look at normality.
 
 ```r
@@ -804,10 +840,9 @@ hist(harpo$grade, breaks = 15)
 qqnorm(harpo$grade)
 ```
 
+<img src="06_IntroStats_files/figure-html/qqnorm-1.png" width="70%" style="display: block; margin: auto;" /><img src="06_IntroStats_files/figure-html/qqnorm-2.png" width="70%" style="display: block; margin: auto;" />
 
-
-\begin{center}\includegraphics[width=0.7\linewidth]{06_IntroStats_files/figure-latex/qqnorm-1} \includegraphics[width=0.7\linewidth]{06_IntroStats_files/figure-latex/qqnorm-2} \end{center}
-###Shapiro normality test
+### Shapiro normality test
 
 ```r
 shapiro.test(harpo$grade)
@@ -817,6 +852,7 @@ shapiro.test(harpo$grade)
 #> data:  harpo$grade
 #> W = 1, p-value = 1
 ```
+
 Or use wilcoxon test for non-normal samples:
 
 ```r
@@ -831,7 +867,7 @@ wilcox.test(grade~tutor, data = harpo)
 #> alternative hypothesis: true location shift is not equal to 0
 ```
 
-##One-Way ANOVA
+## One-Way ANOVA
 back to the clin.trial dataset
 
 ```r
@@ -859,14 +895,14 @@ clin.trial %>%
                     ymin = m.mood - sd.mood), width = .25)
 ```
 
+<img src="06_IntroStats_files/figure-html/fullplot-1.png" width="70%" style="display: block; margin: auto;" />
 
-
-\begin{center}\includegraphics[width=0.7\linewidth]{06_IntroStats_files/figure-latex/fullplot-1} \end{center}
 ...and now for the anova...
 
 ```r
 my.anova <- aov(formula = mood.gain~drug, data = clin.trial)
 ```
+
 What is this <code>my.anova</code> object?
 
 ```r
@@ -896,7 +932,7 @@ and posthoc pairwise comparisons of levels of a factor
 
 
 ```r
-posthocPairwiseT(my.anova, p.adjust.method = "none")
+lsr::posthocPairwiseT(my.anova, p.adjust.method = "none")
 #> 
 #> 	Pairwise comparisons using t tests with pooled SD 
 #> 
@@ -908,10 +944,11 @@ posthocPairwiseT(my.anova, p.adjust.method = "none")
 #> 
 #> P value adjustment method: none
 ```
+
 or corrected for assumptions
 
 ```r
-posthocPairwiseT(my.anova, p.adjust.method = "bonferroni")
+lsr::posthocPairwiseT(my.anova, p.adjust.method = "bonferroni")
 #> 
 #> 	Pairwise comparisons using t tests with pooled SD 
 #> 
@@ -923,6 +960,7 @@ posthocPairwiseT(my.anova, p.adjust.method = "bonferroni")
 #> 
 #> P value adjustment method: bonferroni
 ```
+
 and a test for homogeneity of variance from the <code>car</code> package.
 
 ```r
@@ -947,11 +985,11 @@ car::leveneTest(my.anova)
 #>       15
 ```
 
-##AAAANNDD Regression
+## AAAANNDD Regression
 
 
 ```r
-load("~/Dropbox/RCOURSE/books_resources/data/parenthood.Rdata")
+load("~/Dropbox/Teaching/MIST130DatAnOpt_22/books_resources/data/parenthood.Rdata")
 head(parenthood)
 #>   dan.sleep baby.sleep dan.grump day
 #> 1      7.59      10.18        56   1
@@ -961,11 +999,13 @@ head(parenthood)
 #> 5      6.68       9.75        67   5
 #> 6      5.99       5.04        72   6
 ```
+
 Here's the linear model.
 
 ```r
 regres1 <- lm(formula = dan.grump~dan.sleep, data = parenthood)
 ```
+
 You can plot it and print a summary.
 
 ```r
@@ -991,15 +1031,14 @@ summary(regres1)
 #> F-statistic:  435 on 1 and 98 DF,  p-value: <2e-16
 ```
 
+<img src="06_IntroStats_files/figure-html/unnamed-chunk-6-1.png" width="70%" style="display: block; margin: auto;" /><img src="06_IntroStats_files/figure-html/unnamed-chunk-6-2.png" width="70%" style="display: block; margin: auto;" /><img src="06_IntroStats_files/figure-html/unnamed-chunk-6-3.png" width="70%" style="display: block; margin: auto;" /><img src="06_IntroStats_files/figure-html/unnamed-chunk-6-4.png" width="70%" style="display: block; margin: auto;" />
 
-
-\begin{center}\includegraphics[width=0.7\linewidth]{06_IntroStats_files/figure-latex/unnamed-chunk-6-1} \includegraphics[width=0.7\linewidth]{06_IntroStats_files/figure-latex/unnamed-chunk-6-2} \includegraphics[width=0.7\linewidth]{06_IntroStats_files/figure-latex/unnamed-chunk-6-3} \includegraphics[width=0.7\linewidth]{06_IntroStats_files/figure-latex/unnamed-chunk-6-4} \end{center}
 Here's a model with an interaction.
-
 
 ```r
 regres2 <- lm(formula = dan.grump~dan.sleep * baby.sleep, data = parenthood)
 ```
+
 Finally, you can plot 3 predictors in a 3d plot.
 
 ```r
@@ -1012,7 +1051,7 @@ scatter3d(z = parenthood$baby.sleep,
 
 These statistics are presented very quickly and have a large background of omitted information, assumptions, and history. You should seek out readings or classes that focus on statistics before employing these tests. This lesson only covers how to apply these tests to data in the context of R.
 
-##Solutions
+## Solutions
 **Challenge 1**
 Get the mean of the first five game margins.
 
@@ -1028,13 +1067,14 @@ Get the median game margin.
 median(afl.margins)
 #> [1] 30.5
 ```
+
 ...pretty close...
 
 ```r
 176/2
 #> [1] 88
-sort(afl.margins)[88]
-#> [1] 30
+sort(afl.margins)[88:89]
+#> [1] 30 31
 ```
 
 **Challenge 3** Show the standard deviation in a graph.  
@@ -1048,9 +1088,7 @@ plot(my_hist, col=my_color , border=F , main="" , xlab="value of the variable", 
 abline(v = mean(afl.margins), col = "blue")
 ```
 
-
-
-\begin{center}\includegraphics[width=0.7\linewidth]{06_IntroStats_files/figure-latex/solutions-1} \end{center}
+<img src="06_IntroStats_files/figure-html/solutions-1.png" width="70%" style="display: block; margin: auto;" />
 
 **Challenge 4** Calculate histogram, but do not draw it.
 

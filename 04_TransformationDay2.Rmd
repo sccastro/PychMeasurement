@@ -43,7 +43,7 @@ dat2 %>%
   facet_grid(. ~School)
 ```
  
-#Day 2 {-}
+## Day 2 {-}
 
 ```{r setup, echo=FALSE,include=FALSE}
 # install.packages("forcats") # You might need this because it doesn't load with the tidyverse.
@@ -52,14 +52,14 @@ require(tidyverse)
 require(forcats)
 ```
 
-##Note: 
-Much of this lesson can be found in the "factors" chapter of R for Data Science by Hadley Wickham: http://r4ds.had.co.nz/factors.html
+_Note_: Much of this lesson can be found in the "factors" chapter of R for Data Science by Hadley Wickham: http://r4ds.had.co.nz/factors.html
 
 ```{r eval=FALSE}
 ?gss_cat #See more about the variables in our dataset
 
 View(gss_cat)
 ```
+
 ```{r gss}
 gss_cat %>%
   count(race) #We can see counts of each race or religion
@@ -81,6 +81,7 @@ levels(gss_cat$rincome)
 df <- forcats::gss_cat
 ```
 
+
 ```{r ggplotintro}
 #Remember, none of these outcomes are being saved into any objects with <- 
 #This is just for visualizing and exploring the data.
@@ -89,7 +90,7 @@ df <- forcats::gss_cat
 require(ggplot2) #We will get more into ggplot next week, 
 #but for now here is an introduction.
 
-ggplot(data = gss_cat, mapping = aes(race)) +
+ggplot(data = gss_cat, mapping = aes(x =race)) +
   geom_bar()
 
 
@@ -117,7 +118,7 @@ Note: if you put () on the outside of your assignment, it will also print
 (relig_summary <- df %>% #Get your data.frame and pipe into the columns
   group_by(relig) %>% #group by religion so that each summary will be for one religion
   summarise( #Get a summary for the following transformations
-    age = mean(age, na.rm = TRUE), #Get the mean of age and name it "age"
+    age = mean(age, na.rm = T), #Get the mean of age and name it "age"
     tvhours = mean(tvhours, na.rm = TRUE), #Get the mean of tv hours and name it "tvhours"
     n = n() #Count the number of observations in each group
   ))
@@ -125,7 +126,7 @@ Note: if you put () on the outside of your assignment, it will also print
 Because there were NA's and we wanted to do math we needed to remove them with:
 na.rm = TRUE
 
-##Change the order of the levels
+## Change the order of the levels
 
 Plot with ggplot, arguments are ggplot(data, mapping) + geom_type()
 mapping is usually paired with the aes() function, which refers to aesthetics
@@ -140,8 +141,9 @@ ggplot(data = relig_summary,
 Interesting, but we could pack more info into this visualization
 
 ```{r plotmore}
-ggplot(relig_summary, aes(tvhours, fct_reorder(relig, tvhours))) +
+ggplot(relig_summary, aes(x = tvhours, y = fct_reorder(.f = relig, .x = tvhours))) +
   geom_point()
+
 ```
 
 Now we have reordered religion by tv hours watched.
@@ -164,6 +166,12 @@ relig_summary %>%
   mutate(relig = fct_reorder(relig, tvhours)) %>%
   ggplot(aes(tvhours, relig)) +
   geom_point()
+
+mtv <- relig_summary %>%
+  summarise(mtv = mean(tvhours))
+
+relig_summary %>% ggplot(aes(x = tvhours, y = relig, color = relig)
+) + geom_point() + geom_vline(aes(xintercept = mtv$mtv)) 
 
 levels(relig_summary$relig)
 
@@ -307,6 +315,9 @@ ggplot(df, aes(year,fill = relig)) +
   geom_histogram(bins = 8) +
   scale_fill_brewer(palette = "Set3")
 
+ggplot(df, aes(year,fill = fct_lump(relig,n = 8))) + 
+  geom_histogram(bins = 8) +
+  scale_fill_brewer(palette = "Set3")
 ```
 
 How would you determine this?
@@ -407,7 +418,7 @@ df %>%
   theme(...)
 ```
 
-##Solutions
+## Solutions
 
 Play 1
 ```{r play1}
@@ -423,7 +434,7 @@ df %>%
   group_by(relig) %>%
   count(race) %>%
   mutate(prop = n/sum(n)) %>%
-  ggplot(aes(relig, prop, fill = race)) + 
+  ggplot(mapping = aes(relig, prop, fill = relig)) + 
   geom_bar(stat = "identity", position = "dodge") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
@@ -431,7 +442,7 @@ df %>%
   group_by(relig) %>%
   count(race) %>%
   mutate(prop = n/sum(n)) %>%
-  ggplot(aes(relig, prop, color = race)) +
+  ggplot(mapping = aes(x = relig, y = prop, color = race)) +
   geom_line(aes(group = race)) + geom_point() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 

@@ -94,16 +94,16 @@ If you type the name of the tibble...
 
 ```r
 df
-#> # A tibble: 1,600 x 11
-#>   Participant Block version Trial Difficulty Part  Start  Stop PicNumber video
-#>         <dbl> <dbl> <chr>   <dbl> <chr>      <chr> <dbl> <dbl>     <dbl> <chr>
-#> 1        1002     1 normal      1 easy       ques~  48.6  54.4        37 <NA> 
-#> 2        1002     1 normal      1 easy       anws~  54.8  56.8        37 <NA> 
-#> 3        1002     1 normal      2 hard       ques~  59    64.3        18 <NA> 
-#> 4        1002     1 normal      2 hard       anws~  64    65.8        18 <NA> 
-#> 5        1002     1 normal      3 hard       ques~  68    73.6        20 <NA> 
-#> 6        1002     1 normal      3 hard       anws~  73.8  75          20 <NA> 
-#> # ... with 1,594 more rows, and 1 more variable: X11 <chr>
+#> # A tibble: 1,600 × 11
+#>   Participant Block version Trial Difficulty Part    Start  Stop PicNumber video
+#>         <dbl> <dbl> <chr>   <dbl> <chr>      <chr>   <dbl> <dbl>     <dbl> <chr>
+#> 1        1002     1 normal      1 easy       questi…  48.6  54.4        37 <NA> 
+#> 2        1002     1 normal      1 easy       anwser   54.8  56.8        37 <NA> 
+#> 3        1002     1 normal      2 hard       questi…  59    64.3        18 <NA> 
+#> 4        1002     1 normal      2 hard       anwser   64    65.8        18 <NA> 
+#> 5        1002     1 normal      3 hard       questi…  68    73.6        20 <NA> 
+#> 6        1002     1 normal      3 hard       anwser   73.8  75          20 <NA> 
+#> # … with 1,594 more rows, and 1 more variable: X11 <chr>
 ```
 
 It automatically shows the first 10 rows. Now type...
@@ -142,6 +142,9 @@ First let's visualize some stuff
 
 ```r
 View(df)
+#> Warning in system2("/usr/bin/otool", c("-L", shQuote(DSO)), stdout = TRUE):
+#> running command ''/usr/bin/otool' -L '/Library/Frameworks/R.framework/Resources/
+#> modules/R_de.so'' had status 1
 ```
 
 ...or...
@@ -149,11 +152,11 @@ View(df)
 
 ```r
 df[1,1:11] #This is subsetting, row = 1, columns equal 1:11 (1 to 11)
-#> # A tibble: 1 x 11
-#>   Participant Block version Trial Difficulty Part  Start  Stop PicNumber video
-#>         <dbl> <dbl> <chr>   <dbl> <chr>      <chr> <dbl> <dbl>     <dbl> <chr>
-#> 1        1002     1 normal      1 easy       ques~  48.6  54.4        37 <NA> 
-#> # ... with 1 more variable: X11 <chr>
+#> # A tibble: 1 × 11
+#>   Participant Block version Trial Difficulty Part    Start  Stop PicNumber video
+#>         <dbl> <dbl> <chr>   <dbl> <chr>      <chr>   <dbl> <dbl>     <dbl> <chr>
+#> 1        1002     1 normal      1 easy       questi…  48.6  54.4        37 <NA> 
+#> # … with 1 more variable: X11 <chr>
 ```
 
 

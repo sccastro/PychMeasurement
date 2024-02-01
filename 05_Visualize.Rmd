@@ -89,7 +89,7 @@ xkcd_line(d$x, d$one, 'red')
 xkcd_line(d$x, d$two, 'blue')
 ```
 
-#Steps of Visualization {-}
+## Steps of Visualization {-}
 
 Step 1: Get some data
 
@@ -135,7 +135,7 @@ However, the ggplot package offers a structure and flexibility to create
 almost any plot you can imagine. Other packages work with ggplot to
 create the rest.
 
-##ggplot2
+## ggplot2
 Remember this scaffolding for your ggplots:
 ```{r scaffolding, eval=FALSE}
 ggplot(data = <DATA>) +
@@ -153,7 +153,7 @@ and geoms (marks that represent data values)
 This is usually how we start:
 ```{r baseggplot}
 df %>% #the tibble
-  ggplot(aes(x = displ, y = hwy)) + #the x and y coordinates (what goes on the axes)
+  ggplot(mapping = aes(x = displ, y = hwy)) + #the x and y coordinates (what goes on the axes)
   geom_point() #marks that represent the data values
 ```
 You can do the same with qplot(), which is short for quick plot...
@@ -218,7 +218,7 @@ shape (of points)
 linetype
 size
 
-##Linetypes
+## Linetypes
 
 Here are the linetypes
 ```{r linetypes}
@@ -234,7 +234,7 @@ generateRLineTypes<-function(){
 generateRLineTypes()
 ```
 
-##Symbols
+## Symbols
 
 Here's an example of symbols and their numbers
 ```{r symbols}
@@ -284,7 +284,7 @@ df %>%
 ```
 
 
-##Play time
+## Play time
 Keep in mind which geoms you would like to apply to your data.
 ```{r play}
 load("data/eyedata.RData")
@@ -554,8 +554,12 @@ ggplot(data = df, aes(x = price, y = carat)) +
 ```
 There are packages that deal with overplotting, but some geoms make this easy as well.
 ```{r bin2d}
+mprice <- df %>%
+  group_by(cut,round(carat, 0)) %>%
+  summarise(mprice = mean(price))
+
 ggplot(data = df, aes(x = price, y = carat)) +
-  geom_bin2d()
+  geom_bin2d() 
 
 ggplot(data = df, aes(x = price, y = carat)) +
   geom_density2d() + theme_classic()
