@@ -270,7 +270,8 @@ limit for grades below].
 | Participation      | 20     | 5%     |
 | Quizzes            | 40     | 10%    |
 | Project Milestones | 100    | 25%    |
-| Presentation       | 40     | 10%    |
+| Midterm            | 20     | 5%     |
+| Presentation       | 20     | 5%     |
 | Final Project      | 100    | 25%    |
 | Final Paper        | 100    | 25%    |
 :::
