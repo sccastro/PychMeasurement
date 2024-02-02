@@ -127,7 +127,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
 
-<link rel="stylesheet" href="css/class_book.css" type="text/css" />
+<link rel="stylesheet" href="class_book.css" type="text/css" />
 </head>
 
 <body>
@@ -284,6 +284,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="13" data-path="shiny-applications.html"><a href="shiny-applications.html"><i class="fa fa-check"></i><b>13</b> Shiny Applications</a></li>
 <li class="chapter" data-level="14" data-path="kmeans-app.html"><a href="kmeans-app.html"><i class="fa fa-check"></i><b>14</b> 01-kmeans-app</a></li>
+<li class="divider"></li>
+<li><a href="https://spencercastro.com" target="blank">Published by Spencer Castro</a></li>
+
 </ul>
 
       </nav>
@@ -420,14 +423,24 @@ Add these elements to the site</p>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": false,
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
 "fontsettings": {
 "theme": "white",
 "family": "sans",
 "size": 2
 },
 "edit": {
-"link": "https://spencercastro.com/10_Blogdown.Rmd",
+"link": "https://github.com/sccastro/PsychMeasurement/docs/10_Blogdown.Rmd",
 "text": "Edit"
 },
 "history": {

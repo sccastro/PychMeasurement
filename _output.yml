@@ -1,20 +1,12 @@
 bookdown::gitbook:
-  css: assets/css/class_book.css
+  css: class_book.css
   config:
     toc:
+      collapse: section  # Add or modify this line to collapse TOC by default
       before: |
         <li><strong><a href="./">Data Analysis and Optimization in R</a></strong></li>
       after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    edit: https://github.com/docs/%s
-      download: ["pdf", "epub"]
-  
+        <li><a href="https://spencercastro.com" target="blank">Published by Spencer Castro</a></li>
+    edit: https://github.com/sccastro/PsychMeasurement/docs/%s
 
-bookdown::pdf_book:
-  includes:
-    in_header: preamble.tex
-  latex_engine: xelatex
-  keep_tex: yes
-bookdown::epub_book: default
-bookdown::bs4_book: default
 
