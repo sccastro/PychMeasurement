@@ -6,7 +6,7 @@ bookdown::gitbook:
       before: |
         <li><strong><a href="./">Data Analysis and Optimization in R</a></strong></li>
       after: |
-        <li><a href="https://spencercastro.com" target="blank">Published by Spencer Castro</a></li>
+        <li><a href="https://spencercastro.com/people.php" target="blank">Published by Spencer Castro</a></li>
     edit: https://github.com/sccastro/PsychMeasurement/docs/%s
 
 
