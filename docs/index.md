@@ -204,7 +204,7 @@ Requests for accommodation should be filled out with a SAS Service Request Form 
 
 ## Academic Calendar
 
-<https://registrar.ucmerced.edu/schedules/academic-calendar/academic-calendar-2022-2023>
+<https://registrar.ucmerced.edu/schedules/academic-calendar/academic-calendar-2023-2024>
 
 ## Course Schedule
 
