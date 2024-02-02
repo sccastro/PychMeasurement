@@ -1,15 +1,20 @@
 bookdown::gitbook:
+  css: assets/css/class_book.css
   config:
     toc:
-      collapse: section
       before: |
         <li><strong><a href="./">Data Analysis and Optimization in R</a></strong></li>
-    edit:
-      link: https://spencercastro.com/%s
-      text: "Edit"
-    sharing: no
-  css: css/class_book.css
+      after: |
+        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+    edit: https://github.com/docs/%s
+      download: ["pdf", "epub"]
+  
 
 bookdown::pdf_book:
-  latex_engine: "xelatex"
+  includes:
+    in_header: preamble.tex
+  latex_engine: xelatex
+  keep_tex: yes
+bookdown::epub_book: default
+bookdown::bs4_book: default
 

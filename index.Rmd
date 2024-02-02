@@ -11,7 +11,7 @@ site: bookdown::bookdown_site
 documentclass: book
 always_allow_html: true
 bookdown::gitbook:
-  css: css/class_book.css
+  css: assets/css/class_book.css
   toc:
     collapse: section
   toolbar:
@@ -22,7 +22,7 @@ bookdown::gitbook:
   sharing: false
   info: yes
   bookdown::html_book:
-    css: css/class_book.css
+    css: assets/css/class_book.css
     
 ---
 
