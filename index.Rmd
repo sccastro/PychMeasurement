@@ -67,7 +67,8 @@ Lecture: M 10:30-11:20am, COB 1 286 Labs: 02L M 11:30am-1:20pm, Kolligan 202
 
 ## Books
 
-R for Data Science - Hadley Wickham - <https://r4ds.hadley.nz/> Learning Statistics with R - Danielle Navarro - <https://learningstatisticswithr.com/>
+- R for Data Science - Hadley Wickham - <https://r4ds.hadley.nz/> 
+- Learning Statistics with R - Danielle Navarro - <https://learningstatisticswithr.com/>
 
 ## Course Overview
 
