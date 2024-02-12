@@ -127,8 +127,8 @@ ccolor %>%
 
 ccolor %>%
   group_by(s) %>%
-  summarise(count = nrow(.)) %>% #Let's name this something easy to type and remember, like "count"
-  spread(key = s, value = count)
+  summarise(count = n()) %>% #Let's name this something easy to type and remember, like "count"
+  pivot_wider(names_from = s, values_from = count)
 ```
 
 We can also wrap functions around the whole data object...
@@ -137,12 +137,12 @@ We can also wrap functions around the whole data object...
 as.matrix(ccolor %>%
   group_by(s) %>%
   summarise(count = nrow(.)) %>%
-  spread(key = s, value = count)) #or we can subset it
+  pivot_wider(names_from = s, values_from = count)) #or we can subset it
 
 data.frame(ccolor %>%
   group_by(s) %>%
   summarise(count = nrow(.)) %>%
-  spread(key = s, value = count))[,4:7]
+  pivot_wider(names_from = s, values_from = count))[,4:7]
 
 ```
 
@@ -154,7 +154,7 @@ does. Check with colnames()
 colnames(ccolor %>%
            group_by(s) %>%
            summarise(count = nrow(.)) %>% #Let's name this something easy to type and remember, like "count"
-           spread(key = s, value = count))
+           pivot_wider(names_from = s, values_from = count))
 
 ```
 
