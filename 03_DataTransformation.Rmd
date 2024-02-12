@@ -127,8 +127,8 @@ ccolor %>%
 
 ccolor %>%
   group_by(s) %>%
-  summarise(count = nrow(.)) %>% #Let's name this something easy to type and remember, like "count"
-  spread(key = s, value = count)
+  summarise(count = n()) %>% #Let's name this something easy to type and remember, like "count"
+  pivot_wider(names_from = s, values_from = count)
 ```
 
 We can also wrap functions around the whole data object...
@@ -136,13 +136,13 @@ We can also wrap functions around the whole data object...
 ```{r wrapping}
 as.matrix(ccolor %>%
   group_by(s) %>%
-  summarise(count = nrow(.)) %>%
-  spread(key = s, value = count)) #or we can subset it
+  summarise(count = n()) %>%
+  pivot_wider(names_from = s, values_from = count)) #or we can subset it
 
 data.frame(ccolor %>%
   group_by(s) %>%
-  summarise(count = nrow(.)) %>%
-  spread(key = s, value = count))[,4:7]
+  summarise(count = n()) %>%
+  pivot_wider(names_from = s, values_from = count))[,4:7]
 
 ```
 
@@ -153,8 +153,8 @@ does. Check with colnames()
 ```{r colnames}
 colnames(ccolor %>%
            group_by(s) %>%
-           summarise(count = nrow(.)) %>% #Let's name this something easy to type and remember, like "count"
-           spread(key = s, value = count))
+           summarise(count = n()) %>% #Let's name this something easy to type and remember, like "count"
+           pivot_wider(names_from = s, values_from = count))
 
 ```
 
@@ -171,8 +171,8 @@ newdf <- ccolor %>% #do some stuff here
 ```
 
 Above I used <code>group_by(s)</code>, which groups by participant,
-<code>summarise()</code> with <code>nrow(.)</code>, which counts the
-number of rows, and <code>spread()</code>, which takes the column s,
+<code>summarise()</code> with <code>n()</code>, which counts the
+number of rows, and <code>pivot_wider()</code>, which takes the column s,
 turns each row into a column, and puts the value argument in that
 column.
 
@@ -333,7 +333,7 @@ newdf %>% #Step 4 Now let's filter those RTs above the cutoff and count them
   select(-mRT, -RTsd) %>%
   filter(RT > cutoff) %>%
   summarise(n = n()) %>% #spread it out so its easy to read
-  spread(key = s, value = n)
+  pivot_wider(names_from = s, values_from = n)
 
 
 newdf %>% #We can see the proportion of removed data
