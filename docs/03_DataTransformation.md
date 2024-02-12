@@ -602,7 +602,7 @@ legend(x = "topright", # location of legend within plot area
 
 <img src="03_DataTransformation_files/figure-html/baseviz-1.png" width="70%" style="display: block; margin: auto;" /><img src="03_DataTransformation_files/figure-html/baseviz-2.png" width="70%" style="display: block; margin: auto;" />
 
-## Spreading, Gathering, Separating and Uniting
+## Pivoting, Separating and Uniting
 
 look at this <code>tibble(data.frame)</code>
 
@@ -615,21 +615,11 @@ stocks <- tibble(
 )
 ```
 
-Gather and spread are not perfect opposites. They have been deprecated
+pivot_wider and pivot_longer are not perfect opposites. They have been deprecated
 and replaced by <code>pivot_longer</code> and <code>pivot_wider</code>
 
 
 ```r
-stocks %>% 
-  spread(year, return) %>%
-  gather("year", "return", `2015`:`2016`)
-#> # A tibble: 4 × 3
-#>    half year  return
-#>   <dbl> <chr>  <dbl>
-#> 1     1 2015    1.88
-#> 2     2 2015    0.59
-#> 3     1 2016    0.92
-#> 4     2 2016    0.17
 
 stocks %>%
   pivot_wider(names_from = "year",values_from = "return") %>%
@@ -671,20 +661,15 @@ people
 
 
 ```r
-newpeople <- people %>%
-  spread(...)
 
 newpeople <- people %>%
   pivot_wider(...)
 ```
 
-**Challenge 7**: gather newpeople so that height and age are back
-together
+**Challenge 7**: gather newpeople so that height and age are back together
 
 
 ```r
-newpeople %>%
-  gather(...)
 
 newpeople %>%
   pivot_longer(...)
@@ -795,19 +780,17 @@ dfclean %>%
 
 **Challenge 6**: spread people so height and age have their own column
 
-
 ```r
 newpeople <- people %>%
-  spread(key = key, value = value)
+  pivot_wider(names_from = key, values_from = value)
 ```
 
-**Challenge 7**: gather newpeople so that height and age are back
-together
+**Challenge 7**: gather newpeople so that height and age are back together
 
 
 ```r
 newpeople %>%
-  gather("key","value", age:height)
+ pivot_longer(cols = c(age, height), names_to = "key", values_to = "value")
 ```
 
 **Challenge 8**: Unite the two columns above with "d" as a separator
