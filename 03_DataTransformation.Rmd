@@ -419,7 +419,7 @@ legend(x = "topright", # location of legend within plot area
 
 ```
 
-## Spreading, Gathering, Separating and Uniting
+## Pivoting, Separating and Uniting
 
 look at this <code>tibble(data.frame)</code>
 
@@ -431,13 +431,10 @@ stocks <- tibble(
 )
 ```
 
-Gather and spread are not perfect opposites. They have been deprecated
+pivot_wider and pivot_longer are not perfect opposites. They have been deprecated
 and replaced by <code>pivot_longer</code> and <code>pivot_wider</code>
 
 ```{r opposites}
-stocks %>% 
-  spread(year, return) %>%
-  gather("year", "return", `2015`:`2016`)
 
 stocks %>%
   pivot_wider(names_from = "year",values_from = "return") %>%
@@ -466,19 +463,14 @@ people
 **Challenge 6**: spread people so height and age have their own column
 
 ```{r challenge6, results='hide', eval=FALSE}
-newpeople <- people %>%
-  spread(...)
 
 newpeople <- people %>%
   pivot_wider(...)
 ```
 
-**Challenge 7**: gather newpeople so that height and age are back
-together
+**Challenge 7**: gather newpeople so that height and age are back together
 
 ```{r challenge7, results='hide', eval=FALSE}
-newpeople %>%
-  gather(...)
 
 newpeople %>%
   pivot_longer(...)
@@ -572,18 +564,16 @@ dfclean %>%
 ```
 
 **Challenge 6**: spread people so height and age have their own column
-
 ```{r solution6, results='hide'}
 newpeople <- people %>%
-  spread(key = key, value = value)
+  pivot_wider(names_from = key, values_from = value)
 ```
 
-**Challenge 7**: gather newpeople so that height and age are back
-together
+**Challenge 7**: gather newpeople so that height and age are back together
 
 ```{r solution7, results='hide'}
 newpeople %>%
-  gather("key","value", age:height)
+ pivot_longer(cols = c(age, height), names_to = "key", values_to = "value")
 ```
 
 **Challenge 8**: Unite the two columns above with "d" as a separator
