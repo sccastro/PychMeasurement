@@ -175,20 +175,20 @@ ccolor %>%
 #> 4 4          6400
 #> 5 5          6400
 #> 6 6          6400
-#> # … with 14 more rows
+#> # ℹ 14 more rows
 
 # (Harder to read long, so we can spread it out)
 
 ccolor %>%
   group_by(s) %>%
-  summarise(count = nrow(.)) %>% #Let's name this something easy to type and remember, like "count"
-  spread(key = s, value = count)
+  summarise(count = n()) %>% #Let's name this something easy to type and remember, like "count"
+  pivot_wider(names_from = s, values_from = count)
 #> # A tibble: 1 × 20
 #>     `1`   `2`   `3`   `4`   `5`   `6`   `7`   `8`   `9`  `10`  `11`  `12`  `13`
 #>   <int> <int> <int> <int> <int> <int> <int> <int> <int> <int> <int> <int> <int>
-#> 1  6400  6400  6400  6400  6400  6400  6400  6400  6400  6400  6400  6400  6400
-#> # … with 7 more variables: 14 <int>, 15 <int>, 16 <int>, 17 <int>, 18 <int>,
-#> #   19 <int>, 20 <int>
+#> 1   320   320   320   320   320   320   320   320   320   320   320   320   320
+#> # ℹ 7 more variables: `14` <int>, `15` <int>, `16` <int>, `17` <int>,
+#> #   `18` <int>, `19` <int>, `20` <int>
 ```
 
 We can also wrap functions around the whole data object...
@@ -197,19 +197,19 @@ We can also wrap functions around the whole data object...
 ```r
 as.matrix(ccolor %>%
   group_by(s) %>%
-  summarise(count = nrow(.)) %>%
-  spread(key = s, value = count)) #or we can subset it
-#>         1    2    3    4    5    6    7    8    9   10   11   12   13   14   15
-#> [1,] 6400 6400 6400 6400 6400 6400 6400 6400 6400 6400 6400 6400 6400 6400 6400
-#>        16   17   18   19   20
-#> [1,] 6400 6400 6400 6400 6400
+  summarise(count = n()) %>%
+  pivot_wider(names_from = s, values_from = count)) #or we can subset it
+#>        1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
+#> [1,] 320 320 320 320 320 320 320 320 320 320 320 320 320 320 320 320 320 320
+#>       19  20
+#> [1,] 320 320
 
 data.frame(ccolor %>%
   group_by(s) %>%
-  summarise(count = nrow(.)) %>%
-  spread(key = s, value = count))[,4:7]
-#>     X4   X5   X6   X7
-#> 1 6400 6400 6400 6400
+  summarise(count = n()) %>%
+  pivot_wider(names_from = s, values_from = count))[,4:7]
+#>    X4  X5  X6  X7
+#> 1 320 320 320 320
 ```
 
 What happened to the names? What is that X4, X5, stuff? That's what R
@@ -220,8 +220,8 @@ does. Check with colnames()
 ```r
 colnames(ccolor %>%
            group_by(s) %>%
-           summarise(count = nrow(.)) %>% #Let's name this something easy to type and remember, like "count"
-           spread(key = s, value = count))
+           summarise(count = n()) %>% #Let's name this something easy to type and remember, like "count"
+           pivot_wider(names_from = s, values_from = count))
 #>  [1] "1"  "2"  "3"  "4"  "5"  "6"  "7"  "8"  "9"  "10" "11" "12" "13" "14" "15"
 #> [16] "16" "17" "18" "19" "20"
 ```
@@ -237,8 +237,8 @@ df <- ccolor #do some stuff here
 
 
 Above I used <code>group_by(s)</code>, which groups by participant,
-<code>summarise()</code> with <code>nrow(.)</code>, which counts the
-number of rows, and <code>spread()</code>, which takes the column s,
+<code>summarise()</code> with <code>n()</code>, which counts the
+number of rows, and <code>pivot_wider()</code>, which takes the column s,
 turns each row into a column, and puts the value argument in that
 column.
 
@@ -457,7 +457,7 @@ newdf %>% #Step 1 is to group by the subject and get the mean and sd
 #> 4 1     congruent   blue  blue    955  790.  775.
 #> 5 1     incongruent red   blue    792  790.  775.
 #> 6 1     congruent   red   red     452  790.  775.
-#> # … with 6,393 more rows
+#> # ℹ 6,393 more rows
 
 newdf %>% #Step 2 is to make a cutoff 3 standard deviations above the mean for each participant
   group_by(s) %>%
@@ -473,7 +473,7 @@ newdf %>% #Step 2 is to make a cutoff 3 standard deviations above the mean for e
 #> 4 1     congruent   blue  blue    955  790.  775.  3115.
 #> 5 1     incongruent red   blue    792  790.  775.  3115.
 #> 6 1     congruent   red   red     452  790.  775.  3115.
-#> # … with 6,393 more rows
+#> # ℹ 6,393 more rows
 
 
 newdf %>% #Step 3 Let's clean up the columns we need and the ones we don't
@@ -491,7 +491,7 @@ newdf %>% #Step 3 Let's clean up the columns we need and the ones we don't
 #> 4 1     congruent   blue  blue    955  3115.
 #> 5 1     incongruent red   blue    792  3115.
 #> 6 1     congruent   red   red     452  3115.
-#> # … with 6,393 more rows
+#> # ℹ 6,393 more rows
 
 
 newdf %>% #Step 4 Now let's filter those RTs above the cutoff and count them
@@ -501,13 +501,13 @@ newdf %>% #Step 4 Now let's filter those RTs above the cutoff and count them
   select(-mRT, -RTsd) %>%
   filter(RT > cutoff) %>%
   summarise(n = n()) %>% #spread it out so its easy to read
-  spread(key = s, value = n)
+  pivot_wider(names_from = s, values_from = n)
 #> # A tibble: 1 × 20
 #>     `1`   `2`   `3`   `4`   `5`   `6`   `7`   `8`   `9`  `10`  `11`  `12`  `13`
 #>   <int> <int> <int> <int> <int> <int> <int> <int> <int> <int> <int> <int> <int>
 #> 1     4     4     4     4     7     6     6     3     8     5     1     7     4
-#> # … with 7 more variables: 14 <int>, 15 <int>, 16 <int>, 17 <int>, 18 <int>,
-#> #   19 <int>, 20 <int>
+#> # ℹ 7 more variables: `14` <int>, `15` <int>, `16` <int>, `17` <int>,
+#> #   `18` <int>, `19` <int>, `20` <int>
 
 
 newdf %>% #We can see the proportion of removed data
