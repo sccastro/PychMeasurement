@@ -51,7 +51,7 @@ calendar_year <- strsplit(as.character(Sys.Date()),split = "-")[[1]][1]
 
 Professor - Spencer Castro
 
-Office - SSM 204B, hours: Mondays, 2pm-3pm
+Office - SSM 204B, hours: Wednesdays, 3:45pm-4:45pm
 
 scastro39\@ucmerced.edu
 
@@ -67,8 +67,8 @@ Lecture: M 10:30-11:20am, COB 1 286 Labs: 02L M 11:30am-1:20pm, Kolligan 202
 
 ## Books
 
-- R for Data Science - Hadley Wickham - <https://r4ds.hadley.nz/> 
-- Learning Statistics with R - Danielle Navarro - <https://learningstatisticswithr.com/>
+-   R for Data Science - Hadley Wickham - <https://r4ds.hadley.nz/>
+-   Learning Statistics with R - Danielle Navarro - <https://learningstatisticswithr.com/>
 
 ## Course Overview
 
@@ -289,9 +289,9 @@ Workshop","Intro to stats in R","More stats in R","Still more stats in R","Rmark
 
 
 library(kableExtra)
-schedule %>%
-  kable(format = "html",booktabs = TRUE) %>%
-  kable_styling(bootstrap_options = c("striped", "hover", "responsive")) %>%
+schedule |>
+  kable(format = "html",booktabs = TRUE) |>
+  kable_styling(bootstrap_options = c("striped", "hover", "responsive")) |>
   column_spec(1, width = "7em") 
   
 

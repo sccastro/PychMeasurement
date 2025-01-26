@@ -2,7 +2,7 @@
 knit: "bookdown::render_book"
 title: "Data Analysis and Optimization in R"
 author: ["[Spencer Castro](https://www.spencercastro.com)"]
-date: "Fri Jan 24 2025"
+date: "Sun Jan 26 2025"
 description: 'As modern Data Scientists, we cannot be content with untested assumptions, decisions based on the "gut feelings" of a CEO, poorly leveraged data insights, or small sample sizes; now we must strive to be methodologically sound, balance experimental design against convenient populations, keep up with the ever-changing landscape of statistical tests and their caveats, and learn rudimentary computer programming on top of that! Therefore we need a tool that balances the comprehensibility of human language with the flexibility to keep up with developing statistical methods and the power to analyze and vizualize any dataset. Enter R, the open-source statistical computing and graphics language with a powerful Integrated Development Environment (the Rstudio IDE), a robust community of developers, data scientists, and experts (who respond to questions!), and too many reputable online resources to read in a lifetime. The impetus to learn something new on top of your ongoing research may be hard to summon, but this course is designed to integrate your ongoing projects and goals into mastering R, and to provide tools for streamlining projects in the future.'
 url: 'https\://spencercastro.com'
 github-repo: sccastro/PsychMeasurement
@@ -32,7 +32,7 @@ Spring, 2025
 
 Professor - Spencer Castro
 
-Office - SSM 204B, hours: Mondays, 2pm-3pm
+Office - SSM 204B, hours: Wednesdays, 3:45pm-4:45pm
 
 scastro39\@ucmerced.edu
 
@@ -48,8 +48,8 @@ Lecture: M 10:30-11:20am, COB 1 286 Labs: 02L M 11:30am-1:20pm, Kolligan 202
 
 ## Books
 
-- R for Data Science - Hadley Wickham - <https://r4ds.hadley.nz/> 
-- Learning Statistics with R - Danielle Navarro - <https://learningstatisticswithr.com/>
+-   R for Data Science - Hadley Wickham - <https://r4ds.hadley.nz/>
+-   Learning Statistics with R - Danielle Navarro - <https://learningstatisticswithr.com/>
 
 ## Course Overview
 
