@@ -188,7 +188,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2" data-path="data-transformation.html"><a href="data-transformation.html#introduction-to-the-pipe"><i class="fa fa-check"></i><b>4.2</b> Introduction to “The Pipe”</a></li>
 <li class="chapter" data-level="4.3" data-path="data-transformation.html"><a href="data-transformation.html#aside-on-the-apply-family"><i class="fa fa-check"></i><b>4.3</b> Aside on the apply family</a></li>
 <li class="chapter" data-level="4.4" data-path="data-transformation.html"><a href="data-transformation.html#extracting-rows"><i class="fa fa-check"></i><b>4.4</b> Extracting rows</a></li>
-<li class="chapter" data-level="4.5" data-path="data-transformation.html"><a href="data-transformation.html#spreading-gathering-separating-and-uniting"><i class="fa fa-check"></i><b>4.5</b> Spreading, Gathering, Separating and Uniting</a></li>
+<li class="chapter" data-level="4.5" data-path="data-transformation.html"><a href="data-transformation.html#pivoting-separating-and-uniting"><i class="fa fa-check"></i><b>4.5</b> Pivoting, Separating and Uniting</a></li>
 <li class="chapter" data-level="4.6" data-path="data-transformation.html"><a href="data-transformation.html#solutions-to-challenges"><i class="fa fa-check"></i><b>4.6</b> Solutions to Challenges</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="data-transformation-day-2.html"><a href="data-transformation-day-2.html"><i class="fa fa-check"></i><b>5</b> Data Transformation Day 2</a>
@@ -307,8 +307,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="blogdown" class="section level1 hasAnchor" number="12">
 <h1><span class="header-section-number">12</span> Blogdown<a href="blogdown.html#blogdown" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>You can install blogdown from CRAN. If you want to test the development version, you may also install it from GitHub:</p>
-<p><strong><em>Challenge 1</em></strong>
-install blogdown</p>
+<p><strong><em>Challenge 1</em></strong> install blogdown</p>
 <div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="blogdown.html#cb255-1" tabindex="-1"></a><span class="co"># from CRAN</span></span>
 <span id="cb255-2"><a href="blogdown.html#cb255-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;blogdown&quot;</span>)</span>
 <span id="cb255-3"><a href="blogdown.html#cb255-3" tabindex="-1"></a></span>
@@ -318,10 +317,8 @@ install blogdown</p>
 <p>The first time when you create a new website, blogdown will do a series of things behind the scenes: it downloads Hugo (the default static site generator), creates a website skeleton, installs a theme, adds some example posts, builds the site, and serves it so that you can see the website in your browser (or RStudio Viewer if you are in RStudio). It will not go through all these steps again the next time when you work on this website. All you need in the future is blogdown::serve_site(), or equivalently, the RStudio addin “Serve Site.”</p>
 <p>Every time you open a website project, you only need to serve the site once, and blogdown will keep running in the background, listening to changes in your source files, and rebuilding the website automatically. All you have to do is create new posts, or edit existing posts, and save them. You will see the automatic live preview as you save the changes (unless you have errors in a source document).</p>
 <p>There are a few RStudio addins to help you author your posts: you can use the “New Post” addin to create a new post, the “Update Metadata” addin to update the YAML metadata of a post, and the “Insert Image” addin to insert an image in a post.</p>
-<p><strong><em>Challenge 2</em></strong>
-Add a “New Post”</p>
-<p><strong><em>Challenge 3</em></strong>
-Insert an image</p>
+<p><strong><em>Challenge 2</em></strong> Add a “New Post”</p>
+<p><strong><em>Challenge 3</em></strong> Insert an image</p>
 <p>The default site generator in blogdown is Hugo (<a href="https://gohugo.io" class="uri">https://gohugo.io</a>). A basic Hugo website usually contains the following files and directories:</p>
 <ul>
 <li>config.toml</li>
@@ -354,8 +351,7 @@ Insert an image</p>
 <span id="cb257-6"><a href="blogdown.html#cb257-6" tabindex="-1"></a>      href<span class="sc">:</span> index.html</span>
 <span id="cb257-7"><a href="blogdown.html#cb257-7" tabindex="-1"></a>    <span class="sc">-</span> text<span class="sc">:</span> <span class="st">&quot;About&quot;</span></span>
 <span id="cb257-8"><a href="blogdown.html#cb257-8" tabindex="-1"></a>      href<span class="sc">:</span> about.html</span></code></pre></div>
-<p><strong><em>Challenge 4</em></strong>
-Make a _site.yml file</p>
+<p><strong><em>Challenge 4</em></strong> Make a _site.yml file</p>
 <p>Then two Rmd files, <code>index.Rmd</code>:</p>
 <div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="blogdown.html#cb258-1" tabindex="-1"></a><span class="sc">---</span></span>
 <span id="cb258-2"><a href="blogdown.html#cb258-2" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&quot;My Website&quot;</span></span>
@@ -370,12 +366,11 @@ Make a _site.yml file</p>
 <span id="cb259-5"><a href="blogdown.html#cb259-5" tabindex="-1"></a>More about this website.</span></code></pre></div>
 <p>Note that the minimum requirement for any R Markdown website is that it have an index.Rmd file as well as a _site.yml file. If you execute the rmarkdown::render_site() function from within the directory containing the website, the following will occur:</p>
 <ol style="list-style-type: decimal">
-<li><p>All of the <em>.Rmd and </em>.md files in the root website directory will be rendered into HTML. Note, however, that Markdown files beginning with _ are not rendered (this is a convention to designate files that are to be included by top level Rmd documents as child documents).</p></li>
+<li><p>All of the <em>.Rmd and</em> .md files in the root website directory will be rendered into HTML. Note, however, that Markdown files beginning with _ are not rendered (this is a convention to designate files that are to be included by top level Rmd documents as child documents).</p></li>
 <li><p>The generated HTML files and any supporting files (e.g., CSS and JavaScript) are copied into an output directory (_site by default).</p></li>
 </ol>
 <p>Typically when creating a website, there are various common elements you want to include on all pages (e.g., output options, CSS styles, header and footer elements, etc.). Here are additions in three files to the example above to make use of common elements:</p>
-<p><strong><em>Challenge 5</em></strong>
-Add these elements to the site</p>
+<p><strong><em>Challenge 5</em></strong> Add these elements to the site</p>
 <p><code>_site.yml</code>:</p>
 <div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="blogdown.html#cb260-1" tabindex="-1"></a>name<span class="sc">:</span> <span class="st">&quot;my-website&quot;</span></span>
 <span id="cb260-2"><a href="blogdown.html#cb260-2" tabindex="-1"></a>navbar<span class="sc">:</span></span>

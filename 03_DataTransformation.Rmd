@@ -121,7 +121,7 @@ Now let's do some descriptives...
 ```{r describe}
 ccolor %>%
   group_by(s) %>%
-  summarise(nrow(.)) 
+  summarise(count = n()) 
 
 # (Harder to read long, so we can spread it out)
 
@@ -171,10 +171,10 @@ newdf <- ccolor %>% #do some stuff here
 ```
 
 Above I used <code>group_by(s)</code>, which groups by participant,
-<code>summarise()</code> with <code>n()</code>, which counts the
-number of rows, and <code>pivot_wider()</code>, which takes the column s,
-turns each row into a column, and puts the value argument in that
-column.
+<code>summarise()</code> with <code>n()</code>, which counts the number
+of rows, and <code>pivot_wider()</code>, which takes the column s, turns
+each row into a column, and puts the value argument in that column.
+
 
 There's also <code>filter()</code>, <code>gather()</code>,
 <code>separate()</code>, <code>unite()</code>, <code>select()</code>,
@@ -431,8 +431,9 @@ stocks <- tibble(
 )
 ```
 
-pivot_wider and pivot_longer are not perfect opposites. They have been deprecated
-and replaced by <code>pivot_longer</code> and <code>pivot_wider</code>
+<code>pivot_longer</code> and
+<code>pivot_wider</code> are not opposites.
+
 
 ```{r opposites}
 
@@ -550,6 +551,7 @@ for congruent vs incongruent trials
 dfclean %>%
   group_by(con) %>%
   summarise(mRT = mean(RT), RTsd = sd(RT))
+
 ```
 
 **Challenge 5**: Get the mean and sd of participant means for congruent

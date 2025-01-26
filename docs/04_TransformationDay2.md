@@ -1,15 +1,27 @@
-# Data Transformation Day 2 
+---
+editor_options: 
+  markdown: 
+    wrap: 72
+---
 
->“Every day, three times per second, we produce the equivalent of the amount of data that the Library of Congress has in its entire print collection, right? But most of it is like cat videos on YouTube or 13-year-olds exchanging text messages about the next Twilight movie.” 
-><div style="text-align: right">
-> --- Nate Silver </div>
+# Data Transformation Day 2
+
+> "Every day, three times per second, we produce the equivalent of the
+> amount of data that the Library of Congress has in its entire print
+> collection, right? But most of it is like cat videos on YouTube or
+> 13-year-olds exchanging text messages about the next Twilight movie."
+>
+> ::: {style="text-align: right"}
+> --- Nate Silver
+> :::
 
 First off...
 
- <h4>Advanced R Challenges</h4>
- 
- Explain how the order of factors changed within the plots for dat2. How do facet_grid and
-facet_wrap work?
+<h4>Advanced R Challenges</h4>
+
+Explain how the order of factors changed within the plots for dat2. How
+do facet_grid and facet_wrap work?
+
 
 ```r
 #Can you reorder
@@ -43,12 +55,13 @@ dat2 %>%
   geom_bar(stat = "identity", width = 0.5) +
   facet_grid(. ~School)
 ```
- 
-## Day 2 {-}
+
+## Day 2 {.unnumbered}
 
 
 
-_Note_: Much of this lesson can be found in the "factors" chapter of R for Data Science by Hadley Wickham: http://r4ds.had.co.nz/factors.html
+*Note*: Much of this lesson can be found in the "factors" chapter of R
+for Data Science by Hadley Wickham: <http://r4ds.had.co.nz/factors.html>
 
 
 ```r
@@ -116,7 +129,6 @@ df <- forcats::gss_cat
 ```
 
 
-
 ```r
 #Remember, none of these outcomes are being saved into any objects with <- 
 #This is just for visualizing and exploring the data.
@@ -138,17 +150,19 @@ ggplot(gss_cat, aes(race)) +
 
 <img src="04_TransformationDay2_files/figure-html/ggplotintro-1.png" width="70%" style="display: block; margin: auto;" /><img src="04_TransformationDay2_files/figure-html/ggplotintro-2.png" width="70%" style="display: block; margin: auto;" />
 
-When working with factors, the two most common operations are:
-1. Changing the order of the levels
-2. Changing the values of the levels.
+When working with factors, the two most common operations are: 1.
+Changing the order of the levels 2. Changing the values of the levels.
 
 Why would you want to do this?
 
-It’s often useful to change the order of the factor levels in a visualisation.
+It's often useful to change the order of the factor levels in a
+visualisation.
 
-Let's get the average number of hours spent watching TV per day across religions:
+Let's get the average number of hours spent watching TV per day across
+religions:
 
-Note: if you put () on the outside of your assignment, it will also print
+Note: if you put () on the outside of your assignment, it will also
+print
 
 
 ```r
@@ -170,14 +184,16 @@ Note: if you put () on the outside of your assignment, it will also print
 #> 6 Orthodox-christian       50.4    2.42    95
 #> # … with 9 more rows
 ```
-Because there were NA's and we wanted to do math we needed to remove them with:
-na.rm = TRUE
+
+Because there were NA's and we wanted to do math we needed to remove
+them with: na.rm = TRUE
 
 ## Change the order of the levels
 
 Plot with ggplot, arguments are ggplot(data, mapping) + geom_type()
-mapping is usually paired with the aes() function, which refers to aesthetics
-arguments to aes are usually aes(x, y, group)
+mapping is usually paired with the aes() function, which refers to
+aesthetics arguments to aes are usually aes(x, y, group)
+
 
 ```r
 ggplot(data = relig_summary, 
@@ -199,9 +215,11 @@ ggplot(relig_summary, aes(x = tvhours, y = fct_reorder(.f = relig, .x = tvhours)
 
 Now we have reordered religion by tv hours watched.
 
-The key argument is fct_reorder("factor to order", "column to be ordered by")
+The key argument is fct_reorder("factor to order", "column to be ordered
+by")
 
 We can do it in descending order as well:
+
 
 ```r
 ggplot(relig_summary, aes(tvhours, fct_reorder(relig, desc(tvhours)))) +
@@ -209,11 +227,12 @@ ggplot(relig_summary, aes(tvhours, fct_reorder(relig, desc(tvhours)))) +
 ```
 
 <img src="04_TransformationDay2_files/figure-html/plotdescend-1.png" width="70%" style="display: block; margin: auto;" />
+
 We just put desc() around tvhours
 
-As you start making more complicated transformations,
-I’d recommend moving them out of aes() and into a separate mutate() step.
-For example, you could rewrite the plot above as:
+As you start making more complicated transformations, I'd recommend
+moving them out of aes() and into a separate mutate() step. For example,
+you could rewrite the plot above as:
 
 
 ```r
@@ -295,10 +314,11 @@ ggplot(rincome_summary, aes(age, fct_reorder(rincome, age))) +
 <img src="04_TransformationDay2_files/figure-html/plotcount-1.png" width="70%" style="display: block; margin: auto;" />
 
 Reported income is an ordinal variable so it should be reported that way
-However fct_reorder will often create an arbitrary order by the second argument
-(age in this case).
+However fct_reorder will often create an arbitrary order by the second
+argument (age in this case).
 
 Use fct_relevel to have an ordered outcome:
+
 
 ```r
 ggplot(rincome_summary, aes(age, fct_relevel(rincome))) +
@@ -307,8 +327,9 @@ ggplot(rincome_summary, aes(age, fct_relevel(rincome))) +
 
 <img src="04_TransformationDay2_files/figure-html/fct_relevel ordered-1.png" width="70%" style="display: block; margin: auto;" />
 
-Now "Not applicable" is up at the top away from the other "special responses"
-Let's fix that:
+Now "Not applicable" is up at the top away from the other "special
+responses" Let's fix that:
+
 
 ```r
 ggplot(rincome_summary, aes(age, fct_relevel(rincome, "Not applicable"))) +
@@ -316,8 +337,9 @@ ggplot(rincome_summary, aes(age, fct_relevel(rincome, "Not applicable"))) +
 ```
 
 <img src="04_TransformationDay2_files/figure-html/plotNAs-1.png" width="70%" style="display: block; margin: auto;" />
-We put it at the end! Now age and income are ordered! However, larger numbers
-map to the top (Larger is higher in conceptual metaphor theory)
+
+We put it at the end! Now age and income are ordered! However, larger
+numbers map to the top (Larger is higher in conceptual metaphor theory)
 
 
 ```r
@@ -374,11 +396,12 @@ ggplot(by_age, aes(age, prop, colour = fct_reorder2(marital, age, prop))) +
 
 <img src="04_TransformationDay2_files/figure-html/plotage-1.png" width="70%" style="display: block; margin: auto;" /><img src="04_TransformationDay2_files/figure-html/plotage-2.png" width="70%" style="display: block; margin: auto;" />
 
-
 ## RcolorBrewer
 
-Let's get researched colors for proper visualization best practices from:
- Brewer, Cynthia A., 200x. http://www.ColorBrewer.org, accessed 09/27/2018.
+Let's get researched colors for proper visualization best practices
+from: Brewer, Cynthia A., 200x. <http://www.ColorBrewer.org>, accessed
+09/27/2018.
+
 
 ```r
 library(RColorBrewer)
@@ -446,7 +469,10 @@ ggplot(by_age, aes(age, prop, colour = fct_reorder2(marital, age, prop))) +
 
 <img src="04_TransformationDay2_files/figure-html/colorBrewer-1.png" width="70%" style="display: block; margin: auto;" /><img src="04_TransformationDay2_files/figure-html/colorBrewer-2.png" width="70%" style="display: block; margin: auto;" /><img src="04_TransformationDay2_files/figure-html/colorBrewer-3.png" width="70%" style="display: block; margin: auto;" /><img src="04_TransformationDay2_files/figure-html/colorBrewer-4.png" width="70%" style="display: block; margin: auto;" />
 
-Finally, for bar plots, you can use <code>fct_infreq()</code> to order levels in increasing frequency: this is the simplest type of reordering because it doesn’t need any extra variables. You may want to combine with <code>fct_rev()</code>.
+Finally, for bar plots, you can use <code>fct_infreq()</code> to order
+levels in increasing frequency: this is the simplest type of reordering
+because it doesn't need any extra variables. You may want to combine
+with <code>fct_rev()</code>.
 
 
 ```r
@@ -457,11 +483,14 @@ df %>%
 ```
 
 <img src="04_TransformationDay2_files/figure-html/marital-1.png" width="70%" style="display: block; margin: auto;" />
+
 Notice that you can pipe these arguments WITHIN the mutate() function!
 
 **Challenge 1**
 
-For each factor in df identify whether the order of the levels is arbitrary or principled.
+For each factor in df identify whether the order of the levels is
+arbitrary or principled.
+
 
 ```r
 rev(levels(df$marital))
@@ -483,10 +512,10 @@ ggplot(df, aes(year,fill = fct_lump(relig,n = 8))) +
 
 How would you determine this?
 
-
 ## Modifying Factor Levels
 
 Here's a count of the levels in party_id
+
 
 ```r
 df %>% count(partyid)
@@ -501,7 +530,9 @@ df %>% count(partyid)
 #> 6 Ind,near rep        1791
 #> # … with 4 more rows
 ```
-<code>fct_recode</code> let's us rename variables (new varname left = old varname right)
+
+<code>fct_recode</code> let's us rename variables (new varname left =
+old varname right)
 
 
 ```r
@@ -527,11 +558,13 @@ df %>%
 #> # … with 4 more rows
 ```
 
-<code>fct_recode()</code> will leave levels that aren’t explicitly mentioned as is, 
-and will warn you if you accidentally refer to a level that doesn’t exist.
+<code>fct_recode()</code> will leave levels that aren't explicitly
+mentioned as is, and will warn you if you accidentally refer to a level
+that doesn't exist.
 
-If you want to collapse a lot of levels, <code>fct_collapse()</code> is a useful variant of <code>fct_recode()</code>.
-For each new variable, you can provide a vector of old levels:
+If you want to collapse a lot of levels, <code>fct_collapse()</code> is
+a useful variant of <code>fct_recode()</code>. For each new variable,
+you can provide a vector of old levels:
 
 
 ```r
@@ -552,10 +585,11 @@ df %>%
 #> 4 dem      7180
 ```
 
-Pretty cool huh?! We just created in groupings to plot or do analyses on.
+Pretty cool huh?! We just created in groupings to plot or do analyses
+on.
 
-Sometimes you just want to lump together all the small groups to make a plot or table simpler. 
-That’s the job of <code>fct_lump()</code>
+Sometimes you just want to lump together all the small groups to make a
+plot or table simpler. That's the job of <code>fct_lump()</code>
 
 
 ```r
@@ -603,9 +637,11 @@ levels(df$relig)
 #> [15] "Protestant"              "Not applicable"
 ```
 
- It looks like Protestant had the largest count, so by default it grouped everything else and Protestant together. 
+It looks like Protestant had the largest count, so by default it grouped
+everything else and Protestant together.
 
 You can collapse across specified lumps...
+
 
 ```r
 df %>%
@@ -623,9 +659,10 @@ df %>%
 #> # … with 4 more rows
 ```
 
-## Play time 
+## Play time
 
 Answer some interesting questions about this dataset
+
 
 ```r
 df
@@ -643,6 +680,7 @@ df
 
 What is the proportion of race in each religion?
 
+
 ```r
 df %>%
   group_by(relig) %>%
@@ -651,6 +689,7 @@ df %>%
 ```
 
 Try to plot it
+
 
 ```r
 df %>%
@@ -666,6 +705,7 @@ df %>%
 
 Play 1
 
+
 ```r
 View(df %>%
   group_by(relig) %>%
@@ -677,6 +717,7 @@ View(df %>%
 ```
 
 Play 2
+
 
 ```r
 df %>%

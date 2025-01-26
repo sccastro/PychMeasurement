@@ -101,7 +101,7 @@ mean(my.df[my.df$sex=="male",]$pitch)
 ```{r smooth, warning=FALSE, message=FALSE}
 my.df$sexcode <- c(rep(0,3),rep(1,3))
 
-scatter.smooth(x = my.df$sexcode, y = my.df$pitch, ylab = "Pitch (Hz)", xlab = "Sex",)
+scatter.smooth(x = my.df$sexcode, y = my.df$pitch, ylab = "Pitch (Hz)", xlab = "Sex")
 
 plot(pitch~sexcode, my.df)
 ```

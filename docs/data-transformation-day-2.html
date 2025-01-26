@@ -188,7 +188,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2" data-path="data-transformation.html"><a href="data-transformation.html#introduction-to-the-pipe"><i class="fa fa-check"></i><b>4.2</b> Introduction to “The Pipe”</a></li>
 <li class="chapter" data-level="4.3" data-path="data-transformation.html"><a href="data-transformation.html#aside-on-the-apply-family"><i class="fa fa-check"></i><b>4.3</b> Aside on the apply family</a></li>
 <li class="chapter" data-level="4.4" data-path="data-transformation.html"><a href="data-transformation.html#extracting-rows"><i class="fa fa-check"></i><b>4.4</b> Extracting rows</a></li>
-<li class="chapter" data-level="4.5" data-path="data-transformation.html"><a href="data-transformation.html#spreading-gathering-separating-and-uniting"><i class="fa fa-check"></i><b>4.5</b> Spreading, Gathering, Separating and Uniting</a></li>
+<li class="chapter" data-level="4.5" data-path="data-transformation.html"><a href="data-transformation.html#pivoting-separating-and-uniting"><i class="fa fa-check"></i><b>4.5</b> Pivoting, Separating and Uniting</a></li>
 <li class="chapter" data-level="4.6" data-path="data-transformation.html"><a href="data-transformation.html#solutions-to-challenges"><i class="fa fa-check"></i><b>4.6</b> Solutions to Challenges</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="data-transformation-day-2.html"><a href="data-transformation-day-2.html"><i class="fa fa-check"></i><b>5</b> Data Transformation Day 2</a>
@@ -307,17 +307,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="data-transformation-day-2" class="section level1 hasAnchor" number="5">
 <h1><span class="header-section-number">5</span> Data Transformation Day 2<a href="data-transformation-day-2.html#data-transformation-day-2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <blockquote>
-“Every day, three times per second, we produce the equivalent of the amount of data that the Library of Congress has in its entire print collection, right? But most of it is like cat videos on YouTube or 13-year-olds exchanging text messages about the next Twilight movie.”
+<p>“Every day, three times per second, we produce the equivalent of the
+amount of data that the Library of Congress has in its entire print
+collection, right? But most of it is like cat videos on YouTube or
+13-year-olds exchanging text messages about the next Twilight movie.”</p>
 <div style="text-align: right">
-— Nate Silver
+<p>— Nate Silver</p>
 </div>
 </blockquote>
 <p>First off…</p>
 <h4>
 Advanced R Challenges
 </h4>
-<p>Explain how the order of factors changed within the plots for dat2. How do facet_grid and
-facet_wrap work?</p>
+<p>Explain how the order of factors changed within the plots for dat2. How
+do facet_grid and facet_wrap work?</p>
 <div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="data-transformation-day-2.html#cb78-1" tabindex="-1"></a><span class="co">#Can you reorder</span></span>
 <span id="cb78-2"><a href="data-transformation-day-2.html#cb78-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb78-3"><a href="data-transformation-day-2.html#cb78-3" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
@@ -350,7 +353,8 @@ facet_wrap work?</p>
 <span id="cb78-30"><a href="data-transformation-day-2.html#cb78-30" tabindex="-1"></a>  <span class="fu">facet_grid</span>(. <span class="sc">~</span>School)</span></code></pre></div>
 <div id="day-2" class="section level2 unnumbered hasAnchor">
 <h2>Day 2<a href="data-transformation-day-2.html#day-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><em>Note</em>: Much of this lesson can be found in the “factors” chapter of R for Data Science by Hadley Wickham: <a href="http://r4ds.had.co.nz/factors.html" class="uri">http://r4ds.had.co.nz/factors.html</a></p>
+<p><em>Note</em>: Much of this lesson can be found in the “factors” chapter of R
+for Data Science by Hadley Wickham: <a href="http://r4ds.had.co.nz/factors.html" class="uri">http://r4ds.had.co.nz/factors.html</a></p>
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="data-transformation-day-2.html#cb79-1" tabindex="-1"></a>?gss_cat <span class="co">#See more about the variables in our dataset</span></span>
 <span id="cb79-2"><a href="data-transformation-day-2.html#cb79-2" tabindex="-1"></a></span>
 <span id="cb79-3"><a href="data-transformation-day-2.html#cb79-3" tabindex="-1"></a><span class="fu">View</span>(gss_cat)</span></code></pre></div>
@@ -425,13 +429,15 @@ facet_wrap work?</p>
 <span id="cb81-15"><a href="data-transformation-day-2.html#cb81-15" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
 <span id="cb81-16"><a href="data-transformation-day-2.html#cb81-16" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">drop =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p><img src="04_TransformationDay2_files/figure-html/ggplotintro-1.png" width="70%" style="display: block; margin: auto;" /><img src="04_TransformationDay2_files/figure-html/ggplotintro-2.png" width="70%" style="display: block; margin: auto;" /></p>
-<p>When working with factors, the two most common operations are:
-1. Changing the order of the levels
-2. Changing the values of the levels.</p>
+<p>When working with factors, the two most common operations are: 1.
+Changing the order of the levels 2. Changing the values of the levels.</p>
 <p>Why would you want to do this?</p>
-<p>It’s often useful to change the order of the factor levels in a visualisation.</p>
-<p>Let’s get the average number of hours spent watching TV per day across religions:</p>
-<p>Note: if you put () on the outside of your assignment, it will also print</p>
+<p>It’s often useful to change the order of the factor levels in a
+visualisation.</p>
+<p>Let’s get the average number of hours spent watching TV per day across
+religions:</p>
+<p>Note: if you put () on the outside of your assignment, it will also
+print</p>
 <div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="data-transformation-day-2.html#cb82-1" tabindex="-1"></a>(relig_summary <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="co">#Get your data.frame and pipe into the columns</span></span>
 <span id="cb82-2"><a href="data-transformation-day-2.html#cb82-2" tabindex="-1"></a>  <span class="fu">group_by</span>(relig) <span class="sc">%&gt;%</span> <span class="co">#group by religion so that each summary will be for one religion</span></span>
 <span id="cb82-3"><a href="data-transformation-day-2.html#cb82-3" tabindex="-1"></a>  <span class="fu">summarise</span>( <span class="co">#Get a summary for the following transformations</span></span>
@@ -449,14 +455,14 @@ facet_wrap work?</p>
 <span id="cb82-15"><a href="data-transformation-day-2.html#cb82-15" tabindex="-1"></a><span class="co">#&gt; 5 Christian                40.1    2.79   689</span></span>
 <span id="cb82-16"><a href="data-transformation-day-2.html#cb82-16" tabindex="-1"></a><span class="co">#&gt; 6 Orthodox-christian       50.4    2.42    95</span></span>
 <span id="cb82-17"><a href="data-transformation-day-2.html#cb82-17" tabindex="-1"></a><span class="co">#&gt; # … with 9 more rows</span></span></code></pre></div>
-<p>Because there were NA’s and we wanted to do math we needed to remove them with:
-na.rm = TRUE</p>
+<p>Because there were NA’s and we wanted to do math we needed to remove
+them with: na.rm = TRUE</p>
 </div>
 <div id="change-the-order-of-the-levels" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> Change the order of the levels<a href="data-transformation-day-2.html#change-the-order-of-the-levels" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Plot with ggplot, arguments are ggplot(data, mapping) + geom_type()
-mapping is usually paired with the aes() function, which refers to aesthetics
-arguments to aes are usually aes(x, y, group)</p>
+mapping is usually paired with the aes() function, which refers to
+aesthetics arguments to aes are usually aes(x, y, group)</p>
 <div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="data-transformation-day-2.html#cb83-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> relig_summary, </span>
 <span id="cb83-2"><a href="data-transformation-day-2.html#cb83-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> relig, <span class="at">x =</span>tvhours)) <span class="sc">+</span> </span>
 <span id="cb83-3"><a href="data-transformation-day-2.html#cb83-3" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
@@ -466,15 +472,16 @@ arguments to aes are usually aes(x, y, group)</p>
 <span id="cb84-2"><a href="data-transformation-day-2.html#cb84-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 <p><img src="04_TransformationDay2_files/figure-html/plotmore-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>Now we have reordered religion by tv hours watched.</p>
-<p>The key argument is fct_reorder(“factor to order”, “column to be ordered by”)</p>
+<p>The key argument is fct_reorder(“factor to order”, “column to be ordered
+by”)</p>
 <p>We can do it in descending order as well:</p>
 <div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="data-transformation-day-2.html#cb85-1" tabindex="-1"></a><span class="fu">ggplot</span>(relig_summary, <span class="fu">aes</span>(tvhours, <span class="fu">fct_reorder</span>(relig, <span class="fu">desc</span>(tvhours)))) <span class="sc">+</span></span>
 <span id="cb85-2"><a href="data-transformation-day-2.html#cb85-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span></code></pre></div>
-<p><img src="04_TransformationDay2_files/figure-html/plotdescend-1.png" width="70%" style="display: block; margin: auto;" />
-We just put desc() around tvhours</p>
-<p>As you start making more complicated transformations,
-I’d recommend moving them out of aes() and into a separate mutate() step.
-For example, you could rewrite the plot above as:</p>
+<p><img src="04_TransformationDay2_files/figure-html/plotdescend-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>We just put desc() around tvhours</p>
+<p>As you start making more complicated transformations, I’d recommend
+moving them out of aes() and into a separate mutate() step. For example,
+you could rewrite the plot above as:</p>
 <div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="data-transformation-day-2.html#cb86-1" tabindex="-1"></a>relig_summary <span class="sc">%&gt;%</span></span>
 <span id="cb86-2"><a href="data-transformation-day-2.html#cb86-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relig =</span> <span class="fu">fct_reorder</span>(relig, tvhours)) <span class="sc">%&gt;%</span></span>
 <span id="cb86-3"><a href="data-transformation-day-2.html#cb86-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(tvhours, relig)) <span class="sc">+</span></span>
@@ -543,19 +550,19 @@ For example, you could rewrite the plot above as:</p>
 <span id="cb87-20"><a href="data-transformation-day-2.html#cb87-20" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 <p><img src="04_TransformationDay2_files/figure-html/plotcount-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>Reported income is an ordinal variable so it should be reported that way
-However fct_reorder will often create an arbitrary order by the second argument
-(age in this case).</p>
+However fct_reorder will often create an arbitrary order by the second
+argument (age in this case).</p>
 <p>Use fct_relevel to have an ordered outcome:</p>
 <div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="data-transformation-day-2.html#cb88-1" tabindex="-1"></a><span class="fu">ggplot</span>(rincome_summary, <span class="fu">aes</span>(age, <span class="fu">fct_relevel</span>(rincome))) <span class="sc">+</span></span>
 <span id="cb88-2"><a href="data-transformation-day-2.html#cb88-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 <p><img src="04_TransformationDay2_files/figure-html/fct_relevel%20ordered-1.png" width="70%" style="display: block; margin: auto;" /></p>
-<p>Now “Not applicable” is up at the top away from the other “special responses”
-Let’s fix that:</p>
+<p>Now “Not applicable” is up at the top away from the other “special
+responses” Let’s fix that:</p>
 <div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="data-transformation-day-2.html#cb89-1" tabindex="-1"></a><span class="fu">ggplot</span>(rincome_summary, <span class="fu">aes</span>(age, <span class="fu">fct_relevel</span>(rincome, <span class="st">&quot;Not applicable&quot;</span>))) <span class="sc">+</span></span>
 <span id="cb89-2"><a href="data-transformation-day-2.html#cb89-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="04_TransformationDay2_files/figure-html/plotNAs-1.png" width="70%" style="display: block; margin: auto;" />
-We put it at the end! Now age and income are ordered! However, larger numbers
-map to the top (Larger is higher in conceptual metaphor theory)</p>
+<p><img src="04_TransformationDay2_files/figure-html/plotNAs-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>We put it at the end! Now age and income are ordered! However, larger
+numbers map to the top (Larger is higher in conceptual metaphor theory)</p>
 <div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="data-transformation-day-2.html#cb90-1" tabindex="-1"></a><span class="fu">ggplot</span>(rincome_summary, <span class="fu">aes</span>(age,<span class="at">x =</span> <span class="fu">fct_relevel</span>(<span class="fu">desc</span>(rincome), <span class="st">&quot;Not applicable&quot;</span>))) <span class="sc">+</span></span>
 <span id="cb90-2"><a href="data-transformation-day-2.html#cb90-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span></code></pre></div>
 <p>This doesn’t work in the aes() function, so we have to do it earlier!</p>
@@ -597,8 +604,9 @@ map to the top (Larger is higher in conceptual metaphor theory)</p>
 </div>
 <div id="rcolorbrewer" class="section level2 hasAnchor" number="5.2">
 <h2><span class="header-section-number">5.2</span> RcolorBrewer<a href="data-transformation-day-2.html#rcolorbrewer" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Let’s get researched colors for proper visualization best practices from:
-Brewer, Cynthia A., 200x. <a href="http://www.ColorBrewer.org" class="uri">http://www.ColorBrewer.org</a>, accessed 09/27/2018.</p>
+<p>Let’s get researched colors for proper visualization best practices
+from: Brewer, Cynthia A., 200x. <a href="http://www.ColorBrewer.org" class="uri">http://www.ColorBrewer.org</a>, accessed
+09/27/2018.</p>
 <div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="data-transformation-day-2.html#cb93-1" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
 <span id="cb93-2"><a href="data-transformation-day-2.html#cb93-2" tabindex="-1"></a></span>
 <span id="cb93-3"><a href="data-transformation-day-2.html#cb93-3" tabindex="-1"></a></span>
@@ -661,15 +669,19 @@ Brewer, Cynthia A., 200x. <a href="http://www.ColorBrewer.org" class="uri">http:
 <span id="cb93-60"><a href="data-transformation-day-2.html#cb93-60" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">colour =</span> <span class="st">&quot;marital&quot;</span>) <span class="sc">+</span> <span class="fu">theme_void</span>() <span class="sc">+</span></span>
 <span id="cb93-61"><a href="data-transformation-day-2.html#cb93-61" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">type =</span> <span class="st">&quot;qual&quot;</span>)</span></code></pre></div>
 <p><img src="04_TransformationDay2_files/figure-html/colorBrewer-1.png" width="70%" style="display: block; margin: auto;" /><img src="04_TransformationDay2_files/figure-html/colorBrewer-2.png" width="70%" style="display: block; margin: auto;" /><img src="04_TransformationDay2_files/figure-html/colorBrewer-3.png" width="70%" style="display: block; margin: auto;" /><img src="04_TransformationDay2_files/figure-html/colorBrewer-4.png" width="70%" style="display: block; margin: auto;" /></p>
-<p>Finally, for bar plots, you can use <code>fct_infreq()</code> to order levels in increasing frequency: this is the simplest type of reordering because it doesn’t need any extra variables. You may want to combine with <code>fct_rev()</code>.</p>
+<p>Finally, for bar plots, you can use <code>fct_infreq()</code> to order
+levels in increasing frequency: this is the simplest type of reordering
+because it doesn’t need any extra variables. You may want to combine
+with <code>fct_rev()</code>.</p>
 <div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="data-transformation-day-2.html#cb94-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
 <span id="cb94-2"><a href="data-transformation-day-2.html#cb94-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">marital =</span> marital <span class="sc">%&gt;%</span> <span class="fu">fct_infreq</span>() <span class="sc">%&gt;%</span> <span class="fu">fct_rev</span>()) <span class="sc">%&gt;%</span> </span>
 <span id="cb94-3"><a href="data-transformation-day-2.html#cb94-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(marital)) <span class="sc">+</span></span>
 <span id="cb94-4"><a href="data-transformation-day-2.html#cb94-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
-<p><img src="04_TransformationDay2_files/figure-html/marital-1.png" width="70%" style="display: block; margin: auto;" />
-Notice that you can pipe these arguments WITHIN the mutate() function!</p>
+<p><img src="04_TransformationDay2_files/figure-html/marital-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<p>Notice that you can pipe these arguments WITHIN the mutate() function!</p>
 <p><strong>Challenge 1</strong></p>
-<p>For each factor in df identify whether the order of the levels is arbitrary or principled.</p>
+<p>For each factor in df identify whether the order of the levels is
+arbitrary or principled.</p>
 <div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="data-transformation-day-2.html#cb95-1" tabindex="-1"></a><span class="fu">rev</span>(<span class="fu">levels</span>(df<span class="sc">$</span>marital))</span>
 <span id="cb95-2"><a href="data-transformation-day-2.html#cb95-2" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Married&quot;       &quot;Widowed&quot;       &quot;Divorced&quot;      &quot;Separated&quot;    </span></span>
 <span id="cb95-3"><a href="data-transformation-day-2.html#cb95-3" tabindex="-1"></a><span class="co">#&gt; [5] &quot;Never married&quot; &quot;No answer&quot;</span></span>
@@ -700,7 +712,8 @@ Notice that you can pipe these arguments WITHIN the mutate() function!</p>
 <span id="cb96-9"><a href="data-transformation-day-2.html#cb96-9" tabindex="-1"></a><span class="co">#&gt; 5 Not str republican  3032</span></span>
 <span id="cb96-10"><a href="data-transformation-day-2.html#cb96-10" tabindex="-1"></a><span class="co">#&gt; 6 Ind,near rep        1791</span></span>
 <span id="cb96-11"><a href="data-transformation-day-2.html#cb96-11" tabindex="-1"></a><span class="co">#&gt; # … with 4 more rows</span></span></code></pre></div>
-<p><code>fct_recode</code> let’s us rename variables (new varname left = old varname right)</p>
+<p><code>fct_recode</code> let’s us rename variables (new varname left =
+old varname right)</p>
 <div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="data-transformation-day-2.html#cb97-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
 <span id="cb97-2"><a href="data-transformation-day-2.html#cb97-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">partyid =</span> <span class="fu">fct_recode</span>(partyid,</span>
 <span id="cb97-3"><a href="data-transformation-day-2.html#cb97-3" tabindex="-1"></a>                              <span class="st">&quot;Republican, strong&quot;</span>    <span class="ot">=</span> <span class="st">&quot;Strong republican&quot;</span>,</span>
@@ -721,10 +734,12 @@ Notice that you can pipe these arguments WITHIN the mutate() function!</p>
 <span id="cb97-18"><a href="data-transformation-day-2.html#cb97-18" tabindex="-1"></a><span class="co">#&gt; 5 Republican, weak       3032</span></span>
 <span id="cb97-19"><a href="data-transformation-day-2.html#cb97-19" tabindex="-1"></a><span class="co">#&gt; 6 Independent, near rep  1791</span></span>
 <span id="cb97-20"><a href="data-transformation-day-2.html#cb97-20" tabindex="-1"></a><span class="co">#&gt; # … with 4 more rows</span></span></code></pre></div>
-<p><code>fct_recode()</code> will leave levels that aren’t explicitly mentioned as is,
-and will warn you if you accidentally refer to a level that doesn’t exist.</p>
-<p>If you want to collapse a lot of levels, <code>fct_collapse()</code> is a useful variant of <code>fct_recode()</code>.
-For each new variable, you can provide a vector of old levels:</p>
+<p><code>fct_recode()</code> will leave levels that aren’t explicitly
+mentioned as is, and will warn you if you accidentally refer to a level
+that doesn’t exist.</p>
+<p>If you want to collapse a lot of levels, <code>fct_collapse()</code> is
+a useful variant of <code>fct_recode()</code>. For each new variable,
+you can provide a vector of old levels:</p>
 <div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="data-transformation-day-2.html#cb98-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
 <span id="cb98-2"><a href="data-transformation-day-2.html#cb98-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">partyid =</span> <span class="fu">fct_collapse</span>(partyid,</span>
 <span id="cb98-3"><a href="data-transformation-day-2.html#cb98-3" tabindex="-1"></a>                                <span class="at">other =</span> <span class="fu">c</span>(<span class="st">&quot;No answer&quot;</span>, <span class="st">&quot;Don&#39;t know&quot;</span>, <span class="st">&quot;Other party&quot;</span>),</span>
@@ -740,9 +755,10 @@ For each new variable, you can provide a vector of old levels:</p>
 <span id="cb98-13"><a href="data-transformation-day-2.html#cb98-13" tabindex="-1"></a><span class="co">#&gt; 2 rep      5346</span></span>
 <span id="cb98-14"><a href="data-transformation-day-2.html#cb98-14" tabindex="-1"></a><span class="co">#&gt; 3 ind      8409</span></span>
 <span id="cb98-15"><a href="data-transformation-day-2.html#cb98-15" tabindex="-1"></a><span class="co">#&gt; 4 dem      7180</span></span></code></pre></div>
-<p>Pretty cool huh?! We just created in groupings to plot or do analyses on.</p>
-<p>Sometimes you just want to lump together all the small groups to make a plot or table simpler.
-That’s the job of <code>fct_lump()</code></p>
+<p>Pretty cool huh?! We just created in groupings to plot or do analyses
+on.</p>
+<p>Sometimes you just want to lump together all the small groups to make a
+plot or table simpler. That’s the job of <code>fct_lump()</code></p>
 <div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="data-transformation-day-2.html#cb99-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
 <span id="cb99-2"><a href="data-transformation-day-2.html#cb99-2" tabindex="-1"></a>  <span class="fu">count</span>(relig) <span class="co">#This is before lumping</span></span>
 <span id="cb99-3"><a href="data-transformation-day-2.html#cb99-3" tabindex="-1"></a><span class="co">#&gt; # A tibble: 15 × 2</span></span>
@@ -785,7 +801,8 @@ That’s the job of <code>fct_lump()</code></p>
 <span id="cb99-40"><a href="data-transformation-day-2.html#cb99-40" tabindex="-1"></a><span class="co">#&gt; [11] &quot;Other&quot;                   &quot;None&quot;                   </span></span>
 <span id="cb99-41"><a href="data-transformation-day-2.html#cb99-41" tabindex="-1"></a><span class="co">#&gt; [13] &quot;Jewish&quot;                  &quot;Catholic&quot;               </span></span>
 <span id="cb99-42"><a href="data-transformation-day-2.html#cb99-42" tabindex="-1"></a><span class="co">#&gt; [15] &quot;Protestant&quot;              &quot;Not applicable&quot;</span></span></code></pre></div>
-<p>It looks like Protestant had the largest count, so by default it grouped everything else and Protestant together.</p>
+<p>It looks like Protestant had the largest count, so by default it grouped
+everything else and Protestant together.</p>
 <p>You can collapse across specified lumps…</p>
 <div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="data-transformation-day-2.html#cb100-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
 <span id="cb100-2"><a href="data-transformation-day-2.html#cb100-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relig =</span> <span class="fu">fct_lump</span>(relig, <span class="at">n =</span> <span class="dv">10</span>)) <span class="sc">%&gt;%</span> <span class="co">#Specify lumps here</span></span>

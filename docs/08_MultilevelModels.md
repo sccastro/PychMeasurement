@@ -503,3 +503,6 @@ Which predictor variables predict your dependent variable? How did you
 determine that?
 
 Look at the significance tests, such as a p-value.
+
+
+
