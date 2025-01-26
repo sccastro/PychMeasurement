@@ -100,8 +100,6 @@ abline(fit)
 
 <img src="09_Rmarkdown_files/figure-html/unnamed-chunk-4-1.png" width="70%" style="display: block; margin: auto;" />
 
-
-
 The slope of the regression is 3.932.
 
 **Challenge 2** Recreate the code chunk above and knit it.
@@ -229,8 +227,6 @@ superscript (e.g., Cu\^2+\^ renders Cu^2+^).
 
 <!--- Hyperlinks are created using the syntax \[text\\]\(link\), e.g., \[RStudio\](https://www.rstudio.com). The syntax for images is similar: just add an exclamation mark, e.g., !\[alt text or image title\](path/to/image). Footnotes are put inside the square brackets after a caret \^[], e.g., ^[This is a footnote.]. ---->
 
-
-
 There are multiple ways to insert citations, and we recommend that you
 use BibTeX databases, because they work better when the output format is
 LaTeX/PDF. Section 2.8 of Xie (2016) has explained the details. The key
@@ -349,3 +345,6 @@ chunk of your document, e.g.,
 
 <code> \`\`\`{r, setup, include=FALSE} knitr::opts_chunk\$set(fig.width
 = 8, collapse = TRUE) \`\`\` </code>
+
+
+

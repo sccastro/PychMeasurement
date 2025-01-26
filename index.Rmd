@@ -233,11 +233,10 @@ Requests for accommodation should be filled out with a SAS Service Request Form 
 require(chron)
 require(lubridate)
 #Goal: auto-fill dates for a class for a semester.
-clssdays <- function(classday,Semester = "Spring", Year = "2024") {
+clssdays <- function(classday,Semester = "Spring", Year = "2025") {
   if (Semester == "Spring"){
-    allclass <- seq(ymd(paste0(Year,'-01-17')),ymd(paste0(Year,'-05-06')), by = 'day')
-    holidays <- c(ymd(paste0(Year,'-01-15')),
-                  ymd(paste0(Year,'-01-21')),ymd(paste0(Year,'-02-19')),seq.Date(from = ymd(paste0(Year,'-03-25')),to = ymd(paste0(Year,'-03-28')),by = 'day'))
+    allclass <- seq(ymd(paste0(Year,'-01-21')),ymd(paste0(Year,'-05-09')), by = 'day')
+    holidays <- c(ymd(paste0(Year,'-01-20')),ymd(paste0(Year,'-02-17')),seq.Date(from = ymd(paste0(Year,'-03-24')),to = ymd(paste0(Year,'-03-27')),by = 'day'))
     Dates <- format(allclass[classday == weekdays(allclass) & allclass %ni% holidays],"%b %d")
     dfdate <- data.frame(Dates)
     return(dfdate)
@@ -266,12 +265,12 @@ urls <- c("https://github.com/rstudio/cheatsheets/blob/main/base-r.pdf",
           "https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_purrr.pdf",
           "http://edrub.in/CheatSheets/cheatSheetStringr.pdf")
 
-schedule <- cbind(clssdays(classday = "Monday",Semester = "Spring",Year = "2024"),
+schedule <- cbind(clssdays(classday = "Monday",Semester = "Spring",Year = "2025"),
       "Topic/Description" = c("Introduction/Installation","R commands/tricks","Intro to reading data/Data Workshop","Cleaning data/Data Workshop", "Dplyr and Tidyr","Visualizing with ggplot/Data
 Workshop","Intro to stats in R","More stats in R","Still more stats in R","Rmarkdown","Report Generation and Optimization","Rmarkdown help",
-"Bonus Material – Shiny?","Course Review"),
-      "Reading/Work" = c("syllabus",
-                         paste0("Swirl tutorial/[base-R](",urls[1],")"),
+"Bonus Material – Shiny?"),
+      "Reading/Work" = c(paste0("syllabus",
+                         paste0("Swirl tutorial/[base-R](",urls[1],")")),
                          paste0("Swirl tutorial/[data-import](",urls[2],")"),
                          paste0("Swirl tutorial/[data-wrangling](",urls[3],")"),
                          paste0("Swirl tutorial/[data-transformation](",urls[4],")"),
@@ -285,7 +284,7 @@ Workshop","Intro to stats in R","More stats in R","Still more stats in R","Rmark
                          paste0("Regular expression challenge/[purrr](",urls[12],")","/[strings](",urls[13],")"),
                          paste0("Presentations of Data Analysis")),
       "Project Milesone/task" = c("","Obtaining a Dataset","Ask your first question on StackOverflow","Dataset Read into R",
-                                  "Make an Rproject","","Tidy Dataset","","","Analysis Complete","","Rmarkdown Document",
+                                  "Make an Rproject","","Tidy Dataset","","Analysis Complete","","Rmarkdown Document",
                                   "Methods & Results Due","Final Projects Due"))
 
 

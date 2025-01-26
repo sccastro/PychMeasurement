@@ -6,7 +6,16 @@
     <description>Recent content on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 18 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Apr 2024 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>New Class Post</title>
+      <link>/2024/04/18/new-class-post/</link>
+      <pubDate>Thu, 18 Apr 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/2024/04/18/new-class-post/</guid>
+      <description>And anything I write here should be displayed. Now every time I save I can see it.</description>
+    </item>
+    
     <item>
       <title>About Me</title>
       <link>/2022/04/18/about-me/</link>
@@ -14,15 +23,6 @@
       
       <guid>/2022/04/18/about-me/</guid>
       <description>&amp;ldquo;Spencer Castro is an assistant professor at the University of California Merced in the Management of Complex Systems Department in the School of Engineering. He was formerly a Postdoctoral Fellow in the Underrepresented and Disadvantaged Scholars Program and a former National Science Foundation Pre-Doctoral Graduate Research Fellow (GRFP) at the University of Utah, working with Dr. David Strayer. Spencer was awarded the NSF GRFP for research on the capacity of attention under cognitive workload, particularly in the context of technology and multitasking.</description>
-    </item>
-    
-    <item>
-      <title>New Class Post</title>
-      <link>/2022/04/18/new-class-post/</link>
-      <pubDate>Mon, 18 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>/2022/04/18/new-class-post/</guid>
-      <description>And anything I write here should be displayed. Now every time I save I can see it.</description>
     </item>
     
     <item>
@@ -44,15 +44,6 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
       <guid>/2016/12/30/a-plain-markdown-post/</guid>
       <description>This is a post written in plain Markdown (*.md) instead of R Markdown (*.Rmd). The major differences are:
  You cannot run any R code in a plain Markdown document, whereas in an R Markdown document, you can embed R code chunks (```{r}); A plain Markdown post is rendered through Blackfriday, and an R Markdown document is compiled by rmarkdown and Pandoc.  There are many differences in syntax between Blackfriday&amp;rsquo;s Markdown and Pandoc&amp;rsquo;s Markdown.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>/about/</link>
-      <pubDate>Thu, 05 May 2016 21:48:51 -0700</pubDate>
-      
-      <guid>/about/</guid>
-      <description>This is a &amp;ldquo;hello world&amp;rdquo; example website for the blogdown package. The theme was forked from @jrutheiser/hugo-lithium-theme and modified by Yihui Xie.</description>
     </item>
     
     <item>

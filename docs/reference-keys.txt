@@ -30,7 +30,7 @@ get-a-dataset-from-your-.rdata-file
 introduction-to-the-pipe
 aside-on-the-apply-family
 extracting-rows
-spreading-gathering-separating-and-uniting
+pivoting-separating-and-uniting
 solutions-to-challenges
 data-transformation-day-2
 change-the-order-of-the-levels
@@ -91,4 +91,3 @@ blogdown
 rmarkdown-website
 shiny-applications
 kmeans-app
-pivoting-separating-and-uniting

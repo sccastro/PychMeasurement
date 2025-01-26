@@ -165,16 +165,16 @@ Now let's do some descriptives...
 ```r
 ccolor %>%
   group_by(s) %>%
-  summarise(nrow(.)) 
+  summarise(count = n()) 
 #> # A tibble: 20 × 2
-#>   s     `nrow(.)`
-#>   <fct>     <int>
-#> 1 1          6400
-#> 2 2          6400
-#> 3 3          6400
-#> 4 4          6400
-#> 5 5          6400
-#> 6 6          6400
+#>   s     count
+#>   <fct> <int>
+#> 1 1       320
+#> 2 2       320
+#> 3 3       320
+#> 4 4       320
+#> 5 5       320
+#> 6 6       320
 #> # ℹ 14 more rows
 
 # (Harder to read long, so we can spread it out)
@@ -237,10 +237,9 @@ df <- ccolor #do some stuff here
 
 
 Above I used <code>group_by(s)</code>, which groups by participant,
-<code>summarise()</code> with <code>n()</code>, which counts the
-number of rows, and <code>pivot_wider()</code>, which takes the column s,
-turns each row into a column, and puts the value argument in that
-column.
+<code>summarise()</code> with <code>n()</code>, which counts the number
+of rows, and <code>pivot_wider()</code>, which takes the column s, turns
+each row into a column, and puts the value argument in that column.
 
 There's also <code>filter()</code>, <code>gather()</code>,
 <code>separate()</code>, <code>unite()</code>, <code>select()</code>,
@@ -615,8 +614,9 @@ stocks <- tibble(
 )
 ```
 
-pivot_wider and pivot_longer are not perfect opposites. They have been deprecated
-and replaced by <code>pivot_longer</code> and <code>pivot_wider</code>
+pivot_wider and pivot_longer are not perfect opposites. They have been
+deprecated and replaced by <code>pivot_longer</code> and
+<code>pivot_wider</code>
 
 
 ```r
@@ -666,7 +666,8 @@ newpeople <- people %>%
   pivot_wider(...)
 ```
 
-**Challenge 7**: gather newpeople so that height and age are back together
+**Challenge 7**: gather newpeople so that height and age are back
+together
 
 
 ```r
@@ -780,12 +781,14 @@ dfclean %>%
 
 **Challenge 6**: spread people so height and age have their own column
 
+
 ```r
 newpeople <- people %>%
   pivot_wider(names_from = key, values_from = value)
 ```
 
-**Challenge 7**: gather newpeople so that height and age are back together
+**Challenge 7**: gather newpeople so that height and age are back
+together
 
 
 ```r

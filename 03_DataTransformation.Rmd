@@ -121,7 +121,7 @@ Now let's do some descriptives...
 ```{r describe}
 ccolor %>%
   group_by(s) %>%
-  summarise(nrow(.)) 
+  summarise(count = n()) 
 
 # (Harder to read long, so we can spread it out)
 
@@ -171,10 +171,9 @@ newdf <- ccolor %>% #do some stuff here
 ```
 
 Above I used <code>group_by(s)</code>, which groups by participant,
-<code>summarise()</code> with <code>n()</code>, which counts the
-number of rows, and <code>pivot_wider()</code>, which takes the column s,
-turns each row into a column, and puts the value argument in that
-column.
+<code>summarise()</code> with <code>n()</code>, which counts the number
+of rows, and <code>pivot_wider()</code>, which takes the column s, turns
+each row into a column, and puts the value argument in that column.
 
 There's also <code>filter()</code>, <code>gather()</code>,
 <code>separate()</code>, <code>unite()</code>, <code>select()</code>,
@@ -431,8 +430,9 @@ stocks <- tibble(
 )
 ```
 
-pivot_wider and pivot_longer are not perfect opposites. They have been deprecated
-and replaced by <code>pivot_longer</code> and <code>pivot_wider</code>
+pivot_wider and pivot_longer are not perfect opposites. They have been
+deprecated and replaced by <code>pivot_longer</code> and
+<code>pivot_wider</code>
 
 ```{r opposites}
 
@@ -468,7 +468,8 @@ newpeople <- people %>%
   pivot_wider(...)
 ```
 
-**Challenge 7**: gather newpeople so that height and age are back together
+**Challenge 7**: gather newpeople so that height and age are back
+together
 
 ```{r challenge7, results='hide', eval=FALSE}
 
@@ -550,6 +551,7 @@ for congruent vs incongruent trials
 dfclean %>%
   group_by(con) %>%
   summarise(mRT = mean(RT), RTsd = sd(RT))
+
 ```
 
 **Challenge 5**: Get the mean and sd of participant means for congruent
@@ -564,12 +566,14 @@ dfclean %>%
 ```
 
 **Challenge 6**: spread people so height and age have their own column
+
 ```{r solution6, results='hide'}
 newpeople <- people %>%
   pivot_wider(names_from = key, values_from = value)
 ```
 
-**Challenge 7**: gather newpeople so that height and age are back together
+**Challenge 7**: gather newpeople so that height and age are back
+together
 
 ```{r solution7, results='hide'}
 newpeople %>%

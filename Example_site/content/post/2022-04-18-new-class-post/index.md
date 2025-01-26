@@ -1,7 +1,7 @@
 ---
 title: New Class Post
 author: R package build
-date: '2022-04-18'
+date: '2024-04-18'
 slug: new-class-post
 categories: []
 tags: []
