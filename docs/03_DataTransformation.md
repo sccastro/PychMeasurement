@@ -167,6 +167,7 @@ ccolor %>%
   group_by(s) %>%
   summarise(count = n()) 
 #> # A tibble: 20 × 2
+
 #>   s     count
 #>   <fct> <int>
 #> 1 1       320
@@ -237,9 +238,11 @@ df <- ccolor #do some stuff here
 
 
 Above I used <code>group_by(s)</code>, which groups by participant,
+
 <code>summarise()</code> with <code>n()</code>, which counts the number
 of rows, and <code>pivot_wider()</code>, which takes the column s, turns
 each row into a column, and puts the value argument in that column.
+
 
 There's also <code>filter()</code>, <code>gather()</code>,
 <code>separate()</code>, <code>unite()</code>, <code>select()</code>,
@@ -614,9 +617,9 @@ stocks <- tibble(
 )
 ```
 
-pivot_wider and pivot_longer are not perfect opposites. They have been
-deprecated and replaced by <code>pivot_longer</code> and
-<code>pivot_wider</code>
+
+<code>pivot_wider</code> and <code>pivot_longer</code> are not perfect opposites.
+
 
 
 ```r
@@ -666,8 +669,7 @@ newpeople <- people %>%
   pivot_wider(...)
 ```
 
-**Challenge 7**: gather newpeople so that height and age are back
-together
+**Challenge 7**: gather newpeople so that height and age are back together
 
 
 ```r
@@ -781,14 +783,12 @@ dfclean %>%
 
 **Challenge 6**: spread people so height and age have their own column
 
-
 ```r
 newpeople <- people %>%
   pivot_wider(names_from = key, values_from = value)
 ```
 
-**Challenge 7**: gather newpeople so that height and age are back
-together
+**Challenge 7**: gather newpeople so that height and age are back together
 
 
 ```r

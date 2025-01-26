@@ -175,6 +175,7 @@ Above I used <code>group_by(s)</code>, which groups by participant,
 of rows, and <code>pivot_wider()</code>, which takes the column s, turns
 each row into a column, and puts the value argument in that column.
 
+
 There's also <code>filter()</code>, <code>gather()</code>,
 <code>separate()</code>, <code>unite()</code>, <code>select()</code>,
 <code>distinct()</code>, <code>sample_n()</code>, <code>slice()</code>,
@@ -430,9 +431,9 @@ stocks <- tibble(
 )
 ```
 
-pivot_wider and pivot_longer are not perfect opposites. They have been
-deprecated and replaced by <code>pivot_longer</code> and
-<code>pivot_wider</code>
+<code>pivot_longer</code> and
+<code>pivot_wider</code> are not opposites.
+
 
 ```{r opposites}
 
@@ -468,8 +469,7 @@ newpeople <- people %>%
   pivot_wider(...)
 ```
 
-**Challenge 7**: gather newpeople so that height and age are back
-together
+**Challenge 7**: gather newpeople so that height and age are back together
 
 ```{r challenge7, results='hide', eval=FALSE}
 
@@ -566,14 +566,12 @@ dfclean %>%
 ```
 
 **Challenge 6**: spread people so height and age have their own column
-
 ```{r solution6, results='hide'}
 newpeople <- people %>%
   pivot_wider(names_from = key, values_from = value)
 ```
 
-**Challenge 7**: gather newpeople so that height and age are back
-together
+**Challenge 7**: gather newpeople so that height and age are back together
 
 ```{r solution7, results='hide'}
 newpeople %>%
