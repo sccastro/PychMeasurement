@@ -269,7 +269,7 @@ schedule <- cbind(clssdays(classday = "Monday",Semester = "Spring",Year = "2025"
       "Topic/Description" = c("Introduction/Installation","R commands/tricks","Intro to reading data/Data Workshop","Cleaning data/Data Workshop", "Dplyr and Tidyr","Visualizing with ggplot/Data
 Workshop","Intro to stats in R","More stats in R","Still more stats in R","Rmarkdown","Report Generation and Optimization","Rmarkdown help",
 "Bonus Material – Shiny?"),
-      "Reading/Work" = c(paste0("syllabus",
+      "Reading/Work" = c(paste0("syllabus ",
                          paste0("Swirl tutorial/[base-R](",urls[1],")")),
                          paste0("Swirl tutorial/[data-import](",urls[2],")"),
                          paste0("Swirl tutorial/[data-wrangling](",urls[3],")"),
