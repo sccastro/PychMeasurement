@@ -91,4 +91,3 @@ blogdown
 rmarkdown-website
 shiny-applications
 kmeans-app
-pivoting-separating-and-uniting

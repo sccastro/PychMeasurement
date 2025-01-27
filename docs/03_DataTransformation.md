@@ -167,7 +167,6 @@ ccolor %>%
   group_by(s) %>%
   summarise(count = n()) 
 #> # A tibble: 20 × 2
-
 #>   s     count
 #>   <fct> <int>
 #> 1 1       320
@@ -238,7 +237,6 @@ df <- ccolor #do some stuff here
 
 
 Above I used <code>group_by(s)</code>, which groups by participant,
-
 <code>summarise()</code> with <code>n()</code>, which counts the number
 of rows, and <code>pivot_wider()</code>, which takes the column s, turns
 each row into a column, and puts the value argument in that column.
@@ -617,8 +615,8 @@ stocks <- tibble(
 )
 ```
 
-
-<code>pivot_wider</code> and <code>pivot_longer</code> are not perfect opposites.
+<code>pivot_longer</code> and
+<code>pivot_wider</code> are not opposites.
 
 
 
