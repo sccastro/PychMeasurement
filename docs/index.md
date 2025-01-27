@@ -2,7 +2,7 @@
 knit: "bookdown::render_book"
 title: "Data Analysis and Optimization in R"
 author: ["[Spencer Castro](https://www.spencercastro.com)"]
-date: "Sun Jan 26 2025"
+date: "Mon Jan 27 2025"
 description: 'As modern Data Scientists, we cannot be content with untested assumptions, decisions based on the "gut feelings" of a CEO, poorly leveraged data insights, or small sample sizes; now we must strive to be methodologically sound, balance experimental design against convenient populations, keep up with the ever-changing landscape of statistical tests and their caveats, and learn rudimentary computer programming on top of that! Therefore we need a tool that balances the comprehensibility of human language with the flexibility to keep up with developing statistical methods and the power to analyze and vizualize any dataset. Enter R, the open-source statistical computing and graphics language with a powerful Integrated Development Environment (the Rstudio IDE), a robust community of developers, data scientists, and experts (who respond to questions!), and too many reputable online resources to read in a lifetime. The impetus to learn something new on top of your ongoing research may be hard to summon, but this course is designed to integrate your ongoing projects and goals into mastering R, and to provide tools for streamlining projects in the future.'
 url: 'https\://spencercastro.com'
 github-repo: sccastro/PsychMeasurement
@@ -38,11 +38,7 @@ scastro39\@ucmerced.edu
 
 TA - Zoe Loh
 
-Office - SSM 235, hours: Thursdays, 3:30p-pm-4:30pm
-
-Join Zoom Meeting <https://ucmerced.zoom.us/j/3885958457?pwd=eGxyT2ozRFd0SVNXQUMzMlBCUlRGdz09>
-
-Meeting ID: 388 595 8457 Passcode: MIST130
+Office - SSM 235, hours: Thursdays, 3:30pm-4:30pm
 
 Lecture: M 10:30-11:20am, COB 1 286 Labs: 02L M 11:30am-1:20pm, Kolligan 202
 
@@ -124,7 +120,7 @@ Each milestone will be 20 points, full points for successful completion, 18 for 
 
 **Final Project**: Successfully creating an Rmarkdown file or Rmarkdown website with a description of the data, a visualization, some analysis, and any interesting conclusions will receive full points (100). Submitting a file in progress by the deadline will receive a minimum of 80 points, and submitting late work will receive 50 points maximum.
 
-**Final Paper**: Creating an APA methods and results section for your data and submitting it on time will receive full points (100). Submitting a paper in progress by the deadline will receive a minimum of 100 point, and submitting late work will receive 80 points.
+**Final Paper**: Creating an APA methods and results section for your data and submitting it on time will receive full points (100). Submitting a paper in progress by the deadline will receive a minimum of 80 point, and submitting late work will receive 50 points.
 
 ## Grading Policy
 
