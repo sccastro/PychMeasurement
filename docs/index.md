@@ -38,7 +38,7 @@ scastro39\@ucmerced.edu
 
 TA - Zoe Loh
 
-Office - SSM 235, hours: Tuesdays, 11am-12pm
+Office - SSM 235, hours: Thursdays, 3:30p-pm-4:30pm
 
 Join Zoom Meeting <https://ucmerced.zoom.us/j/3885958457?pwd=eGxyT2ozRFd0SVNXQUMzMlBCUlRGdz09>
 
@@ -222,7 +222,7 @@ Requests for accommodation should be filled out with a SAS Service Request Form 
   <tr>
    <td style="text-align:left;width: 7em; "> Jan 27 </td>
    <td style="text-align:left;"> Introduction/Installation </td>
-   <td style="text-align:left;"> syllabusSwirl tutorial/[base-R](https://github.com/rstudio/cheatsheets/blob/main/base-r.pdf) </td>
+   <td style="text-align:left;"> syllabus Swirl tutorial/[base-R](https://github.com/rstudio/cheatsheets/blob/main/base-r.pdf) </td>
    <td style="text-align:left;">  </td>
   </tr>
   <tr>
