@@ -57,11 +57,7 @@ scastro39\@ucmerced.edu
 
 TA - Zoe Loh
 
-Office - SSM 235, hours: Thursdays, 3:30p-pm-4:30pm
-
-Join Zoom Meeting <https://ucmerced.zoom.us/j/3885958457?pwd=eGxyT2ozRFd0SVNXQUMzMlBCUlRGdz09>
-
-Meeting ID: 388 595 8457 Passcode: MIST130
+Office - SSM 235, hours: Thursdays, 3:30pm-4:30pm
 
 Lecture: M 10:30-11:20am, COB 1 286 Labs: 02L M 11:30am-1:20pm, Kolligan 202
 
@@ -143,7 +139,7 @@ Each milestone will be 20 points, full points for successful completion, 18 for 
 
 **Final Project**: Successfully creating an Rmarkdown file or Rmarkdown website with a description of the data, a visualization, some analysis, and any interesting conclusions will receive full points (100). Submitting a file in progress by the deadline will receive a minimum of 80 points, and submitting late work will receive 50 points maximum.
 
-**Final Paper**: Creating an APA methods and results section for your data and submitting it on time will receive full points (100). Submitting a paper in progress by the deadline will receive a minimum of 100 point, and submitting late work will receive 80 points.
+**Final Paper**: Creating an APA methods and results section for your data and submitting it on time will receive full points (100). Submitting a paper in progress by the deadline will receive a minimum of 80 point, and submitting late work will receive 50 points.
 
 ## Grading Policy
 
