@@ -159,6 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.11" data-path="syllabus.html"><a href="syllabus.html#student-support-accommodations"><i class="fa fa-check"></i><b>1.11</b> Student Support &amp; Accommodations</a></li>
 <li class="chapter" data-level="1.12" data-path="syllabus.html"><a href="syllabus.html#academic-calendar"><i class="fa fa-check"></i><b>1.12</b> Academic Calendar</a></li>
 <li class="chapter" data-level="1.13" data-path="syllabus.html"><a href="syllabus.html#course-schedule"><i class="fa fa-check"></i><b>1.13</b> Course Schedule</a></li>
+<li class="chapter" data-level="1.14" data-path="syllabus.html"><a href="syllabus.html#end-of-syllabus"><i class="fa fa-check"></i><b>1.14</b> End of Syllabus</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
 <ul>
@@ -176,10 +177,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="importing-data.html"><a href="importing-data.html"><i class="fa fa-check"></i><b>3</b> Importing Data</a>
 <ul>
+<li class="chapter" data-level="3.1" data-path="importing-data.html"><a href="importing-data.html#winner-jacob-bates"><i class="fa fa-check"></i><b>3.1</b> WINNER!!!!! Jacob Bates</a></li>
 <li class="chapter" data-level="" data-path="importing-data.html"><a href="importing-data.html#reading-files-into-r"><i class="fa fa-check"></i>Reading files into R</a></li>
-<li class="chapter" data-level="3.1" data-path="importing-data.html"><a href="importing-data.html#whats-a-tibble"><i class="fa fa-check"></i><b>3.1</b> What’s a tibble?</a></li>
-<li class="chapter" data-level="3.2" data-path="importing-data.html"><a href="importing-data.html#save-your-dataset"><i class="fa fa-check"></i><b>3.2</b> Save your dataset:</a></li>
-<li class="chapter" data-level="3.3" data-path="importing-data.html"><a href="importing-data.html#cleaning-your-data-file"><i class="fa fa-check"></i><b>3.3</b> Cleaning your data file</a></li>
+<li class="chapter" data-level="3.2" data-path="importing-data.html"><a href="importing-data.html#whats-a-tibble"><i class="fa fa-check"></i><b>3.2</b> What’s a tibble?</a></li>
+<li class="chapter" data-level="3.3" data-path="importing-data.html"><a href="importing-data.html#save-your-dataset"><i class="fa fa-check"></i><b>3.3</b> Save your dataset:</a></li>
+<li class="chapter" data-level="3.4" data-path="importing-data.html"><a href="importing-data.html#cleaning-your-data-file"><i class="fa fa-check"></i><b>3.4</b> Cleaning your data file</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>4</b> Data Transformation</a>
 <ul>
@@ -308,54 +310,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">14</span> 01-kmeans-app<a href="kmeans-app.html#kmeans-app" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><strong>Challenge 4</strong></p>
 <p>Run this shiny app. Screenshot the app with Petal_Length by Sepal_Width selected.</p>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="kmeans-app.html#cb269-1" tabindex="-1"></a></span>
-<span id="cb269-2"><a href="kmeans-app.html#cb269-2" tabindex="-1"></a><span class="fu">palette</span>(<span class="fu">c</span>(<span class="st">&quot;#E41A1C&quot;</span>, <span class="st">&quot;#377EB8&quot;</span>, <span class="st">&quot;#4DAF4A&quot;</span>, <span class="st">&quot;#984EA3&quot;</span>,</span>
-<span id="cb269-3"><a href="kmeans-app.html#cb269-3" tabindex="-1"></a>  <span class="st">&quot;#FF7F00&quot;</span>, <span class="st">&quot;#FFFF33&quot;</span>, <span class="st">&quot;#A65628&quot;</span>, <span class="st">&quot;#F781BF&quot;</span>, <span class="st">&quot;#999999&quot;</span>))</span>
-<span id="cb269-4"><a href="kmeans-app.html#cb269-4" tabindex="-1"></a></span>
-<span id="cb269-5"><a href="kmeans-app.html#cb269-5" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
-<span id="cb269-6"><a href="kmeans-app.html#cb269-6" tabindex="-1"></a></span>
-<span id="cb269-7"><a href="kmeans-app.html#cb269-7" tabindex="-1"></a><span class="co">#Let&#39;s remember what the dataset iris looks like</span></span>
-<span id="cb269-8"><a href="kmeans-app.html#cb269-8" tabindex="-1"></a><span class="fu">View</span>(iris)</span>
-<span id="cb269-9"><a href="kmeans-app.html#cb269-9" tabindex="-1"></a></span>
-<span id="cb269-10"><a href="kmeans-app.html#cb269-10" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
-<span id="cb269-11"><a href="kmeans-app.html#cb269-11" tabindex="-1"></a>  <span class="fu">headerPanel</span>(<span class="st">&#39;Iris k-means clustering&#39;</span>), <span class="co">#This is the title</span></span>
-<span id="cb269-12"><a href="kmeans-app.html#cb269-12" tabindex="-1"></a>  <span class="fu">sidebarPanel</span>( <span class="co">#This is the sidebar with buttons:</span></span>
-<span id="cb269-13"><a href="kmeans-app.html#cb269-13" tabindex="-1"></a>    <span class="fu">selectInput</span>(<span class="st">&#39;xcol&#39;</span>, <span class="st">&#39;X Variable&#39;</span>, <span class="fu">names</span>(iris)), <span class="co">#xcol is the value, X Variable the label</span></span>
-<span id="cb269-14"><a href="kmeans-app.html#cb269-14" tabindex="-1"></a>    <span class="fu">selectInput</span>(<span class="st">&#39;ycol&#39;</span>, <span class="st">&#39;Y Variable&#39;</span>, <span class="fu">names</span>(iris), <span class="co">#ycol is the value, Y Variable the label</span></span>
-<span id="cb269-15"><a href="kmeans-app.html#cb269-15" tabindex="-1"></a>      <span class="at">selected =</span> <span class="fu">names</span>(iris)[[<span class="dv">2</span>]]),</span>
-<span id="cb269-16"><a href="kmeans-app.html#cb269-16" tabindex="-1"></a>    <span class="fu">numericInput</span>(<span class="st">&#39;clusters&#39;</span>, <span class="st">&#39;Cluster count&#39;</span>, <span class="dv">3</span>,</span>
-<span id="cb269-17"><a href="kmeans-app.html#cb269-17" tabindex="-1"></a>      <span class="at">min =</span> <span class="dv">1</span>, <span class="at">max =</span> <span class="dv">9</span>)</span>
-<span id="cb269-18"><a href="kmeans-app.html#cb269-18" tabindex="-1"></a>  ),</span>
-<span id="cb269-19"><a href="kmeans-app.html#cb269-19" tabindex="-1"></a>  <span class="fu">mainPanel</span>(</span>
-<span id="cb269-20"><a href="kmeans-app.html#cb269-20" tabindex="-1"></a>    <span class="fu">plotOutput</span>(<span class="st">&#39;plot1&#39;</span>)</span>
-<span id="cb269-21"><a href="kmeans-app.html#cb269-21" tabindex="-1"></a>  )</span>
-<span id="cb269-22"><a href="kmeans-app.html#cb269-22" tabindex="-1"></a>)</span>
-<span id="cb269-23"><a href="kmeans-app.html#cb269-23" tabindex="-1"></a></span>
-<span id="cb269-24"><a href="kmeans-app.html#cb269-24" tabindex="-1"></a></span>
-<span id="cb269-25"><a href="kmeans-app.html#cb269-25" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
-<span id="cb269-26"><a href="kmeans-app.html#cb269-26" tabindex="-1"></a></span>
-<span id="cb269-27"><a href="kmeans-app.html#cb269-27" tabindex="-1"></a>  selectedData <span class="ot">&lt;-</span> <span class="fu">reactive</span>({ <span class="co">#We&#39;ll talk about reactives in a bit</span></span>
-<span id="cb269-28"><a href="kmeans-app.html#cb269-28" tabindex="-1"></a>    iris[, <span class="fu">c</span>(input<span class="sc">$</span>xcol, input<span class="sc">$</span>ycol)]</span>
-<span id="cb269-29"><a href="kmeans-app.html#cb269-29" tabindex="-1"></a>  })</span>
-<span id="cb269-30"><a href="kmeans-app.html#cb269-30" tabindex="-1"></a></span>
-<span id="cb269-31"><a href="kmeans-app.html#cb269-31" tabindex="-1"></a>  clusters <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
-<span id="cb269-32"><a href="kmeans-app.html#cb269-32" tabindex="-1"></a>    <span class="fu">kmeans</span>(<span class="fu">selectedData</span>(), input<span class="sc">$</span>clusters)</span>
-<span id="cb269-33"><a href="kmeans-app.html#cb269-33" tabindex="-1"></a>  })</span>
-<span id="cb269-34"><a href="kmeans-app.html#cb269-34" tabindex="-1"></a></span>
-<span id="cb269-35"><a href="kmeans-app.html#cb269-35" tabindex="-1"></a>  output<span class="sc">$</span>plot1 <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({ <span class="co">#This creates the plot that you want to see</span></span>
-<span id="cb269-36"><a href="kmeans-app.html#cb269-36" tabindex="-1"></a>    <span class="co">#with dynamic changes</span></span>
-<span id="cb269-37"><a href="kmeans-app.html#cb269-37" tabindex="-1"></a>    <span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">4.1</span>, <span class="dv">0</span>, <span class="dv">1</span>)) <span class="co">#this creates the window position</span></span>
-<span id="cb269-38"><a href="kmeans-app.html#cb269-38" tabindex="-1"></a>    <span class="fu">plot</span>(<span class="fu">selectedData</span>(), <span class="co">#The we plot the clusters from above with selectedData()</span></span>
-<span id="cb269-39"><a href="kmeans-app.html#cb269-39" tabindex="-1"></a>         <span class="at">col =</span> <span class="fu">clusters</span>()<span class="sc">$</span>cluster, <span class="co">#How many clusters</span></span>
-<span id="cb269-40"><a href="kmeans-app.html#cb269-40" tabindex="-1"></a>         <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">cex =</span> <span class="dv">3</span>) <span class="co">#Color and size default</span></span>
-<span id="cb269-41"><a href="kmeans-app.html#cb269-41" tabindex="-1"></a>    <span class="fu">points</span>(<span class="fu">clusters</span>()<span class="sc">$</span>centers, <span class="at">pch =</span> <span class="dv">4</span>, <span class="at">cex =</span> <span class="dv">4</span>, <span class="at">lwd =</span> <span class="dv">4</span>)</span>
-<span id="cb269-42"><a href="kmeans-app.html#cb269-42" tabindex="-1"></a>  })</span>
-<span id="cb269-43"><a href="kmeans-app.html#cb269-43" tabindex="-1"></a></span>
-<span id="cb269-44"><a href="kmeans-app.html#cb269-44" tabindex="-1"></a>}</span>
-<span id="cb269-45"><a href="kmeans-app.html#cb269-45" tabindex="-1"></a></span>
-<span id="cb269-46"><a href="kmeans-app.html#cb269-46" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span>
-<span id="cb269-47"><a href="kmeans-app.html#cb269-47" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb269-48"><a href="kmeans-app.html#cb269-48" tabindex="-1"></a><span class="co">#&gt; Listening on http://127.0.0.1:7043</span></span></code></pre></div>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="kmeans-app.html#cb270-1" tabindex="-1"></a></span>
+<span id="cb270-2"><a href="kmeans-app.html#cb270-2" tabindex="-1"></a><span class="fu">palette</span>(<span class="fu">c</span>(<span class="st">&quot;#E41A1C&quot;</span>, <span class="st">&quot;#377EB8&quot;</span>, <span class="st">&quot;#4DAF4A&quot;</span>, <span class="st">&quot;#984EA3&quot;</span>,</span>
+<span id="cb270-3"><a href="kmeans-app.html#cb270-3" tabindex="-1"></a>  <span class="st">&quot;#FF7F00&quot;</span>, <span class="st">&quot;#FFFF33&quot;</span>, <span class="st">&quot;#A65628&quot;</span>, <span class="st">&quot;#F781BF&quot;</span>, <span class="st">&quot;#999999&quot;</span>))</span>
+<span id="cb270-4"><a href="kmeans-app.html#cb270-4" tabindex="-1"></a></span>
+<span id="cb270-5"><a href="kmeans-app.html#cb270-5" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb270-6"><a href="kmeans-app.html#cb270-6" tabindex="-1"></a></span>
+<span id="cb270-7"><a href="kmeans-app.html#cb270-7" tabindex="-1"></a><span class="co">#Let&#39;s remember what the dataset iris looks like</span></span>
+<span id="cb270-8"><a href="kmeans-app.html#cb270-8" tabindex="-1"></a><span class="fu">View</span>(iris)</span>
+<span id="cb270-9"><a href="kmeans-app.html#cb270-9" tabindex="-1"></a></span>
+<span id="cb270-10"><a href="kmeans-app.html#cb270-10" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb270-11"><a href="kmeans-app.html#cb270-11" tabindex="-1"></a>  <span class="fu">headerPanel</span>(<span class="st">&#39;Iris k-means clustering&#39;</span>), <span class="co">#This is the title</span></span>
+<span id="cb270-12"><a href="kmeans-app.html#cb270-12" tabindex="-1"></a>  <span class="fu">sidebarPanel</span>( <span class="co">#This is the sidebar with buttons:</span></span>
+<span id="cb270-13"><a href="kmeans-app.html#cb270-13" tabindex="-1"></a>    <span class="fu">selectInput</span>(<span class="st">&#39;xcol&#39;</span>, <span class="st">&#39;X Variable&#39;</span>, <span class="fu">names</span>(iris)), <span class="co">#xcol is the value, X Variable the label</span></span>
+<span id="cb270-14"><a href="kmeans-app.html#cb270-14" tabindex="-1"></a>    <span class="fu">selectInput</span>(<span class="st">&#39;ycol&#39;</span>, <span class="st">&#39;Y Variable&#39;</span>, <span class="fu">names</span>(iris), <span class="co">#ycol is the value, Y Variable the label</span></span>
+<span id="cb270-15"><a href="kmeans-app.html#cb270-15" tabindex="-1"></a>      <span class="at">selected =</span> <span class="fu">names</span>(iris)[[<span class="dv">2</span>]]),</span>
+<span id="cb270-16"><a href="kmeans-app.html#cb270-16" tabindex="-1"></a>    <span class="fu">numericInput</span>(<span class="st">&#39;clusters&#39;</span>, <span class="st">&#39;Cluster count&#39;</span>, <span class="dv">3</span>,</span>
+<span id="cb270-17"><a href="kmeans-app.html#cb270-17" tabindex="-1"></a>      <span class="at">min =</span> <span class="dv">1</span>, <span class="at">max =</span> <span class="dv">9</span>)</span>
+<span id="cb270-18"><a href="kmeans-app.html#cb270-18" tabindex="-1"></a>  ),</span>
+<span id="cb270-19"><a href="kmeans-app.html#cb270-19" tabindex="-1"></a>  <span class="fu">mainPanel</span>(</span>
+<span id="cb270-20"><a href="kmeans-app.html#cb270-20" tabindex="-1"></a>    <span class="fu">plotOutput</span>(<span class="st">&#39;plot1&#39;</span>)</span>
+<span id="cb270-21"><a href="kmeans-app.html#cb270-21" tabindex="-1"></a>  )</span>
+<span id="cb270-22"><a href="kmeans-app.html#cb270-22" tabindex="-1"></a>)</span>
+<span id="cb270-23"><a href="kmeans-app.html#cb270-23" tabindex="-1"></a></span>
+<span id="cb270-24"><a href="kmeans-app.html#cb270-24" tabindex="-1"></a></span>
+<span id="cb270-25"><a href="kmeans-app.html#cb270-25" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb270-26"><a href="kmeans-app.html#cb270-26" tabindex="-1"></a></span>
+<span id="cb270-27"><a href="kmeans-app.html#cb270-27" tabindex="-1"></a>  selectedData <span class="ot">&lt;-</span> <span class="fu">reactive</span>({ <span class="co">#We&#39;ll talk about reactives in a bit</span></span>
+<span id="cb270-28"><a href="kmeans-app.html#cb270-28" tabindex="-1"></a>    iris[, <span class="fu">c</span>(input<span class="sc">$</span>xcol, input<span class="sc">$</span>ycol)]</span>
+<span id="cb270-29"><a href="kmeans-app.html#cb270-29" tabindex="-1"></a>  })</span>
+<span id="cb270-30"><a href="kmeans-app.html#cb270-30" tabindex="-1"></a></span>
+<span id="cb270-31"><a href="kmeans-app.html#cb270-31" tabindex="-1"></a>  clusters <span class="ot">&lt;-</span> <span class="fu">reactive</span>({</span>
+<span id="cb270-32"><a href="kmeans-app.html#cb270-32" tabindex="-1"></a>    <span class="fu">kmeans</span>(<span class="fu">selectedData</span>(), input<span class="sc">$</span>clusters)</span>
+<span id="cb270-33"><a href="kmeans-app.html#cb270-33" tabindex="-1"></a>  })</span>
+<span id="cb270-34"><a href="kmeans-app.html#cb270-34" tabindex="-1"></a></span>
+<span id="cb270-35"><a href="kmeans-app.html#cb270-35" tabindex="-1"></a>  output<span class="sc">$</span>plot1 <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({ <span class="co">#This creates the plot that you want to see</span></span>
+<span id="cb270-36"><a href="kmeans-app.html#cb270-36" tabindex="-1"></a>    <span class="co">#with dynamic changes</span></span>
+<span id="cb270-37"><a href="kmeans-app.html#cb270-37" tabindex="-1"></a>    <span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">4.1</span>, <span class="dv">0</span>, <span class="dv">1</span>)) <span class="co">#this creates the window position</span></span>
+<span id="cb270-38"><a href="kmeans-app.html#cb270-38" tabindex="-1"></a>    <span class="fu">plot</span>(<span class="fu">selectedData</span>(), <span class="co">#The we plot the clusters from above with selectedData()</span></span>
+<span id="cb270-39"><a href="kmeans-app.html#cb270-39" tabindex="-1"></a>         <span class="at">col =</span> <span class="fu">clusters</span>()<span class="sc">$</span>cluster, <span class="co">#How many clusters</span></span>
+<span id="cb270-40"><a href="kmeans-app.html#cb270-40" tabindex="-1"></a>         <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">cex =</span> <span class="dv">3</span>) <span class="co">#Color and size default</span></span>
+<span id="cb270-41"><a href="kmeans-app.html#cb270-41" tabindex="-1"></a>    <span class="fu">points</span>(<span class="fu">clusters</span>()<span class="sc">$</span>centers, <span class="at">pch =</span> <span class="dv">4</span>, <span class="at">cex =</span> <span class="dv">4</span>, <span class="at">lwd =</span> <span class="dv">4</span>)</span>
+<span id="cb270-42"><a href="kmeans-app.html#cb270-42" tabindex="-1"></a>  })</span>
+<span id="cb270-43"><a href="kmeans-app.html#cb270-43" tabindex="-1"></a></span>
+<span id="cb270-44"><a href="kmeans-app.html#cb270-44" tabindex="-1"></a>}</span>
+<span id="cb270-45"><a href="kmeans-app.html#cb270-45" tabindex="-1"></a></span>
+<span id="cb270-46"><a href="kmeans-app.html#cb270-46" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span>
+<span id="cb270-47"><a href="kmeans-app.html#cb270-47" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb270-48"><a href="kmeans-app.html#cb270-48" tabindex="-1"></a><span class="co">#&gt; Listening on http://127.0.0.1:7043</span></span></code></pre></div>
 <p><img src="11_ShinyApps_files/figure-html/unnamed-chunk-6-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p><strong>Challenge 5</strong></p>
 <p>Run your own data with the above code. See if you can replace the numeric variables of the iris dataset with your own. Screenshot the results.</p>

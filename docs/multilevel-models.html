@@ -159,6 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.11" data-path="syllabus.html"><a href="syllabus.html#student-support-accommodations"><i class="fa fa-check"></i><b>1.11</b> Student Support &amp; Accommodations</a></li>
 <li class="chapter" data-level="1.12" data-path="syllabus.html"><a href="syllabus.html#academic-calendar"><i class="fa fa-check"></i><b>1.12</b> Academic Calendar</a></li>
 <li class="chapter" data-level="1.13" data-path="syllabus.html"><a href="syllabus.html#course-schedule"><i class="fa fa-check"></i><b>1.13</b> Course Schedule</a></li>
+<li class="chapter" data-level="1.14" data-path="syllabus.html"><a href="syllabus.html#end-of-syllabus"><i class="fa fa-check"></i><b>1.14</b> End of Syllabus</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
 <ul>
@@ -176,10 +177,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="importing-data.html"><a href="importing-data.html"><i class="fa fa-check"></i><b>3</b> Importing Data</a>
 <ul>
+<li class="chapter" data-level="3.1" data-path="importing-data.html"><a href="importing-data.html#winner-jacob-bates"><i class="fa fa-check"></i><b>3.1</b> WINNER!!!!! Jacob Bates</a></li>
 <li class="chapter" data-level="" data-path="importing-data.html"><a href="importing-data.html#reading-files-into-r"><i class="fa fa-check"></i>Reading files into R</a></li>
-<li class="chapter" data-level="3.1" data-path="importing-data.html"><a href="importing-data.html#whats-a-tibble"><i class="fa fa-check"></i><b>3.1</b> What’s a tibble?</a></li>
-<li class="chapter" data-level="3.2" data-path="importing-data.html"><a href="importing-data.html#save-your-dataset"><i class="fa fa-check"></i><b>3.2</b> Save your dataset:</a></li>
-<li class="chapter" data-level="3.3" data-path="importing-data.html"><a href="importing-data.html#cleaning-your-data-file"><i class="fa fa-check"></i><b>3.3</b> Cleaning your data file</a></li>
+<li class="chapter" data-level="3.2" data-path="importing-data.html"><a href="importing-data.html#whats-a-tibble"><i class="fa fa-check"></i><b>3.2</b> What’s a tibble?</a></li>
+<li class="chapter" data-level="3.3" data-path="importing-data.html"><a href="importing-data.html#save-your-dataset"><i class="fa fa-check"></i><b>3.3</b> Save your dataset:</a></li>
+<li class="chapter" data-level="3.4" data-path="importing-data.html"><a href="importing-data.html#cleaning-your-data-file"><i class="fa fa-check"></i><b>3.4</b> Cleaning your data file</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>4</b> Data Transformation</a>
 <ul>
@@ -331,17 +333,17 @@ with your data, find a dataset for within and between variables in
 </div>
 <div id="step-1.-get-your-data-1" class="section level2 hasAnchor" number="9.1">
 <h2><span class="header-section-number">9.1</span> Step 1. Get your data<a href="multilevel-models.html#step-1.-get-your-data-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="multilevel-models.html#cb235-1" tabindex="-1"></a><span class="fu">require</span>(tidyverse)</span>
-<span id="cb235-2"><a href="multilevel-models.html#cb235-2" tabindex="-1"></a></span>
-<span id="cb235-3"><a href="multilevel-models.html#cb235-3" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/Dropbox/Teaching/MIST130DatAnOpt_22/books_resources/politeness_data.csv&quot;</span>)</span>
-<span id="cb235-4"><a href="multilevel-models.html#cb235-4" tabindex="-1"></a><span class="co">#&gt; Rows: 84 Columns: 5</span></span>
-<span id="cb235-5"><a href="multilevel-models.html#cb235-5" tabindex="-1"></a><span class="co">#&gt; ── Column specification ────────────────────────────────────────────────────────</span></span>
-<span id="cb235-6"><a href="multilevel-models.html#cb235-6" tabindex="-1"></a><span class="co">#&gt; Delimiter: &quot;,&quot;</span></span>
-<span id="cb235-7"><a href="multilevel-models.html#cb235-7" tabindex="-1"></a><span class="co">#&gt; chr (3): subject, gender, attitude</span></span>
-<span id="cb235-8"><a href="multilevel-models.html#cb235-8" tabindex="-1"></a><span class="co">#&gt; dbl (2): scenario, frequency</span></span>
-<span id="cb235-9"><a href="multilevel-models.html#cb235-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb235-10"><a href="multilevel-models.html#cb235-10" tabindex="-1"></a><span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
-<span id="cb235-11"><a href="multilevel-models.html#cb235-11" tabindex="-1"></a><span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="multilevel-models.html#cb236-1" tabindex="-1"></a><span class="fu">require</span>(tidyverse)</span>
+<span id="cb236-2"><a href="multilevel-models.html#cb236-2" tabindex="-1"></a></span>
+<span id="cb236-3"><a href="multilevel-models.html#cb236-3" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/Dropbox/Teaching/MIST130DatAnOpt_22/books_resources/politeness_data.csv&quot;</span>)</span>
+<span id="cb236-4"><a href="multilevel-models.html#cb236-4" tabindex="-1"></a><span class="co">#&gt; Rows: 84 Columns: 5</span></span>
+<span id="cb236-5"><a href="multilevel-models.html#cb236-5" tabindex="-1"></a><span class="co">#&gt; ── Column specification ────────────────────────────────────────────────────────</span></span>
+<span id="cb236-6"><a href="multilevel-models.html#cb236-6" tabindex="-1"></a><span class="co">#&gt; Delimiter: &quot;,&quot;</span></span>
+<span id="cb236-7"><a href="multilevel-models.html#cb236-7" tabindex="-1"></a><span class="co">#&gt; chr (3): subject, gender, attitude</span></span>
+<span id="cb236-8"><a href="multilevel-models.html#cb236-8" tabindex="-1"></a><span class="co">#&gt; dbl (2): scenario, frequency</span></span>
+<span id="cb236-9"><a href="multilevel-models.html#cb236-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb236-10"><a href="multilevel-models.html#cb236-10" tabindex="-1"></a><span class="co">#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.</span></span>
+<span id="cb236-11"><a href="multilevel-models.html#cb236-11" tabindex="-1"></a><span class="co">#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span></code></pre></div>
 <p>In our study, politeness is treated as a categorical factor with two
 levels… a formal register and an informal register. On top of that, we
 also had an additional fixed effect, sex, and so our formula looks more
@@ -363,12 +365,12 @@ assuming a different “baseline” pitch value for each subject. So,
 subject 1 may have a mean voice pitch of 233 Hz across different
 utterances, and subject 2 may have a mean voice pitch of 210 Hz per
 subject. Here’s a visual depiction of how this looks like:</p>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="multilevel-models.html#cb236-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb236-2"><a href="multilevel-models.html#cb236-2" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb236-3"><a href="multilevel-models.html#cb236-3" tabindex="-1"></a>  <span class="fu">group_by</span>(subject,scenario, attitude) <span class="sc">%&gt;%</span></span>
-<span id="cb236-4"><a href="multilevel-models.html#cb236-4" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mfreq =</span> <span class="fu">mean</span>(frequency)) <span class="sc">%&gt;%</span></span>
-<span id="cb236-5"><a href="multilevel-models.html#cb236-5" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> subject, <span class="at">y =</span> mfreq)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
-<span id="cb236-6"><a href="multilevel-models.html#cb236-6" tabindex="-1"></a><span class="co">#&gt; `summarise()` has grouped output by &#39;subject&#39;, &#39;scenario&#39;. You can override using the `.groups` argument.</span></span></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="multilevel-models.html#cb237-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb237-2"><a href="multilevel-models.html#cb237-2" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb237-3"><a href="multilevel-models.html#cb237-3" tabindex="-1"></a>  <span class="fu">group_by</span>(subject,scenario, attitude) <span class="sc">%&gt;%</span></span>
+<span id="cb237-4"><a href="multilevel-models.html#cb237-4" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mfreq =</span> <span class="fu">mean</span>(frequency)) <span class="sc">%&gt;%</span></span>
+<span id="cb237-5"><a href="multilevel-models.html#cb237-5" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> subject, <span class="at">y =</span> mfreq)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
+<span id="cb237-6"><a href="multilevel-models.html#cb237-6" tabindex="-1"></a><span class="co">#&gt; `summarise()` has grouped output by &#39;subject&#39;, &#39;scenario&#39;. You can override using the `.groups` argument.</span></span></code></pre></div>
 <p><img src="08_MultilevelModels_files/figure-html/interdependence-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>We can model these individual differences by assuming different random
 intercepts for each subject. That is, each subject is assigned a
@@ -404,23 +406,23 @@ condition), or asking a peer for a favor (informal condition). An
 example of a scenario was: item was an “excusing for coming too late”
 scenario, which was similarly divided between polite and informal. In
 total, there were 7 such different items.</p>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="multilevel-models.html#cb237-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb237-2"><a href="multilevel-models.html#cb237-2" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb237-3"><a href="multilevel-models.html#cb237-3" tabindex="-1"></a>  <span class="fu">group_by</span>(subject,scenario, attitude) <span class="sc">%&gt;%</span></span>
-<span id="cb237-4"><a href="multilevel-models.html#cb237-4" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mfreq =</span> <span class="fu">mean</span>(frequency)) <span class="sc">%&gt;%</span></span>
-<span id="cb237-5"><a href="multilevel-models.html#cb237-5" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> scenario, <span class="at">y =</span> mfreq, <span class="at">group =</span> scenario)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
-<span id="cb237-6"><a href="multilevel-models.html#cb237-6" tabindex="-1"></a><span class="co">#&gt; `summarise()` has grouped output by &#39;subject&#39;, &#39;scenario&#39;. You can override using the `.groups` argument.</span></span>
-<span id="cb237-7"><a href="multilevel-models.html#cb237-7" tabindex="-1"></a></span>
-<span id="cb237-8"><a href="multilevel-models.html#cb237-8" tabindex="-1"></a></span>
-<span id="cb237-9"><a href="multilevel-models.html#cb237-9" tabindex="-1"></a></span>
-<span id="cb237-10"><a href="multilevel-models.html#cb237-10" tabindex="-1"></a></span>
-<span id="cb237-11"><a href="multilevel-models.html#cb237-11" tabindex="-1"></a><span class="co"># Challenge 1 -------------------------------------------------------------</span></span>
-<span id="cb237-12"><a href="multilevel-models.html#cb237-12" tabindex="-1"></a> </span>
-<span id="cb237-13"><a href="multilevel-models.html#cb237-13" tabindex="-1"></a><span class="co"># What happens if we leave out the &quot;group&quot; argument to aes()?</span></span>
-<span id="cb237-14"><a href="multilevel-models.html#cb237-14" tabindex="-1"></a><span class="co"># Why?</span></span>
-<span id="cb237-15"><a href="multilevel-models.html#cb237-15" tabindex="-1"></a></span>
-<span id="cb237-16"><a href="multilevel-models.html#cb237-16" tabindex="-1"></a></span>
-<span id="cb237-17"><a href="multilevel-models.html#cb237-17" tabindex="-1"></a><span class="co"># How do we account for variation in scenario?</span></span></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="multilevel-models.html#cb238-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb238-2"><a href="multilevel-models.html#cb238-2" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb238-3"><a href="multilevel-models.html#cb238-3" tabindex="-1"></a>  <span class="fu">group_by</span>(subject,scenario, attitude) <span class="sc">%&gt;%</span></span>
+<span id="cb238-4"><a href="multilevel-models.html#cb238-4" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mfreq =</span> <span class="fu">mean</span>(frequency)) <span class="sc">%&gt;%</span></span>
+<span id="cb238-5"><a href="multilevel-models.html#cb238-5" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> scenario, <span class="at">y =</span> mfreq, <span class="at">group =</span> scenario)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
+<span id="cb238-6"><a href="multilevel-models.html#cb238-6" tabindex="-1"></a><span class="co">#&gt; `summarise()` has grouped output by &#39;subject&#39;, &#39;scenario&#39;. You can override using the `.groups` argument.</span></span>
+<span id="cb238-7"><a href="multilevel-models.html#cb238-7" tabindex="-1"></a></span>
+<span id="cb238-8"><a href="multilevel-models.html#cb238-8" tabindex="-1"></a></span>
+<span id="cb238-9"><a href="multilevel-models.html#cb238-9" tabindex="-1"></a></span>
+<span id="cb238-10"><a href="multilevel-models.html#cb238-10" tabindex="-1"></a></span>
+<span id="cb238-11"><a href="multilevel-models.html#cb238-11" tabindex="-1"></a><span class="co"># Challenge 1 -------------------------------------------------------------</span></span>
+<span id="cb238-12"><a href="multilevel-models.html#cb238-12" tabindex="-1"></a> </span>
+<span id="cb238-13"><a href="multilevel-models.html#cb238-13" tabindex="-1"></a><span class="co"># What happens if we leave out the &quot;group&quot; argument to aes()?</span></span>
+<span id="cb238-14"><a href="multilevel-models.html#cb238-14" tabindex="-1"></a><span class="co"># Why?</span></span>
+<span id="cb238-15"><a href="multilevel-models.html#cb238-15" tabindex="-1"></a></span>
+<span id="cb238-16"><a href="multilevel-models.html#cb238-16" tabindex="-1"></a></span>
+<span id="cb238-17"><a href="multilevel-models.html#cb238-17" tabindex="-1"></a><span class="co"># How do we account for variation in scenario?</span></span></code></pre></div>
 <p><img src="08_MultilevelModels_files/figure-html/unnamed-chunk-2-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>We do this by adding an additional random effect:</p>
 <p><span class="math display">\[ pitch \sim politeness + sex + (1|subject) + (1|item) + ε \]</span></p>
@@ -430,79 +432,79 @@ total, there were 7 such different items.</p>
 <h4><span class="header-section-number">9.1.1.1</span> Step 2.<a href="multilevel-models.html#step-2." class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>For a start, we need to install the R package lme4 (Bates, Maechler &amp;
 Bolker, 2012). open R and type in:</p>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="multilevel-models.html#cb238-1" tabindex="-1"></a><span class="co"># install.packages(&quot;lme4&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="multilevel-models.html#cb239-1" tabindex="-1"></a><span class="co"># install.packages(&quot;lme4&quot;)</span></span></code></pre></div>
 <p>After installation, load the lme4 package into R with the following
 command:</p>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="multilevel-models.html#cb239-1" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
-<span id="cb239-2"><a href="multilevel-models.html#cb239-2" tabindex="-1"></a><span class="co">#&gt; Loading required package: Matrix</span></span>
-<span id="cb239-3"><a href="multilevel-models.html#cb239-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb239-4"><a href="multilevel-models.html#cb239-4" tabindex="-1"></a><span class="co">#&gt; Attaching package: &#39;Matrix&#39;</span></span>
-<span id="cb239-5"><a href="multilevel-models.html#cb239-5" tabindex="-1"></a><span class="co">#&gt; The following objects are masked from &#39;package:tidyr&#39;:</span></span>
-<span id="cb239-6"><a href="multilevel-models.html#cb239-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb239-7"><a href="multilevel-models.html#cb239-7" tabindex="-1"></a><span class="co">#&gt;     expand, pack, unpack</span></span></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="multilevel-models.html#cb240-1" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb240-2"><a href="multilevel-models.html#cb240-2" tabindex="-1"></a><span class="co">#&gt; Loading required package: Matrix</span></span>
+<span id="cb240-3"><a href="multilevel-models.html#cb240-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb240-4"><a href="multilevel-models.html#cb240-4" tabindex="-1"></a><span class="co">#&gt; Attaching package: &#39;Matrix&#39;</span></span>
+<span id="cb240-5"><a href="multilevel-models.html#cb240-5" tabindex="-1"></a><span class="co">#&gt; The following objects are masked from &#39;package:tidyr&#39;:</span></span>
+<span id="cb240-6"><a href="multilevel-models.html#cb240-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb240-7"><a href="multilevel-models.html#cb240-7" tabindex="-1"></a><span class="co">#&gt;     expand, pack, unpack</span></span></code></pre></div>
 <p>Now, you have the function <code>lmer()</code> available to you, which
 is the mixed model equivalent of the function <code>lm()</code> in
 tutorial 1. This function is going to construct mixed models for us.</p>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="multilevel-models.html#cb240-1" tabindex="-1"></a>politeness.model <span class="ot">=</span> <span class="fu">lmer</span>(frequency <span class="sc">~</span> attitude <span class="sc">+</span></span>
-<span id="cb240-2"><a href="multilevel-models.html#cb240-2" tabindex="-1"></a>                          (<span class="dv">1</span><span class="sc">|</span>subject) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>scenario), <span class="at">data=</span>df)</span>
-<span id="cb240-3"><a href="multilevel-models.html#cb240-3" tabindex="-1"></a></span>
-<span id="cb240-4"><a href="multilevel-models.html#cb240-4" tabindex="-1"></a></span>
-<span id="cb240-5"><a href="multilevel-models.html#cb240-5" tabindex="-1"></a><span class="fu">summary</span>(politeness.model)</span>
-<span id="cb240-6"><a href="multilevel-models.html#cb240-6" tabindex="-1"></a><span class="co">#&gt; Linear mixed model fit by REML [&#39;lmerMod&#39;]</span></span>
-<span id="cb240-7"><a href="multilevel-models.html#cb240-7" tabindex="-1"></a><span class="co">#&gt; Formula: frequency ~ attitude + (1 | subject) + (1 | scenario)</span></span>
-<span id="cb240-8"><a href="multilevel-models.html#cb240-8" tabindex="-1"></a><span class="co">#&gt;    Data: df</span></span>
-<span id="cb240-9"><a href="multilevel-models.html#cb240-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb240-10"><a href="multilevel-models.html#cb240-10" tabindex="-1"></a><span class="co">#&gt; REML criterion at convergence: 794</span></span>
-<span id="cb240-11"><a href="multilevel-models.html#cb240-11" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb240-12"><a href="multilevel-models.html#cb240-12" tabindex="-1"></a><span class="co">#&gt; Scaled residuals: </span></span>
-<span id="cb240-13"><a href="multilevel-models.html#cb240-13" tabindex="-1"></a><span class="co">#&gt;    Min     1Q Median     3Q    Max </span></span>
-<span id="cb240-14"><a href="multilevel-models.html#cb240-14" tabindex="-1"></a><span class="co">#&gt; -2.201 -0.582 -0.064  0.563  3.439 </span></span>
-<span id="cb240-15"><a href="multilevel-models.html#cb240-15" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb240-16"><a href="multilevel-models.html#cb240-16" tabindex="-1"></a><span class="co">#&gt; Random effects:</span></span>
-<span id="cb240-17"><a href="multilevel-models.html#cb240-17" tabindex="-1"></a><span class="co">#&gt;  Groups   Name        Variance Std.Dev.</span></span>
-<span id="cb240-18"><a href="multilevel-models.html#cb240-18" tabindex="-1"></a><span class="co">#&gt;  scenario (Intercept)  219     14.8    </span></span>
-<span id="cb240-19"><a href="multilevel-models.html#cb240-19" tabindex="-1"></a><span class="co">#&gt;  subject  (Intercept) 4015     63.4    </span></span>
-<span id="cb240-20"><a href="multilevel-models.html#cb240-20" tabindex="-1"></a><span class="co">#&gt;  Residual              646     25.4    </span></span>
-<span id="cb240-21"><a href="multilevel-models.html#cb240-21" tabindex="-1"></a><span class="co">#&gt; Number of obs: 83, groups:  scenario, 7; subject, 6</span></span>
-<span id="cb240-22"><a href="multilevel-models.html#cb240-22" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb240-23"><a href="multilevel-models.html#cb240-23" tabindex="-1"></a><span class="co">#&gt; Fixed effects:</span></span>
-<span id="cb240-24"><a href="multilevel-models.html#cb240-24" tabindex="-1"></a><span class="co">#&gt;             Estimate Std. Error t value</span></span>
-<span id="cb240-25"><a href="multilevel-models.html#cb240-25" tabindex="-1"></a><span class="co">#&gt; (Intercept)   202.59      26.75    7.57</span></span>
-<span id="cb240-26"><a href="multilevel-models.html#cb240-26" tabindex="-1"></a><span class="co">#&gt; attitudepol   -19.69       5.58   -3.53</span></span>
-<span id="cb240-27"><a href="multilevel-models.html#cb240-27" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb240-28"><a href="multilevel-models.html#cb240-28" tabindex="-1"></a><span class="co">#&gt; Correlation of Fixed Effects:</span></span>
-<span id="cb240-29"><a href="multilevel-models.html#cb240-29" tabindex="-1"></a><span class="co">#&gt;             (Intr)</span></span>
-<span id="cb240-30"><a href="multilevel-models.html#cb240-30" tabindex="-1"></a><span class="co">#&gt; attitudepol -0.103</span></span>
-<span id="cb240-31"><a href="multilevel-models.html#cb240-31" tabindex="-1"></a></span>
-<span id="cb240-32"><a href="multilevel-models.html#cb240-32" tabindex="-1"></a><span class="fu">coef</span>(politeness.model)</span>
-<span id="cb240-33"><a href="multilevel-models.html#cb240-33" tabindex="-1"></a><span class="co">#&gt; $scenario</span></span>
-<span id="cb240-34"><a href="multilevel-models.html#cb240-34" tabindex="-1"></a><span class="co">#&gt;   (Intercept) attitudepol</span></span>
-<span id="cb240-35"><a href="multilevel-models.html#cb240-35" tabindex="-1"></a><span class="co">#&gt; 1         189       -19.7</span></span>
-<span id="cb240-36"><a href="multilevel-models.html#cb240-36" tabindex="-1"></a><span class="co">#&gt; 2         209       -19.7</span></span>
-<span id="cb240-37"><a href="multilevel-models.html#cb240-37" tabindex="-1"></a><span class="co">#&gt; 3         214       -19.7</span></span>
-<span id="cb240-38"><a href="multilevel-models.html#cb240-38" tabindex="-1"></a><span class="co">#&gt; 4         223       -19.7</span></span>
-<span id="cb240-39"><a href="multilevel-models.html#cb240-39" tabindex="-1"></a><span class="co">#&gt; 5         201       -19.7</span></span>
-<span id="cb240-40"><a href="multilevel-models.html#cb240-40" tabindex="-1"></a><span class="co">#&gt; 6         190       -19.7</span></span>
-<span id="cb240-41"><a href="multilevel-models.html#cb240-41" tabindex="-1"></a><span class="co">#&gt; 7         192       -19.7</span></span>
-<span id="cb240-42"><a href="multilevel-models.html#cb240-42" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb240-43"><a href="multilevel-models.html#cb240-43" tabindex="-1"></a><span class="co">#&gt; $subject</span></span>
-<span id="cb240-44"><a href="multilevel-models.html#cb240-44" tabindex="-1"></a><span class="co">#&gt;    (Intercept) attitudepol</span></span>
-<span id="cb240-45"><a href="multilevel-models.html#cb240-45" tabindex="-1"></a><span class="co">#&gt; F1         241       -19.7</span></span>
-<span id="cb240-46"><a href="multilevel-models.html#cb240-46" tabindex="-1"></a><span class="co">#&gt; F2         267       -19.7</span></span>
-<span id="cb240-47"><a href="multilevel-models.html#cb240-47" tabindex="-1"></a><span class="co">#&gt; F3         260       -19.7</span></span>
-<span id="cb240-48"><a href="multilevel-models.html#cb240-48" tabindex="-1"></a><span class="co">#&gt; M3         179       -19.7</span></span>
-<span id="cb240-49"><a href="multilevel-models.html#cb240-49" tabindex="-1"></a><span class="co">#&gt; M4         155       -19.7</span></span>
-<span id="cb240-50"><a href="multilevel-models.html#cb240-50" tabindex="-1"></a><span class="co">#&gt; M7         113       -19.7</span></span>
-<span id="cb240-51"><a href="multilevel-models.html#cb240-51" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb240-52"><a href="multilevel-models.html#cb240-52" tabindex="-1"></a><span class="co">#&gt; attr(,&quot;class&quot;)</span></span>
-<span id="cb240-53"><a href="multilevel-models.html#cb240-53" tabindex="-1"></a><span class="co">#&gt; [1] &quot;coef.mer&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="multilevel-models.html#cb241-1" tabindex="-1"></a>politeness.model <span class="ot">=</span> <span class="fu">lmer</span>(frequency <span class="sc">~</span> attitude <span class="sc">+</span></span>
+<span id="cb241-2"><a href="multilevel-models.html#cb241-2" tabindex="-1"></a>                          (<span class="dv">1</span><span class="sc">|</span>subject) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>scenario), <span class="at">data=</span>df)</span>
+<span id="cb241-3"><a href="multilevel-models.html#cb241-3" tabindex="-1"></a></span>
+<span id="cb241-4"><a href="multilevel-models.html#cb241-4" tabindex="-1"></a></span>
+<span id="cb241-5"><a href="multilevel-models.html#cb241-5" tabindex="-1"></a><span class="fu">summary</span>(politeness.model)</span>
+<span id="cb241-6"><a href="multilevel-models.html#cb241-6" tabindex="-1"></a><span class="co">#&gt; Linear mixed model fit by REML [&#39;lmerMod&#39;]</span></span>
+<span id="cb241-7"><a href="multilevel-models.html#cb241-7" tabindex="-1"></a><span class="co">#&gt; Formula: frequency ~ attitude + (1 | subject) + (1 | scenario)</span></span>
+<span id="cb241-8"><a href="multilevel-models.html#cb241-8" tabindex="-1"></a><span class="co">#&gt;    Data: df</span></span>
+<span id="cb241-9"><a href="multilevel-models.html#cb241-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb241-10"><a href="multilevel-models.html#cb241-10" tabindex="-1"></a><span class="co">#&gt; REML criterion at convergence: 794</span></span>
+<span id="cb241-11"><a href="multilevel-models.html#cb241-11" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb241-12"><a href="multilevel-models.html#cb241-12" tabindex="-1"></a><span class="co">#&gt; Scaled residuals: </span></span>
+<span id="cb241-13"><a href="multilevel-models.html#cb241-13" tabindex="-1"></a><span class="co">#&gt;    Min     1Q Median     3Q    Max </span></span>
+<span id="cb241-14"><a href="multilevel-models.html#cb241-14" tabindex="-1"></a><span class="co">#&gt; -2.201 -0.582 -0.064  0.563  3.439 </span></span>
+<span id="cb241-15"><a href="multilevel-models.html#cb241-15" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb241-16"><a href="multilevel-models.html#cb241-16" tabindex="-1"></a><span class="co">#&gt; Random effects:</span></span>
+<span id="cb241-17"><a href="multilevel-models.html#cb241-17" tabindex="-1"></a><span class="co">#&gt;  Groups   Name        Variance Std.Dev.</span></span>
+<span id="cb241-18"><a href="multilevel-models.html#cb241-18" tabindex="-1"></a><span class="co">#&gt;  scenario (Intercept)  219     14.8    </span></span>
+<span id="cb241-19"><a href="multilevel-models.html#cb241-19" tabindex="-1"></a><span class="co">#&gt;  subject  (Intercept) 4015     63.4    </span></span>
+<span id="cb241-20"><a href="multilevel-models.html#cb241-20" tabindex="-1"></a><span class="co">#&gt;  Residual              646     25.4    </span></span>
+<span id="cb241-21"><a href="multilevel-models.html#cb241-21" tabindex="-1"></a><span class="co">#&gt; Number of obs: 83, groups:  scenario, 7; subject, 6</span></span>
+<span id="cb241-22"><a href="multilevel-models.html#cb241-22" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb241-23"><a href="multilevel-models.html#cb241-23" tabindex="-1"></a><span class="co">#&gt; Fixed effects:</span></span>
+<span id="cb241-24"><a href="multilevel-models.html#cb241-24" tabindex="-1"></a><span class="co">#&gt;             Estimate Std. Error t value</span></span>
+<span id="cb241-25"><a href="multilevel-models.html#cb241-25" tabindex="-1"></a><span class="co">#&gt; (Intercept)   202.59      26.75    7.57</span></span>
+<span id="cb241-26"><a href="multilevel-models.html#cb241-26" tabindex="-1"></a><span class="co">#&gt; attitudepol   -19.69       5.58   -3.53</span></span>
+<span id="cb241-27"><a href="multilevel-models.html#cb241-27" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb241-28"><a href="multilevel-models.html#cb241-28" tabindex="-1"></a><span class="co">#&gt; Correlation of Fixed Effects:</span></span>
+<span id="cb241-29"><a href="multilevel-models.html#cb241-29" tabindex="-1"></a><span class="co">#&gt;             (Intr)</span></span>
+<span id="cb241-30"><a href="multilevel-models.html#cb241-30" tabindex="-1"></a><span class="co">#&gt; attitudepol -0.103</span></span>
+<span id="cb241-31"><a href="multilevel-models.html#cb241-31" tabindex="-1"></a></span>
+<span id="cb241-32"><a href="multilevel-models.html#cb241-32" tabindex="-1"></a><span class="fu">coef</span>(politeness.model)</span>
+<span id="cb241-33"><a href="multilevel-models.html#cb241-33" tabindex="-1"></a><span class="co">#&gt; $scenario</span></span>
+<span id="cb241-34"><a href="multilevel-models.html#cb241-34" tabindex="-1"></a><span class="co">#&gt;   (Intercept) attitudepol</span></span>
+<span id="cb241-35"><a href="multilevel-models.html#cb241-35" tabindex="-1"></a><span class="co">#&gt; 1         189       -19.7</span></span>
+<span id="cb241-36"><a href="multilevel-models.html#cb241-36" tabindex="-1"></a><span class="co">#&gt; 2         209       -19.7</span></span>
+<span id="cb241-37"><a href="multilevel-models.html#cb241-37" tabindex="-1"></a><span class="co">#&gt; 3         214       -19.7</span></span>
+<span id="cb241-38"><a href="multilevel-models.html#cb241-38" tabindex="-1"></a><span class="co">#&gt; 4         223       -19.7</span></span>
+<span id="cb241-39"><a href="multilevel-models.html#cb241-39" tabindex="-1"></a><span class="co">#&gt; 5         201       -19.7</span></span>
+<span id="cb241-40"><a href="multilevel-models.html#cb241-40" tabindex="-1"></a><span class="co">#&gt; 6         190       -19.7</span></span>
+<span id="cb241-41"><a href="multilevel-models.html#cb241-41" tabindex="-1"></a><span class="co">#&gt; 7         192       -19.7</span></span>
+<span id="cb241-42"><a href="multilevel-models.html#cb241-42" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb241-43"><a href="multilevel-models.html#cb241-43" tabindex="-1"></a><span class="co">#&gt; $subject</span></span>
+<span id="cb241-44"><a href="multilevel-models.html#cb241-44" tabindex="-1"></a><span class="co">#&gt;    (Intercept) attitudepol</span></span>
+<span id="cb241-45"><a href="multilevel-models.html#cb241-45" tabindex="-1"></a><span class="co">#&gt; F1         241       -19.7</span></span>
+<span id="cb241-46"><a href="multilevel-models.html#cb241-46" tabindex="-1"></a><span class="co">#&gt; F2         267       -19.7</span></span>
+<span id="cb241-47"><a href="multilevel-models.html#cb241-47" tabindex="-1"></a><span class="co">#&gt; F3         260       -19.7</span></span>
+<span id="cb241-48"><a href="multilevel-models.html#cb241-48" tabindex="-1"></a><span class="co">#&gt; M3         179       -19.7</span></span>
+<span id="cb241-49"><a href="multilevel-models.html#cb241-49" tabindex="-1"></a><span class="co">#&gt; M4         155       -19.7</span></span>
+<span id="cb241-50"><a href="multilevel-models.html#cb241-50" tabindex="-1"></a><span class="co">#&gt; M7         113       -19.7</span></span>
+<span id="cb241-51"><a href="multilevel-models.html#cb241-51" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb241-52"><a href="multilevel-models.html#cb241-52" tabindex="-1"></a><span class="co">#&gt; attr(,&quot;class&quot;)</span></span>
+<span id="cb241-53"><a href="multilevel-models.html#cb241-53" tabindex="-1"></a><span class="co">#&gt; [1] &quot;coef.mer&quot;</span></span></code></pre></div>
 <p>Let’s focus on the output for the random effects first:</p>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="multilevel-models.html#cb241-1" tabindex="-1"></a><span class="co"># Random effects:</span></span>
-<span id="cb241-2"><a href="multilevel-models.html#cb241-2" tabindex="-1"></a><span class="co">#   Groups   Name       Variance Std.Dev.</span></span>
-<span id="cb241-3"><a href="multilevel-models.html#cb241-3" tabindex="-1"></a><span class="co"># scenario (Intercept)  219     14.80   </span></span>
-<span id="cb241-4"><a href="multilevel-models.html#cb241-4" tabindex="-1"></a><span class="co"># subject  (Intercept) 4015     63.36   </span></span>
-<span id="cb241-5"><a href="multilevel-models.html#cb241-5" tabindex="-1"></a><span class="co"># Residual              646     25.42   </span></span>
-<span id="cb241-6"><a href="multilevel-models.html#cb241-6" tabindex="-1"></a><span class="co"># Number of obs: 83, groups:  scenario, 7; subject, 6</span></span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="multilevel-models.html#cb242-1" tabindex="-1"></a><span class="co"># Random effects:</span></span>
+<span id="cb242-2"><a href="multilevel-models.html#cb242-2" tabindex="-1"></a><span class="co">#   Groups   Name       Variance Std.Dev.</span></span>
+<span id="cb242-3"><a href="multilevel-models.html#cb242-3" tabindex="-1"></a><span class="co"># scenario (Intercept)  219     14.80   </span></span>
+<span id="cb242-4"><a href="multilevel-models.html#cb242-4" tabindex="-1"></a><span class="co"># subject  (Intercept) 4015     63.36   </span></span>
+<span id="cb242-5"><a href="multilevel-models.html#cb242-5" tabindex="-1"></a><span class="co"># Residual              646     25.42   </span></span>
+<span id="cb242-6"><a href="multilevel-models.html#cb242-6" tabindex="-1"></a><span class="co"># Number of obs: 83, groups:  scenario, 7; subject, 6</span></span></code></pre></div>
 <p>Have a look at the column standard deviation. This is a measure of how
 much variability in the dependent measure there is due to scenarios and
 subjects (our two random effects). You can see that scenario (“item”)
@@ -517,10 +519,10 @@ are outside of the purview of our experiment.</p>
 <p>The fixed effects output mirrors the coefficient table that we
 considered in tutorial 1 when we talked about the results of our linear
 model analysis.</p>
-<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="multilevel-models.html#cb242-1" tabindex="-1"></a><span class="co"># Fixed effects:</span></span>
-<span id="cb242-2"><a href="multilevel-models.html#cb242-2" tabindex="-1"></a><span class="co">#              Estimate  Std. Error t value</span></span>
-<span id="cb242-3"><a href="multilevel-models.html#cb242-3" tabindex="-1"></a><span class="co"># (Intercept)  202.588     26.754   7.572</span></span>
-<span id="cb242-4"><a href="multilevel-models.html#cb242-4" tabindex="-1"></a><span class="co"># attitudepol  -19.695      5.585  -3.527</span></span></code></pre></div>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="multilevel-models.html#cb243-1" tabindex="-1"></a><span class="co"># Fixed effects:</span></span>
+<span id="cb243-2"><a href="multilevel-models.html#cb243-2" tabindex="-1"></a><span class="co">#              Estimate  Std. Error t value</span></span>
+<span id="cb243-3"><a href="multilevel-models.html#cb243-3" tabindex="-1"></a><span class="co"># (Intercept)  202.588     26.754   7.572</span></span>
+<span id="cb243-4"><a href="multilevel-models.html#cb243-4" tabindex="-1"></a><span class="co"># attitudepol  -19.695      5.585  -3.527</span></span></code></pre></div>
 <p>The coefficient “attitudepol” is the slope for the categorical effect of
 politeness. Minus 19.695 means that to go from “informal” to “polite”,
 you have to go down-19.695 Hz. In other words: pitch is lower in polite
@@ -528,48 +530,48 @@ speech than in informal speech,by about 20 Hz. Then, there’s a standard
 error associated with this slope, and a tvalue, which is simply the
 estimate (20 Hz) divided by the standard error (check this by performing
 the calculation by hand).</p>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="multilevel-models.html#cb243-1" tabindex="-1"></a><span class="co"># Challenge 2 -------------------------------------------------------------</span></span>
-<span id="cb243-2"><a href="multilevel-models.html#cb243-2" tabindex="-1"></a></span>
-<span id="cb243-3"><a href="multilevel-models.html#cb243-3" tabindex="-1"></a><span class="co"># this intercept is especially weird. </span></span>
-<span id="cb243-4"><a href="multilevel-models.html#cb243-4" tabindex="-1"></a><span class="co"># It’s 202.588 Hz … where does that value come</span></span>
-<span id="cb243-5"><a href="multilevel-models.html#cb243-5" tabindex="-1"></a><span class="co"># from?</span></span>
-<span id="cb243-6"><a href="multilevel-models.html#cb243-6" tabindex="-1"></a></span>
-<span id="cb243-7"><a href="multilevel-models.html#cb243-7" tabindex="-1"></a></span>
-<span id="cb243-8"><a href="multilevel-models.html#cb243-8" tabindex="-1"></a></span>
-<span id="cb243-9"><a href="multilevel-models.html#cb243-9" tabindex="-1"></a>politeness.model <span class="ot">=</span> <span class="fu">lmer</span>(frequency <span class="sc">~</span> attitude <span class="sc">*</span></span>
-<span id="cb243-10"><a href="multilevel-models.html#cb243-10" tabindex="-1"></a>                          gender <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>subject) <span class="sc">+</span></span>
-<span id="cb243-11"><a href="multilevel-models.html#cb243-11" tabindex="-1"></a>                          (<span class="dv">1</span><span class="sc">|</span>scenario), <span class="at">data=</span>df)</span>
-<span id="cb243-12"><a href="multilevel-models.html#cb243-12" tabindex="-1"></a></span>
-<span id="cb243-13"><a href="multilevel-models.html#cb243-13" tabindex="-1"></a><span class="fu">summary</span>(politeness.model)</span>
-<span id="cb243-14"><a href="multilevel-models.html#cb243-14" tabindex="-1"></a><span class="co">#&gt; Linear mixed model fit by REML [&#39;lmerMod&#39;]</span></span>
-<span id="cb243-15"><a href="multilevel-models.html#cb243-15" tabindex="-1"></a><span class="co">#&gt; Formula: frequency ~ attitude * gender + (1 | subject) + (1 | scenario)</span></span>
-<span id="cb243-16"><a href="multilevel-models.html#cb243-16" tabindex="-1"></a><span class="co">#&gt;    Data: df</span></span>
-<span id="cb243-17"><a href="multilevel-models.html#cb243-17" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb243-18"><a href="multilevel-models.html#cb243-18" tabindex="-1"></a><span class="co">#&gt; REML criterion at convergence: 767</span></span>
-<span id="cb243-19"><a href="multilevel-models.html#cb243-19" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb243-20"><a href="multilevel-models.html#cb243-20" tabindex="-1"></a><span class="co">#&gt; Scaled residuals: </span></span>
-<span id="cb243-21"><a href="multilevel-models.html#cb243-21" tabindex="-1"></a><span class="co">#&gt;    Min     1Q Median     3Q    Max </span></span>
-<span id="cb243-22"><a href="multilevel-models.html#cb243-22" tabindex="-1"></a><span class="co">#&gt; -2.119 -0.560 -0.077  0.511  3.335 </span></span>
-<span id="cb243-23"><a href="multilevel-models.html#cb243-23" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb243-24"><a href="multilevel-models.html#cb243-24" tabindex="-1"></a><span class="co">#&gt; Random effects:</span></span>
-<span id="cb243-25"><a href="multilevel-models.html#cb243-25" tabindex="-1"></a><span class="co">#&gt;  Groups   Name        Variance Std.Dev.</span></span>
-<span id="cb243-26"><a href="multilevel-models.html#cb243-26" tabindex="-1"></a><span class="co">#&gt;  scenario (Intercept) 218      14.8    </span></span>
-<span id="cb243-27"><a href="multilevel-models.html#cb243-27" tabindex="-1"></a><span class="co">#&gt;  subject  (Intercept) 617      24.8    </span></span>
-<span id="cb243-28"><a href="multilevel-models.html#cb243-28" tabindex="-1"></a><span class="co">#&gt;  Residual             637      25.2    </span></span>
-<span id="cb243-29"><a href="multilevel-models.html#cb243-29" tabindex="-1"></a><span class="co">#&gt; Number of obs: 83, groups:  scenario, 7; subject, 6</span></span>
-<span id="cb243-30"><a href="multilevel-models.html#cb243-30" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb243-31"><a href="multilevel-models.html#cb243-31" tabindex="-1"></a><span class="co">#&gt; Fixed effects:</span></span>
-<span id="cb243-32"><a href="multilevel-models.html#cb243-32" tabindex="-1"></a><span class="co">#&gt;                     Estimate Std. Error t value</span></span>
-<span id="cb243-33"><a href="multilevel-models.html#cb243-33" tabindex="-1"></a><span class="co">#&gt; (Intercept)           260.69      16.35   15.95</span></span>
-<span id="cb243-34"><a href="multilevel-models.html#cb243-34" tabindex="-1"></a><span class="co">#&gt; attitudepol           -27.40       7.79   -3.52</span></span>
-<span id="cb243-35"><a href="multilevel-models.html#cb243-35" tabindex="-1"></a><span class="co">#&gt; genderM              -116.20      21.73   -5.35</span></span>
-<span id="cb243-36"><a href="multilevel-models.html#cb243-36" tabindex="-1"></a><span class="co">#&gt; attitudepol:genderM    15.57      11.10    1.40</span></span>
-<span id="cb243-37"><a href="multilevel-models.html#cb243-37" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb243-38"><a href="multilevel-models.html#cb243-38" tabindex="-1"></a><span class="co">#&gt; Correlation of Fixed Effects:</span></span>
-<span id="cb243-39"><a href="multilevel-models.html#cb243-39" tabindex="-1"></a><span class="co">#&gt;             (Intr) atttdp gendrM</span></span>
-<span id="cb243-40"><a href="multilevel-models.html#cb243-40" tabindex="-1"></a><span class="co">#&gt; attitudepol -0.238              </span></span>
-<span id="cb243-41"><a href="multilevel-models.html#cb243-41" tabindex="-1"></a><span class="co">#&gt; genderM     -0.665  0.179       </span></span>
-<span id="cb243-42"><a href="multilevel-models.html#cb243-42" tabindex="-1"></a><span class="co">#&gt; atttdpl:gnM  0.167 -0.702 -0.252</span></span></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="multilevel-models.html#cb244-1" tabindex="-1"></a><span class="co"># Challenge 2 -------------------------------------------------------------</span></span>
+<span id="cb244-2"><a href="multilevel-models.html#cb244-2" tabindex="-1"></a></span>
+<span id="cb244-3"><a href="multilevel-models.html#cb244-3" tabindex="-1"></a><span class="co"># this intercept is especially weird. </span></span>
+<span id="cb244-4"><a href="multilevel-models.html#cb244-4" tabindex="-1"></a><span class="co"># It’s 202.588 Hz … where does that value come</span></span>
+<span id="cb244-5"><a href="multilevel-models.html#cb244-5" tabindex="-1"></a><span class="co"># from?</span></span>
+<span id="cb244-6"><a href="multilevel-models.html#cb244-6" tabindex="-1"></a></span>
+<span id="cb244-7"><a href="multilevel-models.html#cb244-7" tabindex="-1"></a></span>
+<span id="cb244-8"><a href="multilevel-models.html#cb244-8" tabindex="-1"></a></span>
+<span id="cb244-9"><a href="multilevel-models.html#cb244-9" tabindex="-1"></a>politeness.model <span class="ot">=</span> <span class="fu">lmer</span>(frequency <span class="sc">~</span> attitude <span class="sc">*</span></span>
+<span id="cb244-10"><a href="multilevel-models.html#cb244-10" tabindex="-1"></a>                          gender <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>subject) <span class="sc">+</span></span>
+<span id="cb244-11"><a href="multilevel-models.html#cb244-11" tabindex="-1"></a>                          (<span class="dv">1</span><span class="sc">|</span>scenario), <span class="at">data=</span>df)</span>
+<span id="cb244-12"><a href="multilevel-models.html#cb244-12" tabindex="-1"></a></span>
+<span id="cb244-13"><a href="multilevel-models.html#cb244-13" tabindex="-1"></a><span class="fu">summary</span>(politeness.model)</span>
+<span id="cb244-14"><a href="multilevel-models.html#cb244-14" tabindex="-1"></a><span class="co">#&gt; Linear mixed model fit by REML [&#39;lmerMod&#39;]</span></span>
+<span id="cb244-15"><a href="multilevel-models.html#cb244-15" tabindex="-1"></a><span class="co">#&gt; Formula: frequency ~ attitude * gender + (1 | subject) + (1 | scenario)</span></span>
+<span id="cb244-16"><a href="multilevel-models.html#cb244-16" tabindex="-1"></a><span class="co">#&gt;    Data: df</span></span>
+<span id="cb244-17"><a href="multilevel-models.html#cb244-17" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb244-18"><a href="multilevel-models.html#cb244-18" tabindex="-1"></a><span class="co">#&gt; REML criterion at convergence: 767</span></span>
+<span id="cb244-19"><a href="multilevel-models.html#cb244-19" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb244-20"><a href="multilevel-models.html#cb244-20" tabindex="-1"></a><span class="co">#&gt; Scaled residuals: </span></span>
+<span id="cb244-21"><a href="multilevel-models.html#cb244-21" tabindex="-1"></a><span class="co">#&gt;    Min     1Q Median     3Q    Max </span></span>
+<span id="cb244-22"><a href="multilevel-models.html#cb244-22" tabindex="-1"></a><span class="co">#&gt; -2.119 -0.560 -0.077  0.511  3.335 </span></span>
+<span id="cb244-23"><a href="multilevel-models.html#cb244-23" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb244-24"><a href="multilevel-models.html#cb244-24" tabindex="-1"></a><span class="co">#&gt; Random effects:</span></span>
+<span id="cb244-25"><a href="multilevel-models.html#cb244-25" tabindex="-1"></a><span class="co">#&gt;  Groups   Name        Variance Std.Dev.</span></span>
+<span id="cb244-26"><a href="multilevel-models.html#cb244-26" tabindex="-1"></a><span class="co">#&gt;  scenario (Intercept) 218      14.8    </span></span>
+<span id="cb244-27"><a href="multilevel-models.html#cb244-27" tabindex="-1"></a><span class="co">#&gt;  subject  (Intercept) 617      24.8    </span></span>
+<span id="cb244-28"><a href="multilevel-models.html#cb244-28" tabindex="-1"></a><span class="co">#&gt;  Residual             637      25.2    </span></span>
+<span id="cb244-29"><a href="multilevel-models.html#cb244-29" tabindex="-1"></a><span class="co">#&gt; Number of obs: 83, groups:  scenario, 7; subject, 6</span></span>
+<span id="cb244-30"><a href="multilevel-models.html#cb244-30" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb244-31"><a href="multilevel-models.html#cb244-31" tabindex="-1"></a><span class="co">#&gt; Fixed effects:</span></span>
+<span id="cb244-32"><a href="multilevel-models.html#cb244-32" tabindex="-1"></a><span class="co">#&gt;                     Estimate Std. Error t value</span></span>
+<span id="cb244-33"><a href="multilevel-models.html#cb244-33" tabindex="-1"></a><span class="co">#&gt; (Intercept)           260.69      16.35   15.95</span></span>
+<span id="cb244-34"><a href="multilevel-models.html#cb244-34" tabindex="-1"></a><span class="co">#&gt; attitudepol           -27.40       7.79   -3.52</span></span>
+<span id="cb244-35"><a href="multilevel-models.html#cb244-35" tabindex="-1"></a><span class="co">#&gt; genderM              -116.20      21.73   -5.35</span></span>
+<span id="cb244-36"><a href="multilevel-models.html#cb244-36" tabindex="-1"></a><span class="co">#&gt; attitudepol:genderM    15.57      11.10    1.40</span></span>
+<span id="cb244-37"><a href="multilevel-models.html#cb244-37" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb244-38"><a href="multilevel-models.html#cb244-38" tabindex="-1"></a><span class="co">#&gt; Correlation of Fixed Effects:</span></span>
+<span id="cb244-39"><a href="multilevel-models.html#cb244-39" tabindex="-1"></a><span class="co">#&gt;             (Intr) atttdp gendrM</span></span>
+<span id="cb244-40"><a href="multilevel-models.html#cb244-40" tabindex="-1"></a><span class="co">#&gt; attitudepol -0.238              </span></span>
+<span id="cb244-41"><a href="multilevel-models.html#cb244-41" tabindex="-1"></a><span class="co">#&gt; genderM     -0.665  0.179       </span></span>
+<span id="cb244-42"><a href="multilevel-models.html#cb244-42" tabindex="-1"></a><span class="co">#&gt; atttdpl:gnM  0.167 -0.702 -0.252</span></span></code></pre></div>
 <p>Note that compared to our earlier model without the fixed effect gender,
 the variation that’s associated with the random effect “subject” dropped
 considerably. This is because the variation that’s due to gender was
@@ -580,95 +582,95 @@ the effect of gender, we have shifted a considerable amount of the
 variance that was previously in the random effects component
 (differences between male and female individuals) to the fixed effects
 component.</p>
-<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="multilevel-models.html#cb244-1" tabindex="-1"></a><span class="co"># Random effects:</span></span>
-<span id="cb244-2"><a href="multilevel-models.html#cb244-2" tabindex="-1"></a><span class="co">#   Groups   Name        Variance Std.Dev.</span></span>
-<span id="cb244-3"><a href="multilevel-models.html#cb244-3" tabindex="-1"></a><span class="co"># scenario (Intercept) 219.5    14.81   </span></span>
-<span id="cb244-4"><a href="multilevel-models.html#cb244-4" tabindex="-1"></a><span class="co"># subject  (Intercept) 615.6    24.81   </span></span>
-<span id="cb244-5"><a href="multilevel-models.html#cb244-5" tabindex="-1"></a><span class="co"># Residual             645.9    25.41   </span></span>
-<span id="cb244-6"><a href="multilevel-models.html#cb244-6" tabindex="-1"></a><span class="co"># Number of obs: 83, groups:  scenario, 7; subject, 6</span></span></code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="multilevel-models.html#cb245-1" tabindex="-1"></a><span class="co"># Random effects:</span></span>
+<span id="cb245-2"><a href="multilevel-models.html#cb245-2" tabindex="-1"></a><span class="co">#   Groups   Name        Variance Std.Dev.</span></span>
+<span id="cb245-3"><a href="multilevel-models.html#cb245-3" tabindex="-1"></a><span class="co"># scenario (Intercept) 219.5    14.81   </span></span>
+<span id="cb245-4"><a href="multilevel-models.html#cb245-4" tabindex="-1"></a><span class="co"># subject  (Intercept) 615.6    24.81   </span></span>
+<span id="cb245-5"><a href="multilevel-models.html#cb245-5" tabindex="-1"></a><span class="co"># Residual             645.9    25.41   </span></span>
+<span id="cb245-6"><a href="multilevel-models.html#cb245-6" tabindex="-1"></a><span class="co"># Number of obs: 83, groups:  scenario, 7; subject, 6</span></span></code></pre></div>
 <p>We see that males and females differ by about 109 Hz. And the intercept
 is now much higher (256.846 Hz), as it now represents the female
 category (for the informal condition). The coefficient for the effect of
 attitude didn’t change much.</p>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="multilevel-models.html#cb245-1" tabindex="-1"></a></span>
-<span id="cb245-2"><a href="multilevel-models.html#cb245-2" tabindex="-1"></a><span class="co"># Fixed effects:</span></span>
-<span id="cb245-3"><a href="multilevel-models.html#cb245-3" tabindex="-1"></a><span class="co">#              Estimate Std. Error t value</span></span>
-<span id="cb245-4"><a href="multilevel-models.html#cb245-4" tabindex="-1"></a><span class="co"># (Intercept)  256.846     16.116  15.938</span></span>
-<span id="cb245-5"><a href="multilevel-models.html#cb245-5" tabindex="-1"></a><span class="co"># attitudepol  -19.721      5.584  -3.532</span></span>
-<span id="cb245-6"><a href="multilevel-models.html#cb245-6" tabindex="-1"></a><span class="co"># genderM     -108.516     21.013  -5.164</span></span>
-<span id="cb245-7"><a href="multilevel-models.html#cb245-7" tabindex="-1"></a></span>
-<span id="cb245-8"><a href="multilevel-models.html#cb245-8" tabindex="-1"></a><span class="co"># Significance</span></span>
-<span id="cb245-9"><a href="multilevel-models.html#cb245-9" tabindex="-1"></a></span>
-<span id="cb245-10"><a href="multilevel-models.html#cb245-10" tabindex="-1"></a>politeness.null <span class="ot">=</span> <span class="fu">lmer</span>(frequency <span class="sc">~</span> gender <span class="sc">+</span></span>
-<span id="cb245-11"><a href="multilevel-models.html#cb245-11" tabindex="-1"></a>                         (<span class="dv">1</span><span class="sc">|</span>subject) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>scenario), <span class="at">data=</span>df,</span>
-<span id="cb245-12"><a href="multilevel-models.html#cb245-12" tabindex="-1"></a>                       <span class="at">REML=</span><span class="cn">FALSE</span>)</span>
-<span id="cb245-13"><a href="multilevel-models.html#cb245-13" tabindex="-1"></a></span>
-<span id="cb245-14"><a href="multilevel-models.html#cb245-14" tabindex="-1"></a>politeness.model <span class="ot">=</span> <span class="fu">lmer</span>(frequency <span class="sc">~</span> attitude <span class="sc">+</span></span>
-<span id="cb245-15"><a href="multilevel-models.html#cb245-15" tabindex="-1"></a>                          gender <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>subject) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>scenario),</span>
-<span id="cb245-16"><a href="multilevel-models.html#cb245-16" tabindex="-1"></a>                        <span class="at">data=</span>df, <span class="at">REML=</span><span class="cn">FALSE</span>)</span>
-<span id="cb245-17"><a href="multilevel-models.html#cb245-17" tabindex="-1"></a></span>
-<span id="cb245-18"><a href="multilevel-models.html#cb245-18" tabindex="-1"></a><span class="fu">anova</span>(politeness.null,politeness.model)</span>
-<span id="cb245-19"><a href="multilevel-models.html#cb245-19" tabindex="-1"></a><span class="co">#&gt; Data: df</span></span>
-<span id="cb245-20"><a href="multilevel-models.html#cb245-20" tabindex="-1"></a><span class="co">#&gt; Models:</span></span>
-<span id="cb245-21"><a href="multilevel-models.html#cb245-21" tabindex="-1"></a><span class="co">#&gt; politeness.null: frequency ~ gender + (1 | subject) + (1 | scenario)</span></span>
-<span id="cb245-22"><a href="multilevel-models.html#cb245-22" tabindex="-1"></a><span class="co">#&gt; politeness.model: frequency ~ attitude + gender + (1 | subject) + (1 | scenario)</span></span>
-<span id="cb245-23"><a href="multilevel-models.html#cb245-23" tabindex="-1"></a><span class="co">#&gt;                  npar AIC BIC logLik deviance Chisq Df Pr(&gt;Chisq)    </span></span>
-<span id="cb245-24"><a href="multilevel-models.html#cb245-24" tabindex="-1"></a><span class="co">#&gt; politeness.null     5 817 829   -403      807                        </span></span>
-<span id="cb245-25"><a href="multilevel-models.html#cb245-25" tabindex="-1"></a><span class="co">#&gt; politeness.model    6 807 822   -398      795  11.6  1    0.00065 ***</span></span>
-<span id="cb245-26"><a href="multilevel-models.html#cb245-26" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
-<span id="cb245-27"><a href="multilevel-models.html#cb245-27" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb245-28"><a href="multilevel-models.html#cb245-28" tabindex="-1"></a></span>
-<span id="cb245-29"><a href="multilevel-models.html#cb245-29" tabindex="-1"></a><span class="fu">coef</span>(politeness.model)</span>
-<span id="cb245-30"><a href="multilevel-models.html#cb245-30" tabindex="-1"></a><span class="co">#&gt; $scenario</span></span>
-<span id="cb245-31"><a href="multilevel-models.html#cb245-31" tabindex="-1"></a><span class="co">#&gt;   (Intercept) attitudepol genderM</span></span>
-<span id="cb245-32"><a href="multilevel-models.html#cb245-32" tabindex="-1"></a><span class="co">#&gt; 1         243       -19.7    -109</span></span>
-<span id="cb245-33"><a href="multilevel-models.html#cb245-33" tabindex="-1"></a><span class="co">#&gt; 2         263       -19.7    -109</span></span>
-<span id="cb245-34"><a href="multilevel-models.html#cb245-34" tabindex="-1"></a><span class="co">#&gt; 3         268       -19.7    -109</span></span>
-<span id="cb245-35"><a href="multilevel-models.html#cb245-35" tabindex="-1"></a><span class="co">#&gt; 4         277       -19.7    -109</span></span>
-<span id="cb245-36"><a href="multilevel-models.html#cb245-36" tabindex="-1"></a><span class="co">#&gt; 5         255       -19.7    -109</span></span>
-<span id="cb245-37"><a href="multilevel-models.html#cb245-37" tabindex="-1"></a><span class="co">#&gt; 6         245       -19.7    -109</span></span>
-<span id="cb245-38"><a href="multilevel-models.html#cb245-38" tabindex="-1"></a><span class="co">#&gt; 7         246       -19.7    -109</span></span>
-<span id="cb245-39"><a href="multilevel-models.html#cb245-39" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb245-40"><a href="multilevel-models.html#cb245-40" tabindex="-1"></a><span class="co">#&gt; $subject</span></span>
-<span id="cb245-41"><a href="multilevel-models.html#cb245-41" tabindex="-1"></a><span class="co">#&gt;    (Intercept) attitudepol genderM</span></span>
-<span id="cb245-42"><a href="multilevel-models.html#cb245-42" tabindex="-1"></a><span class="co">#&gt; F1         243       -19.7    -109</span></span>
-<span id="cb245-43"><a href="multilevel-models.html#cb245-43" tabindex="-1"></a><span class="co">#&gt; F2         267       -19.7    -109</span></span>
-<span id="cb245-44"><a href="multilevel-models.html#cb245-44" tabindex="-1"></a><span class="co">#&gt; F3         260       -19.7    -109</span></span>
-<span id="cb245-45"><a href="multilevel-models.html#cb245-45" tabindex="-1"></a><span class="co">#&gt; M3         284       -19.7    -109</span></span>
-<span id="cb245-46"><a href="multilevel-models.html#cb245-46" tabindex="-1"></a><span class="co">#&gt; M4         262       -19.7    -109</span></span>
-<span id="cb245-47"><a href="multilevel-models.html#cb245-47" tabindex="-1"></a><span class="co">#&gt; M7         224       -19.7    -109</span></span>
-<span id="cb245-48"><a href="multilevel-models.html#cb245-48" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb245-49"><a href="multilevel-models.html#cb245-49" tabindex="-1"></a><span class="co">#&gt; attr(,&quot;class&quot;)</span></span>
-<span id="cb245-50"><a href="multilevel-models.html#cb245-50" tabindex="-1"></a><span class="co">#&gt; [1] &quot;coef.mer&quot;</span></span>
-<span id="cb245-51"><a href="multilevel-models.html#cb245-51" tabindex="-1"></a></span>
-<span id="cb245-52"><a href="multilevel-models.html#cb245-52" tabindex="-1"></a></span>
-<span id="cb245-53"><a href="multilevel-models.html#cb245-53" tabindex="-1"></a>politeness.model <span class="ot">=</span> <span class="fu">lmer</span>(frequency <span class="sc">~</span> attitude <span class="sc">+</span></span>
-<span id="cb245-54"><a href="multilevel-models.html#cb245-54" tabindex="-1"></a>                          gender <span class="sc">+</span> (<span class="dv">1</span><span class="sc">+</span>attitude<span class="sc">|</span>subject) <span class="sc">+</span></span>
-<span id="cb245-55"><a href="multilevel-models.html#cb245-55" tabindex="-1"></a>                          (<span class="dv">1</span><span class="sc">+</span>attitude<span class="sc">|</span>scenario),</span>
-<span id="cb245-56"><a href="multilevel-models.html#cb245-56" tabindex="-1"></a>                        <span class="at">data=</span>df,</span>
-<span id="cb245-57"><a href="multilevel-models.html#cb245-57" tabindex="-1"></a>                        <span class="at">REML=</span><span class="cn">FALSE</span>)</span>
-<span id="cb245-58"><a href="multilevel-models.html#cb245-58" tabindex="-1"></a><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></span>
-<span id="cb245-59"><a href="multilevel-models.html#cb245-59" tabindex="-1"></a></span>
-<span id="cb245-60"><a href="multilevel-models.html#cb245-60" tabindex="-1"></a></span>
-<span id="cb245-61"><a href="multilevel-models.html#cb245-61" tabindex="-1"></a></span>
-<span id="cb245-62"><a href="multilevel-models.html#cb245-62" tabindex="-1"></a>politeness.null <span class="ot">=</span> <span class="fu">lmer</span>(frequency <span class="sc">~</span> gender <span class="sc">+</span></span>
-<span id="cb245-63"><a href="multilevel-models.html#cb245-63" tabindex="-1"></a>                         (<span class="dv">1</span><span class="sc">+</span>attitude<span class="sc">|</span>subject) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">+</span>attitude<span class="sc">|</span>scenario),</span>
-<span id="cb245-64"><a href="multilevel-models.html#cb245-64" tabindex="-1"></a>                       <span class="at">data=</span>df, <span class="at">REML=</span><span class="cn">FALSE</span>)</span>
-<span id="cb245-65"><a href="multilevel-models.html#cb245-65" tabindex="-1"></a><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></span>
-<span id="cb245-66"><a href="multilevel-models.html#cb245-66" tabindex="-1"></a></span>
-<span id="cb245-67"><a href="multilevel-models.html#cb245-67" tabindex="-1"></a><span class="fu">anova</span>(politeness.null,politeness.model)</span>
-<span id="cb245-68"><a href="multilevel-models.html#cb245-68" tabindex="-1"></a><span class="co">#&gt; Data: df</span></span>
-<span id="cb245-69"><a href="multilevel-models.html#cb245-69" tabindex="-1"></a><span class="co">#&gt; Models:</span></span>
-<span id="cb245-70"><a href="multilevel-models.html#cb245-70" tabindex="-1"></a><span class="co">#&gt; politeness.null: frequency ~ gender + (1 + attitude | subject) + (1 + attitude | scenario)</span></span>
-<span id="cb245-71"><a href="multilevel-models.html#cb245-71" tabindex="-1"></a><span class="co">#&gt; politeness.model: frequency ~ attitude + gender + (1 + attitude | subject) + (1 + attitude | scenario)</span></span>
-<span id="cb245-72"><a href="multilevel-models.html#cb245-72" tabindex="-1"></a><span class="co">#&gt;                  npar AIC BIC logLik deviance Chisq Df Pr(&gt;Chisq)   </span></span>
-<span id="cb245-73"><a href="multilevel-models.html#cb245-73" tabindex="-1"></a><span class="co">#&gt; politeness.null     9 820 841   -401      802                       </span></span>
-<span id="cb245-74"><a href="multilevel-models.html#cb245-74" tabindex="-1"></a><span class="co">#&gt; politeness.model   10 815 839   -397      795  6.71  1     0.0096 **</span></span>
-<span id="cb245-75"><a href="multilevel-models.html#cb245-75" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
-<span id="cb245-76"><a href="multilevel-models.html#cb245-76" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb245-77"><a href="multilevel-models.html#cb245-77" tabindex="-1"></a></span>
-<span id="cb245-78"><a href="multilevel-models.html#cb245-78" tabindex="-1"></a>politeness.model<span class="ot">=</span><span class="fu">lmer</span>(frequency<span class="sc">~</span>attitude<span class="sc">+</span>gender<span class="sc">+</span>(<span class="dv">1</span><span class="sc">+</span>attitude<span class="sc">|</span>scenario), <span class="at">data =</span> df, <span class="at">REML =</span> F)</span>
-<span id="cb245-79"><a href="multilevel-models.html#cb245-79" tabindex="-1"></a><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="multilevel-models.html#cb246-1" tabindex="-1"></a></span>
+<span id="cb246-2"><a href="multilevel-models.html#cb246-2" tabindex="-1"></a><span class="co"># Fixed effects:</span></span>
+<span id="cb246-3"><a href="multilevel-models.html#cb246-3" tabindex="-1"></a><span class="co">#              Estimate Std. Error t value</span></span>
+<span id="cb246-4"><a href="multilevel-models.html#cb246-4" tabindex="-1"></a><span class="co"># (Intercept)  256.846     16.116  15.938</span></span>
+<span id="cb246-5"><a href="multilevel-models.html#cb246-5" tabindex="-1"></a><span class="co"># attitudepol  -19.721      5.584  -3.532</span></span>
+<span id="cb246-6"><a href="multilevel-models.html#cb246-6" tabindex="-1"></a><span class="co"># genderM     -108.516     21.013  -5.164</span></span>
+<span id="cb246-7"><a href="multilevel-models.html#cb246-7" tabindex="-1"></a></span>
+<span id="cb246-8"><a href="multilevel-models.html#cb246-8" tabindex="-1"></a><span class="co"># Significance</span></span>
+<span id="cb246-9"><a href="multilevel-models.html#cb246-9" tabindex="-1"></a></span>
+<span id="cb246-10"><a href="multilevel-models.html#cb246-10" tabindex="-1"></a>politeness.null <span class="ot">=</span> <span class="fu">lmer</span>(frequency <span class="sc">~</span> gender <span class="sc">+</span></span>
+<span id="cb246-11"><a href="multilevel-models.html#cb246-11" tabindex="-1"></a>                         (<span class="dv">1</span><span class="sc">|</span>subject) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>scenario), <span class="at">data=</span>df,</span>
+<span id="cb246-12"><a href="multilevel-models.html#cb246-12" tabindex="-1"></a>                       <span class="at">REML=</span><span class="cn">FALSE</span>)</span>
+<span id="cb246-13"><a href="multilevel-models.html#cb246-13" tabindex="-1"></a></span>
+<span id="cb246-14"><a href="multilevel-models.html#cb246-14" tabindex="-1"></a>politeness.model <span class="ot">=</span> <span class="fu">lmer</span>(frequency <span class="sc">~</span> attitude <span class="sc">+</span></span>
+<span id="cb246-15"><a href="multilevel-models.html#cb246-15" tabindex="-1"></a>                          gender <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>subject) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>scenario),</span>
+<span id="cb246-16"><a href="multilevel-models.html#cb246-16" tabindex="-1"></a>                        <span class="at">data=</span>df, <span class="at">REML=</span><span class="cn">FALSE</span>)</span>
+<span id="cb246-17"><a href="multilevel-models.html#cb246-17" tabindex="-1"></a></span>
+<span id="cb246-18"><a href="multilevel-models.html#cb246-18" tabindex="-1"></a><span class="fu">anova</span>(politeness.null,politeness.model)</span>
+<span id="cb246-19"><a href="multilevel-models.html#cb246-19" tabindex="-1"></a><span class="co">#&gt; Data: df</span></span>
+<span id="cb246-20"><a href="multilevel-models.html#cb246-20" tabindex="-1"></a><span class="co">#&gt; Models:</span></span>
+<span id="cb246-21"><a href="multilevel-models.html#cb246-21" tabindex="-1"></a><span class="co">#&gt; politeness.null: frequency ~ gender + (1 | subject) + (1 | scenario)</span></span>
+<span id="cb246-22"><a href="multilevel-models.html#cb246-22" tabindex="-1"></a><span class="co">#&gt; politeness.model: frequency ~ attitude + gender + (1 | subject) + (1 | scenario)</span></span>
+<span id="cb246-23"><a href="multilevel-models.html#cb246-23" tabindex="-1"></a><span class="co">#&gt;                  npar AIC BIC logLik deviance Chisq Df Pr(&gt;Chisq)    </span></span>
+<span id="cb246-24"><a href="multilevel-models.html#cb246-24" tabindex="-1"></a><span class="co">#&gt; politeness.null     5 817 829   -403      807                        </span></span>
+<span id="cb246-25"><a href="multilevel-models.html#cb246-25" tabindex="-1"></a><span class="co">#&gt; politeness.model    6 807 822   -398      795  11.6  1    0.00065 ***</span></span>
+<span id="cb246-26"><a href="multilevel-models.html#cb246-26" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb246-27"><a href="multilevel-models.html#cb246-27" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb246-28"><a href="multilevel-models.html#cb246-28" tabindex="-1"></a></span>
+<span id="cb246-29"><a href="multilevel-models.html#cb246-29" tabindex="-1"></a><span class="fu">coef</span>(politeness.model)</span>
+<span id="cb246-30"><a href="multilevel-models.html#cb246-30" tabindex="-1"></a><span class="co">#&gt; $scenario</span></span>
+<span id="cb246-31"><a href="multilevel-models.html#cb246-31" tabindex="-1"></a><span class="co">#&gt;   (Intercept) attitudepol genderM</span></span>
+<span id="cb246-32"><a href="multilevel-models.html#cb246-32" tabindex="-1"></a><span class="co">#&gt; 1         243       -19.7    -109</span></span>
+<span id="cb246-33"><a href="multilevel-models.html#cb246-33" tabindex="-1"></a><span class="co">#&gt; 2         263       -19.7    -109</span></span>
+<span id="cb246-34"><a href="multilevel-models.html#cb246-34" tabindex="-1"></a><span class="co">#&gt; 3         268       -19.7    -109</span></span>
+<span id="cb246-35"><a href="multilevel-models.html#cb246-35" tabindex="-1"></a><span class="co">#&gt; 4         277       -19.7    -109</span></span>
+<span id="cb246-36"><a href="multilevel-models.html#cb246-36" tabindex="-1"></a><span class="co">#&gt; 5         255       -19.7    -109</span></span>
+<span id="cb246-37"><a href="multilevel-models.html#cb246-37" tabindex="-1"></a><span class="co">#&gt; 6         245       -19.7    -109</span></span>
+<span id="cb246-38"><a href="multilevel-models.html#cb246-38" tabindex="-1"></a><span class="co">#&gt; 7         246       -19.7    -109</span></span>
+<span id="cb246-39"><a href="multilevel-models.html#cb246-39" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb246-40"><a href="multilevel-models.html#cb246-40" tabindex="-1"></a><span class="co">#&gt; $subject</span></span>
+<span id="cb246-41"><a href="multilevel-models.html#cb246-41" tabindex="-1"></a><span class="co">#&gt;    (Intercept) attitudepol genderM</span></span>
+<span id="cb246-42"><a href="multilevel-models.html#cb246-42" tabindex="-1"></a><span class="co">#&gt; F1         243       -19.7    -109</span></span>
+<span id="cb246-43"><a href="multilevel-models.html#cb246-43" tabindex="-1"></a><span class="co">#&gt; F2         267       -19.7    -109</span></span>
+<span id="cb246-44"><a href="multilevel-models.html#cb246-44" tabindex="-1"></a><span class="co">#&gt; F3         260       -19.7    -109</span></span>
+<span id="cb246-45"><a href="multilevel-models.html#cb246-45" tabindex="-1"></a><span class="co">#&gt; M3         284       -19.7    -109</span></span>
+<span id="cb246-46"><a href="multilevel-models.html#cb246-46" tabindex="-1"></a><span class="co">#&gt; M4         262       -19.7    -109</span></span>
+<span id="cb246-47"><a href="multilevel-models.html#cb246-47" tabindex="-1"></a><span class="co">#&gt; M7         224       -19.7    -109</span></span>
+<span id="cb246-48"><a href="multilevel-models.html#cb246-48" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb246-49"><a href="multilevel-models.html#cb246-49" tabindex="-1"></a><span class="co">#&gt; attr(,&quot;class&quot;)</span></span>
+<span id="cb246-50"><a href="multilevel-models.html#cb246-50" tabindex="-1"></a><span class="co">#&gt; [1] &quot;coef.mer&quot;</span></span>
+<span id="cb246-51"><a href="multilevel-models.html#cb246-51" tabindex="-1"></a></span>
+<span id="cb246-52"><a href="multilevel-models.html#cb246-52" tabindex="-1"></a></span>
+<span id="cb246-53"><a href="multilevel-models.html#cb246-53" tabindex="-1"></a>politeness.model <span class="ot">=</span> <span class="fu">lmer</span>(frequency <span class="sc">~</span> attitude <span class="sc">+</span></span>
+<span id="cb246-54"><a href="multilevel-models.html#cb246-54" tabindex="-1"></a>                          gender <span class="sc">+</span> (<span class="dv">1</span><span class="sc">+</span>attitude<span class="sc">|</span>subject) <span class="sc">+</span></span>
+<span id="cb246-55"><a href="multilevel-models.html#cb246-55" tabindex="-1"></a>                          (<span class="dv">1</span><span class="sc">+</span>attitude<span class="sc">|</span>scenario),</span>
+<span id="cb246-56"><a href="multilevel-models.html#cb246-56" tabindex="-1"></a>                        <span class="at">data=</span>df,</span>
+<span id="cb246-57"><a href="multilevel-models.html#cb246-57" tabindex="-1"></a>                        <span class="at">REML=</span><span class="cn">FALSE</span>)</span>
+<span id="cb246-58"><a href="multilevel-models.html#cb246-58" tabindex="-1"></a><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></span>
+<span id="cb246-59"><a href="multilevel-models.html#cb246-59" tabindex="-1"></a></span>
+<span id="cb246-60"><a href="multilevel-models.html#cb246-60" tabindex="-1"></a></span>
+<span id="cb246-61"><a href="multilevel-models.html#cb246-61" tabindex="-1"></a></span>
+<span id="cb246-62"><a href="multilevel-models.html#cb246-62" tabindex="-1"></a>politeness.null <span class="ot">=</span> <span class="fu">lmer</span>(frequency <span class="sc">~</span> gender <span class="sc">+</span></span>
+<span id="cb246-63"><a href="multilevel-models.html#cb246-63" tabindex="-1"></a>                         (<span class="dv">1</span><span class="sc">+</span>attitude<span class="sc">|</span>subject) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">+</span>attitude<span class="sc">|</span>scenario),</span>
+<span id="cb246-64"><a href="multilevel-models.html#cb246-64" tabindex="-1"></a>                       <span class="at">data=</span>df, <span class="at">REML=</span><span class="cn">FALSE</span>)</span>
+<span id="cb246-65"><a href="multilevel-models.html#cb246-65" tabindex="-1"></a><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></span>
+<span id="cb246-66"><a href="multilevel-models.html#cb246-66" tabindex="-1"></a></span>
+<span id="cb246-67"><a href="multilevel-models.html#cb246-67" tabindex="-1"></a><span class="fu">anova</span>(politeness.null,politeness.model)</span>
+<span id="cb246-68"><a href="multilevel-models.html#cb246-68" tabindex="-1"></a><span class="co">#&gt; Data: df</span></span>
+<span id="cb246-69"><a href="multilevel-models.html#cb246-69" tabindex="-1"></a><span class="co">#&gt; Models:</span></span>
+<span id="cb246-70"><a href="multilevel-models.html#cb246-70" tabindex="-1"></a><span class="co">#&gt; politeness.null: frequency ~ gender + (1 + attitude | subject) + (1 + attitude | scenario)</span></span>
+<span id="cb246-71"><a href="multilevel-models.html#cb246-71" tabindex="-1"></a><span class="co">#&gt; politeness.model: frequency ~ attitude + gender + (1 + attitude | subject) + (1 + attitude | scenario)</span></span>
+<span id="cb246-72"><a href="multilevel-models.html#cb246-72" tabindex="-1"></a><span class="co">#&gt;                  npar AIC BIC logLik deviance Chisq Df Pr(&gt;Chisq)   </span></span>
+<span id="cb246-73"><a href="multilevel-models.html#cb246-73" tabindex="-1"></a><span class="co">#&gt; politeness.null     9 820 841   -401      802                       </span></span>
+<span id="cb246-74"><a href="multilevel-models.html#cb246-74" tabindex="-1"></a><span class="co">#&gt; politeness.model   10 815 839   -397      795  6.71  1     0.0096 **</span></span>
+<span id="cb246-75"><a href="multilevel-models.html#cb246-75" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb246-76"><a href="multilevel-models.html#cb246-76" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb246-77"><a href="multilevel-models.html#cb246-77" tabindex="-1"></a></span>
+<span id="cb246-78"><a href="multilevel-models.html#cb246-78" tabindex="-1"></a>politeness.model<span class="ot">=</span><span class="fu">lmer</span>(frequency<span class="sc">~</span>attitude<span class="sc">+</span>gender<span class="sc">+</span>(<span class="dv">1</span><span class="sc">+</span>attitude<span class="sc">|</span>scenario), <span class="at">data =</span> df, <span class="at">REML =</span> F)</span>
+<span id="cb246-79"><a href="multilevel-models.html#cb246-79" tabindex="-1"></a><span class="co">#&gt; boundary (singular) fit: see ?isSingular</span></span></code></pre></div>
 <p><strong>Challenge 3</strong></p>
 <p>Attempt to apply the mixed model to your own dataset. How many
 predictors do you have? Is it appropriate? Why or why not.</p>

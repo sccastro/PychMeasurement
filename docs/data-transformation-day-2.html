@@ -159,6 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.11" data-path="syllabus.html"><a href="syllabus.html#student-support-accommodations"><i class="fa fa-check"></i><b>1.11</b> Student Support &amp; Accommodations</a></li>
 <li class="chapter" data-level="1.12" data-path="syllabus.html"><a href="syllabus.html#academic-calendar"><i class="fa fa-check"></i><b>1.12</b> Academic Calendar</a></li>
 <li class="chapter" data-level="1.13" data-path="syllabus.html"><a href="syllabus.html#course-schedule"><i class="fa fa-check"></i><b>1.13</b> Course Schedule</a></li>
+<li class="chapter" data-level="1.14" data-path="syllabus.html"><a href="syllabus.html#end-of-syllabus"><i class="fa fa-check"></i><b>1.14</b> End of Syllabus</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
 <ul>
@@ -176,10 +177,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="importing-data.html"><a href="importing-data.html"><i class="fa fa-check"></i><b>3</b> Importing Data</a>
 <ul>
+<li class="chapter" data-level="3.1" data-path="importing-data.html"><a href="importing-data.html#winner-jacob-bates"><i class="fa fa-check"></i><b>3.1</b> WINNER!!!!! Jacob Bates</a></li>
 <li class="chapter" data-level="" data-path="importing-data.html"><a href="importing-data.html#reading-files-into-r"><i class="fa fa-check"></i>Reading files into R</a></li>
-<li class="chapter" data-level="3.1" data-path="importing-data.html"><a href="importing-data.html#whats-a-tibble"><i class="fa fa-check"></i><b>3.1</b> What’s a tibble?</a></li>
-<li class="chapter" data-level="3.2" data-path="importing-data.html"><a href="importing-data.html#save-your-dataset"><i class="fa fa-check"></i><b>3.2</b> Save your dataset:</a></li>
-<li class="chapter" data-level="3.3" data-path="importing-data.html"><a href="importing-data.html#cleaning-your-data-file"><i class="fa fa-check"></i><b>3.3</b> Cleaning your data file</a></li>
+<li class="chapter" data-level="3.2" data-path="importing-data.html"><a href="importing-data.html#whats-a-tibble"><i class="fa fa-check"></i><b>3.2</b> What’s a tibble?</a></li>
+<li class="chapter" data-level="3.3" data-path="importing-data.html"><a href="importing-data.html#save-your-dataset"><i class="fa fa-check"></i><b>3.3</b> Save your dataset:</a></li>
+<li class="chapter" data-level="3.4" data-path="importing-data.html"><a href="importing-data.html#cleaning-your-data-file"><i class="fa fa-check"></i><b>3.4</b> Cleaning your data file</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>4</b> Data Transformation</a>
 <ul>
@@ -321,113 +323,113 @@ Advanced R Challenges
 </h4>
 <p>Explain how the order of factors changed within the plots for dat2. How
 do facet_grid and facet_wrap work?</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="data-transformation-day-2.html#cb78-1" tabindex="-1"></a><span class="co">#Can you reorder</span></span>
-<span id="cb78-2"><a href="data-transformation-day-2.html#cb78-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb78-3"><a href="data-transformation-day-2.html#cb78-3" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb78-4"><a href="data-transformation-day-2.html#cb78-4" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
-<span id="cb78-5"><a href="data-transformation-day-2.html#cb78-5" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> <span class="fu">structure</span>(<span class="fu">list</span>(<span class="at">School =</span> <span class="fu">structure</span>(<span class="fu">c</span>(2L, 2L, 2L, 1L, 1L, 1L, 3L, </span>
-<span id="cb78-6"><a href="data-transformation-day-2.html#cb78-6" tabindex="-1"></a>                                            3L, 3L), <span class="at">.Label =</span> <span class="fu">c</span>(<span class="st">&quot;School1&quot;</span>, <span class="st">&quot;School2&quot;</span>, <span class="st">&quot;School3&quot;</span>), <span class="at">class =</span> <span class="st">&quot;factor&quot;</span>), </span>
-<span id="cb78-7"><a href="data-transformation-day-2.html#cb78-7" tabindex="-1"></a>                       <span class="at">Year =</span> <span class="fu">c</span>(2015L, 2014L, 2013L, 2015L, 2014L, 2013L, 2015L, </span>
-<span id="cb78-8"><a href="data-transformation-day-2.html#cb78-8" tabindex="-1"></a>                                2014L, 2013L), <span class="at">Rate =</span> <span class="fu">c</span>(80L, 90L, 11L, 70L, 50L, 30L, 60L, </span>
-<span id="cb78-9"><a href="data-transformation-day-2.html#cb78-9" tabindex="-1"></a>                                                        50L, 40L), <span class="at">Order =</span> <span class="fu">c</span>(1L, 1L, 1L, 2L, 2L, 2L, 3L, 3L, 3L), </span>
-<span id="cb78-10"><a href="data-transformation-day-2.html#cb78-10" tabindex="-1"></a>                       <span class="at">Order2 =</span> <span class="fu">c</span>(1L, 2L, 3L, 1L, 2L, 3L, 1L, 2L, 3L), </span>
-<span id="cb78-11"><a href="data-transformation-day-2.html#cb78-11" tabindex="-1"></a>                       <span class="at">Order3 =</span> <span class="fu">structure</span>(<span class="fu">c</span>(<span class="cn">NA_integer_</span>,</span>
-<span id="cb78-12"><a href="data-transformation-day-2.html#cb78-12" tabindex="-1"></a>                                            <span class="cn">NA_integer_</span>, <span class="cn">NA_integer_</span>, <span class="cn">NA_integer_</span>, <span class="cn">NA_integer_</span>, <span class="cn">NA_integer_</span>, </span>
-<span id="cb78-13"><a href="data-transformation-day-2.html#cb78-13" tabindex="-1"></a>                                            <span class="cn">NA_integer_</span>, <span class="cn">NA_integer_</span>, <span class="cn">NA_integer_</span>), </span>
-<span id="cb78-14"><a href="data-transformation-day-2.html#cb78-14" tabindex="-1"></a>                                          <span class="at">.Label =</span> <span class="fu">c</span>(<span class="st">&quot;School2&quot;</span>,<span class="st">&quot;School1&quot;</span>,<span class="st">&quot;School3&quot;</span>), <span class="at">class =</span> <span class="st">&quot;factor&quot;</span>)),</span>
-<span id="cb78-15"><a href="data-transformation-day-2.html#cb78-15" tabindex="-1"></a>                  <span class="at">.Names =</span> <span class="fu">c</span>(<span class="st">&quot;School&quot;</span>,<span class="st">&quot;Year&quot;</span>, <span class="st">&quot;Rate&quot;</span>, <span class="st">&quot;Order&quot;</span>, <span class="st">&quot;Order2&quot;</span>, <span class="st">&quot;Order3&quot;</span>), </span>
-<span id="cb78-16"><a href="data-transformation-day-2.html#cb78-16" tabindex="-1"></a>                  <span class="at">row.names =</span> <span class="fu">c</span>(<span class="cn">NA</span>,<span class="sc">-</span>9L), <span class="at">class =</span> <span class="fu">c</span>(<span class="st">&quot;tbl_df&quot;</span>, <span class="st">&quot;tbl&quot;</span>, <span class="st">&quot;data.frame&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb78-17"><a href="data-transformation-day-2.html#cb78-17" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">School =</span> <span class="fu">fct_relevel</span>(School, <span class="fu">c</span>(<span class="st">&quot;School2&quot;</span>,<span class="st">&quot;School1&quot;</span>,<span class="st">&quot;School3&quot;</span>)))</span>
-<span id="cb78-18"><a href="data-transformation-day-2.html#cb78-18" tabindex="-1"></a></span>
-<span id="cb78-19"><a href="data-transformation-day-2.html#cb78-19" tabindex="-1"></a></span>
-<span id="cb78-20"><a href="data-transformation-day-2.html#cb78-20" tabindex="-1"></a></span>
-<span id="cb78-21"><a href="data-transformation-day-2.html#cb78-21" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(dat2, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Year,Order2), Rate), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;School1&quot;</span>,<span class="st">&quot;School2&quot;</span>,<span class="st">&quot;School3&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb78-22"><a href="data-transformation-day-2.html#cb78-22" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">width =</span> <span class="fl">0.5</span>)</span>
-<span id="cb78-23"><a href="data-transformation-day-2.html#cb78-23" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">facet_grid</span>(. <span class="sc">~</span>School)</span>
-<span id="cb78-24"><a href="data-transformation-day-2.html#cb78-24" tabindex="-1"></a></span>
-<span id="cb78-25"><a href="data-transformation-day-2.html#cb78-25" tabindex="-1"></a></span>
-<span id="cb78-26"><a href="data-transformation-day-2.html#cb78-26" tabindex="-1"></a>dat2 <span class="sc">%&gt;%</span></span>
-<span id="cb78-27"><a href="data-transformation-day-2.html#cb78-27" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">School =</span> <span class="fu">fct_relevel</span>(School, <span class="fu">c</span>(<span class="st">&quot;School2&quot;</span>,<span class="st">&quot;School1&quot;</span>,<span class="st">&quot;School3&quot;</span>))) <span class="sc">%&gt;%</span></span>
-<span id="cb78-28"><a href="data-transformation-day-2.html#cb78-28" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Year,Order2), Rate), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;School1&quot;</span>,<span class="st">&quot;School2&quot;</span>,<span class="st">&quot;School3&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb78-29"><a href="data-transformation-day-2.html#cb78-29" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">width =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb78-30"><a href="data-transformation-day-2.html#cb78-30" tabindex="-1"></a>  <span class="fu">facet_grid</span>(. <span class="sc">~</span>School)</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="data-transformation-day-2.html#cb79-1" tabindex="-1"></a><span class="co">#Can you reorder</span></span>
+<span id="cb79-2"><a href="data-transformation-day-2.html#cb79-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb79-3"><a href="data-transformation-day-2.html#cb79-3" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb79-4"><a href="data-transformation-day-2.html#cb79-4" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb79-5"><a href="data-transformation-day-2.html#cb79-5" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> <span class="fu">structure</span>(<span class="fu">list</span>(<span class="at">School =</span> <span class="fu">structure</span>(<span class="fu">c</span>(2L, 2L, 2L, 1L, 1L, 1L, 3L, </span>
+<span id="cb79-6"><a href="data-transformation-day-2.html#cb79-6" tabindex="-1"></a>                                            3L, 3L), <span class="at">.Label =</span> <span class="fu">c</span>(<span class="st">&quot;School1&quot;</span>, <span class="st">&quot;School2&quot;</span>, <span class="st">&quot;School3&quot;</span>), <span class="at">class =</span> <span class="st">&quot;factor&quot;</span>), </span>
+<span id="cb79-7"><a href="data-transformation-day-2.html#cb79-7" tabindex="-1"></a>                       <span class="at">Year =</span> <span class="fu">c</span>(2015L, 2014L, 2013L, 2015L, 2014L, 2013L, 2015L, </span>
+<span id="cb79-8"><a href="data-transformation-day-2.html#cb79-8" tabindex="-1"></a>                                2014L, 2013L), <span class="at">Rate =</span> <span class="fu">c</span>(80L, 90L, 11L, 70L, 50L, 30L, 60L, </span>
+<span id="cb79-9"><a href="data-transformation-day-2.html#cb79-9" tabindex="-1"></a>                                                        50L, 40L), <span class="at">Order =</span> <span class="fu">c</span>(1L, 1L, 1L, 2L, 2L, 2L, 3L, 3L, 3L), </span>
+<span id="cb79-10"><a href="data-transformation-day-2.html#cb79-10" tabindex="-1"></a>                       <span class="at">Order2 =</span> <span class="fu">c</span>(1L, 2L, 3L, 1L, 2L, 3L, 1L, 2L, 3L), </span>
+<span id="cb79-11"><a href="data-transformation-day-2.html#cb79-11" tabindex="-1"></a>                       <span class="at">Order3 =</span> <span class="fu">structure</span>(<span class="fu">c</span>(<span class="cn">NA_integer_</span>,</span>
+<span id="cb79-12"><a href="data-transformation-day-2.html#cb79-12" tabindex="-1"></a>                                            <span class="cn">NA_integer_</span>, <span class="cn">NA_integer_</span>, <span class="cn">NA_integer_</span>, <span class="cn">NA_integer_</span>, <span class="cn">NA_integer_</span>, </span>
+<span id="cb79-13"><a href="data-transformation-day-2.html#cb79-13" tabindex="-1"></a>                                            <span class="cn">NA_integer_</span>, <span class="cn">NA_integer_</span>, <span class="cn">NA_integer_</span>), </span>
+<span id="cb79-14"><a href="data-transformation-day-2.html#cb79-14" tabindex="-1"></a>                                          <span class="at">.Label =</span> <span class="fu">c</span>(<span class="st">&quot;School2&quot;</span>,<span class="st">&quot;School1&quot;</span>,<span class="st">&quot;School3&quot;</span>), <span class="at">class =</span> <span class="st">&quot;factor&quot;</span>)),</span>
+<span id="cb79-15"><a href="data-transformation-day-2.html#cb79-15" tabindex="-1"></a>                  <span class="at">.Names =</span> <span class="fu">c</span>(<span class="st">&quot;School&quot;</span>,<span class="st">&quot;Year&quot;</span>, <span class="st">&quot;Rate&quot;</span>, <span class="st">&quot;Order&quot;</span>, <span class="st">&quot;Order2&quot;</span>, <span class="st">&quot;Order3&quot;</span>), </span>
+<span id="cb79-16"><a href="data-transformation-day-2.html#cb79-16" tabindex="-1"></a>                  <span class="at">row.names =</span> <span class="fu">c</span>(<span class="cn">NA</span>,<span class="sc">-</span>9L), <span class="at">class =</span> <span class="fu">c</span>(<span class="st">&quot;tbl_df&quot;</span>, <span class="st">&quot;tbl&quot;</span>, <span class="st">&quot;data.frame&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb79-17"><a href="data-transformation-day-2.html#cb79-17" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">School =</span> <span class="fu">fct_relevel</span>(School, <span class="fu">c</span>(<span class="st">&quot;School2&quot;</span>,<span class="st">&quot;School1&quot;</span>,<span class="st">&quot;School3&quot;</span>)))</span>
+<span id="cb79-18"><a href="data-transformation-day-2.html#cb79-18" tabindex="-1"></a></span>
+<span id="cb79-19"><a href="data-transformation-day-2.html#cb79-19" tabindex="-1"></a></span>
+<span id="cb79-20"><a href="data-transformation-day-2.html#cb79-20" tabindex="-1"></a></span>
+<span id="cb79-21"><a href="data-transformation-day-2.html#cb79-21" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(dat2, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Year,Order2), Rate), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;School1&quot;</span>,<span class="st">&quot;School2&quot;</span>,<span class="st">&quot;School3&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb79-22"><a href="data-transformation-day-2.html#cb79-22" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">width =</span> <span class="fl">0.5</span>)</span>
+<span id="cb79-23"><a href="data-transformation-day-2.html#cb79-23" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">facet_grid</span>(. <span class="sc">~</span>School)</span>
+<span id="cb79-24"><a href="data-transformation-day-2.html#cb79-24" tabindex="-1"></a></span>
+<span id="cb79-25"><a href="data-transformation-day-2.html#cb79-25" tabindex="-1"></a></span>
+<span id="cb79-26"><a href="data-transformation-day-2.html#cb79-26" tabindex="-1"></a>dat2 <span class="sc">%&gt;%</span></span>
+<span id="cb79-27"><a href="data-transformation-day-2.html#cb79-27" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">School =</span> <span class="fu">fct_relevel</span>(School, <span class="fu">c</span>(<span class="st">&quot;School2&quot;</span>,<span class="st">&quot;School1&quot;</span>,<span class="st">&quot;School3&quot;</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb79-28"><a href="data-transformation-day-2.html#cb79-28" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Year,Order2), Rate), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;School1&quot;</span>,<span class="st">&quot;School2&quot;</span>,<span class="st">&quot;School3&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb79-29"><a href="data-transformation-day-2.html#cb79-29" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">width =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb79-30"><a href="data-transformation-day-2.html#cb79-30" tabindex="-1"></a>  <span class="fu">facet_grid</span>(. <span class="sc">~</span>School)</span></code></pre></div>
 <div id="day-2" class="section level2 unnumbered hasAnchor">
 <h2>Day 2<a href="data-transformation-day-2.html#day-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><em>Note</em>: Much of this lesson can be found in the “factors” chapter of R
 for Data Science by Hadley Wickham: <a href="http://r4ds.had.co.nz/factors.html" class="uri">http://r4ds.had.co.nz/factors.html</a></p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="data-transformation-day-2.html#cb79-1" tabindex="-1"></a>?gss_cat <span class="co">#See more about the variables in our dataset</span></span>
-<span id="cb79-2"><a href="data-transformation-day-2.html#cb79-2" tabindex="-1"></a></span>
-<span id="cb79-3"><a href="data-transformation-day-2.html#cb79-3" tabindex="-1"></a><span class="fu">View</span>(gss_cat)</span></code></pre></div>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="data-transformation-day-2.html#cb80-1" tabindex="-1"></a>gss_cat <span class="sc">%&gt;%</span></span>
-<span id="cb80-2"><a href="data-transformation-day-2.html#cb80-2" tabindex="-1"></a>  <span class="fu">count</span>(race) <span class="co">#We can see counts of each race or religion</span></span>
-<span id="cb80-3"><a href="data-transformation-day-2.html#cb80-3" tabindex="-1"></a><span class="co">#&gt; # A tibble: 3 × 2</span></span>
-<span id="cb80-4"><a href="data-transformation-day-2.html#cb80-4" tabindex="-1"></a><span class="co">#&gt;   race      n</span></span>
-<span id="cb80-5"><a href="data-transformation-day-2.html#cb80-5" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt; &lt;int&gt;</span></span>
-<span id="cb80-6"><a href="data-transformation-day-2.html#cb80-6" tabindex="-1"></a><span class="co">#&gt; 1 Other  1959</span></span>
-<span id="cb80-7"><a href="data-transformation-day-2.html#cb80-7" tabindex="-1"></a><span class="co">#&gt; 2 Black  3129</span></span>
-<span id="cb80-8"><a href="data-transformation-day-2.html#cb80-8" tabindex="-1"></a><span class="co">#&gt; 3 White 16395</span></span>
-<span id="cb80-9"><a href="data-transformation-day-2.html#cb80-9" tabindex="-1"></a></span>
-<span id="cb80-10"><a href="data-transformation-day-2.html#cb80-10" tabindex="-1"></a>gss_cat <span class="sc">%&gt;%</span></span>
-<span id="cb80-11"><a href="data-transformation-day-2.html#cb80-11" tabindex="-1"></a>  <span class="fu">count</span>(relig) <span class="sc">%&gt;%</span></span>
-<span id="cb80-12"><a href="data-transformation-day-2.html#cb80-12" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n)) <span class="co">#We can arrange them in descending order on the count column (n)</span></span>
-<span id="cb80-13"><a href="data-transformation-day-2.html#cb80-13" tabindex="-1"></a><span class="co">#&gt; # A tibble: 15 × 2</span></span>
-<span id="cb80-14"><a href="data-transformation-day-2.html#cb80-14" tabindex="-1"></a><span class="co">#&gt;   relig          n</span></span>
-<span id="cb80-15"><a href="data-transformation-day-2.html#cb80-15" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt;      &lt;int&gt;</span></span>
-<span id="cb80-16"><a href="data-transformation-day-2.html#cb80-16" tabindex="-1"></a><span class="co">#&gt; 1 Protestant 10846</span></span>
-<span id="cb80-17"><a href="data-transformation-day-2.html#cb80-17" tabindex="-1"></a><span class="co">#&gt; 2 Catholic    5124</span></span>
-<span id="cb80-18"><a href="data-transformation-day-2.html#cb80-18" tabindex="-1"></a><span class="co">#&gt; 3 None        3523</span></span>
-<span id="cb80-19"><a href="data-transformation-day-2.html#cb80-19" tabindex="-1"></a><span class="co">#&gt; 4 Christian    689</span></span>
-<span id="cb80-20"><a href="data-transformation-day-2.html#cb80-20" tabindex="-1"></a><span class="co">#&gt; 5 Jewish       388</span></span>
-<span id="cb80-21"><a href="data-transformation-day-2.html#cb80-21" tabindex="-1"></a><span class="co">#&gt; 6 Other        224</span></span>
-<span id="cb80-22"><a href="data-transformation-day-2.html#cb80-22" tabindex="-1"></a><span class="co">#&gt; # … with 9 more rows</span></span>
-<span id="cb80-23"><a href="data-transformation-day-2.html#cb80-23" tabindex="-1"></a></span>
-<span id="cb80-24"><a href="data-transformation-day-2.html#cb80-24" tabindex="-1"></a>gss_cat <span class="sc">%&gt;%</span></span>
-<span id="cb80-25"><a href="data-transformation-day-2.html#cb80-25" tabindex="-1"></a>  <span class="fu">count</span>(age) <span class="co">#Or we can count by age...</span></span>
-<span id="cb80-26"><a href="data-transformation-day-2.html#cb80-26" tabindex="-1"></a><span class="co">#&gt; # A tibble: 73 × 2</span></span>
-<span id="cb80-27"><a href="data-transformation-day-2.html#cb80-27" tabindex="-1"></a><span class="co">#&gt;     age     n</span></span>
-<span id="cb80-28"><a href="data-transformation-day-2.html#cb80-28" tabindex="-1"></a><span class="co">#&gt;   &lt;int&gt; &lt;int&gt;</span></span>
-<span id="cb80-29"><a href="data-transformation-day-2.html#cb80-29" tabindex="-1"></a><span class="co">#&gt; 1    18    91</span></span>
-<span id="cb80-30"><a href="data-transformation-day-2.html#cb80-30" tabindex="-1"></a><span class="co">#&gt; 2    19   249</span></span>
-<span id="cb80-31"><a href="data-transformation-day-2.html#cb80-31" tabindex="-1"></a><span class="co">#&gt; 3    20   251</span></span>
-<span id="cb80-32"><a href="data-transformation-day-2.html#cb80-32" tabindex="-1"></a><span class="co">#&gt; 4    21   278</span></span>
-<span id="cb80-33"><a href="data-transformation-day-2.html#cb80-33" tabindex="-1"></a><span class="co">#&gt; 5    22   298</span></span>
-<span id="cb80-34"><a href="data-transformation-day-2.html#cb80-34" tabindex="-1"></a><span class="co">#&gt; 6    23   361</span></span>
-<span id="cb80-35"><a href="data-transformation-day-2.html#cb80-35" tabindex="-1"></a><span class="co">#&gt; # … with 67 more rows</span></span>
-<span id="cb80-36"><a href="data-transformation-day-2.html#cb80-36" tabindex="-1"></a></span>
-<span id="cb80-37"><a href="data-transformation-day-2.html#cb80-37" tabindex="-1"></a></span>
-<span id="cb80-38"><a href="data-transformation-day-2.html#cb80-38" tabindex="-1"></a>gss_cat <span class="sc">%&gt;%</span></span>
-<span id="cb80-39"><a href="data-transformation-day-2.html#cb80-39" tabindex="-1"></a>  <span class="fu">count</span>(race) <span class="sc">%&gt;%</span></span>
-<span id="cb80-40"><a href="data-transformation-day-2.html#cb80-40" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">freq =</span> (n <span class="sc">/</span> <span class="fu">sum</span>(n))<span class="sc">*</span><span class="dv">100</span>) <span class="co">#We can see relative proportions in the sample</span></span>
-<span id="cb80-41"><a href="data-transformation-day-2.html#cb80-41" tabindex="-1"></a><span class="co">#&gt; # A tibble: 3 × 3</span></span>
-<span id="cb80-42"><a href="data-transformation-day-2.html#cb80-42" tabindex="-1"></a><span class="co">#&gt;   race      n  freq</span></span>
-<span id="cb80-43"><a href="data-transformation-day-2.html#cb80-43" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt; &lt;int&gt; &lt;dbl&gt;</span></span>
-<span id="cb80-44"><a href="data-transformation-day-2.html#cb80-44" tabindex="-1"></a><span class="co">#&gt; 1 Other  1959  9.12</span></span>
-<span id="cb80-45"><a href="data-transformation-day-2.html#cb80-45" tabindex="-1"></a><span class="co">#&gt; 2 Black  3129 14.6 </span></span>
-<span id="cb80-46"><a href="data-transformation-day-2.html#cb80-46" tabindex="-1"></a><span class="co">#&gt; 3 White 16395 76.3</span></span>
-<span id="cb80-47"><a href="data-transformation-day-2.html#cb80-47" tabindex="-1"></a></span>
-<span id="cb80-48"><a href="data-transformation-day-2.html#cb80-48" tabindex="-1"></a><span class="fu">levels</span>(gss_cat<span class="sc">$</span>rincome)</span>
-<span id="cb80-49"><a href="data-transformation-day-2.html#cb80-49" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;No answer&quot;      &quot;Don&#39;t know&quot;     &quot;Refused&quot;        &quot;$25000 or more&quot;</span></span>
-<span id="cb80-50"><a href="data-transformation-day-2.html#cb80-50" tabindex="-1"></a><span class="co">#&gt;  [5] &quot;$20000 - 24999&quot; &quot;$15000 - 19999&quot; &quot;$10000 - 14999&quot; &quot;$8000 to 9999&quot; </span></span>
-<span id="cb80-51"><a href="data-transformation-day-2.html#cb80-51" tabindex="-1"></a><span class="co">#&gt;  [9] &quot;$7000 to 7999&quot;  &quot;$6000 to 6999&quot;  &quot;$5000 to 5999&quot;  &quot;$4000 to 4999&quot; </span></span>
-<span id="cb80-52"><a href="data-transformation-day-2.html#cb80-52" tabindex="-1"></a><span class="co">#&gt; [13] &quot;$3000 to 3999&quot;  &quot;$1000 to 2999&quot;  &quot;Lt $1000&quot;       &quot;Not applicable&quot;</span></span>
-<span id="cb80-53"><a href="data-transformation-day-2.html#cb80-53" tabindex="-1"></a><span class="co">#Releveling factors with forcats</span></span>
-<span id="cb80-54"><a href="data-transformation-day-2.html#cb80-54" tabindex="-1"></a>df <span class="ot">&lt;-</span> forcats<span class="sc">::</span>gss_cat</span></code></pre></div>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="data-transformation-day-2.html#cb81-1" tabindex="-1"></a><span class="co">#Remember, none of these outcomes are being saved into any objects with &lt;- </span></span>
-<span id="cb81-2"><a href="data-transformation-day-2.html#cb81-2" tabindex="-1"></a><span class="co">#This is just for visualizing and exploring the data.</span></span>
-<span id="cb81-3"><a href="data-transformation-day-2.html#cb81-3" tabindex="-1"></a></span>
-<span id="cb81-4"><a href="data-transformation-day-2.html#cb81-4" tabindex="-1"></a><span class="co">#We can visualize this information with ggplot2</span></span>
-<span id="cb81-5"><a href="data-transformation-day-2.html#cb81-5" tabindex="-1"></a><span class="fu">require</span>(ggplot2) <span class="co">#We will get more into ggplot next week, </span></span>
-<span id="cb81-6"><a href="data-transformation-day-2.html#cb81-6" tabindex="-1"></a><span class="co">#but for now here is an introduction.</span></span>
-<span id="cb81-7"><a href="data-transformation-day-2.html#cb81-7" tabindex="-1"></a></span>
-<span id="cb81-8"><a href="data-transformation-day-2.html#cb81-8" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gss_cat, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span>race)) <span class="sc">+</span></span>
-<span id="cb81-9"><a href="data-transformation-day-2.html#cb81-9" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span>
-<span id="cb81-10"><a href="data-transformation-day-2.html#cb81-10" tabindex="-1"></a></span>
-<span id="cb81-11"><a href="data-transformation-day-2.html#cb81-11" tabindex="-1"></a></span>
-<span id="cb81-12"><a href="data-transformation-day-2.html#cb81-12" tabindex="-1"></a><span class="co"># By default, ggplot2 will drop levels that don’t have any values. </span></span>
-<span id="cb81-13"><a href="data-transformation-day-2.html#cb81-13" tabindex="-1"></a><span class="co"># You can force them to display with:</span></span>
-<span id="cb81-14"><a href="data-transformation-day-2.html#cb81-14" tabindex="-1"></a><span class="fu">ggplot</span>(gss_cat, <span class="fu">aes</span>(race)) <span class="sc">+</span></span>
-<span id="cb81-15"><a href="data-transformation-day-2.html#cb81-15" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb81-16"><a href="data-transformation-day-2.html#cb81-16" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">drop =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="data-transformation-day-2.html#cb80-1" tabindex="-1"></a>?gss_cat <span class="co">#See more about the variables in our dataset</span></span>
+<span id="cb80-2"><a href="data-transformation-day-2.html#cb80-2" tabindex="-1"></a></span>
+<span id="cb80-3"><a href="data-transformation-day-2.html#cb80-3" tabindex="-1"></a><span class="fu">View</span>(gss_cat)</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="data-transformation-day-2.html#cb81-1" tabindex="-1"></a>gss_cat <span class="sc">%&gt;%</span></span>
+<span id="cb81-2"><a href="data-transformation-day-2.html#cb81-2" tabindex="-1"></a>  <span class="fu">count</span>(race) <span class="co">#We can see counts of each race or religion</span></span>
+<span id="cb81-3"><a href="data-transformation-day-2.html#cb81-3" tabindex="-1"></a><span class="co">#&gt; # A tibble: 3 × 2</span></span>
+<span id="cb81-4"><a href="data-transformation-day-2.html#cb81-4" tabindex="-1"></a><span class="co">#&gt;   race      n</span></span>
+<span id="cb81-5"><a href="data-transformation-day-2.html#cb81-5" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt; &lt;int&gt;</span></span>
+<span id="cb81-6"><a href="data-transformation-day-2.html#cb81-6" tabindex="-1"></a><span class="co">#&gt; 1 Other  1959</span></span>
+<span id="cb81-7"><a href="data-transformation-day-2.html#cb81-7" tabindex="-1"></a><span class="co">#&gt; 2 Black  3129</span></span>
+<span id="cb81-8"><a href="data-transformation-day-2.html#cb81-8" tabindex="-1"></a><span class="co">#&gt; 3 White 16395</span></span>
+<span id="cb81-9"><a href="data-transformation-day-2.html#cb81-9" tabindex="-1"></a></span>
+<span id="cb81-10"><a href="data-transformation-day-2.html#cb81-10" tabindex="-1"></a>gss_cat <span class="sc">%&gt;%</span></span>
+<span id="cb81-11"><a href="data-transformation-day-2.html#cb81-11" tabindex="-1"></a>  <span class="fu">count</span>(relig) <span class="sc">%&gt;%</span></span>
+<span id="cb81-12"><a href="data-transformation-day-2.html#cb81-12" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n)) <span class="co">#We can arrange them in descending order on the count column (n)</span></span>
+<span id="cb81-13"><a href="data-transformation-day-2.html#cb81-13" tabindex="-1"></a><span class="co">#&gt; # A tibble: 15 × 2</span></span>
+<span id="cb81-14"><a href="data-transformation-day-2.html#cb81-14" tabindex="-1"></a><span class="co">#&gt;   relig          n</span></span>
+<span id="cb81-15"><a href="data-transformation-day-2.html#cb81-15" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt;      &lt;int&gt;</span></span>
+<span id="cb81-16"><a href="data-transformation-day-2.html#cb81-16" tabindex="-1"></a><span class="co">#&gt; 1 Protestant 10846</span></span>
+<span id="cb81-17"><a href="data-transformation-day-2.html#cb81-17" tabindex="-1"></a><span class="co">#&gt; 2 Catholic    5124</span></span>
+<span id="cb81-18"><a href="data-transformation-day-2.html#cb81-18" tabindex="-1"></a><span class="co">#&gt; 3 None        3523</span></span>
+<span id="cb81-19"><a href="data-transformation-day-2.html#cb81-19" tabindex="-1"></a><span class="co">#&gt; 4 Christian    689</span></span>
+<span id="cb81-20"><a href="data-transformation-day-2.html#cb81-20" tabindex="-1"></a><span class="co">#&gt; 5 Jewish       388</span></span>
+<span id="cb81-21"><a href="data-transformation-day-2.html#cb81-21" tabindex="-1"></a><span class="co">#&gt; 6 Other        224</span></span>
+<span id="cb81-22"><a href="data-transformation-day-2.html#cb81-22" tabindex="-1"></a><span class="co">#&gt; # … with 9 more rows</span></span>
+<span id="cb81-23"><a href="data-transformation-day-2.html#cb81-23" tabindex="-1"></a></span>
+<span id="cb81-24"><a href="data-transformation-day-2.html#cb81-24" tabindex="-1"></a>gss_cat <span class="sc">%&gt;%</span></span>
+<span id="cb81-25"><a href="data-transformation-day-2.html#cb81-25" tabindex="-1"></a>  <span class="fu">count</span>(age) <span class="co">#Or we can count by age...</span></span>
+<span id="cb81-26"><a href="data-transformation-day-2.html#cb81-26" tabindex="-1"></a><span class="co">#&gt; # A tibble: 73 × 2</span></span>
+<span id="cb81-27"><a href="data-transformation-day-2.html#cb81-27" tabindex="-1"></a><span class="co">#&gt;     age     n</span></span>
+<span id="cb81-28"><a href="data-transformation-day-2.html#cb81-28" tabindex="-1"></a><span class="co">#&gt;   &lt;int&gt; &lt;int&gt;</span></span>
+<span id="cb81-29"><a href="data-transformation-day-2.html#cb81-29" tabindex="-1"></a><span class="co">#&gt; 1    18    91</span></span>
+<span id="cb81-30"><a href="data-transformation-day-2.html#cb81-30" tabindex="-1"></a><span class="co">#&gt; 2    19   249</span></span>
+<span id="cb81-31"><a href="data-transformation-day-2.html#cb81-31" tabindex="-1"></a><span class="co">#&gt; 3    20   251</span></span>
+<span id="cb81-32"><a href="data-transformation-day-2.html#cb81-32" tabindex="-1"></a><span class="co">#&gt; 4    21   278</span></span>
+<span id="cb81-33"><a href="data-transformation-day-2.html#cb81-33" tabindex="-1"></a><span class="co">#&gt; 5    22   298</span></span>
+<span id="cb81-34"><a href="data-transformation-day-2.html#cb81-34" tabindex="-1"></a><span class="co">#&gt; 6    23   361</span></span>
+<span id="cb81-35"><a href="data-transformation-day-2.html#cb81-35" tabindex="-1"></a><span class="co">#&gt; # … with 67 more rows</span></span>
+<span id="cb81-36"><a href="data-transformation-day-2.html#cb81-36" tabindex="-1"></a></span>
+<span id="cb81-37"><a href="data-transformation-day-2.html#cb81-37" tabindex="-1"></a></span>
+<span id="cb81-38"><a href="data-transformation-day-2.html#cb81-38" tabindex="-1"></a>gss_cat <span class="sc">%&gt;%</span></span>
+<span id="cb81-39"><a href="data-transformation-day-2.html#cb81-39" tabindex="-1"></a>  <span class="fu">count</span>(race) <span class="sc">%&gt;%</span></span>
+<span id="cb81-40"><a href="data-transformation-day-2.html#cb81-40" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">freq =</span> (n <span class="sc">/</span> <span class="fu">sum</span>(n))<span class="sc">*</span><span class="dv">100</span>) <span class="co">#We can see relative proportions in the sample</span></span>
+<span id="cb81-41"><a href="data-transformation-day-2.html#cb81-41" tabindex="-1"></a><span class="co">#&gt; # A tibble: 3 × 3</span></span>
+<span id="cb81-42"><a href="data-transformation-day-2.html#cb81-42" tabindex="-1"></a><span class="co">#&gt;   race      n  freq</span></span>
+<span id="cb81-43"><a href="data-transformation-day-2.html#cb81-43" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt; &lt;int&gt; &lt;dbl&gt;</span></span>
+<span id="cb81-44"><a href="data-transformation-day-2.html#cb81-44" tabindex="-1"></a><span class="co">#&gt; 1 Other  1959  9.12</span></span>
+<span id="cb81-45"><a href="data-transformation-day-2.html#cb81-45" tabindex="-1"></a><span class="co">#&gt; 2 Black  3129 14.6 </span></span>
+<span id="cb81-46"><a href="data-transformation-day-2.html#cb81-46" tabindex="-1"></a><span class="co">#&gt; 3 White 16395 76.3</span></span>
+<span id="cb81-47"><a href="data-transformation-day-2.html#cb81-47" tabindex="-1"></a></span>
+<span id="cb81-48"><a href="data-transformation-day-2.html#cb81-48" tabindex="-1"></a><span class="fu">levels</span>(gss_cat<span class="sc">$</span>rincome)</span>
+<span id="cb81-49"><a href="data-transformation-day-2.html#cb81-49" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;No answer&quot;      &quot;Don&#39;t know&quot;     &quot;Refused&quot;        &quot;$25000 or more&quot;</span></span>
+<span id="cb81-50"><a href="data-transformation-day-2.html#cb81-50" tabindex="-1"></a><span class="co">#&gt;  [5] &quot;$20000 - 24999&quot; &quot;$15000 - 19999&quot; &quot;$10000 - 14999&quot; &quot;$8000 to 9999&quot; </span></span>
+<span id="cb81-51"><a href="data-transformation-day-2.html#cb81-51" tabindex="-1"></a><span class="co">#&gt;  [9] &quot;$7000 to 7999&quot;  &quot;$6000 to 6999&quot;  &quot;$5000 to 5999&quot;  &quot;$4000 to 4999&quot; </span></span>
+<span id="cb81-52"><a href="data-transformation-day-2.html#cb81-52" tabindex="-1"></a><span class="co">#&gt; [13] &quot;$3000 to 3999&quot;  &quot;$1000 to 2999&quot;  &quot;Lt $1000&quot;       &quot;Not applicable&quot;</span></span>
+<span id="cb81-53"><a href="data-transformation-day-2.html#cb81-53" tabindex="-1"></a><span class="co">#Releveling factors with forcats</span></span>
+<span id="cb81-54"><a href="data-transformation-day-2.html#cb81-54" tabindex="-1"></a>df <span class="ot">&lt;-</span> forcats<span class="sc">::</span>gss_cat</span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="data-transformation-day-2.html#cb82-1" tabindex="-1"></a><span class="co">#Remember, none of these outcomes are being saved into any objects with &lt;- </span></span>
+<span id="cb82-2"><a href="data-transformation-day-2.html#cb82-2" tabindex="-1"></a><span class="co">#This is just for visualizing and exploring the data.</span></span>
+<span id="cb82-3"><a href="data-transformation-day-2.html#cb82-3" tabindex="-1"></a></span>
+<span id="cb82-4"><a href="data-transformation-day-2.html#cb82-4" tabindex="-1"></a><span class="co">#We can visualize this information with ggplot2</span></span>
+<span id="cb82-5"><a href="data-transformation-day-2.html#cb82-5" tabindex="-1"></a><span class="fu">require</span>(ggplot2) <span class="co">#We will get more into ggplot next week, </span></span>
+<span id="cb82-6"><a href="data-transformation-day-2.html#cb82-6" tabindex="-1"></a><span class="co">#but for now here is an introduction.</span></span>
+<span id="cb82-7"><a href="data-transformation-day-2.html#cb82-7" tabindex="-1"></a></span>
+<span id="cb82-8"><a href="data-transformation-day-2.html#cb82-8" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gss_cat, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span>race)) <span class="sc">+</span></span>
+<span id="cb82-9"><a href="data-transformation-day-2.html#cb82-9" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span>
+<span id="cb82-10"><a href="data-transformation-day-2.html#cb82-10" tabindex="-1"></a></span>
+<span id="cb82-11"><a href="data-transformation-day-2.html#cb82-11" tabindex="-1"></a></span>
+<span id="cb82-12"><a href="data-transformation-day-2.html#cb82-12" tabindex="-1"></a><span class="co"># By default, ggplot2 will drop levels that don’t have any values. </span></span>
+<span id="cb82-13"><a href="data-transformation-day-2.html#cb82-13" tabindex="-1"></a><span class="co"># You can force them to display with:</span></span>
+<span id="cb82-14"><a href="data-transformation-day-2.html#cb82-14" tabindex="-1"></a><span class="fu">ggplot</span>(gss_cat, <span class="fu">aes</span>(race)) <span class="sc">+</span></span>
+<span id="cb82-15"><a href="data-transformation-day-2.html#cb82-15" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb82-16"><a href="data-transformation-day-2.html#cb82-16" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">drop =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p><img src="04_TransformationDay2_files/figure-html/ggplotintro-1.png" width="70%" style="display: block; margin: auto;" /><img src="04_TransformationDay2_files/figure-html/ggplotintro-2.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>When working with factors, the two most common operations are: 1.
 Changing the order of the levels 2. Changing the values of the levels.</p>
@@ -438,23 +440,23 @@ visualisation.</p>
 religions:</p>
 <p>Note: if you put () on the outside of your assignment, it will also
 print</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="data-transformation-day-2.html#cb82-1" tabindex="-1"></a>(relig_summary <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="co">#Get your data.frame and pipe into the columns</span></span>
-<span id="cb82-2"><a href="data-transformation-day-2.html#cb82-2" tabindex="-1"></a>  <span class="fu">group_by</span>(relig) <span class="sc">%&gt;%</span> <span class="co">#group by religion so that each summary will be for one religion</span></span>
-<span id="cb82-3"><a href="data-transformation-day-2.html#cb82-3" tabindex="-1"></a>  <span class="fu">summarise</span>( <span class="co">#Get a summary for the following transformations</span></span>
-<span id="cb82-4"><a href="data-transformation-day-2.html#cb82-4" tabindex="-1"></a>    <span class="at">age =</span> <span class="fu">mean</span>(age, <span class="at">na.rm =</span> T), <span class="co">#Get the mean of age and name it &quot;age&quot;</span></span>
-<span id="cb82-5"><a href="data-transformation-day-2.html#cb82-5" tabindex="-1"></a>    <span class="at">tvhours =</span> <span class="fu">mean</span>(tvhours, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="co">#Get the mean of tv hours and name it &quot;tvhours&quot;</span></span>
-<span id="cb82-6"><a href="data-transformation-day-2.html#cb82-6" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>() <span class="co">#Count the number of observations in each group</span></span>
-<span id="cb82-7"><a href="data-transformation-day-2.html#cb82-7" tabindex="-1"></a>  ))</span>
-<span id="cb82-8"><a href="data-transformation-day-2.html#cb82-8" tabindex="-1"></a><span class="co">#&gt; # A tibble: 15 × 4</span></span>
-<span id="cb82-9"><a href="data-transformation-day-2.html#cb82-9" tabindex="-1"></a><span class="co">#&gt;   relig                     age tvhours     n</span></span>
-<span id="cb82-10"><a href="data-transformation-day-2.html#cb82-10" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt;                   &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt;</span></span>
-<span id="cb82-11"><a href="data-transformation-day-2.html#cb82-11" tabindex="-1"></a><span class="co">#&gt; 1 No answer                49.5    2.72    93</span></span>
-<span id="cb82-12"><a href="data-transformation-day-2.html#cb82-12" tabindex="-1"></a><span class="co">#&gt; 2 Don&#39;t know               35.9    4.62    15</span></span>
-<span id="cb82-13"><a href="data-transformation-day-2.html#cb82-13" tabindex="-1"></a><span class="co">#&gt; 3 Inter-nondenominational  40.0    2.87   109</span></span>
-<span id="cb82-14"><a href="data-transformation-day-2.html#cb82-14" tabindex="-1"></a><span class="co">#&gt; 4 Native american          38.9    3.46    23</span></span>
-<span id="cb82-15"><a href="data-transformation-day-2.html#cb82-15" tabindex="-1"></a><span class="co">#&gt; 5 Christian                40.1    2.79   689</span></span>
-<span id="cb82-16"><a href="data-transformation-day-2.html#cb82-16" tabindex="-1"></a><span class="co">#&gt; 6 Orthodox-christian       50.4    2.42    95</span></span>
-<span id="cb82-17"><a href="data-transformation-day-2.html#cb82-17" tabindex="-1"></a><span class="co">#&gt; # … with 9 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="data-transformation-day-2.html#cb83-1" tabindex="-1"></a>(relig_summary <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="co">#Get your data.frame and pipe into the columns</span></span>
+<span id="cb83-2"><a href="data-transformation-day-2.html#cb83-2" tabindex="-1"></a>  <span class="fu">group_by</span>(relig) <span class="sc">%&gt;%</span> <span class="co">#group by religion so that each summary will be for one religion</span></span>
+<span id="cb83-3"><a href="data-transformation-day-2.html#cb83-3" tabindex="-1"></a>  <span class="fu">summarise</span>( <span class="co">#Get a summary for the following transformations</span></span>
+<span id="cb83-4"><a href="data-transformation-day-2.html#cb83-4" tabindex="-1"></a>    <span class="at">age =</span> <span class="fu">mean</span>(age, <span class="at">na.rm =</span> T), <span class="co">#Get the mean of age and name it &quot;age&quot;</span></span>
+<span id="cb83-5"><a href="data-transformation-day-2.html#cb83-5" tabindex="-1"></a>    <span class="at">tvhours =</span> <span class="fu">mean</span>(tvhours, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="co">#Get the mean of tv hours and name it &quot;tvhours&quot;</span></span>
+<span id="cb83-6"><a href="data-transformation-day-2.html#cb83-6" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>() <span class="co">#Count the number of observations in each group</span></span>
+<span id="cb83-7"><a href="data-transformation-day-2.html#cb83-7" tabindex="-1"></a>  ))</span>
+<span id="cb83-8"><a href="data-transformation-day-2.html#cb83-8" tabindex="-1"></a><span class="co">#&gt; # A tibble: 15 × 4</span></span>
+<span id="cb83-9"><a href="data-transformation-day-2.html#cb83-9" tabindex="-1"></a><span class="co">#&gt;   relig                     age tvhours     n</span></span>
+<span id="cb83-10"><a href="data-transformation-day-2.html#cb83-10" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt;                   &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt;</span></span>
+<span id="cb83-11"><a href="data-transformation-day-2.html#cb83-11" tabindex="-1"></a><span class="co">#&gt; 1 No answer                49.5    2.72    93</span></span>
+<span id="cb83-12"><a href="data-transformation-day-2.html#cb83-12" tabindex="-1"></a><span class="co">#&gt; 2 Don&#39;t know               35.9    4.62    15</span></span>
+<span id="cb83-13"><a href="data-transformation-day-2.html#cb83-13" tabindex="-1"></a><span class="co">#&gt; 3 Inter-nondenominational  40.0    2.87   109</span></span>
+<span id="cb83-14"><a href="data-transformation-day-2.html#cb83-14" tabindex="-1"></a><span class="co">#&gt; 4 Native american          38.9    3.46    23</span></span>
+<span id="cb83-15"><a href="data-transformation-day-2.html#cb83-15" tabindex="-1"></a><span class="co">#&gt; 5 Christian                40.1    2.79   689</span></span>
+<span id="cb83-16"><a href="data-transformation-day-2.html#cb83-16" tabindex="-1"></a><span class="co">#&gt; 6 Orthodox-christian       50.4    2.42    95</span></span>
+<span id="cb83-17"><a href="data-transformation-day-2.html#cb83-17" tabindex="-1"></a><span class="co">#&gt; # … with 9 more rows</span></span></code></pre></div>
 <p>Because there were NA’s and we wanted to do math we needed to remove
 them with: na.rm = TRUE</p>
 </div>
@@ -463,143 +465,143 @@ them with: na.rm = TRUE</p>
 <p>Plot with ggplot, arguments are ggplot(data, mapping) + geom_type()
 mapping is usually paired with the aes() function, which refers to
 aesthetics arguments to aes are usually aes(x, y, group)</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="data-transformation-day-2.html#cb83-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> relig_summary, </span>
-<span id="cb83-2"><a href="data-transformation-day-2.html#cb83-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> relig, <span class="at">x =</span>tvhours)) <span class="sc">+</span> </span>
-<span id="cb83-3"><a href="data-transformation-day-2.html#cb83-3" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="data-transformation-day-2.html#cb84-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> relig_summary, </span>
+<span id="cb84-2"><a href="data-transformation-day-2.html#cb84-2" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> relig, <span class="at">x =</span>tvhours)) <span class="sc">+</span> </span>
+<span id="cb84-3"><a href="data-transformation-day-2.html#cb84-3" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 <p><img src="04_TransformationDay2_files/figure-html/plotrelig-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>Interesting, but we could pack more info into this visualization</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="data-transformation-day-2.html#cb84-1" tabindex="-1"></a><span class="fu">ggplot</span>(relig_summary, <span class="fu">aes</span>(<span class="at">x =</span> tvhours, <span class="at">y =</span> <span class="fu">fct_reorder</span>(<span class="at">.f =</span> relig, <span class="at">.x =</span> tvhours))) <span class="sc">+</span></span>
-<span id="cb84-2"><a href="data-transformation-day-2.html#cb84-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="data-transformation-day-2.html#cb85-1" tabindex="-1"></a><span class="fu">ggplot</span>(relig_summary, <span class="fu">aes</span>(<span class="at">x =</span> tvhours, <span class="at">y =</span> <span class="fu">fct_reorder</span>(<span class="at">.f =</span> relig, <span class="at">.x =</span> tvhours))) <span class="sc">+</span></span>
+<span id="cb85-2"><a href="data-transformation-day-2.html#cb85-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 <p><img src="04_TransformationDay2_files/figure-html/plotmore-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>Now we have reordered religion by tv hours watched.</p>
 <p>The key argument is fct_reorder(“factor to order”, “column to be ordered
 by”)</p>
 <p>We can do it in descending order as well:</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="data-transformation-day-2.html#cb85-1" tabindex="-1"></a><span class="fu">ggplot</span>(relig_summary, <span class="fu">aes</span>(tvhours, <span class="fu">fct_reorder</span>(relig, <span class="fu">desc</span>(tvhours)))) <span class="sc">+</span></span>
-<span id="cb85-2"><a href="data-transformation-day-2.html#cb85-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="data-transformation-day-2.html#cb86-1" tabindex="-1"></a><span class="fu">ggplot</span>(relig_summary, <span class="fu">aes</span>(tvhours, <span class="fu">fct_reorder</span>(relig, <span class="fu">desc</span>(tvhours)))) <span class="sc">+</span></span>
+<span id="cb86-2"><a href="data-transformation-day-2.html#cb86-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span></code></pre></div>
 <p><img src="04_TransformationDay2_files/figure-html/plotdescend-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>We just put desc() around tvhours</p>
 <p>As you start making more complicated transformations, I’d recommend
 moving them out of aes() and into a separate mutate() step. For example,
 you could rewrite the plot above as:</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="data-transformation-day-2.html#cb86-1" tabindex="-1"></a>relig_summary <span class="sc">%&gt;%</span></span>
-<span id="cb86-2"><a href="data-transformation-day-2.html#cb86-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relig =</span> <span class="fu">fct_reorder</span>(relig, tvhours)) <span class="sc">%&gt;%</span></span>
-<span id="cb86-3"><a href="data-transformation-day-2.html#cb86-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(tvhours, relig)) <span class="sc">+</span></span>
-<span id="cb86-4"><a href="data-transformation-day-2.html#cb86-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
-<span id="cb86-5"><a href="data-transformation-day-2.html#cb86-5" tabindex="-1"></a></span>
-<span id="cb86-6"><a href="data-transformation-day-2.html#cb86-6" tabindex="-1"></a>mtv <span class="ot">&lt;-</span> relig_summary <span class="sc">%&gt;%</span></span>
-<span id="cb86-7"><a href="data-transformation-day-2.html#cb86-7" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mtv =</span> <span class="fu">mean</span>(tvhours))</span>
-<span id="cb86-8"><a href="data-transformation-day-2.html#cb86-8" tabindex="-1"></a></span>
-<span id="cb86-9"><a href="data-transformation-day-2.html#cb86-9" tabindex="-1"></a>relig_summary <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> tvhours, <span class="at">y =</span> relig, <span class="at">color =</span> relig)</span>
-<span id="cb86-10"><a href="data-transformation-day-2.html#cb86-10" tabindex="-1"></a>) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> mtv<span class="sc">$</span>mtv)) </span>
-<span id="cb86-11"><a href="data-transformation-day-2.html#cb86-11" tabindex="-1"></a></span>
-<span id="cb86-12"><a href="data-transformation-day-2.html#cb86-12" tabindex="-1"></a><span class="fu">levels</span>(relig_summary<span class="sc">$</span>relig)</span>
-<span id="cb86-13"><a href="data-transformation-day-2.html#cb86-13" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;No answer&quot;               &quot;Don&#39;t know&quot;             </span></span>
-<span id="cb86-14"><a href="data-transformation-day-2.html#cb86-14" tabindex="-1"></a><span class="co">#&gt;  [3] &quot;Inter-nondenominational&quot; &quot;Native american&quot;        </span></span>
-<span id="cb86-15"><a href="data-transformation-day-2.html#cb86-15" tabindex="-1"></a><span class="co">#&gt;  [5] &quot;Christian&quot;               &quot;Orthodox-christian&quot;     </span></span>
-<span id="cb86-16"><a href="data-transformation-day-2.html#cb86-16" tabindex="-1"></a><span class="co">#&gt;  [7] &quot;Moslem/islam&quot;            &quot;Other eastern&quot;          </span></span>
-<span id="cb86-17"><a href="data-transformation-day-2.html#cb86-17" tabindex="-1"></a><span class="co">#&gt;  [9] &quot;Hinduism&quot;                &quot;Buddhism&quot;               </span></span>
-<span id="cb86-18"><a href="data-transformation-day-2.html#cb86-18" tabindex="-1"></a><span class="co">#&gt; [11] &quot;Other&quot;                   &quot;None&quot;                   </span></span>
-<span id="cb86-19"><a href="data-transformation-day-2.html#cb86-19" tabindex="-1"></a><span class="co">#&gt; [13] &quot;Jewish&quot;                  &quot;Catholic&quot;               </span></span>
-<span id="cb86-20"><a href="data-transformation-day-2.html#cb86-20" tabindex="-1"></a><span class="co">#&gt; [15] &quot;Protestant&quot;              &quot;Not applicable&quot;</span></span>
-<span id="cb86-21"><a href="data-transformation-day-2.html#cb86-21" tabindex="-1"></a></span>
-<span id="cb86-22"><a href="data-transformation-day-2.html#cb86-22" tabindex="-1"></a>(testlevel <span class="ot">&lt;-</span> relig_summary <span class="sc">%&gt;%</span></span>
-<span id="cb86-23"><a href="data-transformation-day-2.html#cb86-23" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relig =</span> <span class="fu">fct_reorder</span>(relig, tvhours)))</span>
-<span id="cb86-24"><a href="data-transformation-day-2.html#cb86-24" tabindex="-1"></a><span class="co">#&gt; # A tibble: 15 × 4</span></span>
-<span id="cb86-25"><a href="data-transformation-day-2.html#cb86-25" tabindex="-1"></a><span class="co">#&gt;   relig                     age tvhours     n</span></span>
-<span id="cb86-26"><a href="data-transformation-day-2.html#cb86-26" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt;                   &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt;</span></span>
-<span id="cb86-27"><a href="data-transformation-day-2.html#cb86-27" tabindex="-1"></a><span class="co">#&gt; 1 No answer                49.5    2.72    93</span></span>
-<span id="cb86-28"><a href="data-transformation-day-2.html#cb86-28" tabindex="-1"></a><span class="co">#&gt; 2 Don&#39;t know               35.9    4.62    15</span></span>
-<span id="cb86-29"><a href="data-transformation-day-2.html#cb86-29" tabindex="-1"></a><span class="co">#&gt; 3 Inter-nondenominational  40.0    2.87   109</span></span>
-<span id="cb86-30"><a href="data-transformation-day-2.html#cb86-30" tabindex="-1"></a><span class="co">#&gt; 4 Native american          38.9    3.46    23</span></span>
-<span id="cb86-31"><a href="data-transformation-day-2.html#cb86-31" tabindex="-1"></a><span class="co">#&gt; 5 Christian                40.1    2.79   689</span></span>
-<span id="cb86-32"><a href="data-transformation-day-2.html#cb86-32" tabindex="-1"></a><span class="co">#&gt; 6 Orthodox-christian       50.4    2.42    95</span></span>
-<span id="cb86-33"><a href="data-transformation-day-2.html#cb86-33" tabindex="-1"></a><span class="co">#&gt; # … with 9 more rows</span></span>
-<span id="cb86-34"><a href="data-transformation-day-2.html#cb86-34" tabindex="-1"></a></span>
-<span id="cb86-35"><a href="data-transformation-day-2.html#cb86-35" tabindex="-1"></a><span class="fu">levels</span>(testlevel<span class="sc">$</span>relig) <span class="co">#The levels have changed even if the visualization did not.</span></span>
-<span id="cb86-36"><a href="data-transformation-day-2.html#cb86-36" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;Other eastern&quot;           &quot;Hinduism&quot;               </span></span>
-<span id="cb86-37"><a href="data-transformation-day-2.html#cb86-37" tabindex="-1"></a><span class="co">#&gt;  [3] &quot;Buddhism&quot;                &quot;Orthodox-christian&quot;     </span></span>
-<span id="cb86-38"><a href="data-transformation-day-2.html#cb86-38" tabindex="-1"></a><span class="co">#&gt;  [5] &quot;Moslem/islam&quot;            &quot;Jewish&quot;                 </span></span>
-<span id="cb86-39"><a href="data-transformation-day-2.html#cb86-39" tabindex="-1"></a><span class="co">#&gt;  [7] &quot;None&quot;                    &quot;No answer&quot;              </span></span>
-<span id="cb86-40"><a href="data-transformation-day-2.html#cb86-40" tabindex="-1"></a><span class="co">#&gt;  [9] &quot;Other&quot;                   &quot;Christian&quot;              </span></span>
-<span id="cb86-41"><a href="data-transformation-day-2.html#cb86-41" tabindex="-1"></a><span class="co">#&gt; [11] &quot;Inter-nondenominational&quot; &quot;Catholic&quot;               </span></span>
-<span id="cb86-42"><a href="data-transformation-day-2.html#cb86-42" tabindex="-1"></a><span class="co">#&gt; [13] &quot;Protestant&quot;              &quot;Native american&quot;        </span></span>
-<span id="cb86-43"><a href="data-transformation-day-2.html#cb86-43" tabindex="-1"></a><span class="co">#&gt; [15] &quot;Don&#39;t know&quot;              &quot;Not applicable&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="data-transformation-day-2.html#cb87-1" tabindex="-1"></a>relig_summary <span class="sc">%&gt;%</span></span>
+<span id="cb87-2"><a href="data-transformation-day-2.html#cb87-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relig =</span> <span class="fu">fct_reorder</span>(relig, tvhours)) <span class="sc">%&gt;%</span></span>
+<span id="cb87-3"><a href="data-transformation-day-2.html#cb87-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(tvhours, relig)) <span class="sc">+</span></span>
+<span id="cb87-4"><a href="data-transformation-day-2.html#cb87-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb87-5"><a href="data-transformation-day-2.html#cb87-5" tabindex="-1"></a></span>
+<span id="cb87-6"><a href="data-transformation-day-2.html#cb87-6" tabindex="-1"></a>mtv <span class="ot">&lt;-</span> relig_summary <span class="sc">%&gt;%</span></span>
+<span id="cb87-7"><a href="data-transformation-day-2.html#cb87-7" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mtv =</span> <span class="fu">mean</span>(tvhours))</span>
+<span id="cb87-8"><a href="data-transformation-day-2.html#cb87-8" tabindex="-1"></a></span>
+<span id="cb87-9"><a href="data-transformation-day-2.html#cb87-9" tabindex="-1"></a>relig_summary <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> tvhours, <span class="at">y =</span> relig, <span class="at">color =</span> relig)</span>
+<span id="cb87-10"><a href="data-transformation-day-2.html#cb87-10" tabindex="-1"></a>) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> mtv<span class="sc">$</span>mtv)) </span>
+<span id="cb87-11"><a href="data-transformation-day-2.html#cb87-11" tabindex="-1"></a></span>
+<span id="cb87-12"><a href="data-transformation-day-2.html#cb87-12" tabindex="-1"></a><span class="fu">levels</span>(relig_summary<span class="sc">$</span>relig)</span>
+<span id="cb87-13"><a href="data-transformation-day-2.html#cb87-13" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;No answer&quot;               &quot;Don&#39;t know&quot;             </span></span>
+<span id="cb87-14"><a href="data-transformation-day-2.html#cb87-14" tabindex="-1"></a><span class="co">#&gt;  [3] &quot;Inter-nondenominational&quot; &quot;Native american&quot;        </span></span>
+<span id="cb87-15"><a href="data-transformation-day-2.html#cb87-15" tabindex="-1"></a><span class="co">#&gt;  [5] &quot;Christian&quot;               &quot;Orthodox-christian&quot;     </span></span>
+<span id="cb87-16"><a href="data-transformation-day-2.html#cb87-16" tabindex="-1"></a><span class="co">#&gt;  [7] &quot;Moslem/islam&quot;            &quot;Other eastern&quot;          </span></span>
+<span id="cb87-17"><a href="data-transformation-day-2.html#cb87-17" tabindex="-1"></a><span class="co">#&gt;  [9] &quot;Hinduism&quot;                &quot;Buddhism&quot;               </span></span>
+<span id="cb87-18"><a href="data-transformation-day-2.html#cb87-18" tabindex="-1"></a><span class="co">#&gt; [11] &quot;Other&quot;                   &quot;None&quot;                   </span></span>
+<span id="cb87-19"><a href="data-transformation-day-2.html#cb87-19" tabindex="-1"></a><span class="co">#&gt; [13] &quot;Jewish&quot;                  &quot;Catholic&quot;               </span></span>
+<span id="cb87-20"><a href="data-transformation-day-2.html#cb87-20" tabindex="-1"></a><span class="co">#&gt; [15] &quot;Protestant&quot;              &quot;Not applicable&quot;</span></span>
+<span id="cb87-21"><a href="data-transformation-day-2.html#cb87-21" tabindex="-1"></a></span>
+<span id="cb87-22"><a href="data-transformation-day-2.html#cb87-22" tabindex="-1"></a>(testlevel <span class="ot">&lt;-</span> relig_summary <span class="sc">%&gt;%</span></span>
+<span id="cb87-23"><a href="data-transformation-day-2.html#cb87-23" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relig =</span> <span class="fu">fct_reorder</span>(relig, tvhours)))</span>
+<span id="cb87-24"><a href="data-transformation-day-2.html#cb87-24" tabindex="-1"></a><span class="co">#&gt; # A tibble: 15 × 4</span></span>
+<span id="cb87-25"><a href="data-transformation-day-2.html#cb87-25" tabindex="-1"></a><span class="co">#&gt;   relig                     age tvhours     n</span></span>
+<span id="cb87-26"><a href="data-transformation-day-2.html#cb87-26" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt;                   &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt;</span></span>
+<span id="cb87-27"><a href="data-transformation-day-2.html#cb87-27" tabindex="-1"></a><span class="co">#&gt; 1 No answer                49.5    2.72    93</span></span>
+<span id="cb87-28"><a href="data-transformation-day-2.html#cb87-28" tabindex="-1"></a><span class="co">#&gt; 2 Don&#39;t know               35.9    4.62    15</span></span>
+<span id="cb87-29"><a href="data-transformation-day-2.html#cb87-29" tabindex="-1"></a><span class="co">#&gt; 3 Inter-nondenominational  40.0    2.87   109</span></span>
+<span id="cb87-30"><a href="data-transformation-day-2.html#cb87-30" tabindex="-1"></a><span class="co">#&gt; 4 Native american          38.9    3.46    23</span></span>
+<span id="cb87-31"><a href="data-transformation-day-2.html#cb87-31" tabindex="-1"></a><span class="co">#&gt; 5 Christian                40.1    2.79   689</span></span>
+<span id="cb87-32"><a href="data-transformation-day-2.html#cb87-32" tabindex="-1"></a><span class="co">#&gt; 6 Orthodox-christian       50.4    2.42    95</span></span>
+<span id="cb87-33"><a href="data-transformation-day-2.html#cb87-33" tabindex="-1"></a><span class="co">#&gt; # … with 9 more rows</span></span>
+<span id="cb87-34"><a href="data-transformation-day-2.html#cb87-34" tabindex="-1"></a></span>
+<span id="cb87-35"><a href="data-transformation-day-2.html#cb87-35" tabindex="-1"></a><span class="fu">levels</span>(testlevel<span class="sc">$</span>relig) <span class="co">#The levels have changed even if the visualization did not.</span></span>
+<span id="cb87-36"><a href="data-transformation-day-2.html#cb87-36" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;Other eastern&quot;           &quot;Hinduism&quot;               </span></span>
+<span id="cb87-37"><a href="data-transformation-day-2.html#cb87-37" tabindex="-1"></a><span class="co">#&gt;  [3] &quot;Buddhism&quot;                &quot;Orthodox-christian&quot;     </span></span>
+<span id="cb87-38"><a href="data-transformation-day-2.html#cb87-38" tabindex="-1"></a><span class="co">#&gt;  [5] &quot;Moslem/islam&quot;            &quot;Jewish&quot;                 </span></span>
+<span id="cb87-39"><a href="data-transformation-day-2.html#cb87-39" tabindex="-1"></a><span class="co">#&gt;  [7] &quot;None&quot;                    &quot;No answer&quot;              </span></span>
+<span id="cb87-40"><a href="data-transformation-day-2.html#cb87-40" tabindex="-1"></a><span class="co">#&gt;  [9] &quot;Other&quot;                   &quot;Christian&quot;              </span></span>
+<span id="cb87-41"><a href="data-transformation-day-2.html#cb87-41" tabindex="-1"></a><span class="co">#&gt; [11] &quot;Inter-nondenominational&quot; &quot;Catholic&quot;               </span></span>
+<span id="cb87-42"><a href="data-transformation-day-2.html#cb87-42" tabindex="-1"></a><span class="co">#&gt; [13] &quot;Protestant&quot;              &quot;Native american&quot;        </span></span>
+<span id="cb87-43"><a href="data-transformation-day-2.html#cb87-43" tabindex="-1"></a><span class="co">#&gt; [15] &quot;Don&#39;t know&quot;              &quot;Not applicable&quot;</span></span></code></pre></div>
 <p><img src="04_TransformationDay2_files/figure-html/fct_reorder-1.png" width="70%" style="display: block; margin: auto;" /><img src="04_TransformationDay2_files/figure-html/fct_reorder-2.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>This is most important for plotting</p>
 <p>Let’s look at how average age varies across reported income level:</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="data-transformation-day-2.html#cb87-1" tabindex="-1"></a>(rincome_summary <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="co">#Save your df summary as something descriptive</span></span>
-<span id="cb87-2"><a href="data-transformation-day-2.html#cb87-2" tabindex="-1"></a>  <span class="fu">group_by</span>(rincome) <span class="sc">%&gt;%</span> <span class="co">#Group by income so that all summaries will be for those levels</span></span>
-<span id="cb87-3"><a href="data-transformation-day-2.html#cb87-3" tabindex="-1"></a>  <span class="fu">summarise</span>( <span class="co">#Create summaries for the following:</span></span>
-<span id="cb87-4"><a href="data-transformation-day-2.html#cb87-4" tabindex="-1"></a>    <span class="at">age =</span> <span class="fu">mean</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="co">#Mean age with Na&#39;s removed named &quot;age&quot;</span></span>
-<span id="cb87-5"><a href="data-transformation-day-2.html#cb87-5" tabindex="-1"></a>    <span class="at">tvhours =</span> <span class="fu">mean</span>(tvhours, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="co">#Mean tvhours named &quot;tvhours&quot;</span></span>
-<span id="cb87-6"><a href="data-transformation-day-2.html#cb87-6" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>() <span class="co">#Count number of observations in each column</span></span>
-<span id="cb87-7"><a href="data-transformation-day-2.html#cb87-7" tabindex="-1"></a>  ))</span>
-<span id="cb87-8"><a href="data-transformation-day-2.html#cb87-8" tabindex="-1"></a><span class="co">#&gt; # A tibble: 16 × 4</span></span>
-<span id="cb87-9"><a href="data-transformation-day-2.html#cb87-9" tabindex="-1"></a><span class="co">#&gt;   rincome          age tvhours     n</span></span>
-<span id="cb87-10"><a href="data-transformation-day-2.html#cb87-10" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt;          &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt;</span></span>
-<span id="cb87-11"><a href="data-transformation-day-2.html#cb87-11" tabindex="-1"></a><span class="co">#&gt; 1 No answer       45.5    2.90   183</span></span>
-<span id="cb87-12"><a href="data-transformation-day-2.html#cb87-12" tabindex="-1"></a><span class="co">#&gt; 2 Don&#39;t know      45.6    3.41   267</span></span>
-<span id="cb87-13"><a href="data-transformation-day-2.html#cb87-13" tabindex="-1"></a><span class="co">#&gt; 3 Refused         47.6    2.48   975</span></span>
-<span id="cb87-14"><a href="data-transformation-day-2.html#cb87-14" tabindex="-1"></a><span class="co">#&gt; 4 $25000 or more  44.2    2.23  7363</span></span>
-<span id="cb87-15"><a href="data-transformation-day-2.html#cb87-15" tabindex="-1"></a><span class="co">#&gt; 5 $20000 - 24999  41.5    2.78  1283</span></span>
-<span id="cb87-16"><a href="data-transformation-day-2.html#cb87-16" tabindex="-1"></a><span class="co">#&gt; 6 $15000 - 19999  40.0    2.91  1048</span></span>
-<span id="cb87-17"><a href="data-transformation-day-2.html#cb87-17" tabindex="-1"></a><span class="co">#&gt; # … with 10 more rows</span></span>
-<span id="cb87-18"><a href="data-transformation-day-2.html#cb87-18" tabindex="-1"></a></span>
-<span id="cb87-19"><a href="data-transformation-day-2.html#cb87-19" tabindex="-1"></a><span class="fu">ggplot</span>(rincome_summary, <span class="fu">aes</span>(age, <span class="fu">fct_reorder</span>(rincome, age))) <span class="sc">+</span> </span>
-<span id="cb87-20"><a href="data-transformation-day-2.html#cb87-20" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="data-transformation-day-2.html#cb88-1" tabindex="-1"></a>(rincome_summary <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="co">#Save your df summary as something descriptive</span></span>
+<span id="cb88-2"><a href="data-transformation-day-2.html#cb88-2" tabindex="-1"></a>  <span class="fu">group_by</span>(rincome) <span class="sc">%&gt;%</span> <span class="co">#Group by income so that all summaries will be for those levels</span></span>
+<span id="cb88-3"><a href="data-transformation-day-2.html#cb88-3" tabindex="-1"></a>  <span class="fu">summarise</span>( <span class="co">#Create summaries for the following:</span></span>
+<span id="cb88-4"><a href="data-transformation-day-2.html#cb88-4" tabindex="-1"></a>    <span class="at">age =</span> <span class="fu">mean</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="co">#Mean age with Na&#39;s removed named &quot;age&quot;</span></span>
+<span id="cb88-5"><a href="data-transformation-day-2.html#cb88-5" tabindex="-1"></a>    <span class="at">tvhours =</span> <span class="fu">mean</span>(tvhours, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="co">#Mean tvhours named &quot;tvhours&quot;</span></span>
+<span id="cb88-6"><a href="data-transformation-day-2.html#cb88-6" tabindex="-1"></a>    <span class="at">n =</span> <span class="fu">n</span>() <span class="co">#Count number of observations in each column</span></span>
+<span id="cb88-7"><a href="data-transformation-day-2.html#cb88-7" tabindex="-1"></a>  ))</span>
+<span id="cb88-8"><a href="data-transformation-day-2.html#cb88-8" tabindex="-1"></a><span class="co">#&gt; # A tibble: 16 × 4</span></span>
+<span id="cb88-9"><a href="data-transformation-day-2.html#cb88-9" tabindex="-1"></a><span class="co">#&gt;   rincome          age tvhours     n</span></span>
+<span id="cb88-10"><a href="data-transformation-day-2.html#cb88-10" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt;          &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt;</span></span>
+<span id="cb88-11"><a href="data-transformation-day-2.html#cb88-11" tabindex="-1"></a><span class="co">#&gt; 1 No answer       45.5    2.90   183</span></span>
+<span id="cb88-12"><a href="data-transformation-day-2.html#cb88-12" tabindex="-1"></a><span class="co">#&gt; 2 Don&#39;t know      45.6    3.41   267</span></span>
+<span id="cb88-13"><a href="data-transformation-day-2.html#cb88-13" tabindex="-1"></a><span class="co">#&gt; 3 Refused         47.6    2.48   975</span></span>
+<span id="cb88-14"><a href="data-transformation-day-2.html#cb88-14" tabindex="-1"></a><span class="co">#&gt; 4 $25000 or more  44.2    2.23  7363</span></span>
+<span id="cb88-15"><a href="data-transformation-day-2.html#cb88-15" tabindex="-1"></a><span class="co">#&gt; 5 $20000 - 24999  41.5    2.78  1283</span></span>
+<span id="cb88-16"><a href="data-transformation-day-2.html#cb88-16" tabindex="-1"></a><span class="co">#&gt; 6 $15000 - 19999  40.0    2.91  1048</span></span>
+<span id="cb88-17"><a href="data-transformation-day-2.html#cb88-17" tabindex="-1"></a><span class="co">#&gt; # … with 10 more rows</span></span>
+<span id="cb88-18"><a href="data-transformation-day-2.html#cb88-18" tabindex="-1"></a></span>
+<span id="cb88-19"><a href="data-transformation-day-2.html#cb88-19" tabindex="-1"></a><span class="fu">ggplot</span>(rincome_summary, <span class="fu">aes</span>(age, <span class="fu">fct_reorder</span>(rincome, age))) <span class="sc">+</span> </span>
+<span id="cb88-20"><a href="data-transformation-day-2.html#cb88-20" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 <p><img src="04_TransformationDay2_files/figure-html/plotcount-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>Reported income is an ordinal variable so it should be reported that way
 However fct_reorder will often create an arbitrary order by the second
 argument (age in this case).</p>
 <p>Use fct_relevel to have an ordered outcome:</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="data-transformation-day-2.html#cb88-1" tabindex="-1"></a><span class="fu">ggplot</span>(rincome_summary, <span class="fu">aes</span>(age, <span class="fu">fct_relevel</span>(rincome))) <span class="sc">+</span></span>
-<span id="cb88-2"><a href="data-transformation-day-2.html#cb88-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="data-transformation-day-2.html#cb89-1" tabindex="-1"></a><span class="fu">ggplot</span>(rincome_summary, <span class="fu">aes</span>(age, <span class="fu">fct_relevel</span>(rincome))) <span class="sc">+</span></span>
+<span id="cb89-2"><a href="data-transformation-day-2.html#cb89-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 <p><img src="04_TransformationDay2_files/figure-html/fct_relevel%20ordered-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>Now “Not applicable” is up at the top away from the other “special
 responses” Let’s fix that:</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="data-transformation-day-2.html#cb89-1" tabindex="-1"></a><span class="fu">ggplot</span>(rincome_summary, <span class="fu">aes</span>(age, <span class="fu">fct_relevel</span>(rincome, <span class="st">&quot;Not applicable&quot;</span>))) <span class="sc">+</span></span>
-<span id="cb89-2"><a href="data-transformation-day-2.html#cb89-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="data-transformation-day-2.html#cb90-1" tabindex="-1"></a><span class="fu">ggplot</span>(rincome_summary, <span class="fu">aes</span>(age, <span class="fu">fct_relevel</span>(rincome, <span class="st">&quot;Not applicable&quot;</span>))) <span class="sc">+</span></span>
+<span id="cb90-2"><a href="data-transformation-day-2.html#cb90-2" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 <p><img src="04_TransformationDay2_files/figure-html/plotNAs-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>We put it at the end! Now age and income are ordered! However, larger
 numbers map to the top (Larger is higher in conceptual metaphor theory)</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="data-transformation-day-2.html#cb90-1" tabindex="-1"></a><span class="fu">ggplot</span>(rincome_summary, <span class="fu">aes</span>(age,<span class="at">x =</span> <span class="fu">fct_relevel</span>(<span class="fu">desc</span>(rincome), <span class="st">&quot;Not applicable&quot;</span>))) <span class="sc">+</span></span>
-<span id="cb90-2"><a href="data-transformation-day-2.html#cb90-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="data-transformation-day-2.html#cb91-1" tabindex="-1"></a><span class="fu">ggplot</span>(rincome_summary, <span class="fu">aes</span>(age,<span class="at">x =</span> <span class="fu">fct_relevel</span>(<span class="fu">desc</span>(rincome), <span class="st">&quot;Not applicable&quot;</span>))) <span class="sc">+</span></span>
+<span id="cb91-2"><a href="data-transformation-day-2.html#cb91-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span></code></pre></div>
 <p>This doesn’t work in the aes() function, so we have to do it earlier!</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="data-transformation-day-2.html#cb91-1" tabindex="-1"></a>ordered_rincome <span class="ot">&lt;-</span>rincome_summary <span class="sc">%&gt;%</span></span>
-<span id="cb91-2"><a href="data-transformation-day-2.html#cb91-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rincome =</span> <span class="fu">fct_relevel</span>(rincome, <span class="st">&quot;Not applicable&quot;</span>, <span class="at">after =</span> <span class="dv">0</span>))</span>
-<span id="cb91-3"><a href="data-transformation-day-2.html#cb91-3" tabindex="-1"></a></span>
-<span id="cb91-4"><a href="data-transformation-day-2.html#cb91-4" tabindex="-1"></a><span class="fu">levels</span>(ordered_rincome<span class="sc">$</span>rincome) <span class="co">#not applicable has moved...</span></span>
-<span id="cb91-5"><a href="data-transformation-day-2.html#cb91-5" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;Not applicable&quot; &quot;No answer&quot;      &quot;Don&#39;t know&quot;     &quot;Refused&quot;       </span></span>
-<span id="cb91-6"><a href="data-transformation-day-2.html#cb91-6" tabindex="-1"></a><span class="co">#&gt;  [5] &quot;$25000 or more&quot; &quot;$20000 - 24999&quot; &quot;$15000 - 19999&quot; &quot;$10000 - 14999&quot;</span></span>
-<span id="cb91-7"><a href="data-transformation-day-2.html#cb91-7" tabindex="-1"></a><span class="co">#&gt;  [9] &quot;$8000 to 9999&quot;  &quot;$7000 to 7999&quot;  &quot;$6000 to 6999&quot;  &quot;$5000 to 5999&quot; </span></span>
-<span id="cb91-8"><a href="data-transformation-day-2.html#cb91-8" tabindex="-1"></a><span class="co">#&gt; [13] &quot;$4000 to 4999&quot;  &quot;$3000 to 3999&quot;  &quot;$1000 to 2999&quot;  &quot;Lt $1000&quot;</span></span>
-<span id="cb91-9"><a href="data-transformation-day-2.html#cb91-9" tabindex="-1"></a></span>
-<span id="cb91-10"><a href="data-transformation-day-2.html#cb91-10" tabindex="-1"></a><span class="fu">ggplot</span>(ordered_rincome, <span class="fu">aes</span>(age, <span class="fu">fct_relevel</span>(rincome, <span class="st">&quot;Not applicable&quot;</span>))) <span class="sc">+</span></span>
-<span id="cb91-11"><a href="data-transformation-day-2.html#cb91-11" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="co">#But still plotting int he wrong order</span></span>
-<span id="cb91-12"><a href="data-transformation-day-2.html#cb91-12" tabindex="-1"></a></span>
-<span id="cb91-13"><a href="data-transformation-day-2.html#cb91-13" tabindex="-1"></a>ordered_rincome <span class="ot">&lt;-</span> rincome_summary <span class="sc">%&gt;%</span></span>
-<span id="cb91-14"><a href="data-transformation-day-2.html#cb91-14" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rincome =</span> <span class="fu">fct_relevel</span>(rincome, <span class="st">&quot;Not applicable&quot;</span>, <span class="at">after =</span> <span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb91-15"><a href="data-transformation-day-2.html#cb91-15" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rincome =</span> <span class="fu">fct_rev</span>(rincome)) <span class="sc">%&gt;%</span> <span class="co">#Now we can use fct_rev()</span></span>
-<span id="cb91-16"><a href="data-transformation-day-2.html#cb91-16" tabindex="-1"></a>  <span class="fu">filter</span>(rincome <span class="sc">!=</span> <span class="st">&quot;Not applicable&quot;</span>,</span>
-<span id="cb91-17"><a href="data-transformation-day-2.html#cb91-17" tabindex="-1"></a>         rincome <span class="sc">!=</span> <span class="st">&quot;No answer&quot;</span>)</span>
-<span id="cb91-18"><a href="data-transformation-day-2.html#cb91-18" tabindex="-1"></a></span>
-<span id="cb91-19"><a href="data-transformation-day-2.html#cb91-19" tabindex="-1"></a><span class="fu">ggplot</span>(ordered_rincome, <span class="fu">aes</span>(age,rincome)) <span class="sc">+</span></span>
-<span id="cb91-20"><a href="data-transformation-day-2.html#cb91-20" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="data-transformation-day-2.html#cb92-1" tabindex="-1"></a>ordered_rincome <span class="ot">&lt;-</span>rincome_summary <span class="sc">%&gt;%</span></span>
+<span id="cb92-2"><a href="data-transformation-day-2.html#cb92-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rincome =</span> <span class="fu">fct_relevel</span>(rincome, <span class="st">&quot;Not applicable&quot;</span>, <span class="at">after =</span> <span class="dv">0</span>))</span>
+<span id="cb92-3"><a href="data-transformation-day-2.html#cb92-3" tabindex="-1"></a></span>
+<span id="cb92-4"><a href="data-transformation-day-2.html#cb92-4" tabindex="-1"></a><span class="fu">levels</span>(ordered_rincome<span class="sc">$</span>rincome) <span class="co">#not applicable has moved...</span></span>
+<span id="cb92-5"><a href="data-transformation-day-2.html#cb92-5" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;Not applicable&quot; &quot;No answer&quot;      &quot;Don&#39;t know&quot;     &quot;Refused&quot;       </span></span>
+<span id="cb92-6"><a href="data-transformation-day-2.html#cb92-6" tabindex="-1"></a><span class="co">#&gt;  [5] &quot;$25000 or more&quot; &quot;$20000 - 24999&quot; &quot;$15000 - 19999&quot; &quot;$10000 - 14999&quot;</span></span>
+<span id="cb92-7"><a href="data-transformation-day-2.html#cb92-7" tabindex="-1"></a><span class="co">#&gt;  [9] &quot;$8000 to 9999&quot;  &quot;$7000 to 7999&quot;  &quot;$6000 to 6999&quot;  &quot;$5000 to 5999&quot; </span></span>
+<span id="cb92-8"><a href="data-transformation-day-2.html#cb92-8" tabindex="-1"></a><span class="co">#&gt; [13] &quot;$4000 to 4999&quot;  &quot;$3000 to 3999&quot;  &quot;$1000 to 2999&quot;  &quot;Lt $1000&quot;</span></span>
+<span id="cb92-9"><a href="data-transformation-day-2.html#cb92-9" tabindex="-1"></a></span>
+<span id="cb92-10"><a href="data-transformation-day-2.html#cb92-10" tabindex="-1"></a><span class="fu">ggplot</span>(ordered_rincome, <span class="fu">aes</span>(age, <span class="fu">fct_relevel</span>(rincome, <span class="st">&quot;Not applicable&quot;</span>))) <span class="sc">+</span></span>
+<span id="cb92-11"><a href="data-transformation-day-2.html#cb92-11" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="co">#But still plotting int he wrong order</span></span>
+<span id="cb92-12"><a href="data-transformation-day-2.html#cb92-12" tabindex="-1"></a></span>
+<span id="cb92-13"><a href="data-transformation-day-2.html#cb92-13" tabindex="-1"></a>ordered_rincome <span class="ot">&lt;-</span> rincome_summary <span class="sc">%&gt;%</span></span>
+<span id="cb92-14"><a href="data-transformation-day-2.html#cb92-14" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rincome =</span> <span class="fu">fct_relevel</span>(rincome, <span class="st">&quot;Not applicable&quot;</span>, <span class="at">after =</span> <span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb92-15"><a href="data-transformation-day-2.html#cb92-15" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rincome =</span> <span class="fu">fct_rev</span>(rincome)) <span class="sc">%&gt;%</span> <span class="co">#Now we can use fct_rev()</span></span>
+<span id="cb92-16"><a href="data-transformation-day-2.html#cb92-16" tabindex="-1"></a>  <span class="fu">filter</span>(rincome <span class="sc">!=</span> <span class="st">&quot;Not applicable&quot;</span>,</span>
+<span id="cb92-17"><a href="data-transformation-day-2.html#cb92-17" tabindex="-1"></a>         rincome <span class="sc">!=</span> <span class="st">&quot;No answer&quot;</span>)</span>
+<span id="cb92-18"><a href="data-transformation-day-2.html#cb92-18" tabindex="-1"></a></span>
+<span id="cb92-19"><a href="data-transformation-day-2.html#cb92-19" tabindex="-1"></a><span class="fu">ggplot</span>(ordered_rincome, <span class="fu">aes</span>(age,rincome)) <span class="sc">+</span></span>
+<span id="cb92-20"><a href="data-transformation-day-2.html#cb92-20" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 <p><img src="04_TransformationDay2_files/figure-html/plotfull-1.png" width="70%" style="display: block; margin: auto;" /><img src="04_TransformationDay2_files/figure-html/plotfull-2.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>Let’s do some more reordering:</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="data-transformation-day-2.html#cb92-1" tabindex="-1"></a>by_age <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(df) <span class="sc">%&gt;%</span> <span class="co">#Get data.frame</span></span>
-<span id="cb92-2"><a href="data-transformation-day-2.html#cb92-2" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span> <span class="co">#Get rid of Na&#39;s in age to do maths</span></span>
-<span id="cb92-3"><a href="data-transformation-day-2.html#cb92-3" tabindex="-1"></a>  <span class="fu">count</span>(age, marital) <span class="sc">%&gt;%</span> <span class="co"># count observations by age and marital status</span></span>
-<span id="cb92-4"><a href="data-transformation-day-2.html#cb92-4" tabindex="-1"></a>  <span class="fu">group_by</span>(age) <span class="sc">%&gt;%</span> <span class="co">#Group by age for the following summary</span></span>
-<span id="cb92-5"><a href="data-transformation-day-2.html#cb92-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="co">#Get proportion of counts per age</span></span>
-<span id="cb92-6"><a href="data-transformation-day-2.html#cb92-6" tabindex="-1"></a></span>
-<span id="cb92-7"><a href="data-transformation-day-2.html#cb92-7" tabindex="-1"></a><span class="fu">ggplot</span>(by_age, <span class="fu">aes</span>(age, prop, <span class="at">colour =</span> marital)) <span class="sc">+</span></span>
-<span id="cb92-8"><a href="data-transformation-day-2.html#cb92-8" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb92-9"><a href="data-transformation-day-2.html#cb92-9" tabindex="-1"></a></span>
-<span id="cb92-10"><a href="data-transformation-day-2.html#cb92-10" tabindex="-1"></a><span class="fu">ggplot</span>(by_age, <span class="fu">aes</span>(age, prop, <span class="at">colour =</span> <span class="fu">fct_reorder2</span>(marital, age, prop))) <span class="sc">+</span></span>
-<span id="cb92-11"><a href="data-transformation-day-2.html#cb92-11" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb92-12"><a href="data-transformation-day-2.html#cb92-12" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">colour =</span> <span class="st">&quot;marital&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="data-transformation-day-2.html#cb93-1" tabindex="-1"></a>by_age <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(df) <span class="sc">%&gt;%</span> <span class="co">#Get data.frame</span></span>
+<span id="cb93-2"><a href="data-transformation-day-2.html#cb93-2" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span> <span class="co">#Get rid of Na&#39;s in age to do maths</span></span>
+<span id="cb93-3"><a href="data-transformation-day-2.html#cb93-3" tabindex="-1"></a>  <span class="fu">count</span>(age, marital) <span class="sc">%&gt;%</span> <span class="co"># count observations by age and marital status</span></span>
+<span id="cb93-4"><a href="data-transformation-day-2.html#cb93-4" tabindex="-1"></a>  <span class="fu">group_by</span>(age) <span class="sc">%&gt;%</span> <span class="co">#Group by age for the following summary</span></span>
+<span id="cb93-5"><a href="data-transformation-day-2.html#cb93-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="co">#Get proportion of counts per age</span></span>
+<span id="cb93-6"><a href="data-transformation-day-2.html#cb93-6" tabindex="-1"></a></span>
+<span id="cb93-7"><a href="data-transformation-day-2.html#cb93-7" tabindex="-1"></a><span class="fu">ggplot</span>(by_age, <span class="fu">aes</span>(age, prop, <span class="at">colour =</span> marital)) <span class="sc">+</span></span>
+<span id="cb93-8"><a href="data-transformation-day-2.html#cb93-8" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb93-9"><a href="data-transformation-day-2.html#cb93-9" tabindex="-1"></a></span>
+<span id="cb93-10"><a href="data-transformation-day-2.html#cb93-10" tabindex="-1"></a><span class="fu">ggplot</span>(by_age, <span class="fu">aes</span>(age, prop, <span class="at">colour =</span> <span class="fu">fct_reorder2</span>(marital, age, prop))) <span class="sc">+</span></span>
+<span id="cb93-11"><a href="data-transformation-day-2.html#cb93-11" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb93-12"><a href="data-transformation-day-2.html#cb93-12" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">colour =</span> <span class="st">&quot;marital&quot;</span>)</span></code></pre></div>
 <p><img src="04_TransformationDay2_files/figure-html/plotage-1.png" width="70%" style="display: block; margin: auto;" /><img src="04_TransformationDay2_files/figure-html/plotage-2.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="rcolorbrewer" class="section level2 hasAnchor" number="5.2">
@@ -607,288 +609,288 @@ numbers map to the top (Larger is higher in conceptual metaphor theory)</p>
 <p>Let’s get researched colors for proper visualization best practices
 from: Brewer, Cynthia A., 200x. <a href="http://www.ColorBrewer.org" class="uri">http://www.ColorBrewer.org</a>, accessed
 09/27/2018.</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="data-transformation-day-2.html#cb93-1" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
-<span id="cb93-2"><a href="data-transformation-day-2.html#cb93-2" tabindex="-1"></a></span>
-<span id="cb93-3"><a href="data-transformation-day-2.html#cb93-3" tabindex="-1"></a></span>
-<span id="cb93-4"><a href="data-transformation-day-2.html#cb93-4" tabindex="-1"></a>brewer.pal.info</span>
-<span id="cb93-5"><a href="data-transformation-day-2.html#cb93-5" tabindex="-1"></a><span class="co">#&gt;          maxcolors category colorblind</span></span>
-<span id="cb93-6"><a href="data-transformation-day-2.html#cb93-6" tabindex="-1"></a><span class="co">#&gt; BrBG            11      div       TRUE</span></span>
-<span id="cb93-7"><a href="data-transformation-day-2.html#cb93-7" tabindex="-1"></a><span class="co">#&gt; PiYG            11      div       TRUE</span></span>
-<span id="cb93-8"><a href="data-transformation-day-2.html#cb93-8" tabindex="-1"></a><span class="co">#&gt; PRGn            11      div       TRUE</span></span>
-<span id="cb93-9"><a href="data-transformation-day-2.html#cb93-9" tabindex="-1"></a><span class="co">#&gt; PuOr            11      div       TRUE</span></span>
-<span id="cb93-10"><a href="data-transformation-day-2.html#cb93-10" tabindex="-1"></a><span class="co">#&gt; RdBu            11      div       TRUE</span></span>
-<span id="cb93-11"><a href="data-transformation-day-2.html#cb93-11" tabindex="-1"></a><span class="co">#&gt; RdGy            11      div      FALSE</span></span>
-<span id="cb93-12"><a href="data-transformation-day-2.html#cb93-12" tabindex="-1"></a><span class="co">#&gt; RdYlBu          11      div       TRUE</span></span>
-<span id="cb93-13"><a href="data-transformation-day-2.html#cb93-13" tabindex="-1"></a><span class="co">#&gt; RdYlGn          11      div      FALSE</span></span>
-<span id="cb93-14"><a href="data-transformation-day-2.html#cb93-14" tabindex="-1"></a><span class="co">#&gt; Spectral        11      div      FALSE</span></span>
-<span id="cb93-15"><a href="data-transformation-day-2.html#cb93-15" tabindex="-1"></a><span class="co">#&gt; Accent           8     qual      FALSE</span></span>
-<span id="cb93-16"><a href="data-transformation-day-2.html#cb93-16" tabindex="-1"></a><span class="co">#&gt; Dark2            8     qual       TRUE</span></span>
-<span id="cb93-17"><a href="data-transformation-day-2.html#cb93-17" tabindex="-1"></a><span class="co">#&gt; Paired          12     qual       TRUE</span></span>
-<span id="cb93-18"><a href="data-transformation-day-2.html#cb93-18" tabindex="-1"></a><span class="co">#&gt; Pastel1          9     qual      FALSE</span></span>
-<span id="cb93-19"><a href="data-transformation-day-2.html#cb93-19" tabindex="-1"></a><span class="co">#&gt; Pastel2          8     qual      FALSE</span></span>
-<span id="cb93-20"><a href="data-transformation-day-2.html#cb93-20" tabindex="-1"></a><span class="co">#&gt; Set1             9     qual      FALSE</span></span>
-<span id="cb93-21"><a href="data-transformation-day-2.html#cb93-21" tabindex="-1"></a><span class="co">#&gt; Set2             8     qual       TRUE</span></span>
-<span id="cb93-22"><a href="data-transformation-day-2.html#cb93-22" tabindex="-1"></a><span class="co">#&gt; Set3            12     qual      FALSE</span></span>
-<span id="cb93-23"><a href="data-transformation-day-2.html#cb93-23" tabindex="-1"></a><span class="co">#&gt; Blues            9      seq       TRUE</span></span>
-<span id="cb93-24"><a href="data-transformation-day-2.html#cb93-24" tabindex="-1"></a><span class="co">#&gt; BuGn             9      seq       TRUE</span></span>
-<span id="cb93-25"><a href="data-transformation-day-2.html#cb93-25" tabindex="-1"></a><span class="co">#&gt; BuPu             9      seq       TRUE</span></span>
-<span id="cb93-26"><a href="data-transformation-day-2.html#cb93-26" tabindex="-1"></a><span class="co">#&gt; GnBu             9      seq       TRUE</span></span>
-<span id="cb93-27"><a href="data-transformation-day-2.html#cb93-27" tabindex="-1"></a><span class="co">#&gt; Greens           9      seq       TRUE</span></span>
-<span id="cb93-28"><a href="data-transformation-day-2.html#cb93-28" tabindex="-1"></a><span class="co">#&gt; Greys            9      seq       TRUE</span></span>
-<span id="cb93-29"><a href="data-transformation-day-2.html#cb93-29" tabindex="-1"></a><span class="co">#&gt; Oranges          9      seq       TRUE</span></span>
-<span id="cb93-30"><a href="data-transformation-day-2.html#cb93-30" tabindex="-1"></a><span class="co">#&gt; OrRd             9      seq       TRUE</span></span>
-<span id="cb93-31"><a href="data-transformation-day-2.html#cb93-31" tabindex="-1"></a><span class="co">#&gt; PuBu             9      seq       TRUE</span></span>
-<span id="cb93-32"><a href="data-transformation-day-2.html#cb93-32" tabindex="-1"></a><span class="co">#&gt; PuBuGn           9      seq       TRUE</span></span>
-<span id="cb93-33"><a href="data-transformation-day-2.html#cb93-33" tabindex="-1"></a><span class="co">#&gt; PuRd             9      seq       TRUE</span></span>
-<span id="cb93-34"><a href="data-transformation-day-2.html#cb93-34" tabindex="-1"></a><span class="co">#&gt; Purples          9      seq       TRUE</span></span>
-<span id="cb93-35"><a href="data-transformation-day-2.html#cb93-35" tabindex="-1"></a><span class="co">#&gt; RdPu             9      seq       TRUE</span></span>
-<span id="cb93-36"><a href="data-transformation-day-2.html#cb93-36" tabindex="-1"></a><span class="co">#&gt; Reds             9      seq       TRUE</span></span>
-<span id="cb93-37"><a href="data-transformation-day-2.html#cb93-37" tabindex="-1"></a><span class="co">#&gt; YlGn             9      seq       TRUE</span></span>
-<span id="cb93-38"><a href="data-transformation-day-2.html#cb93-38" tabindex="-1"></a><span class="co">#&gt; YlGnBu           9      seq       TRUE</span></span>
-<span id="cb93-39"><a href="data-transformation-day-2.html#cb93-39" tabindex="-1"></a><span class="co">#&gt; YlOrBr           9      seq       TRUE</span></span>
-<span id="cb93-40"><a href="data-transformation-day-2.html#cb93-40" tabindex="-1"></a><span class="co">#&gt; YlOrRd           9      seq       TRUE</span></span>
-<span id="cb93-41"><a href="data-transformation-day-2.html#cb93-41" tabindex="-1"></a></span>
-<span id="cb93-42"><a href="data-transformation-day-2.html#cb93-42" tabindex="-1"></a>pal1 <span class="ot">&lt;-</span> <span class="fu">brewer.pal</span>(<span class="at">n =</span> <span class="dv">6</span>, <span class="st">&quot;Dark2&quot;</span>) <span class="co">#Try different palettes</span></span>
-<span id="cb93-43"><a href="data-transformation-day-2.html#cb93-43" tabindex="-1"></a></span>
-<span id="cb93-44"><a href="data-transformation-day-2.html#cb93-44" tabindex="-1"></a></span>
-<span id="cb93-45"><a href="data-transformation-day-2.html#cb93-45" tabindex="-1"></a><span class="fu">display.brewer.all</span>()</span>
-<span id="cb93-46"><a href="data-transformation-day-2.html#cb93-46" tabindex="-1"></a></span>
-<span id="cb93-47"><a href="data-transformation-day-2.html#cb93-47" tabindex="-1"></a><span class="fu">ggplot</span>(by_age, <span class="fu">aes</span>(age, prop, <span class="at">colour =</span> <span class="fu">fct_reorder2</span>(marital, age, prop))) <span class="sc">+</span></span>
-<span id="cb93-48"><a href="data-transformation-day-2.html#cb93-48" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Dark2&quot;</span>) <span class="sc">+</span></span>
-<span id="cb93-49"><a href="data-transformation-day-2.html#cb93-49" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb93-50"><a href="data-transformation-day-2.html#cb93-50" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">colour =</span> <span class="st">&quot;marital&quot;</span>)</span>
-<span id="cb93-51"><a href="data-transformation-day-2.html#cb93-51" tabindex="-1"></a></span>
-<span id="cb93-52"><a href="data-transformation-day-2.html#cb93-52" tabindex="-1"></a>  </span>
-<span id="cb93-53"><a href="data-transformation-day-2.html#cb93-53" tabindex="-1"></a><span class="fu">ggplot</span>(by_age, <span class="fu">aes</span>(age, prop, <span class="at">colour =</span> <span class="fu">fct_reorder2</span>(marital, age, prop))) <span class="sc">+</span></span>
-<span id="cb93-54"><a href="data-transformation-day-2.html#cb93-54" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb93-55"><a href="data-transformation-day-2.html#cb93-55" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">colour =</span> <span class="st">&quot;marital&quot;</span>) <span class="sc">+</span> <span class="fu">theme_dark</span>() <span class="sc">+</span></span>
-<span id="cb93-56"><a href="data-transformation-day-2.html#cb93-56" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Accent&quot;</span>)</span>
-<span id="cb93-57"><a href="data-transformation-day-2.html#cb93-57" tabindex="-1"></a></span>
-<span id="cb93-58"><a href="data-transformation-day-2.html#cb93-58" tabindex="-1"></a><span class="fu">ggplot</span>(by_age, <span class="fu">aes</span>(age, prop, <span class="at">colour =</span> <span class="fu">fct_reorder2</span>(marital, age, prop))) <span class="sc">+</span></span>
-<span id="cb93-59"><a href="data-transformation-day-2.html#cb93-59" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb93-60"><a href="data-transformation-day-2.html#cb93-60" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">colour =</span> <span class="st">&quot;marital&quot;</span>) <span class="sc">+</span> <span class="fu">theme_void</span>() <span class="sc">+</span></span>
-<span id="cb93-61"><a href="data-transformation-day-2.html#cb93-61" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">type =</span> <span class="st">&quot;qual&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="data-transformation-day-2.html#cb94-1" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb94-2"><a href="data-transformation-day-2.html#cb94-2" tabindex="-1"></a></span>
+<span id="cb94-3"><a href="data-transformation-day-2.html#cb94-3" tabindex="-1"></a></span>
+<span id="cb94-4"><a href="data-transformation-day-2.html#cb94-4" tabindex="-1"></a>brewer.pal.info</span>
+<span id="cb94-5"><a href="data-transformation-day-2.html#cb94-5" tabindex="-1"></a><span class="co">#&gt;          maxcolors category colorblind</span></span>
+<span id="cb94-6"><a href="data-transformation-day-2.html#cb94-6" tabindex="-1"></a><span class="co">#&gt; BrBG            11      div       TRUE</span></span>
+<span id="cb94-7"><a href="data-transformation-day-2.html#cb94-7" tabindex="-1"></a><span class="co">#&gt; PiYG            11      div       TRUE</span></span>
+<span id="cb94-8"><a href="data-transformation-day-2.html#cb94-8" tabindex="-1"></a><span class="co">#&gt; PRGn            11      div       TRUE</span></span>
+<span id="cb94-9"><a href="data-transformation-day-2.html#cb94-9" tabindex="-1"></a><span class="co">#&gt; PuOr            11      div       TRUE</span></span>
+<span id="cb94-10"><a href="data-transformation-day-2.html#cb94-10" tabindex="-1"></a><span class="co">#&gt; RdBu            11      div       TRUE</span></span>
+<span id="cb94-11"><a href="data-transformation-day-2.html#cb94-11" tabindex="-1"></a><span class="co">#&gt; RdGy            11      div      FALSE</span></span>
+<span id="cb94-12"><a href="data-transformation-day-2.html#cb94-12" tabindex="-1"></a><span class="co">#&gt; RdYlBu          11      div       TRUE</span></span>
+<span id="cb94-13"><a href="data-transformation-day-2.html#cb94-13" tabindex="-1"></a><span class="co">#&gt; RdYlGn          11      div      FALSE</span></span>
+<span id="cb94-14"><a href="data-transformation-day-2.html#cb94-14" tabindex="-1"></a><span class="co">#&gt; Spectral        11      div      FALSE</span></span>
+<span id="cb94-15"><a href="data-transformation-day-2.html#cb94-15" tabindex="-1"></a><span class="co">#&gt; Accent           8     qual      FALSE</span></span>
+<span id="cb94-16"><a href="data-transformation-day-2.html#cb94-16" tabindex="-1"></a><span class="co">#&gt; Dark2            8     qual       TRUE</span></span>
+<span id="cb94-17"><a href="data-transformation-day-2.html#cb94-17" tabindex="-1"></a><span class="co">#&gt; Paired          12     qual       TRUE</span></span>
+<span id="cb94-18"><a href="data-transformation-day-2.html#cb94-18" tabindex="-1"></a><span class="co">#&gt; Pastel1          9     qual      FALSE</span></span>
+<span id="cb94-19"><a href="data-transformation-day-2.html#cb94-19" tabindex="-1"></a><span class="co">#&gt; Pastel2          8     qual      FALSE</span></span>
+<span id="cb94-20"><a href="data-transformation-day-2.html#cb94-20" tabindex="-1"></a><span class="co">#&gt; Set1             9     qual      FALSE</span></span>
+<span id="cb94-21"><a href="data-transformation-day-2.html#cb94-21" tabindex="-1"></a><span class="co">#&gt; Set2             8     qual       TRUE</span></span>
+<span id="cb94-22"><a href="data-transformation-day-2.html#cb94-22" tabindex="-1"></a><span class="co">#&gt; Set3            12     qual      FALSE</span></span>
+<span id="cb94-23"><a href="data-transformation-day-2.html#cb94-23" tabindex="-1"></a><span class="co">#&gt; Blues            9      seq       TRUE</span></span>
+<span id="cb94-24"><a href="data-transformation-day-2.html#cb94-24" tabindex="-1"></a><span class="co">#&gt; BuGn             9      seq       TRUE</span></span>
+<span id="cb94-25"><a href="data-transformation-day-2.html#cb94-25" tabindex="-1"></a><span class="co">#&gt; BuPu             9      seq       TRUE</span></span>
+<span id="cb94-26"><a href="data-transformation-day-2.html#cb94-26" tabindex="-1"></a><span class="co">#&gt; GnBu             9      seq       TRUE</span></span>
+<span id="cb94-27"><a href="data-transformation-day-2.html#cb94-27" tabindex="-1"></a><span class="co">#&gt; Greens           9      seq       TRUE</span></span>
+<span id="cb94-28"><a href="data-transformation-day-2.html#cb94-28" tabindex="-1"></a><span class="co">#&gt; Greys            9      seq       TRUE</span></span>
+<span id="cb94-29"><a href="data-transformation-day-2.html#cb94-29" tabindex="-1"></a><span class="co">#&gt; Oranges          9      seq       TRUE</span></span>
+<span id="cb94-30"><a href="data-transformation-day-2.html#cb94-30" tabindex="-1"></a><span class="co">#&gt; OrRd             9      seq       TRUE</span></span>
+<span id="cb94-31"><a href="data-transformation-day-2.html#cb94-31" tabindex="-1"></a><span class="co">#&gt; PuBu             9      seq       TRUE</span></span>
+<span id="cb94-32"><a href="data-transformation-day-2.html#cb94-32" tabindex="-1"></a><span class="co">#&gt; PuBuGn           9      seq       TRUE</span></span>
+<span id="cb94-33"><a href="data-transformation-day-2.html#cb94-33" tabindex="-1"></a><span class="co">#&gt; PuRd             9      seq       TRUE</span></span>
+<span id="cb94-34"><a href="data-transformation-day-2.html#cb94-34" tabindex="-1"></a><span class="co">#&gt; Purples          9      seq       TRUE</span></span>
+<span id="cb94-35"><a href="data-transformation-day-2.html#cb94-35" tabindex="-1"></a><span class="co">#&gt; RdPu             9      seq       TRUE</span></span>
+<span id="cb94-36"><a href="data-transformation-day-2.html#cb94-36" tabindex="-1"></a><span class="co">#&gt; Reds             9      seq       TRUE</span></span>
+<span id="cb94-37"><a href="data-transformation-day-2.html#cb94-37" tabindex="-1"></a><span class="co">#&gt; YlGn             9      seq       TRUE</span></span>
+<span id="cb94-38"><a href="data-transformation-day-2.html#cb94-38" tabindex="-1"></a><span class="co">#&gt; YlGnBu           9      seq       TRUE</span></span>
+<span id="cb94-39"><a href="data-transformation-day-2.html#cb94-39" tabindex="-1"></a><span class="co">#&gt; YlOrBr           9      seq       TRUE</span></span>
+<span id="cb94-40"><a href="data-transformation-day-2.html#cb94-40" tabindex="-1"></a><span class="co">#&gt; YlOrRd           9      seq       TRUE</span></span>
+<span id="cb94-41"><a href="data-transformation-day-2.html#cb94-41" tabindex="-1"></a></span>
+<span id="cb94-42"><a href="data-transformation-day-2.html#cb94-42" tabindex="-1"></a>pal1 <span class="ot">&lt;-</span> <span class="fu">brewer.pal</span>(<span class="at">n =</span> <span class="dv">6</span>, <span class="st">&quot;Dark2&quot;</span>) <span class="co">#Try different palettes</span></span>
+<span id="cb94-43"><a href="data-transformation-day-2.html#cb94-43" tabindex="-1"></a></span>
+<span id="cb94-44"><a href="data-transformation-day-2.html#cb94-44" tabindex="-1"></a></span>
+<span id="cb94-45"><a href="data-transformation-day-2.html#cb94-45" tabindex="-1"></a><span class="fu">display.brewer.all</span>()</span>
+<span id="cb94-46"><a href="data-transformation-day-2.html#cb94-46" tabindex="-1"></a></span>
+<span id="cb94-47"><a href="data-transformation-day-2.html#cb94-47" tabindex="-1"></a><span class="fu">ggplot</span>(by_age, <span class="fu">aes</span>(age, prop, <span class="at">colour =</span> <span class="fu">fct_reorder2</span>(marital, age, prop))) <span class="sc">+</span></span>
+<span id="cb94-48"><a href="data-transformation-day-2.html#cb94-48" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Dark2&quot;</span>) <span class="sc">+</span></span>
+<span id="cb94-49"><a href="data-transformation-day-2.html#cb94-49" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb94-50"><a href="data-transformation-day-2.html#cb94-50" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">colour =</span> <span class="st">&quot;marital&quot;</span>)</span>
+<span id="cb94-51"><a href="data-transformation-day-2.html#cb94-51" tabindex="-1"></a></span>
+<span id="cb94-52"><a href="data-transformation-day-2.html#cb94-52" tabindex="-1"></a>  </span>
+<span id="cb94-53"><a href="data-transformation-day-2.html#cb94-53" tabindex="-1"></a><span class="fu">ggplot</span>(by_age, <span class="fu">aes</span>(age, prop, <span class="at">colour =</span> <span class="fu">fct_reorder2</span>(marital, age, prop))) <span class="sc">+</span></span>
+<span id="cb94-54"><a href="data-transformation-day-2.html#cb94-54" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb94-55"><a href="data-transformation-day-2.html#cb94-55" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">colour =</span> <span class="st">&quot;marital&quot;</span>) <span class="sc">+</span> <span class="fu">theme_dark</span>() <span class="sc">+</span></span>
+<span id="cb94-56"><a href="data-transformation-day-2.html#cb94-56" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Accent&quot;</span>)</span>
+<span id="cb94-57"><a href="data-transformation-day-2.html#cb94-57" tabindex="-1"></a></span>
+<span id="cb94-58"><a href="data-transformation-day-2.html#cb94-58" tabindex="-1"></a><span class="fu">ggplot</span>(by_age, <span class="fu">aes</span>(age, prop, <span class="at">colour =</span> <span class="fu">fct_reorder2</span>(marital, age, prop))) <span class="sc">+</span></span>
+<span id="cb94-59"><a href="data-transformation-day-2.html#cb94-59" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb94-60"><a href="data-transformation-day-2.html#cb94-60" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">colour =</span> <span class="st">&quot;marital&quot;</span>) <span class="sc">+</span> <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb94-61"><a href="data-transformation-day-2.html#cb94-61" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">type =</span> <span class="st">&quot;qual&quot;</span>)</span></code></pre></div>
 <p><img src="04_TransformationDay2_files/figure-html/colorBrewer-1.png" width="70%" style="display: block; margin: auto;" /><img src="04_TransformationDay2_files/figure-html/colorBrewer-2.png" width="70%" style="display: block; margin: auto;" /><img src="04_TransformationDay2_files/figure-html/colorBrewer-3.png" width="70%" style="display: block; margin: auto;" /><img src="04_TransformationDay2_files/figure-html/colorBrewer-4.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>Finally, for bar plots, you can use <code>fct_infreq()</code> to order
 levels in increasing frequency: this is the simplest type of reordering
 because it doesn’t need any extra variables. You may want to combine
 with <code>fct_rev()</code>.</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="data-transformation-day-2.html#cb94-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb94-2"><a href="data-transformation-day-2.html#cb94-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">marital =</span> marital <span class="sc">%&gt;%</span> <span class="fu">fct_infreq</span>() <span class="sc">%&gt;%</span> <span class="fu">fct_rev</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb94-3"><a href="data-transformation-day-2.html#cb94-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(marital)) <span class="sc">+</span></span>
-<span id="cb94-4"><a href="data-transformation-day-2.html#cb94-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="data-transformation-day-2.html#cb95-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb95-2"><a href="data-transformation-day-2.html#cb95-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">marital =</span> marital <span class="sc">%&gt;%</span> <span class="fu">fct_infreq</span>() <span class="sc">%&gt;%</span> <span class="fu">fct_rev</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb95-3"><a href="data-transformation-day-2.html#cb95-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(marital)) <span class="sc">+</span></span>
+<span id="cb95-4"><a href="data-transformation-day-2.html#cb95-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
 <p><img src="04_TransformationDay2_files/figure-html/marital-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>Notice that you can pipe these arguments WITHIN the mutate() function!</p>
 <p><strong>Challenge 1</strong></p>
 <p>For each factor in df identify whether the order of the levels is
 arbitrary or principled.</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="data-transformation-day-2.html#cb95-1" tabindex="-1"></a><span class="fu">rev</span>(<span class="fu">levels</span>(df<span class="sc">$</span>marital))</span>
-<span id="cb95-2"><a href="data-transformation-day-2.html#cb95-2" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Married&quot;       &quot;Widowed&quot;       &quot;Divorced&quot;      &quot;Separated&quot;    </span></span>
-<span id="cb95-3"><a href="data-transformation-day-2.html#cb95-3" tabindex="-1"></a><span class="co">#&gt; [5] &quot;Never married&quot; &quot;No answer&quot;</span></span>
-<span id="cb95-4"><a href="data-transformation-day-2.html#cb95-4" tabindex="-1"></a></span>
-<span id="cb95-5"><a href="data-transformation-day-2.html#cb95-5" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(year,<span class="at">fill =</span> relig)) <span class="sc">+</span> </span>
-<span id="cb95-6"><a href="data-transformation-day-2.html#cb95-6" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">8</span>) <span class="sc">+</span></span>
-<span id="cb95-7"><a href="data-transformation-day-2.html#cb95-7" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set3&quot;</span>)</span>
-<span id="cb95-8"><a href="data-transformation-day-2.html#cb95-8" tabindex="-1"></a><span class="co">#&gt; Warning in RColorBrewer::brewer.pal(n, pal): n too large, allowed maximum for palette Set3 is 12</span></span>
-<span id="cb95-9"><a href="data-transformation-day-2.html#cb95-9" tabindex="-1"></a><span class="co">#&gt; Returning the palette you asked for with that many colors</span></span>
-<span id="cb95-10"><a href="data-transformation-day-2.html#cb95-10" tabindex="-1"></a></span>
-<span id="cb95-11"><a href="data-transformation-day-2.html#cb95-11" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(year,<span class="at">fill =</span> <span class="fu">fct_lump</span>(relig,<span class="at">n =</span> <span class="dv">8</span>))) <span class="sc">+</span> </span>
-<span id="cb95-12"><a href="data-transformation-day-2.html#cb95-12" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">8</span>) <span class="sc">+</span></span>
-<span id="cb95-13"><a href="data-transformation-day-2.html#cb95-13" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set3&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="data-transformation-day-2.html#cb96-1" tabindex="-1"></a><span class="fu">rev</span>(<span class="fu">levels</span>(df<span class="sc">$</span>marital))</span>
+<span id="cb96-2"><a href="data-transformation-day-2.html#cb96-2" tabindex="-1"></a><span class="co">#&gt; [1] &quot;Married&quot;       &quot;Widowed&quot;       &quot;Divorced&quot;      &quot;Separated&quot;    </span></span>
+<span id="cb96-3"><a href="data-transformation-day-2.html#cb96-3" tabindex="-1"></a><span class="co">#&gt; [5] &quot;Never married&quot; &quot;No answer&quot;</span></span>
+<span id="cb96-4"><a href="data-transformation-day-2.html#cb96-4" tabindex="-1"></a></span>
+<span id="cb96-5"><a href="data-transformation-day-2.html#cb96-5" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(year,<span class="at">fill =</span> relig)) <span class="sc">+</span> </span>
+<span id="cb96-6"><a href="data-transformation-day-2.html#cb96-6" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb96-7"><a href="data-transformation-day-2.html#cb96-7" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set3&quot;</span>)</span>
+<span id="cb96-8"><a href="data-transformation-day-2.html#cb96-8" tabindex="-1"></a><span class="co">#&gt; Warning in RColorBrewer::brewer.pal(n, pal): n too large, allowed maximum for palette Set3 is 12</span></span>
+<span id="cb96-9"><a href="data-transformation-day-2.html#cb96-9" tabindex="-1"></a><span class="co">#&gt; Returning the palette you asked for with that many colors</span></span>
+<span id="cb96-10"><a href="data-transformation-day-2.html#cb96-10" tabindex="-1"></a></span>
+<span id="cb96-11"><a href="data-transformation-day-2.html#cb96-11" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(year,<span class="at">fill =</span> <span class="fu">fct_lump</span>(relig,<span class="at">n =</span> <span class="dv">8</span>))) <span class="sc">+</span> </span>
+<span id="cb96-12"><a href="data-transformation-day-2.html#cb96-12" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb96-13"><a href="data-transformation-day-2.html#cb96-13" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set3&quot;</span>)</span></code></pre></div>
 <p><img src="04_TransformationDay2_files/figure-html/challenge1-1.png" width="70%" style="display: block; margin: auto;" /><img src="04_TransformationDay2_files/figure-html/challenge1-2.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>How would you determine this?</p>
 </div>
 <div id="modifying-factor-levels" class="section level2 hasAnchor" number="5.3">
 <h2><span class="header-section-number">5.3</span> Modifying Factor Levels<a href="data-transformation-day-2.html#modifying-factor-levels" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Here’s a count of the levels in party_id</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="data-transformation-day-2.html#cb96-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">count</span>(partyid)</span>
-<span id="cb96-2"><a href="data-transformation-day-2.html#cb96-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 10 × 2</span></span>
-<span id="cb96-3"><a href="data-transformation-day-2.html#cb96-3" tabindex="-1"></a><span class="co">#&gt;   partyid                n</span></span>
-<span id="cb96-4"><a href="data-transformation-day-2.html#cb96-4" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt;              &lt;int&gt;</span></span>
-<span id="cb96-5"><a href="data-transformation-day-2.html#cb96-5" tabindex="-1"></a><span class="co">#&gt; 1 No answer            154</span></span>
-<span id="cb96-6"><a href="data-transformation-day-2.html#cb96-6" tabindex="-1"></a><span class="co">#&gt; 2 Don&#39;t know             1</span></span>
-<span id="cb96-7"><a href="data-transformation-day-2.html#cb96-7" tabindex="-1"></a><span class="co">#&gt; 3 Other party          393</span></span>
-<span id="cb96-8"><a href="data-transformation-day-2.html#cb96-8" tabindex="-1"></a><span class="co">#&gt; 4 Strong republican   2314</span></span>
-<span id="cb96-9"><a href="data-transformation-day-2.html#cb96-9" tabindex="-1"></a><span class="co">#&gt; 5 Not str republican  3032</span></span>
-<span id="cb96-10"><a href="data-transformation-day-2.html#cb96-10" tabindex="-1"></a><span class="co">#&gt; 6 Ind,near rep        1791</span></span>
-<span id="cb96-11"><a href="data-transformation-day-2.html#cb96-11" tabindex="-1"></a><span class="co">#&gt; # … with 4 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="data-transformation-day-2.html#cb97-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">count</span>(partyid)</span>
+<span id="cb97-2"><a href="data-transformation-day-2.html#cb97-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 10 × 2</span></span>
+<span id="cb97-3"><a href="data-transformation-day-2.html#cb97-3" tabindex="-1"></a><span class="co">#&gt;   partyid                n</span></span>
+<span id="cb97-4"><a href="data-transformation-day-2.html#cb97-4" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt;              &lt;int&gt;</span></span>
+<span id="cb97-5"><a href="data-transformation-day-2.html#cb97-5" tabindex="-1"></a><span class="co">#&gt; 1 No answer            154</span></span>
+<span id="cb97-6"><a href="data-transformation-day-2.html#cb97-6" tabindex="-1"></a><span class="co">#&gt; 2 Don&#39;t know             1</span></span>
+<span id="cb97-7"><a href="data-transformation-day-2.html#cb97-7" tabindex="-1"></a><span class="co">#&gt; 3 Other party          393</span></span>
+<span id="cb97-8"><a href="data-transformation-day-2.html#cb97-8" tabindex="-1"></a><span class="co">#&gt; 4 Strong republican   2314</span></span>
+<span id="cb97-9"><a href="data-transformation-day-2.html#cb97-9" tabindex="-1"></a><span class="co">#&gt; 5 Not str republican  3032</span></span>
+<span id="cb97-10"><a href="data-transformation-day-2.html#cb97-10" tabindex="-1"></a><span class="co">#&gt; 6 Ind,near rep        1791</span></span>
+<span id="cb97-11"><a href="data-transformation-day-2.html#cb97-11" tabindex="-1"></a><span class="co">#&gt; # … with 4 more rows</span></span></code></pre></div>
 <p><code>fct_recode</code> let’s us rename variables (new varname left =
 old varname right)</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="data-transformation-day-2.html#cb97-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb97-2"><a href="data-transformation-day-2.html#cb97-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">partyid =</span> <span class="fu">fct_recode</span>(partyid,</span>
-<span id="cb97-3"><a href="data-transformation-day-2.html#cb97-3" tabindex="-1"></a>                              <span class="st">&quot;Republican, strong&quot;</span>    <span class="ot">=</span> <span class="st">&quot;Strong republican&quot;</span>,</span>
-<span id="cb97-4"><a href="data-transformation-day-2.html#cb97-4" tabindex="-1"></a>                              <span class="st">&quot;Republican, weak&quot;</span>      <span class="ot">=</span> <span class="st">&quot;Not str republican&quot;</span>,</span>
-<span id="cb97-5"><a href="data-transformation-day-2.html#cb97-5" tabindex="-1"></a>                              <span class="st">&quot;Independent, near rep&quot;</span> <span class="ot">=</span> <span class="st">&quot;Ind,near rep&quot;</span>,</span>
-<span id="cb97-6"><a href="data-transformation-day-2.html#cb97-6" tabindex="-1"></a>                              <span class="st">&quot;Independent, near dem&quot;</span> <span class="ot">=</span> <span class="st">&quot;Ind,near dem&quot;</span>,</span>
-<span id="cb97-7"><a href="data-transformation-day-2.html#cb97-7" tabindex="-1"></a>                              <span class="st">&quot;Democrat, weak&quot;</span>        <span class="ot">=</span> <span class="st">&quot;Not str democrat&quot;</span>,</span>
-<span id="cb97-8"><a href="data-transformation-day-2.html#cb97-8" tabindex="-1"></a>                              <span class="st">&quot;Democrat, strong&quot;</span>      <span class="ot">=</span> <span class="st">&quot;Strong democrat&quot;</span></span>
-<span id="cb97-9"><a href="data-transformation-day-2.html#cb97-9" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span></span>
-<span id="cb97-10"><a href="data-transformation-day-2.html#cb97-10" tabindex="-1"></a>  <span class="fu">count</span>(partyid) <span class="co">#Count party ID</span></span>
-<span id="cb97-11"><a href="data-transformation-day-2.html#cb97-11" tabindex="-1"></a><span class="co">#&gt; # A tibble: 10 × 2</span></span>
-<span id="cb97-12"><a href="data-transformation-day-2.html#cb97-12" tabindex="-1"></a><span class="co">#&gt;   partyid                   n</span></span>
-<span id="cb97-13"><a href="data-transformation-day-2.html#cb97-13" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt;                 &lt;int&gt;</span></span>
-<span id="cb97-14"><a href="data-transformation-day-2.html#cb97-14" tabindex="-1"></a><span class="co">#&gt; 1 No answer               154</span></span>
-<span id="cb97-15"><a href="data-transformation-day-2.html#cb97-15" tabindex="-1"></a><span class="co">#&gt; 2 Don&#39;t know                1</span></span>
-<span id="cb97-16"><a href="data-transformation-day-2.html#cb97-16" tabindex="-1"></a><span class="co">#&gt; 3 Other party             393</span></span>
-<span id="cb97-17"><a href="data-transformation-day-2.html#cb97-17" tabindex="-1"></a><span class="co">#&gt; 4 Republican, strong     2314</span></span>
-<span id="cb97-18"><a href="data-transformation-day-2.html#cb97-18" tabindex="-1"></a><span class="co">#&gt; 5 Republican, weak       3032</span></span>
-<span id="cb97-19"><a href="data-transformation-day-2.html#cb97-19" tabindex="-1"></a><span class="co">#&gt; 6 Independent, near rep  1791</span></span>
-<span id="cb97-20"><a href="data-transformation-day-2.html#cb97-20" tabindex="-1"></a><span class="co">#&gt; # … with 4 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="data-transformation-day-2.html#cb98-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb98-2"><a href="data-transformation-day-2.html#cb98-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">partyid =</span> <span class="fu">fct_recode</span>(partyid,</span>
+<span id="cb98-3"><a href="data-transformation-day-2.html#cb98-3" tabindex="-1"></a>                              <span class="st">&quot;Republican, strong&quot;</span>    <span class="ot">=</span> <span class="st">&quot;Strong republican&quot;</span>,</span>
+<span id="cb98-4"><a href="data-transformation-day-2.html#cb98-4" tabindex="-1"></a>                              <span class="st">&quot;Republican, weak&quot;</span>      <span class="ot">=</span> <span class="st">&quot;Not str republican&quot;</span>,</span>
+<span id="cb98-5"><a href="data-transformation-day-2.html#cb98-5" tabindex="-1"></a>                              <span class="st">&quot;Independent, near rep&quot;</span> <span class="ot">=</span> <span class="st">&quot;Ind,near rep&quot;</span>,</span>
+<span id="cb98-6"><a href="data-transformation-day-2.html#cb98-6" tabindex="-1"></a>                              <span class="st">&quot;Independent, near dem&quot;</span> <span class="ot">=</span> <span class="st">&quot;Ind,near dem&quot;</span>,</span>
+<span id="cb98-7"><a href="data-transformation-day-2.html#cb98-7" tabindex="-1"></a>                              <span class="st">&quot;Democrat, weak&quot;</span>        <span class="ot">=</span> <span class="st">&quot;Not str democrat&quot;</span>,</span>
+<span id="cb98-8"><a href="data-transformation-day-2.html#cb98-8" tabindex="-1"></a>                              <span class="st">&quot;Democrat, strong&quot;</span>      <span class="ot">=</span> <span class="st">&quot;Strong democrat&quot;</span></span>
+<span id="cb98-9"><a href="data-transformation-day-2.html#cb98-9" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span></span>
+<span id="cb98-10"><a href="data-transformation-day-2.html#cb98-10" tabindex="-1"></a>  <span class="fu">count</span>(partyid) <span class="co">#Count party ID</span></span>
+<span id="cb98-11"><a href="data-transformation-day-2.html#cb98-11" tabindex="-1"></a><span class="co">#&gt; # A tibble: 10 × 2</span></span>
+<span id="cb98-12"><a href="data-transformation-day-2.html#cb98-12" tabindex="-1"></a><span class="co">#&gt;   partyid                   n</span></span>
+<span id="cb98-13"><a href="data-transformation-day-2.html#cb98-13" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt;                 &lt;int&gt;</span></span>
+<span id="cb98-14"><a href="data-transformation-day-2.html#cb98-14" tabindex="-1"></a><span class="co">#&gt; 1 No answer               154</span></span>
+<span id="cb98-15"><a href="data-transformation-day-2.html#cb98-15" tabindex="-1"></a><span class="co">#&gt; 2 Don&#39;t know                1</span></span>
+<span id="cb98-16"><a href="data-transformation-day-2.html#cb98-16" tabindex="-1"></a><span class="co">#&gt; 3 Other party             393</span></span>
+<span id="cb98-17"><a href="data-transformation-day-2.html#cb98-17" tabindex="-1"></a><span class="co">#&gt; 4 Republican, strong     2314</span></span>
+<span id="cb98-18"><a href="data-transformation-day-2.html#cb98-18" tabindex="-1"></a><span class="co">#&gt; 5 Republican, weak       3032</span></span>
+<span id="cb98-19"><a href="data-transformation-day-2.html#cb98-19" tabindex="-1"></a><span class="co">#&gt; 6 Independent, near rep  1791</span></span>
+<span id="cb98-20"><a href="data-transformation-day-2.html#cb98-20" tabindex="-1"></a><span class="co">#&gt; # … with 4 more rows</span></span></code></pre></div>
 <p><code>fct_recode()</code> will leave levels that aren’t explicitly
 mentioned as is, and will warn you if you accidentally refer to a level
 that doesn’t exist.</p>
 <p>If you want to collapse a lot of levels, <code>fct_collapse()</code> is
 a useful variant of <code>fct_recode()</code>. For each new variable,
 you can provide a vector of old levels:</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="data-transformation-day-2.html#cb98-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb98-2"><a href="data-transformation-day-2.html#cb98-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">partyid =</span> <span class="fu">fct_collapse</span>(partyid,</span>
-<span id="cb98-3"><a href="data-transformation-day-2.html#cb98-3" tabindex="-1"></a>                                <span class="at">other =</span> <span class="fu">c</span>(<span class="st">&quot;No answer&quot;</span>, <span class="st">&quot;Don&#39;t know&quot;</span>, <span class="st">&quot;Other party&quot;</span>),</span>
-<span id="cb98-4"><a href="data-transformation-day-2.html#cb98-4" tabindex="-1"></a>                                <span class="at">rep =</span> <span class="fu">c</span>(<span class="st">&quot;Strong republican&quot;</span>, <span class="st">&quot;Not str republican&quot;</span>),</span>
-<span id="cb98-5"><a href="data-transformation-day-2.html#cb98-5" tabindex="-1"></a>                                <span class="at">ind =</span> <span class="fu">c</span>(<span class="st">&quot;Ind,near rep&quot;</span>, <span class="st">&quot;Independent&quot;</span>, <span class="st">&quot;Ind,near dem&quot;</span>),</span>
-<span id="cb98-6"><a href="data-transformation-day-2.html#cb98-6" tabindex="-1"></a>                                <span class="at">dem =</span> <span class="fu">c</span>(<span class="st">&quot;Not str democrat&quot;</span>, <span class="st">&quot;Strong democrat&quot;</span>)</span>
-<span id="cb98-7"><a href="data-transformation-day-2.html#cb98-7" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span></span>
-<span id="cb98-8"><a href="data-transformation-day-2.html#cb98-8" tabindex="-1"></a>  <span class="fu">count</span>(partyid)</span>
-<span id="cb98-9"><a href="data-transformation-day-2.html#cb98-9" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 2</span></span>
-<span id="cb98-10"><a href="data-transformation-day-2.html#cb98-10" tabindex="-1"></a><span class="co">#&gt;   partyid     n</span></span>
-<span id="cb98-11"><a href="data-transformation-day-2.html#cb98-11" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt;   &lt;int&gt;</span></span>
-<span id="cb98-12"><a href="data-transformation-day-2.html#cb98-12" tabindex="-1"></a><span class="co">#&gt; 1 other     548</span></span>
-<span id="cb98-13"><a href="data-transformation-day-2.html#cb98-13" tabindex="-1"></a><span class="co">#&gt; 2 rep      5346</span></span>
-<span id="cb98-14"><a href="data-transformation-day-2.html#cb98-14" tabindex="-1"></a><span class="co">#&gt; 3 ind      8409</span></span>
-<span id="cb98-15"><a href="data-transformation-day-2.html#cb98-15" tabindex="-1"></a><span class="co">#&gt; 4 dem      7180</span></span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="data-transformation-day-2.html#cb99-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb99-2"><a href="data-transformation-day-2.html#cb99-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">partyid =</span> <span class="fu">fct_collapse</span>(partyid,</span>
+<span id="cb99-3"><a href="data-transformation-day-2.html#cb99-3" tabindex="-1"></a>                                <span class="at">other =</span> <span class="fu">c</span>(<span class="st">&quot;No answer&quot;</span>, <span class="st">&quot;Don&#39;t know&quot;</span>, <span class="st">&quot;Other party&quot;</span>),</span>
+<span id="cb99-4"><a href="data-transformation-day-2.html#cb99-4" tabindex="-1"></a>                                <span class="at">rep =</span> <span class="fu">c</span>(<span class="st">&quot;Strong republican&quot;</span>, <span class="st">&quot;Not str republican&quot;</span>),</span>
+<span id="cb99-5"><a href="data-transformation-day-2.html#cb99-5" tabindex="-1"></a>                                <span class="at">ind =</span> <span class="fu">c</span>(<span class="st">&quot;Ind,near rep&quot;</span>, <span class="st">&quot;Independent&quot;</span>, <span class="st">&quot;Ind,near dem&quot;</span>),</span>
+<span id="cb99-6"><a href="data-transformation-day-2.html#cb99-6" tabindex="-1"></a>                                <span class="at">dem =</span> <span class="fu">c</span>(<span class="st">&quot;Not str democrat&quot;</span>, <span class="st">&quot;Strong democrat&quot;</span>)</span>
+<span id="cb99-7"><a href="data-transformation-day-2.html#cb99-7" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span></span>
+<span id="cb99-8"><a href="data-transformation-day-2.html#cb99-8" tabindex="-1"></a>  <span class="fu">count</span>(partyid)</span>
+<span id="cb99-9"><a href="data-transformation-day-2.html#cb99-9" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 2</span></span>
+<span id="cb99-10"><a href="data-transformation-day-2.html#cb99-10" tabindex="-1"></a><span class="co">#&gt;   partyid     n</span></span>
+<span id="cb99-11"><a href="data-transformation-day-2.html#cb99-11" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt;   &lt;int&gt;</span></span>
+<span id="cb99-12"><a href="data-transformation-day-2.html#cb99-12" tabindex="-1"></a><span class="co">#&gt; 1 other     548</span></span>
+<span id="cb99-13"><a href="data-transformation-day-2.html#cb99-13" tabindex="-1"></a><span class="co">#&gt; 2 rep      5346</span></span>
+<span id="cb99-14"><a href="data-transformation-day-2.html#cb99-14" tabindex="-1"></a><span class="co">#&gt; 3 ind      8409</span></span>
+<span id="cb99-15"><a href="data-transformation-day-2.html#cb99-15" tabindex="-1"></a><span class="co">#&gt; 4 dem      7180</span></span></code></pre></div>
 <p>Pretty cool huh?! We just created in groupings to plot or do analyses
 on.</p>
 <p>Sometimes you just want to lump together all the small groups to make a
 plot or table simpler. That’s the job of <code>fct_lump()</code></p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="data-transformation-day-2.html#cb99-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb99-2"><a href="data-transformation-day-2.html#cb99-2" tabindex="-1"></a>  <span class="fu">count</span>(relig) <span class="co">#This is before lumping</span></span>
-<span id="cb99-3"><a href="data-transformation-day-2.html#cb99-3" tabindex="-1"></a><span class="co">#&gt; # A tibble: 15 × 2</span></span>
-<span id="cb99-4"><a href="data-transformation-day-2.html#cb99-4" tabindex="-1"></a><span class="co">#&gt;   relig                       n</span></span>
-<span id="cb99-5"><a href="data-transformation-day-2.html#cb99-5" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt;                   &lt;int&gt;</span></span>
-<span id="cb99-6"><a href="data-transformation-day-2.html#cb99-6" tabindex="-1"></a><span class="co">#&gt; 1 No answer                  93</span></span>
-<span id="cb99-7"><a href="data-transformation-day-2.html#cb99-7" tabindex="-1"></a><span class="co">#&gt; 2 Don&#39;t know                 15</span></span>
-<span id="cb99-8"><a href="data-transformation-day-2.html#cb99-8" tabindex="-1"></a><span class="co">#&gt; 3 Inter-nondenominational   109</span></span>
-<span id="cb99-9"><a href="data-transformation-day-2.html#cb99-9" tabindex="-1"></a><span class="co">#&gt; 4 Native american            23</span></span>
-<span id="cb99-10"><a href="data-transformation-day-2.html#cb99-10" tabindex="-1"></a><span class="co">#&gt; 5 Christian                 689</span></span>
-<span id="cb99-11"><a href="data-transformation-day-2.html#cb99-11" tabindex="-1"></a><span class="co">#&gt; 6 Orthodox-christian         95</span></span>
-<span id="cb99-12"><a href="data-transformation-day-2.html#cb99-12" tabindex="-1"></a><span class="co">#&gt; # … with 9 more rows</span></span>
-<span id="cb99-13"><a href="data-transformation-day-2.html#cb99-13" tabindex="-1"></a></span>
-<span id="cb99-14"><a href="data-transformation-day-2.html#cb99-14" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb99-15"><a href="data-transformation-day-2.html#cb99-15" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">marital =</span> <span class="fu">fct_lump</span>(marital)) <span class="sc">%&gt;%</span></span>
-<span id="cb99-16"><a href="data-transformation-day-2.html#cb99-16" tabindex="-1"></a>  <span class="fu">count</span>(marital)</span>
-<span id="cb99-17"><a href="data-transformation-day-2.html#cb99-17" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 2</span></span>
-<span id="cb99-18"><a href="data-transformation-day-2.html#cb99-18" tabindex="-1"></a><span class="co">#&gt;   marital           n</span></span>
-<span id="cb99-19"><a href="data-transformation-day-2.html#cb99-19" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt;         &lt;int&gt;</span></span>
-<span id="cb99-20"><a href="data-transformation-day-2.html#cb99-20" tabindex="-1"></a><span class="co">#&gt; 1 Never married  5416</span></span>
-<span id="cb99-21"><a href="data-transformation-day-2.html#cb99-21" tabindex="-1"></a><span class="co">#&gt; 2 Divorced       3383</span></span>
-<span id="cb99-22"><a href="data-transformation-day-2.html#cb99-22" tabindex="-1"></a><span class="co">#&gt; 3 Married       10117</span></span>
-<span id="cb99-23"><a href="data-transformation-day-2.html#cb99-23" tabindex="-1"></a><span class="co">#&gt; 4 Other          2567</span></span>
-<span id="cb99-24"><a href="data-transformation-day-2.html#cb99-24" tabindex="-1"></a></span>
-<span id="cb99-25"><a href="data-transformation-day-2.html#cb99-25" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb99-26"><a href="data-transformation-day-2.html#cb99-26" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relig =</span> <span class="fu">fct_lump</span>(relig)) <span class="sc">%&gt;%</span></span>
-<span id="cb99-27"><a href="data-transformation-day-2.html#cb99-27" tabindex="-1"></a>  <span class="fu">count</span>(relig) <span class="co">#This is default after lumping</span></span>
-<span id="cb99-28"><a href="data-transformation-day-2.html#cb99-28" tabindex="-1"></a><span class="co">#&gt; # A tibble: 2 × 2</span></span>
-<span id="cb99-29"><a href="data-transformation-day-2.html#cb99-29" tabindex="-1"></a><span class="co">#&gt;   relig          n</span></span>
-<span id="cb99-30"><a href="data-transformation-day-2.html#cb99-30" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt;      &lt;int&gt;</span></span>
-<span id="cb99-31"><a href="data-transformation-day-2.html#cb99-31" tabindex="-1"></a><span class="co">#&gt; 1 Protestant 10846</span></span>
-<span id="cb99-32"><a href="data-transformation-day-2.html#cb99-32" tabindex="-1"></a><span class="co">#&gt; 2 Other      10637</span></span>
-<span id="cb99-33"><a href="data-transformation-day-2.html#cb99-33" tabindex="-1"></a></span>
-<span id="cb99-34"><a href="data-transformation-day-2.html#cb99-34" tabindex="-1"></a><span class="fu">levels</span>(df<span class="sc">$</span>relig)</span>
-<span id="cb99-35"><a href="data-transformation-day-2.html#cb99-35" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;No answer&quot;               &quot;Don&#39;t know&quot;             </span></span>
-<span id="cb99-36"><a href="data-transformation-day-2.html#cb99-36" tabindex="-1"></a><span class="co">#&gt;  [3] &quot;Inter-nondenominational&quot; &quot;Native american&quot;        </span></span>
-<span id="cb99-37"><a href="data-transformation-day-2.html#cb99-37" tabindex="-1"></a><span class="co">#&gt;  [5] &quot;Christian&quot;               &quot;Orthodox-christian&quot;     </span></span>
-<span id="cb99-38"><a href="data-transformation-day-2.html#cb99-38" tabindex="-1"></a><span class="co">#&gt;  [7] &quot;Moslem/islam&quot;            &quot;Other eastern&quot;          </span></span>
-<span id="cb99-39"><a href="data-transformation-day-2.html#cb99-39" tabindex="-1"></a><span class="co">#&gt;  [9] &quot;Hinduism&quot;                &quot;Buddhism&quot;               </span></span>
-<span id="cb99-40"><a href="data-transformation-day-2.html#cb99-40" tabindex="-1"></a><span class="co">#&gt; [11] &quot;Other&quot;                   &quot;None&quot;                   </span></span>
-<span id="cb99-41"><a href="data-transformation-day-2.html#cb99-41" tabindex="-1"></a><span class="co">#&gt; [13] &quot;Jewish&quot;                  &quot;Catholic&quot;               </span></span>
-<span id="cb99-42"><a href="data-transformation-day-2.html#cb99-42" tabindex="-1"></a><span class="co">#&gt; [15] &quot;Protestant&quot;              &quot;Not applicable&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="data-transformation-day-2.html#cb100-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb100-2"><a href="data-transformation-day-2.html#cb100-2" tabindex="-1"></a>  <span class="fu">count</span>(relig) <span class="co">#This is before lumping</span></span>
+<span id="cb100-3"><a href="data-transformation-day-2.html#cb100-3" tabindex="-1"></a><span class="co">#&gt; # A tibble: 15 × 2</span></span>
+<span id="cb100-4"><a href="data-transformation-day-2.html#cb100-4" tabindex="-1"></a><span class="co">#&gt;   relig                       n</span></span>
+<span id="cb100-5"><a href="data-transformation-day-2.html#cb100-5" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt;                   &lt;int&gt;</span></span>
+<span id="cb100-6"><a href="data-transformation-day-2.html#cb100-6" tabindex="-1"></a><span class="co">#&gt; 1 No answer                  93</span></span>
+<span id="cb100-7"><a href="data-transformation-day-2.html#cb100-7" tabindex="-1"></a><span class="co">#&gt; 2 Don&#39;t know                 15</span></span>
+<span id="cb100-8"><a href="data-transformation-day-2.html#cb100-8" tabindex="-1"></a><span class="co">#&gt; 3 Inter-nondenominational   109</span></span>
+<span id="cb100-9"><a href="data-transformation-day-2.html#cb100-9" tabindex="-1"></a><span class="co">#&gt; 4 Native american            23</span></span>
+<span id="cb100-10"><a href="data-transformation-day-2.html#cb100-10" tabindex="-1"></a><span class="co">#&gt; 5 Christian                 689</span></span>
+<span id="cb100-11"><a href="data-transformation-day-2.html#cb100-11" tabindex="-1"></a><span class="co">#&gt; 6 Orthodox-christian         95</span></span>
+<span id="cb100-12"><a href="data-transformation-day-2.html#cb100-12" tabindex="-1"></a><span class="co">#&gt; # … with 9 more rows</span></span>
+<span id="cb100-13"><a href="data-transformation-day-2.html#cb100-13" tabindex="-1"></a></span>
+<span id="cb100-14"><a href="data-transformation-day-2.html#cb100-14" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb100-15"><a href="data-transformation-day-2.html#cb100-15" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">marital =</span> <span class="fu">fct_lump</span>(marital)) <span class="sc">%&gt;%</span></span>
+<span id="cb100-16"><a href="data-transformation-day-2.html#cb100-16" tabindex="-1"></a>  <span class="fu">count</span>(marital)</span>
+<span id="cb100-17"><a href="data-transformation-day-2.html#cb100-17" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 2</span></span>
+<span id="cb100-18"><a href="data-transformation-day-2.html#cb100-18" tabindex="-1"></a><span class="co">#&gt;   marital           n</span></span>
+<span id="cb100-19"><a href="data-transformation-day-2.html#cb100-19" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt;         &lt;int&gt;</span></span>
+<span id="cb100-20"><a href="data-transformation-day-2.html#cb100-20" tabindex="-1"></a><span class="co">#&gt; 1 Never married  5416</span></span>
+<span id="cb100-21"><a href="data-transformation-day-2.html#cb100-21" tabindex="-1"></a><span class="co">#&gt; 2 Divorced       3383</span></span>
+<span id="cb100-22"><a href="data-transformation-day-2.html#cb100-22" tabindex="-1"></a><span class="co">#&gt; 3 Married       10117</span></span>
+<span id="cb100-23"><a href="data-transformation-day-2.html#cb100-23" tabindex="-1"></a><span class="co">#&gt; 4 Other          2567</span></span>
+<span id="cb100-24"><a href="data-transformation-day-2.html#cb100-24" tabindex="-1"></a></span>
+<span id="cb100-25"><a href="data-transformation-day-2.html#cb100-25" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb100-26"><a href="data-transformation-day-2.html#cb100-26" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relig =</span> <span class="fu">fct_lump</span>(relig)) <span class="sc">%&gt;%</span></span>
+<span id="cb100-27"><a href="data-transformation-day-2.html#cb100-27" tabindex="-1"></a>  <span class="fu">count</span>(relig) <span class="co">#This is default after lumping</span></span>
+<span id="cb100-28"><a href="data-transformation-day-2.html#cb100-28" tabindex="-1"></a><span class="co">#&gt; # A tibble: 2 × 2</span></span>
+<span id="cb100-29"><a href="data-transformation-day-2.html#cb100-29" tabindex="-1"></a><span class="co">#&gt;   relig          n</span></span>
+<span id="cb100-30"><a href="data-transformation-day-2.html#cb100-30" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt;      &lt;int&gt;</span></span>
+<span id="cb100-31"><a href="data-transformation-day-2.html#cb100-31" tabindex="-1"></a><span class="co">#&gt; 1 Protestant 10846</span></span>
+<span id="cb100-32"><a href="data-transformation-day-2.html#cb100-32" tabindex="-1"></a><span class="co">#&gt; 2 Other      10637</span></span>
+<span id="cb100-33"><a href="data-transformation-day-2.html#cb100-33" tabindex="-1"></a></span>
+<span id="cb100-34"><a href="data-transformation-day-2.html#cb100-34" tabindex="-1"></a><span class="fu">levels</span>(df<span class="sc">$</span>relig)</span>
+<span id="cb100-35"><a href="data-transformation-day-2.html#cb100-35" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;No answer&quot;               &quot;Don&#39;t know&quot;             </span></span>
+<span id="cb100-36"><a href="data-transformation-day-2.html#cb100-36" tabindex="-1"></a><span class="co">#&gt;  [3] &quot;Inter-nondenominational&quot; &quot;Native american&quot;        </span></span>
+<span id="cb100-37"><a href="data-transformation-day-2.html#cb100-37" tabindex="-1"></a><span class="co">#&gt;  [5] &quot;Christian&quot;               &quot;Orthodox-christian&quot;     </span></span>
+<span id="cb100-38"><a href="data-transformation-day-2.html#cb100-38" tabindex="-1"></a><span class="co">#&gt;  [7] &quot;Moslem/islam&quot;            &quot;Other eastern&quot;          </span></span>
+<span id="cb100-39"><a href="data-transformation-day-2.html#cb100-39" tabindex="-1"></a><span class="co">#&gt;  [9] &quot;Hinduism&quot;                &quot;Buddhism&quot;               </span></span>
+<span id="cb100-40"><a href="data-transformation-day-2.html#cb100-40" tabindex="-1"></a><span class="co">#&gt; [11] &quot;Other&quot;                   &quot;None&quot;                   </span></span>
+<span id="cb100-41"><a href="data-transformation-day-2.html#cb100-41" tabindex="-1"></a><span class="co">#&gt; [13] &quot;Jewish&quot;                  &quot;Catholic&quot;               </span></span>
+<span id="cb100-42"><a href="data-transformation-day-2.html#cb100-42" tabindex="-1"></a><span class="co">#&gt; [15] &quot;Protestant&quot;              &quot;Not applicable&quot;</span></span></code></pre></div>
 <p>It looks like Protestant had the largest count, so by default it grouped
 everything else and Protestant together.</p>
 <p>You can collapse across specified lumps…</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="data-transformation-day-2.html#cb100-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb100-2"><a href="data-transformation-day-2.html#cb100-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relig =</span> <span class="fu">fct_lump</span>(relig, <span class="at">n =</span> <span class="dv">10</span>)) <span class="sc">%&gt;%</span> <span class="co">#Specify lumps here</span></span>
-<span id="cb100-3"><a href="data-transformation-day-2.html#cb100-3" tabindex="-1"></a>  <span class="fu">count</span>(relig, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb100-4"><a href="data-transformation-day-2.html#cb100-4" tabindex="-1"></a><span class="co">#&gt; # A tibble: 10 × 2</span></span>
-<span id="cb100-5"><a href="data-transformation-day-2.html#cb100-5" tabindex="-1"></a><span class="co">#&gt;   relig          n</span></span>
-<span id="cb100-6"><a href="data-transformation-day-2.html#cb100-6" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt;      &lt;int&gt;</span></span>
-<span id="cb100-7"><a href="data-transformation-day-2.html#cb100-7" tabindex="-1"></a><span class="co">#&gt; 1 Protestant 10846</span></span>
-<span id="cb100-8"><a href="data-transformation-day-2.html#cb100-8" tabindex="-1"></a><span class="co">#&gt; 2 Catholic    5124</span></span>
-<span id="cb100-9"><a href="data-transformation-day-2.html#cb100-9" tabindex="-1"></a><span class="co">#&gt; 3 None        3523</span></span>
-<span id="cb100-10"><a href="data-transformation-day-2.html#cb100-10" tabindex="-1"></a><span class="co">#&gt; 4 Christian    689</span></span>
-<span id="cb100-11"><a href="data-transformation-day-2.html#cb100-11" tabindex="-1"></a><span class="co">#&gt; 5 Other        458</span></span>
-<span id="cb100-12"><a href="data-transformation-day-2.html#cb100-12" tabindex="-1"></a><span class="co">#&gt; 6 Jewish       388</span></span>
-<span id="cb100-13"><a href="data-transformation-day-2.html#cb100-13" tabindex="-1"></a><span class="co">#&gt; # … with 4 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="data-transformation-day-2.html#cb101-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb101-2"><a href="data-transformation-day-2.html#cb101-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relig =</span> <span class="fu">fct_lump</span>(relig, <span class="at">n =</span> <span class="dv">10</span>)) <span class="sc">%&gt;%</span> <span class="co">#Specify lumps here</span></span>
+<span id="cb101-3"><a href="data-transformation-day-2.html#cb101-3" tabindex="-1"></a>  <span class="fu">count</span>(relig, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb101-4"><a href="data-transformation-day-2.html#cb101-4" tabindex="-1"></a><span class="co">#&gt; # A tibble: 10 × 2</span></span>
+<span id="cb101-5"><a href="data-transformation-day-2.html#cb101-5" tabindex="-1"></a><span class="co">#&gt;   relig          n</span></span>
+<span id="cb101-6"><a href="data-transformation-day-2.html#cb101-6" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt;      &lt;int&gt;</span></span>
+<span id="cb101-7"><a href="data-transformation-day-2.html#cb101-7" tabindex="-1"></a><span class="co">#&gt; 1 Protestant 10846</span></span>
+<span id="cb101-8"><a href="data-transformation-day-2.html#cb101-8" tabindex="-1"></a><span class="co">#&gt; 2 Catholic    5124</span></span>
+<span id="cb101-9"><a href="data-transformation-day-2.html#cb101-9" tabindex="-1"></a><span class="co">#&gt; 3 None        3523</span></span>
+<span id="cb101-10"><a href="data-transformation-day-2.html#cb101-10" tabindex="-1"></a><span class="co">#&gt; 4 Christian    689</span></span>
+<span id="cb101-11"><a href="data-transformation-day-2.html#cb101-11" tabindex="-1"></a><span class="co">#&gt; 5 Other        458</span></span>
+<span id="cb101-12"><a href="data-transformation-day-2.html#cb101-12" tabindex="-1"></a><span class="co">#&gt; 6 Jewish       388</span></span>
+<span id="cb101-13"><a href="data-transformation-day-2.html#cb101-13" tabindex="-1"></a><span class="co">#&gt; # … with 4 more rows</span></span></code></pre></div>
 </div>
 <div id="play-time" class="section level2 hasAnchor" number="5.4">
 <h2><span class="header-section-number">5.4</span> Play time<a href="data-transformation-day-2.html#play-time" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Answer some interesting questions about this dataset</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="data-transformation-day-2.html#cb101-1" tabindex="-1"></a>df</span>
-<span id="cb101-2"><a href="data-transformation-day-2.html#cb101-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 21,483 × 9</span></span>
-<span id="cb101-3"><a href="data-transformation-day-2.html#cb101-3" tabindex="-1"></a><span class="co">#&gt;    year marital         age race  rincome        partyid   relig  denom  tvhours</span></span>
-<span id="cb101-4"><a href="data-transformation-day-2.html#cb101-4" tabindex="-1"></a><span class="co">#&gt;   &lt;int&gt; &lt;fct&gt;         &lt;int&gt; &lt;fct&gt; &lt;fct&gt;          &lt;fct&gt;     &lt;fct&gt;  &lt;fct&gt;    &lt;int&gt;</span></span>
-<span id="cb101-5"><a href="data-transformation-day-2.html#cb101-5" tabindex="-1"></a><span class="co">#&gt; 1  2000 Never married    26 White $8000 to 9999  Ind,near… Prote… South…      12</span></span>
-<span id="cb101-6"><a href="data-transformation-day-2.html#cb101-6" tabindex="-1"></a><span class="co">#&gt; 2  2000 Divorced         48 White $8000 to 9999  Not str … Prote… Bapti…      NA</span></span>
-<span id="cb101-7"><a href="data-transformation-day-2.html#cb101-7" tabindex="-1"></a><span class="co">#&gt; 3  2000 Widowed          67 White Not applicable Independ… Prote… No de…       2</span></span>
-<span id="cb101-8"><a href="data-transformation-day-2.html#cb101-8" tabindex="-1"></a><span class="co">#&gt; 4  2000 Never married    39 White Not applicable Ind,near… Ortho… Not a…       4</span></span>
-<span id="cb101-9"><a href="data-transformation-day-2.html#cb101-9" tabindex="-1"></a><span class="co">#&gt; 5  2000 Divorced         25 White Not applicable Not str … None   Not a…       1</span></span>
-<span id="cb101-10"><a href="data-transformation-day-2.html#cb101-10" tabindex="-1"></a><span class="co">#&gt; 6  2000 Married          25 White $20000 - 24999 Strong d… Prote… South…      NA</span></span>
-<span id="cb101-11"><a href="data-transformation-day-2.html#cb101-11" tabindex="-1"></a><span class="co">#&gt; # … with 21,477 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="data-transformation-day-2.html#cb102-1" tabindex="-1"></a>df</span>
+<span id="cb102-2"><a href="data-transformation-day-2.html#cb102-2" tabindex="-1"></a><span class="co">#&gt; # A tibble: 21,483 × 9</span></span>
+<span id="cb102-3"><a href="data-transformation-day-2.html#cb102-3" tabindex="-1"></a><span class="co">#&gt;    year marital         age race  rincome        partyid   relig  denom  tvhours</span></span>
+<span id="cb102-4"><a href="data-transformation-day-2.html#cb102-4" tabindex="-1"></a><span class="co">#&gt;   &lt;int&gt; &lt;fct&gt;         &lt;int&gt; &lt;fct&gt; &lt;fct&gt;          &lt;fct&gt;     &lt;fct&gt;  &lt;fct&gt;    &lt;int&gt;</span></span>
+<span id="cb102-5"><a href="data-transformation-day-2.html#cb102-5" tabindex="-1"></a><span class="co">#&gt; 1  2000 Never married    26 White $8000 to 9999  Ind,near… Prote… South…      12</span></span>
+<span id="cb102-6"><a href="data-transformation-day-2.html#cb102-6" tabindex="-1"></a><span class="co">#&gt; 2  2000 Divorced         48 White $8000 to 9999  Not str … Prote… Bapti…      NA</span></span>
+<span id="cb102-7"><a href="data-transformation-day-2.html#cb102-7" tabindex="-1"></a><span class="co">#&gt; 3  2000 Widowed          67 White Not applicable Independ… Prote… No de…       2</span></span>
+<span id="cb102-8"><a href="data-transformation-day-2.html#cb102-8" tabindex="-1"></a><span class="co">#&gt; 4  2000 Never married    39 White Not applicable Ind,near… Ortho… Not a…       4</span></span>
+<span id="cb102-9"><a href="data-transformation-day-2.html#cb102-9" tabindex="-1"></a><span class="co">#&gt; 5  2000 Divorced         25 White Not applicable Not str … None   Not a…       1</span></span>
+<span id="cb102-10"><a href="data-transformation-day-2.html#cb102-10" tabindex="-1"></a><span class="co">#&gt; 6  2000 Married          25 White $20000 - 24999 Strong d… Prote… South…      NA</span></span>
+<span id="cb102-11"><a href="data-transformation-day-2.html#cb102-11" tabindex="-1"></a><span class="co">#&gt; # … with 21,477 more rows</span></span></code></pre></div>
 <p>What is the proportion of race in each religion?</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="data-transformation-day-2.html#cb102-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb102-2"><a href="data-transformation-day-2.html#cb102-2" tabindex="-1"></a>  <span class="fu">group_by</span>(relig) <span class="sc">%&gt;%</span></span>
-<span id="cb102-3"><a href="data-transformation-day-2.html#cb102-3" tabindex="-1"></a>  <span class="fu">count</span>(...) <span class="sc">%&gt;%</span></span>
-<span id="cb102-4"><a href="data-transformation-day-2.html#cb102-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> ...)</span></code></pre></div>
-<p>Try to plot it</p>
 <div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="data-transformation-day-2.html#cb103-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
 <span id="cb103-2"><a href="data-transformation-day-2.html#cb103-2" tabindex="-1"></a>  <span class="fu">group_by</span>(relig) <span class="sc">%&gt;%</span></span>
-<span id="cb103-3"><a href="data-transformation-day-2.html#cb103-3" tabindex="-1"></a>  <span class="fu">count</span>(race) <span class="sc">%&gt;%</span></span>
-<span id="cb103-4"><a href="data-transformation-day-2.html#cb103-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span></span>
-<span id="cb103-5"><a href="data-transformation-day-2.html#cb103-5" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(relig, ..., <span class="at">fill =</span> ...)) <span class="sc">+</span> </span>
-<span id="cb103-6"><a href="data-transformation-day-2.html#cb103-6" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;...&quot;</span>, <span class="at">position =</span> <span class="st">&quot;...&quot;</span>) <span class="sc">+</span></span>
-<span id="cb103-7"><a href="data-transformation-day-2.html#cb103-7" tabindex="-1"></a>  <span class="fu">theme</span>(...)</span></code></pre></div>
+<span id="cb103-3"><a href="data-transformation-day-2.html#cb103-3" tabindex="-1"></a>  <span class="fu">count</span>(...) <span class="sc">%&gt;%</span></span>
+<span id="cb103-4"><a href="data-transformation-day-2.html#cb103-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> ...)</span></code></pre></div>
+<p>Try to plot it</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="data-transformation-day-2.html#cb104-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb104-2"><a href="data-transformation-day-2.html#cb104-2" tabindex="-1"></a>  <span class="fu">group_by</span>(relig) <span class="sc">%&gt;%</span></span>
+<span id="cb104-3"><a href="data-transformation-day-2.html#cb104-3" tabindex="-1"></a>  <span class="fu">count</span>(race) <span class="sc">%&gt;%</span></span>
+<span id="cb104-4"><a href="data-transformation-day-2.html#cb104-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span></span>
+<span id="cb104-5"><a href="data-transformation-day-2.html#cb104-5" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(relig, ..., <span class="at">fill =</span> ...)) <span class="sc">+</span> </span>
+<span id="cb104-6"><a href="data-transformation-day-2.html#cb104-6" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;...&quot;</span>, <span class="at">position =</span> <span class="st">&quot;...&quot;</span>) <span class="sc">+</span></span>
+<span id="cb104-7"><a href="data-transformation-day-2.html#cb104-7" tabindex="-1"></a>  <span class="fu">theme</span>(...)</span></code></pre></div>
 </div>
 <div id="solutions" class="section level2 hasAnchor" number="5.5">
 <h2><span class="header-section-number">5.5</span> Solutions<a href="data-transformation-day-2.html#solutions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Play 1</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="data-transformation-day-2.html#cb104-1" tabindex="-1"></a><span class="fu">View</span>(df <span class="sc">%&gt;%</span></span>
-<span id="cb104-2"><a href="data-transformation-day-2.html#cb104-2" tabindex="-1"></a>  <span class="fu">group_by</span>(relig) <span class="sc">%&gt;%</span></span>
-<span id="cb104-3"><a href="data-transformation-day-2.html#cb104-3" tabindex="-1"></a>  <span class="fu">count</span>(race) <span class="sc">%&gt;%</span></span>
-<span id="cb104-4"><a href="data-transformation-day-2.html#cb104-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)))</span>
-<span id="cb104-5"><a href="data-transformation-day-2.html#cb104-5" tabindex="-1"></a><span class="co">#&gt; Warning in system2(&quot;/usr/bin/otool&quot;, c(&quot;-L&quot;, shQuote(DSO)), stdout = TRUE):</span></span>
-<span id="cb104-6"><a href="data-transformation-day-2.html#cb104-6" tabindex="-1"></a><span class="co">#&gt; running command &#39;&#39;/usr/bin/otool&#39; -L &#39;/Library/Frameworks/R.framework/Resources/</span></span>
-<span id="cb104-7"><a href="data-transformation-day-2.html#cb104-7" tabindex="-1"></a><span class="co">#&gt; modules/R_de.so&#39;&#39; had status 1</span></span></code></pre></div>
-<p>Play 2</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="data-transformation-day-2.html#cb105-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="data-transformation-day-2.html#cb105-1" tabindex="-1"></a><span class="fu">View</span>(df <span class="sc">%&gt;%</span></span>
 <span id="cb105-2"><a href="data-transformation-day-2.html#cb105-2" tabindex="-1"></a>  <span class="fu">group_by</span>(relig) <span class="sc">%&gt;%</span></span>
 <span id="cb105-3"><a href="data-transformation-day-2.html#cb105-3" tabindex="-1"></a>  <span class="fu">count</span>(race) <span class="sc">%&gt;%</span></span>
-<span id="cb105-4"><a href="data-transformation-day-2.html#cb105-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span></span>
-<span id="cb105-5"><a href="data-transformation-day-2.html#cb105-5" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(relig, prop, <span class="at">fill =</span> relig)) <span class="sc">+</span> </span>
-<span id="cb105-6"><a href="data-transformation-day-2.html#cb105-6" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
-<span id="cb105-7"><a href="data-transformation-day-2.html#cb105-7" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span>
-<span id="cb105-8"><a href="data-transformation-day-2.html#cb105-8" tabindex="-1"></a></span>
-<span id="cb105-9"><a href="data-transformation-day-2.html#cb105-9" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb105-10"><a href="data-transformation-day-2.html#cb105-10" tabindex="-1"></a>  <span class="fu">group_by</span>(relig) <span class="sc">%&gt;%</span></span>
-<span id="cb105-11"><a href="data-transformation-day-2.html#cb105-11" tabindex="-1"></a>  <span class="fu">count</span>(race) <span class="sc">%&gt;%</span></span>
-<span id="cb105-12"><a href="data-transformation-day-2.html#cb105-12" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span></span>
-<span id="cb105-13"><a href="data-transformation-day-2.html#cb105-13" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> relig, <span class="at">y =</span> prop, <span class="at">color =</span> race)) <span class="sc">+</span></span>
-<span id="cb105-14"><a href="data-transformation-day-2.html#cb105-14" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> race)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb105-15"><a href="data-transformation-day-2.html#cb105-15" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span>
-<span id="cb105-16"><a href="data-transformation-day-2.html#cb105-16" tabindex="-1"></a></span>
-<span id="cb105-17"><a href="data-transformation-day-2.html#cb105-17" tabindex="-1"></a></span>
-<span id="cb105-18"><a href="data-transformation-day-2.html#cb105-18" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb105-19"><a href="data-transformation-day-2.html#cb105-19" tabindex="-1"></a>  <span class="fu">count</span>(relig, race) <span class="sc">%&gt;%</span></span>
-<span id="cb105-20"><a href="data-transformation-day-2.html#cb105-20" tabindex="-1"></a>  <span class="fu">group_by</span>(relig) <span class="sc">%&gt;%</span></span>
-<span id="cb105-21"><a href="data-transformation-day-2.html#cb105-21" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n<span class="sc">/</span><span class="fu">sum</span>(n))</span>
-<span id="cb105-22"><a href="data-transformation-day-2.html#cb105-22" tabindex="-1"></a><span class="co">#&gt; # A tibble: 44 × 4</span></span>
-<span id="cb105-23"><a href="data-transformation-day-2.html#cb105-23" tabindex="-1"></a><span class="co">#&gt; # Groups:   relig [15]</span></span>
-<span id="cb105-24"><a href="data-transformation-day-2.html#cb105-24" tabindex="-1"></a><span class="co">#&gt;   relig      race      n  prop</span></span>
-<span id="cb105-25"><a href="data-transformation-day-2.html#cb105-25" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt;      &lt;fct&gt; &lt;int&gt; &lt;dbl&gt;</span></span>
-<span id="cb105-26"><a href="data-transformation-day-2.html#cb105-26" tabindex="-1"></a><span class="co">#&gt; 1 No answer  Other    14 0.151</span></span>
-<span id="cb105-27"><a href="data-transformation-day-2.html#cb105-27" tabindex="-1"></a><span class="co">#&gt; 2 No answer  Black    16 0.172</span></span>
-<span id="cb105-28"><a href="data-transformation-day-2.html#cb105-28" tabindex="-1"></a><span class="co">#&gt; 3 No answer  White    63 0.677</span></span>
-<span id="cb105-29"><a href="data-transformation-day-2.html#cb105-29" tabindex="-1"></a><span class="co">#&gt; 4 Don&#39;t know Other     3 0.2  </span></span>
-<span id="cb105-30"><a href="data-transformation-day-2.html#cb105-30" tabindex="-1"></a><span class="co">#&gt; 5 Don&#39;t know Black     3 0.2  </span></span>
-<span id="cb105-31"><a href="data-transformation-day-2.html#cb105-31" tabindex="-1"></a><span class="co">#&gt; 6 Don&#39;t know White     9 0.6  </span></span>
-<span id="cb105-32"><a href="data-transformation-day-2.html#cb105-32" tabindex="-1"></a><span class="co">#&gt; # … with 38 more rows</span></span></code></pre></div>
+<span id="cb105-4"><a href="data-transformation-day-2.html#cb105-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)))</span>
+<span id="cb105-5"><a href="data-transformation-day-2.html#cb105-5" tabindex="-1"></a><span class="co">#&gt; Warning in system2(&quot;/usr/bin/otool&quot;, c(&quot;-L&quot;, shQuote(DSO)), stdout = TRUE):</span></span>
+<span id="cb105-6"><a href="data-transformation-day-2.html#cb105-6" tabindex="-1"></a><span class="co">#&gt; running command &#39;&#39;/usr/bin/otool&#39; -L &#39;/Library/Frameworks/R.framework/Resources/</span></span>
+<span id="cb105-7"><a href="data-transformation-day-2.html#cb105-7" tabindex="-1"></a><span class="co">#&gt; modules/R_de.so&#39;&#39; had status 1</span></span></code></pre></div>
+<p>Play 2</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="data-transformation-day-2.html#cb106-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb106-2"><a href="data-transformation-day-2.html#cb106-2" tabindex="-1"></a>  <span class="fu">group_by</span>(relig) <span class="sc">%&gt;%</span></span>
+<span id="cb106-3"><a href="data-transformation-day-2.html#cb106-3" tabindex="-1"></a>  <span class="fu">count</span>(race) <span class="sc">%&gt;%</span></span>
+<span id="cb106-4"><a href="data-transformation-day-2.html#cb106-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span></span>
+<span id="cb106-5"><a href="data-transformation-day-2.html#cb106-5" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(relig, prop, <span class="at">fill =</span> relig)) <span class="sc">+</span> </span>
+<span id="cb106-6"><a href="data-transformation-day-2.html#cb106-6" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
+<span id="cb106-7"><a href="data-transformation-day-2.html#cb106-7" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span>
+<span id="cb106-8"><a href="data-transformation-day-2.html#cb106-8" tabindex="-1"></a></span>
+<span id="cb106-9"><a href="data-transformation-day-2.html#cb106-9" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb106-10"><a href="data-transformation-day-2.html#cb106-10" tabindex="-1"></a>  <span class="fu">group_by</span>(relig) <span class="sc">%&gt;%</span></span>
+<span id="cb106-11"><a href="data-transformation-day-2.html#cb106-11" tabindex="-1"></a>  <span class="fu">count</span>(race) <span class="sc">%&gt;%</span></span>
+<span id="cb106-12"><a href="data-transformation-day-2.html#cb106-12" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span></span>
+<span id="cb106-13"><a href="data-transformation-day-2.html#cb106-13" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> relig, <span class="at">y =</span> prop, <span class="at">color =</span> race)) <span class="sc">+</span></span>
+<span id="cb106-14"><a href="data-transformation-day-2.html#cb106-14" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> race)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb106-15"><a href="data-transformation-day-2.html#cb106-15" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span>
+<span id="cb106-16"><a href="data-transformation-day-2.html#cb106-16" tabindex="-1"></a></span>
+<span id="cb106-17"><a href="data-transformation-day-2.html#cb106-17" tabindex="-1"></a></span>
+<span id="cb106-18"><a href="data-transformation-day-2.html#cb106-18" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb106-19"><a href="data-transformation-day-2.html#cb106-19" tabindex="-1"></a>  <span class="fu">count</span>(relig, race) <span class="sc">%&gt;%</span></span>
+<span id="cb106-20"><a href="data-transformation-day-2.html#cb106-20" tabindex="-1"></a>  <span class="fu">group_by</span>(relig) <span class="sc">%&gt;%</span></span>
+<span id="cb106-21"><a href="data-transformation-day-2.html#cb106-21" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n<span class="sc">/</span><span class="fu">sum</span>(n))</span>
+<span id="cb106-22"><a href="data-transformation-day-2.html#cb106-22" tabindex="-1"></a><span class="co">#&gt; # A tibble: 44 × 4</span></span>
+<span id="cb106-23"><a href="data-transformation-day-2.html#cb106-23" tabindex="-1"></a><span class="co">#&gt; # Groups:   relig [15]</span></span>
+<span id="cb106-24"><a href="data-transformation-day-2.html#cb106-24" tabindex="-1"></a><span class="co">#&gt;   relig      race      n  prop</span></span>
+<span id="cb106-25"><a href="data-transformation-day-2.html#cb106-25" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt;      &lt;fct&gt; &lt;int&gt; &lt;dbl&gt;</span></span>
+<span id="cb106-26"><a href="data-transformation-day-2.html#cb106-26" tabindex="-1"></a><span class="co">#&gt; 1 No answer  Other    14 0.151</span></span>
+<span id="cb106-27"><a href="data-transformation-day-2.html#cb106-27" tabindex="-1"></a><span class="co">#&gt; 2 No answer  Black    16 0.172</span></span>
+<span id="cb106-28"><a href="data-transformation-day-2.html#cb106-28" tabindex="-1"></a><span class="co">#&gt; 3 No answer  White    63 0.677</span></span>
+<span id="cb106-29"><a href="data-transformation-day-2.html#cb106-29" tabindex="-1"></a><span class="co">#&gt; 4 Don&#39;t know Other     3 0.2  </span></span>
+<span id="cb106-30"><a href="data-transformation-day-2.html#cb106-30" tabindex="-1"></a><span class="co">#&gt; 5 Don&#39;t know Black     3 0.2  </span></span>
+<span id="cb106-31"><a href="data-transformation-day-2.html#cb106-31" tabindex="-1"></a><span class="co">#&gt; 6 Don&#39;t know White     9 0.6  </span></span>
+<span id="cb106-32"><a href="data-transformation-day-2.html#cb106-32" tabindex="-1"></a><span class="co">#&gt; # … with 38 more rows</span></span></code></pre></div>
 <p><img src="04_TransformationDay2_files/figure-html/play2-1.png" width="70%" style="display: block; margin: auto;" /><img src="04_TransformationDay2_files/figure-html/play2-2.png" width="70%" style="display: block; margin: auto;" /></p>
 
 </div>

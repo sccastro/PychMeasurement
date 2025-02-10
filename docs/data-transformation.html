@@ -159,6 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.11" data-path="syllabus.html"><a href="syllabus.html#student-support-accommodations"><i class="fa fa-check"></i><b>1.11</b> Student Support &amp; Accommodations</a></li>
 <li class="chapter" data-level="1.12" data-path="syllabus.html"><a href="syllabus.html#academic-calendar"><i class="fa fa-check"></i><b>1.12</b> Academic Calendar</a></li>
 <li class="chapter" data-level="1.13" data-path="syllabus.html"><a href="syllabus.html#course-schedule"><i class="fa fa-check"></i><b>1.13</b> Course Schedule</a></li>
+<li class="chapter" data-level="1.14" data-path="syllabus.html"><a href="syllabus.html#end-of-syllabus"><i class="fa fa-check"></i><b>1.14</b> End of Syllabus</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
 <ul>
@@ -176,10 +177,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="importing-data.html"><a href="importing-data.html"><i class="fa fa-check"></i><b>3</b> Importing Data</a>
 <ul>
+<li class="chapter" data-level="3.1" data-path="importing-data.html"><a href="importing-data.html#winner-jacob-bates"><i class="fa fa-check"></i><b>3.1</b> WINNER!!!!! Jacob Bates</a></li>
 <li class="chapter" data-level="" data-path="importing-data.html"><a href="importing-data.html#reading-files-into-r"><i class="fa fa-check"></i>Reading files into R</a></li>
-<li class="chapter" data-level="3.1" data-path="importing-data.html"><a href="importing-data.html#whats-a-tibble"><i class="fa fa-check"></i><b>3.1</b> What’s a tibble?</a></li>
-<li class="chapter" data-level="3.2" data-path="importing-data.html"><a href="importing-data.html#save-your-dataset"><i class="fa fa-check"></i><b>3.2</b> Save your dataset:</a></li>
-<li class="chapter" data-level="3.3" data-path="importing-data.html"><a href="importing-data.html#cleaning-your-data-file"><i class="fa fa-check"></i><b>3.3</b> Cleaning your data file</a></li>
+<li class="chapter" data-level="3.2" data-path="importing-data.html"><a href="importing-data.html#whats-a-tibble"><i class="fa fa-check"></i><b>3.2</b> What’s a tibble?</a></li>
+<li class="chapter" data-level="3.3" data-path="importing-data.html"><a href="importing-data.html#save-your-dataset"><i class="fa fa-check"></i><b>3.3</b> Save your dataset:</a></li>
+<li class="chapter" data-level="3.4" data-path="importing-data.html"><a href="importing-data.html#cleaning-your-data-file"><i class="fa fa-check"></i><b>3.4</b> Cleaning your data file</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>4</b> Data Transformation</a>
 <ul>
@@ -326,152 +328,152 @@ Advanced R Challenges
 </h4>
 <p>This challenge is to understand and use this function to read in a
 series of csv files and transform them into one data.frame.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="data-transformation.html#cb31-1" tabindex="-1"></a></span>
-<span id="cb31-2"><a href="data-transformation.html#cb31-2" tabindex="-1"></a><span class="co">#Joel&#39;s awesome function</span></span>
-<span id="cb31-3"><a href="data-transformation.html#cb31-3" tabindex="-1"></a></span>
-<span id="cb31-4"><a href="data-transformation.html#cb31-4" tabindex="-1"></a>combineCSV <span class="ot">&lt;-</span> <span class="cf">function</span>(fPath){ <span class="co">#see the r base cheatsheet for function syntax</span></span>
-<span id="cb31-5"><a href="data-transformation.html#cb31-5" tabindex="-1"></a>  <span class="co"># List all files in the path</span></span>
-<span id="cb31-6"><a href="data-transformation.html#cb31-6" tabindex="-1"></a>  f <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">path =</span> fPath, <span class="at">recursive =</span> <span class="cn">TRUE</span>) <span class="co">#see ?list.files</span></span>
-<span id="cb31-7"><a href="data-transformation.html#cb31-7" tabindex="-1"></a>  </span>
-<span id="cb31-8"><a href="data-transformation.html#cb31-8" tabindex="-1"></a>  <span class="co">#separate files list and place into tibble (This is all the names and subids in the titles of the files)</span></span>
-<span id="cb31-9"><a href="data-transformation.html#cb31-9" tabindex="-1"></a>  f_split <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(<span class="fu">str_split</span>(f, <span class="st">&quot;_|/&quot;</span>, <span class="at">simplify =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> <span class="co">#see ?str_split from stringr package, separated by &quot;_&quot;</span></span>
-<span id="cb31-10"><a href="data-transformation.html#cb31-10" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">.id =</span> <span class="fu">row_number</span>()) <span class="sc">%&gt;%</span> <span class="co">#How does making a row number column help this process?</span></span>
-<span id="cb31-11"><a href="data-transformation.html#cb31-11" tabindex="-1"></a>    <span class="fu">select</span>(<span class="st">&quot;.id&quot;</span>, <span class="fu">everything</span>()) <span class="co">#How does everything() work?</span></span>
-<span id="cb31-12"><a href="data-transformation.html#cb31-12" tabindex="-1"></a>  </span>
-<span id="cb31-13"><a href="data-transformation.html#cb31-13" tabindex="-1"></a>  <span class="co">#read in all files to list</span></span>
-<span id="cb31-14"><a href="data-transformation.html#cb31-14" tabindex="-1"></a>  fls <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="fu">str_c</span>(fPath, f), read.csv, <span class="at">header =</span> <span class="cn">FALSE</span>) <span class="co">#see ?str_c from stringr and ?lapply from the apply family</span></span>
-<span id="cb31-15"><a href="data-transformation.html#cb31-15" tabindex="-1"></a>  </span>
-<span id="cb31-16"><a href="data-transformation.html#cb31-16" tabindex="-1"></a>  <span class="co">#convert list to data frame</span></span>
-<span id="cb31-17"><a href="data-transformation.html#cb31-17" tabindex="-1"></a>  d <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">rbindlist</span>(fls, <span class="at">fill =</span> <span class="cn">TRUE</span>, <span class="at">idcol =</span> <span class="cn">TRUE</span>)) <span class="co">#see ?rbind_list from the data.table package</span></span>
-<span id="cb31-18"><a href="data-transformation.html#cb31-18" tabindex="-1"></a>  </span>
-<span id="cb31-19"><a href="data-transformation.html#cb31-19" tabindex="-1"></a>  <span class="co">#join data with identifying information</span></span>
-<span id="cb31-20"><a href="data-transformation.html#cb31-20" tabindex="-1"></a>  e <span class="ot">&lt;-</span> f_split <span class="sc">%&gt;%</span> <span class="co">#Join df of names and ids with df of data</span></span>
-<span id="cb31-21"><a href="data-transformation.html#cb31-21" tabindex="-1"></a>    <span class="fu">full_join</span>(d, <span class="at">by =</span> <span class="st">&quot;.id&quot;</span>) <span class="co">#See ?full_join</span></span>
-<span id="cb31-22"><a href="data-transformation.html#cb31-22" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="data-transformation.html#cb32-1" tabindex="-1"></a></span>
+<span id="cb32-2"><a href="data-transformation.html#cb32-2" tabindex="-1"></a><span class="co">#Joel&#39;s awesome function</span></span>
+<span id="cb32-3"><a href="data-transformation.html#cb32-3" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="data-transformation.html#cb32-4" tabindex="-1"></a>combineCSV <span class="ot">&lt;-</span> <span class="cf">function</span>(fPath){ <span class="co">#see the r base cheatsheet for function syntax</span></span>
+<span id="cb32-5"><a href="data-transformation.html#cb32-5" tabindex="-1"></a>  <span class="co"># List all files in the path</span></span>
+<span id="cb32-6"><a href="data-transformation.html#cb32-6" tabindex="-1"></a>  f <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">path =</span> fPath, <span class="at">recursive =</span> <span class="cn">TRUE</span>) <span class="co">#see ?list.files</span></span>
+<span id="cb32-7"><a href="data-transformation.html#cb32-7" tabindex="-1"></a>  </span>
+<span id="cb32-8"><a href="data-transformation.html#cb32-8" tabindex="-1"></a>  <span class="co">#separate files list and place into tibble (This is all the names and subids in the titles of the files)</span></span>
+<span id="cb32-9"><a href="data-transformation.html#cb32-9" tabindex="-1"></a>  f_split <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(<span class="fu">str_split</span>(f, <span class="st">&quot;_|/&quot;</span>, <span class="at">simplify =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> <span class="co">#see ?str_split from stringr package, separated by &quot;_&quot;</span></span>
+<span id="cb32-10"><a href="data-transformation.html#cb32-10" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">.id =</span> <span class="fu">row_number</span>()) <span class="sc">%&gt;%</span> <span class="co">#How does making a row number column help this process?</span></span>
+<span id="cb32-11"><a href="data-transformation.html#cb32-11" tabindex="-1"></a>    <span class="fu">select</span>(<span class="st">&quot;.id&quot;</span>, <span class="fu">everything</span>()) <span class="co">#How does everything() work?</span></span>
+<span id="cb32-12"><a href="data-transformation.html#cb32-12" tabindex="-1"></a>  </span>
+<span id="cb32-13"><a href="data-transformation.html#cb32-13" tabindex="-1"></a>  <span class="co">#read in all files to list</span></span>
+<span id="cb32-14"><a href="data-transformation.html#cb32-14" tabindex="-1"></a>  fls <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="fu">str_c</span>(fPath, f), read.csv, <span class="at">header =</span> <span class="cn">FALSE</span>) <span class="co">#see ?str_c from stringr and ?lapply from the apply family</span></span>
+<span id="cb32-15"><a href="data-transformation.html#cb32-15" tabindex="-1"></a>  </span>
+<span id="cb32-16"><a href="data-transformation.html#cb32-16" tabindex="-1"></a>  <span class="co">#convert list to data frame</span></span>
+<span id="cb32-17"><a href="data-transformation.html#cb32-17" tabindex="-1"></a>  d <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">rbindlist</span>(fls, <span class="at">fill =</span> <span class="cn">TRUE</span>, <span class="at">idcol =</span> <span class="cn">TRUE</span>)) <span class="co">#see ?rbind_list from the data.table package</span></span>
+<span id="cb32-18"><a href="data-transformation.html#cb32-18" tabindex="-1"></a>  </span>
+<span id="cb32-19"><a href="data-transformation.html#cb32-19" tabindex="-1"></a>  <span class="co">#join data with identifying information</span></span>
+<span id="cb32-20"><a href="data-transformation.html#cb32-20" tabindex="-1"></a>  e <span class="ot">&lt;-</span> f_split <span class="sc">%&gt;%</span> <span class="co">#Join df of names and ids with df of data</span></span>
+<span id="cb32-21"><a href="data-transformation.html#cb32-21" tabindex="-1"></a>    <span class="fu">full_join</span>(d, <span class="at">by =</span> <span class="st">&quot;.id&quot;</span>) <span class="co">#See ?full_join</span></span>
+<span id="cb32-22"><a href="data-transformation.html#cb32-22" tabindex="-1"></a>}</span></code></pre></div>
 <div id="data-transformation-with-dplyr" class="section level2 unnumbered hasAnchor">
 <h2>Data Transformation with Dplyr<a href="data-transformation.html#data-transformation-with-dplyr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>First, we clean the environment and get the <code>tidyverse</code>,
 which has <code>dplyr</code>.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="data-transformation.html#cb32-1" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
-<span id="cb32-2"><a href="data-transformation.html#cb32-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb32-3"><a href="data-transformation.html#cb32-3" tabindex="-1"></a><span class="co">#&gt; ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</span></span>
-<span id="cb32-4"><a href="data-transformation.html#cb32-4" tabindex="-1"></a><span class="co">#&gt; ✓ ggplot2 3.3.5     ✓ purrr   0.3.4</span></span>
-<span id="cb32-5"><a href="data-transformation.html#cb32-5" tabindex="-1"></a><span class="co">#&gt; ✓ tibble  3.1.6     ✓ dplyr   1.0.7</span></span>
-<span id="cb32-6"><a href="data-transformation.html#cb32-6" tabindex="-1"></a><span class="co">#&gt; ✓ tidyr   1.1.3     ✓ stringr 1.4.0</span></span>
-<span id="cb32-7"><a href="data-transformation.html#cb32-7" tabindex="-1"></a><span class="co">#&gt; ✓ readr   1.4.0     ✓ forcats 0.5.1</span></span>
-<span id="cb32-8"><a href="data-transformation.html#cb32-8" tabindex="-1"></a><span class="co">#&gt; ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──</span></span>
-<span id="cb32-9"><a href="data-transformation.html#cb32-9" tabindex="-1"></a><span class="co">#&gt; x dplyr::filter() masks stats::filter()</span></span>
-<span id="cb32-10"><a href="data-transformation.html#cb32-10" tabindex="-1"></a><span class="co">#&gt; x dplyr::lag()    masks stats::lag()</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="data-transformation.html#cb33-1" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb33-2"><a href="data-transformation.html#cb33-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb33-3"><a href="data-transformation.html#cb33-3" tabindex="-1"></a><span class="co">#&gt; ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</span></span>
+<span id="cb33-4"><a href="data-transformation.html#cb33-4" tabindex="-1"></a><span class="co">#&gt; ✓ ggplot2 3.3.5     ✓ purrr   0.3.4</span></span>
+<span id="cb33-5"><a href="data-transformation.html#cb33-5" tabindex="-1"></a><span class="co">#&gt; ✓ tibble  3.1.6     ✓ dplyr   1.0.7</span></span>
+<span id="cb33-6"><a href="data-transformation.html#cb33-6" tabindex="-1"></a><span class="co">#&gt; ✓ tidyr   1.1.3     ✓ stringr 1.4.0</span></span>
+<span id="cb33-7"><a href="data-transformation.html#cb33-7" tabindex="-1"></a><span class="co">#&gt; ✓ readr   1.4.0     ✓ forcats 0.5.1</span></span>
+<span id="cb33-8"><a href="data-transformation.html#cb33-8" tabindex="-1"></a><span class="co">#&gt; ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──</span></span>
+<span id="cb33-9"><a href="data-transformation.html#cb33-9" tabindex="-1"></a><span class="co">#&gt; x dplyr::filter() masks stats::filter()</span></span>
+<span id="cb33-10"><a href="data-transformation.html#cb33-10" tabindex="-1"></a><span class="co">#&gt; x dplyr::lag()    masks stats::lag()</span></span></code></pre></div>
 </div>
 <div id="get-a-dataset-from-your-.rdata-file" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> Get a dataset from your .RData file<a href="data-transformation.html#get-a-dataset-from-your-.rdata-file" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="data-transformation.html#cb33-1" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&#39;data/ready.RData&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="data-transformation.html#cb34-1" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&#39;data/ready.RData&#39;</span>)</span></code></pre></div>
 <p><code>ready.Rdata</code> has multiple dataframes within it. This is the
 helpful thing about <code>.RData</code> files. They can contain all of
 the dataframes you need for a project or analysis.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="data-transformation.html#cb34-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(ccolor <span class="sc">%&gt;%</span></span>
-<span id="cb34-2"><a href="data-transformation.html#cb34-2" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">subject =</span> s, <span class="at">congruency =</span> con, <span class="at">stimulus =</span>S,</span>
-<span id="cb34-3"><a href="data-transformation.html#cb34-3" tabindex="-1"></a>          <span class="at">response =</span> R, <span class="at">reactionTime =</span> RT))</span></code></pre></div>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="data-transformation.html#cb35-1" tabindex="-1"></a></span>
-<span id="cb35-2"><a href="data-transformation.html#cb35-2" tabindex="-1"></a><span class="fu">tbl_df</span>(ccolor) <span class="co">#Converts data to tbl class - Easier to view</span></span>
-<span id="cb35-3"><a href="data-transformation.html#cb35-3" tabindex="-1"></a><span class="co">#&gt; Warning: `tbl_df()` was deprecated in dplyr 1.0.0.</span></span>
-<span id="cb35-4"><a href="data-transformation.html#cb35-4" tabindex="-1"></a><span class="co">#&gt; Please use `tibble::as_tibble()` instead.</span></span>
-<span id="cb35-5"><a href="data-transformation.html#cb35-5" tabindex="-1"></a><span class="co">#&gt; This warning is displayed once every 8 hours.</span></span>
-<span id="cb35-6"><a href="data-transformation.html#cb35-6" tabindex="-1"></a><span class="co">#&gt; Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</span></span>
-<span id="cb35-7"><a href="data-transformation.html#cb35-7" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6,400 × 5</span></span>
-<span id="cb35-8"><a href="data-transformation.html#cb35-8" tabindex="-1"></a><span class="co">#&gt;   s     con         S     R        RT</span></span>
-<span id="cb35-9"><a href="data-transformation.html#cb35-9" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt; &lt;chr&gt;       &lt;fct&gt; &lt;chr&gt; &lt;dbl&gt;</span></span>
-<span id="cb35-10"><a href="data-transformation.html#cb35-10" tabindex="-1"></a><span class="co">#&gt; 1 1     congruent   blue  blue   1023</span></span>
-<span id="cb35-11"><a href="data-transformation.html#cb35-11" tabindex="-1"></a><span class="co">#&gt; 2 1     incongruent blue  red     665</span></span>
-<span id="cb35-12"><a href="data-transformation.html#cb35-12" tabindex="-1"></a><span class="co">#&gt; 3 1     congruent   red   red    1568</span></span>
-<span id="cb35-13"><a href="data-transformation.html#cb35-13" tabindex="-1"></a><span class="co">#&gt; 4 1     congruent   blue  blue    955</span></span>
-<span id="cb35-14"><a href="data-transformation.html#cb35-14" tabindex="-1"></a><span class="co">#&gt; 5 1     incongruent red   blue    792</span></span>
-<span id="cb35-15"><a href="data-transformation.html#cb35-15" tabindex="-1"></a><span class="co">#&gt; 6 1     congruent   red   red     452</span></span>
-<span id="cb35-16"><a href="data-transformation.html#cb35-16" tabindex="-1"></a><span class="co">#&gt; # … with 6,394 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="data-transformation.html#cb35-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(ccolor <span class="sc">%&gt;%</span></span>
+<span id="cb35-2"><a href="data-transformation.html#cb35-2" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">subject =</span> s, <span class="at">congruency =</span> con, <span class="at">stimulus =</span>S,</span>
+<span id="cb35-3"><a href="data-transformation.html#cb35-3" tabindex="-1"></a>          <span class="at">response =</span> R, <span class="at">reactionTime =</span> RT))</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="data-transformation.html#cb36-1" tabindex="-1"></a></span>
+<span id="cb36-2"><a href="data-transformation.html#cb36-2" tabindex="-1"></a><span class="fu">tbl_df</span>(ccolor) <span class="co">#Converts data to tbl class - Easier to view</span></span>
+<span id="cb36-3"><a href="data-transformation.html#cb36-3" tabindex="-1"></a><span class="co">#&gt; Warning: `tbl_df()` was deprecated in dplyr 1.0.0.</span></span>
+<span id="cb36-4"><a href="data-transformation.html#cb36-4" tabindex="-1"></a><span class="co">#&gt; Please use `tibble::as_tibble()` instead.</span></span>
+<span id="cb36-5"><a href="data-transformation.html#cb36-5" tabindex="-1"></a><span class="co">#&gt; This warning is displayed once every 8 hours.</span></span>
+<span id="cb36-6"><a href="data-transformation.html#cb36-6" tabindex="-1"></a><span class="co">#&gt; Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</span></span>
+<span id="cb36-7"><a href="data-transformation.html#cb36-7" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6,400 × 5</span></span>
+<span id="cb36-8"><a href="data-transformation.html#cb36-8" tabindex="-1"></a><span class="co">#&gt;   s     con         S     R        RT</span></span>
+<span id="cb36-9"><a href="data-transformation.html#cb36-9" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt; &lt;chr&gt;       &lt;fct&gt; &lt;chr&gt; &lt;dbl&gt;</span></span>
+<span id="cb36-10"><a href="data-transformation.html#cb36-10" tabindex="-1"></a><span class="co">#&gt; 1 1     congruent   blue  blue   1023</span></span>
+<span id="cb36-11"><a href="data-transformation.html#cb36-11" tabindex="-1"></a><span class="co">#&gt; 2 1     incongruent blue  red     665</span></span>
+<span id="cb36-12"><a href="data-transformation.html#cb36-12" tabindex="-1"></a><span class="co">#&gt; 3 1     congruent   red   red    1568</span></span>
+<span id="cb36-13"><a href="data-transformation.html#cb36-13" tabindex="-1"></a><span class="co">#&gt; 4 1     congruent   blue  blue    955</span></span>
+<span id="cb36-14"><a href="data-transformation.html#cb36-14" tabindex="-1"></a><span class="co">#&gt; 5 1     incongruent red   blue    792</span></span>
+<span id="cb36-15"><a href="data-transformation.html#cb36-15" tabindex="-1"></a><span class="co">#&gt; 6 1     congruent   red   red     452</span></span>
+<span id="cb36-16"><a href="data-transformation.html#cb36-16" tabindex="-1"></a><span class="co">#&gt; # … with 6,394 more rows</span></span></code></pre></div>
 <p>You can compare the classes…</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="data-transformation.html#cb36-1" tabindex="-1"></a><span class="fu">class</span>(ccolor)</span>
-<span id="cb36-2"><a href="data-transformation.html#cb36-2" tabindex="-1"></a><span class="co">#&gt; [1] &quot;data.frame&quot;</span></span>
-<span id="cb36-3"><a href="data-transformation.html#cb36-3" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">tbl_df</span>(ccolor))</span>
-<span id="cb36-4"><a href="data-transformation.html#cb36-4" tabindex="-1"></a><span class="co">#&gt; [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="data-transformation.html#cb37-1" tabindex="-1"></a><span class="fu">class</span>(ccolor)</span>
+<span id="cb37-2"><a href="data-transformation.html#cb37-2" tabindex="-1"></a><span class="co">#&gt; [1] &quot;data.frame&quot;</span></span>
+<span id="cb37-3"><a href="data-transformation.html#cb37-3" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">tbl_df</span>(ccolor))</span>
+<span id="cb37-4"><a href="data-transformation.html#cb37-4" tabindex="-1"></a><span class="co">#&gt; [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</span></span></code></pre></div>
 <p>or get a glimpse of the data…</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="data-transformation.html#cb37-1" tabindex="-1"></a><span class="fu">glimpse</span>(ccolor) <span class="co">#Gives the same information as clicking the blue circle in the environment panel</span></span>
-<span id="cb37-2"><a href="data-transformation.html#cb37-2" tabindex="-1"></a><span class="co">#&gt; Rows: 6,400</span></span>
-<span id="cb37-3"><a href="data-transformation.html#cb37-3" tabindex="-1"></a><span class="co">#&gt; Columns: 5</span></span>
-<span id="cb37-4"><a href="data-transformation.html#cb37-4" tabindex="-1"></a><span class="co">#&gt; $ s   &lt;fct&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …</span></span>
-<span id="cb37-5"><a href="data-transformation.html#cb37-5" tabindex="-1"></a><span class="co">#&gt; $ con &lt;chr&gt; &quot;congruent&quot;, &quot;incongruent&quot;, &quot;congruent&quot;, &quot;congruent&quot;, &quot;incongruent…</span></span>
-<span id="cb37-6"><a href="data-transformation.html#cb37-6" tabindex="-1"></a><span class="co">#&gt; $ S   &lt;fct&gt; blue, blue, red, blue, red, red, blue, red, blue, red, blue, blue,…</span></span>
-<span id="cb37-7"><a href="data-transformation.html#cb37-7" tabindex="-1"></a><span class="co">#&gt; $ R   &lt;chr&gt; &quot;blue&quot;, &quot;red&quot;, &quot;red&quot;, &quot;blue&quot;, &quot;blue&quot;, &quot;red&quot;, &quot;blue&quot;, &quot;red&quot;, &quot;blue&quot;…</span></span>
-<span id="cb37-8"><a href="data-transformation.html#cb37-8" tabindex="-1"></a><span class="co">#&gt; $ RT  &lt;dbl&gt; 1023, 665, 1568, 955, 792, 452, 369, 1067, 414, 763, 766, 563, 115…</span></span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="data-transformation.html#cb38-1" tabindex="-1"></a><span class="fu">glimpse</span>(ccolor) <span class="co">#Gives the same information as clicking the blue circle in the environment panel</span></span>
+<span id="cb38-2"><a href="data-transformation.html#cb38-2" tabindex="-1"></a><span class="co">#&gt; Rows: 6,400</span></span>
+<span id="cb38-3"><a href="data-transformation.html#cb38-3" tabindex="-1"></a><span class="co">#&gt; Columns: 5</span></span>
+<span id="cb38-4"><a href="data-transformation.html#cb38-4" tabindex="-1"></a><span class="co">#&gt; $ s   &lt;fct&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …</span></span>
+<span id="cb38-5"><a href="data-transformation.html#cb38-5" tabindex="-1"></a><span class="co">#&gt; $ con &lt;chr&gt; &quot;congruent&quot;, &quot;incongruent&quot;, &quot;congruent&quot;, &quot;congruent&quot;, &quot;incongruent…</span></span>
+<span id="cb38-6"><a href="data-transformation.html#cb38-6" tabindex="-1"></a><span class="co">#&gt; $ S   &lt;fct&gt; blue, blue, red, blue, red, red, blue, red, blue, red, blue, blue,…</span></span>
+<span id="cb38-7"><a href="data-transformation.html#cb38-7" tabindex="-1"></a><span class="co">#&gt; $ R   &lt;chr&gt; &quot;blue&quot;, &quot;red&quot;, &quot;red&quot;, &quot;blue&quot;, &quot;blue&quot;, &quot;red&quot;, &quot;blue&quot;, &quot;red&quot;, &quot;blue&quot;…</span></span>
+<span id="cb38-8"><a href="data-transformation.html#cb38-8" tabindex="-1"></a><span class="co">#&gt; $ RT  &lt;dbl&gt; 1023, 665, 1568, 955, 792, 452, 369, 1067, 414, 763, 766, 563, 115…</span></span></code></pre></div>
 <p>or get the full thing…</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="data-transformation.html#cb38-1" tabindex="-1"></a><span class="fu">View</span>(ccolor) <span class="co">#Gives you a navigable display</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="data-transformation.html#cb39-1" tabindex="-1"></a><span class="fu">View</span>(ccolor) <span class="co">#Gives you a navigable display</span></span></code></pre></div>
 </div>
 <div id="introduction-to-the-pipe" class="section level2 hasAnchor" number="4.2">
 <h2><span class="header-section-number">4.2</span> Introduction to “The Pipe”<a href="data-transformation.html#introduction-to-the-pipe" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The pipe, aka <code>%&gt;%</code>, takes you a level into the data, so…</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="data-transformation.html#cb39-1" tabindex="-1"></a></span>
-<span id="cb39-2"><a href="data-transformation.html#cb39-2" tabindex="-1"></a>ccolor <span class="sc">%&gt;%</span></span>
-<span id="cb39-3"><a href="data-transformation.html#cb39-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="co"># is the same as...</span></span>
-<span id="cb39-4"><a href="data-transformation.html#cb39-4" tabindex="-1"></a><span class="co">#&gt;   count</span></span>
-<span id="cb39-5"><a href="data-transformation.html#cb39-5" tabindex="-1"></a><span class="co">#&gt; 1  6400</span></span>
-<span id="cb39-6"><a href="data-transformation.html#cb39-6" tabindex="-1"></a></span>
-<span id="cb39-7"><a href="data-transformation.html#cb39-7" tabindex="-1"></a><span class="fu">summarise</span>(ccolor, <span class="at">count =</span> <span class="fu">n</span>())</span>
-<span id="cb39-8"><a href="data-transformation.html#cb39-8" tabindex="-1"></a><span class="co">#&gt;   count</span></span>
-<span id="cb39-9"><a href="data-transformation.html#cb39-9" tabindex="-1"></a><span class="co">#&gt; 1  6400</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="data-transformation.html#cb40-1" tabindex="-1"></a></span>
+<span id="cb40-2"><a href="data-transformation.html#cb40-2" tabindex="-1"></a>ccolor <span class="sc">%&gt;%</span></span>
+<span id="cb40-3"><a href="data-transformation.html#cb40-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="co"># is the same as...</span></span>
+<span id="cb40-4"><a href="data-transformation.html#cb40-4" tabindex="-1"></a><span class="co">#&gt;   count</span></span>
+<span id="cb40-5"><a href="data-transformation.html#cb40-5" tabindex="-1"></a><span class="co">#&gt; 1  6400</span></span>
+<span id="cb40-6"><a href="data-transformation.html#cb40-6" tabindex="-1"></a></span>
+<span id="cb40-7"><a href="data-transformation.html#cb40-7" tabindex="-1"></a><span class="fu">summarise</span>(ccolor, <span class="at">count =</span> <span class="fu">n</span>())</span>
+<span id="cb40-8"><a href="data-transformation.html#cb40-8" tabindex="-1"></a><span class="co">#&gt;   count</span></span>
+<span id="cb40-9"><a href="data-transformation.html#cb40-9" tabindex="-1"></a><span class="co">#&gt; 1  6400</span></span></code></pre></div>
 <p>Now let’s do some descriptives…</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="data-transformation.html#cb40-1" tabindex="-1"></a>ccolor <span class="sc">%&gt;%</span></span>
-<span id="cb40-2"><a href="data-transformation.html#cb40-2" tabindex="-1"></a>  <span class="fu">group_by</span>(s) <span class="sc">%&gt;%</span></span>
-<span id="cb40-3"><a href="data-transformation.html#cb40-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) </span>
-<span id="cb40-4"><a href="data-transformation.html#cb40-4" tabindex="-1"></a><span class="co">#&gt; # A tibble: 20 × 2</span></span>
-<span id="cb40-5"><a href="data-transformation.html#cb40-5" tabindex="-1"></a><span class="co">#&gt;   s     count</span></span>
-<span id="cb40-6"><a href="data-transformation.html#cb40-6" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt; &lt;int&gt;</span></span>
-<span id="cb40-7"><a href="data-transformation.html#cb40-7" tabindex="-1"></a><span class="co">#&gt; 1 1       320</span></span>
-<span id="cb40-8"><a href="data-transformation.html#cb40-8" tabindex="-1"></a><span class="co">#&gt; 2 2       320</span></span>
-<span id="cb40-9"><a href="data-transformation.html#cb40-9" tabindex="-1"></a><span class="co">#&gt; 3 3       320</span></span>
-<span id="cb40-10"><a href="data-transformation.html#cb40-10" tabindex="-1"></a><span class="co">#&gt; 4 4       320</span></span>
-<span id="cb40-11"><a href="data-transformation.html#cb40-11" tabindex="-1"></a><span class="co">#&gt; 5 5       320</span></span>
-<span id="cb40-12"><a href="data-transformation.html#cb40-12" tabindex="-1"></a><span class="co">#&gt; 6 6       320</span></span>
-<span id="cb40-13"><a href="data-transformation.html#cb40-13" tabindex="-1"></a><span class="co">#&gt; # ℹ 14 more rows</span></span>
-<span id="cb40-14"><a href="data-transformation.html#cb40-14" tabindex="-1"></a></span>
-<span id="cb40-15"><a href="data-transformation.html#cb40-15" tabindex="-1"></a><span class="co"># (Harder to read long, so we can spread it out)</span></span>
-<span id="cb40-16"><a href="data-transformation.html#cb40-16" tabindex="-1"></a></span>
-<span id="cb40-17"><a href="data-transformation.html#cb40-17" tabindex="-1"></a>ccolor <span class="sc">%&gt;%</span></span>
-<span id="cb40-18"><a href="data-transformation.html#cb40-18" tabindex="-1"></a>  <span class="fu">group_by</span>(s) <span class="sc">%&gt;%</span></span>
-<span id="cb40-19"><a href="data-transformation.html#cb40-19" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="co">#Let&#39;s name this something easy to type and remember, like &quot;count&quot;</span></span>
-<span id="cb40-20"><a href="data-transformation.html#cb40-20" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> s, <span class="at">values_from =</span> count)</span>
-<span id="cb40-21"><a href="data-transformation.html#cb40-21" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 20</span></span>
-<span id="cb40-22"><a href="data-transformation.html#cb40-22" tabindex="-1"></a><span class="co">#&gt;     `1`   `2`   `3`   `4`   `5`   `6`   `7`   `8`   `9`  `10`  `11`  `12`  `13`</span></span>
-<span id="cb40-23"><a href="data-transformation.html#cb40-23" tabindex="-1"></a><span class="co">#&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;</span></span>
-<span id="cb40-24"><a href="data-transformation.html#cb40-24" tabindex="-1"></a><span class="co">#&gt; 1   320   320   320   320   320   320   320   320   320   320   320   320   320</span></span>
-<span id="cb40-25"><a href="data-transformation.html#cb40-25" tabindex="-1"></a><span class="co">#&gt; # ℹ 7 more variables: `14` &lt;int&gt;, `15` &lt;int&gt;, `16` &lt;int&gt;, `17` &lt;int&gt;,</span></span>
-<span id="cb40-26"><a href="data-transformation.html#cb40-26" tabindex="-1"></a><span class="co">#&gt; #   `18` &lt;int&gt;, `19` &lt;int&gt;, `20` &lt;int&gt;</span></span></code></pre></div>
-<p>We can also wrap functions around the whole data object…</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="data-transformation.html#cb41-1" tabindex="-1"></a><span class="fu">as.matrix</span>(ccolor <span class="sc">%&gt;%</span></span>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="data-transformation.html#cb41-1" tabindex="-1"></a>ccolor <span class="sc">%&gt;%</span></span>
 <span id="cb41-2"><a href="data-transformation.html#cb41-2" tabindex="-1"></a>  <span class="fu">group_by</span>(s) <span class="sc">%&gt;%</span></span>
-<span id="cb41-3"><a href="data-transformation.html#cb41-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb41-4"><a href="data-transformation.html#cb41-4" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> s, <span class="at">values_from =</span> count)) <span class="co">#or we can subset it</span></span>
-<span id="cb41-5"><a href="data-transformation.html#cb41-5" tabindex="-1"></a><span class="co">#&gt;        1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18</span></span>
-<span id="cb41-6"><a href="data-transformation.html#cb41-6" tabindex="-1"></a><span class="co">#&gt; [1,] 320 320 320 320 320 320 320 320 320 320 320 320 320 320 320 320 320 320</span></span>
-<span id="cb41-7"><a href="data-transformation.html#cb41-7" tabindex="-1"></a><span class="co">#&gt;       19  20</span></span>
-<span id="cb41-8"><a href="data-transformation.html#cb41-8" tabindex="-1"></a><span class="co">#&gt; [1,] 320 320</span></span>
-<span id="cb41-9"><a href="data-transformation.html#cb41-9" tabindex="-1"></a></span>
-<span id="cb41-10"><a href="data-transformation.html#cb41-10" tabindex="-1"></a><span class="fu">data.frame</span>(ccolor <span class="sc">%&gt;%</span></span>
-<span id="cb41-11"><a href="data-transformation.html#cb41-11" tabindex="-1"></a>  <span class="fu">group_by</span>(s) <span class="sc">%&gt;%</span></span>
-<span id="cb41-12"><a href="data-transformation.html#cb41-12" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb41-13"><a href="data-transformation.html#cb41-13" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> s, <span class="at">values_from =</span> count))[,<span class="dv">4</span><span class="sc">:</span><span class="dv">7</span>]</span>
-<span id="cb41-14"><a href="data-transformation.html#cb41-14" tabindex="-1"></a><span class="co">#&gt;    X4  X5  X6  X7</span></span>
-<span id="cb41-15"><a href="data-transformation.html#cb41-15" tabindex="-1"></a><span class="co">#&gt; 1 320 320 320 320</span></span></code></pre></div>
+<span id="cb41-3"><a href="data-transformation.html#cb41-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) </span>
+<span id="cb41-4"><a href="data-transformation.html#cb41-4" tabindex="-1"></a><span class="co">#&gt; # A tibble: 20 × 2</span></span>
+<span id="cb41-5"><a href="data-transformation.html#cb41-5" tabindex="-1"></a><span class="co">#&gt;   s     count</span></span>
+<span id="cb41-6"><a href="data-transformation.html#cb41-6" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt; &lt;int&gt;</span></span>
+<span id="cb41-7"><a href="data-transformation.html#cb41-7" tabindex="-1"></a><span class="co">#&gt; 1 1       320</span></span>
+<span id="cb41-8"><a href="data-transformation.html#cb41-8" tabindex="-1"></a><span class="co">#&gt; 2 2       320</span></span>
+<span id="cb41-9"><a href="data-transformation.html#cb41-9" tabindex="-1"></a><span class="co">#&gt; 3 3       320</span></span>
+<span id="cb41-10"><a href="data-transformation.html#cb41-10" tabindex="-1"></a><span class="co">#&gt; 4 4       320</span></span>
+<span id="cb41-11"><a href="data-transformation.html#cb41-11" tabindex="-1"></a><span class="co">#&gt; 5 5       320</span></span>
+<span id="cb41-12"><a href="data-transformation.html#cb41-12" tabindex="-1"></a><span class="co">#&gt; 6 6       320</span></span>
+<span id="cb41-13"><a href="data-transformation.html#cb41-13" tabindex="-1"></a><span class="co">#&gt; # ℹ 14 more rows</span></span>
+<span id="cb41-14"><a href="data-transformation.html#cb41-14" tabindex="-1"></a></span>
+<span id="cb41-15"><a href="data-transformation.html#cb41-15" tabindex="-1"></a><span class="co"># (Harder to read long, so we can spread it out)</span></span>
+<span id="cb41-16"><a href="data-transformation.html#cb41-16" tabindex="-1"></a></span>
+<span id="cb41-17"><a href="data-transformation.html#cb41-17" tabindex="-1"></a>ccolor <span class="sc">%&gt;%</span></span>
+<span id="cb41-18"><a href="data-transformation.html#cb41-18" tabindex="-1"></a>  <span class="fu">group_by</span>(s) <span class="sc">%&gt;%</span></span>
+<span id="cb41-19"><a href="data-transformation.html#cb41-19" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="co">#Let&#39;s name this something easy to type and remember, like &quot;count&quot;</span></span>
+<span id="cb41-20"><a href="data-transformation.html#cb41-20" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> s, <span class="at">values_from =</span> count)</span>
+<span id="cb41-21"><a href="data-transformation.html#cb41-21" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 20</span></span>
+<span id="cb41-22"><a href="data-transformation.html#cb41-22" tabindex="-1"></a><span class="co">#&gt;     `1`   `2`   `3`   `4`   `5`   `6`   `7`   `8`   `9`  `10`  `11`  `12`  `13`</span></span>
+<span id="cb41-23"><a href="data-transformation.html#cb41-23" tabindex="-1"></a><span class="co">#&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;</span></span>
+<span id="cb41-24"><a href="data-transformation.html#cb41-24" tabindex="-1"></a><span class="co">#&gt; 1   320   320   320   320   320   320   320   320   320   320   320   320   320</span></span>
+<span id="cb41-25"><a href="data-transformation.html#cb41-25" tabindex="-1"></a><span class="co">#&gt; # ℹ 7 more variables: `14` &lt;int&gt;, `15` &lt;int&gt;, `16` &lt;int&gt;, `17` &lt;int&gt;,</span></span>
+<span id="cb41-26"><a href="data-transformation.html#cb41-26" tabindex="-1"></a><span class="co">#&gt; #   `18` &lt;int&gt;, `19` &lt;int&gt;, `20` &lt;int&gt;</span></span></code></pre></div>
+<p>We can also wrap functions around the whole data object…</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="data-transformation.html#cb42-1" tabindex="-1"></a><span class="fu">as.matrix</span>(ccolor <span class="sc">%&gt;%</span></span>
+<span id="cb42-2"><a href="data-transformation.html#cb42-2" tabindex="-1"></a>  <span class="fu">group_by</span>(s) <span class="sc">%&gt;%</span></span>
+<span id="cb42-3"><a href="data-transformation.html#cb42-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb42-4"><a href="data-transformation.html#cb42-4" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> s, <span class="at">values_from =</span> count)) <span class="co">#or we can subset it</span></span>
+<span id="cb42-5"><a href="data-transformation.html#cb42-5" tabindex="-1"></a><span class="co">#&gt;        1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18</span></span>
+<span id="cb42-6"><a href="data-transformation.html#cb42-6" tabindex="-1"></a><span class="co">#&gt; [1,] 320 320 320 320 320 320 320 320 320 320 320 320 320 320 320 320 320 320</span></span>
+<span id="cb42-7"><a href="data-transformation.html#cb42-7" tabindex="-1"></a><span class="co">#&gt;       19  20</span></span>
+<span id="cb42-8"><a href="data-transformation.html#cb42-8" tabindex="-1"></a><span class="co">#&gt; [1,] 320 320</span></span>
+<span id="cb42-9"><a href="data-transformation.html#cb42-9" tabindex="-1"></a></span>
+<span id="cb42-10"><a href="data-transformation.html#cb42-10" tabindex="-1"></a><span class="fu">data.frame</span>(ccolor <span class="sc">%&gt;%</span></span>
+<span id="cb42-11"><a href="data-transformation.html#cb42-11" tabindex="-1"></a>  <span class="fu">group_by</span>(s) <span class="sc">%&gt;%</span></span>
+<span id="cb42-12"><a href="data-transformation.html#cb42-12" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb42-13"><a href="data-transformation.html#cb42-13" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> s, <span class="at">values_from =</span> count))[,<span class="dv">4</span><span class="sc">:</span><span class="dv">7</span>]</span>
+<span id="cb42-14"><a href="data-transformation.html#cb42-14" tabindex="-1"></a><span class="co">#&gt;    X4  X5  X6  X7</span></span>
+<span id="cb42-15"><a href="data-transformation.html#cb42-15" tabindex="-1"></a><span class="co">#&gt; 1 320 320 320 320</span></span></code></pre></div>
 <p>What happened to the names? What is that X4, X5, stuff? That’s what R
 does when it doesn’t know the column names, but in this case it actually
 does. Check with colnames()</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="data-transformation.html#cb42-1" tabindex="-1"></a><span class="fu">colnames</span>(ccolor <span class="sc">%&gt;%</span></span>
-<span id="cb42-2"><a href="data-transformation.html#cb42-2" tabindex="-1"></a>           <span class="fu">group_by</span>(s) <span class="sc">%&gt;%</span></span>
-<span id="cb42-3"><a href="data-transformation.html#cb42-3" tabindex="-1"></a>           <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="co">#Let&#39;s name this something easy to type and remember, like &quot;count&quot;</span></span>
-<span id="cb42-4"><a href="data-transformation.html#cb42-4" tabindex="-1"></a>           <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> s, <span class="at">values_from =</span> count))</span>
-<span id="cb42-5"><a href="data-transformation.html#cb42-5" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot; &quot;11&quot; &quot;12&quot; &quot;13&quot; &quot;14&quot; &quot;15&quot;</span></span>
-<span id="cb42-6"><a href="data-transformation.html#cb42-6" tabindex="-1"></a><span class="co">#&gt; [16] &quot;16&quot; &quot;17&quot; &quot;18&quot; &quot;19&quot; &quot;20&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="data-transformation.html#cb43-1" tabindex="-1"></a><span class="fu">colnames</span>(ccolor <span class="sc">%&gt;%</span></span>
+<span id="cb43-2"><a href="data-transformation.html#cb43-2" tabindex="-1"></a>           <span class="fu">group_by</span>(s) <span class="sc">%&gt;%</span></span>
+<span id="cb43-3"><a href="data-transformation.html#cb43-3" tabindex="-1"></a>           <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="co">#Let&#39;s name this something easy to type and remember, like &quot;count&quot;</span></span>
+<span id="cb43-4"><a href="data-transformation.html#cb43-4" tabindex="-1"></a>           <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> s, <span class="at">values_from =</span> count))</span>
+<span id="cb43-5"><a href="data-transformation.html#cb43-5" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot; &quot;11&quot; &quot;12&quot; &quot;13&quot; &quot;14&quot; &quot;15&quot;</span></span>
+<span id="cb43-6"><a href="data-transformation.html#cb43-6" tabindex="-1"></a><span class="co">#&gt; [16] &quot;16&quot; &quot;17&quot; &quot;18&quot; &quot;19&quot; &quot;20&quot;</span></span></code></pre></div>
 <p>None of these changes are being saved! You can make new objects with the
 <code>&lt;-</code> operator.</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="data-transformation.html#cb43-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> ccolor <span class="co">#do some stuff here</span></span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="data-transformation.html#cb44-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> ccolor <span class="co">#do some stuff here</span></span></code></pre></div>
 <p>Above I used <code>group_by(s)</code>, which groups by participant,
 <code>summarise()</code> with <code>n()</code>, which counts the number
 of rows, and <code>pivot_wider()</code>, which takes the column s, turns
@@ -481,21 +483,21 @@ each row into a column, and puts the value argument in that column.</p>
 <code>distinct()</code>, <code>sample_n()</code>, <code>slice()</code>,
 and many more.</p>
 <p>For example:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="data-transformation.html#cb44-1" tabindex="-1"></a><span class="fu">as_tibble</span>(ccolor <span class="sc">%&gt;%</span></span>
-<span id="cb44-2"><a href="data-transformation.html#cb44-2" tabindex="-1"></a>  <span class="fu">filter</span>(s <span class="sc">==</span> <span class="dv">1</span>))<span class="co"># &quot;==&quot; is a logic operator, which works with most classes of data</span></span>
-<span id="cb44-3"><a href="data-transformation.html#cb44-3" tabindex="-1"></a><span class="co">#&gt; # A tibble: 320 × 5</span></span>
-<span id="cb44-4"><a href="data-transformation.html#cb44-4" tabindex="-1"></a><span class="co">#&gt;   s     con         S     R        RT</span></span>
-<span id="cb44-5"><a href="data-transformation.html#cb44-5" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt; &lt;chr&gt;       &lt;fct&gt; &lt;chr&gt; &lt;dbl&gt;</span></span>
-<span id="cb44-6"><a href="data-transformation.html#cb44-6" tabindex="-1"></a><span class="co">#&gt; 1 1     congruent   blue  blue   1023</span></span>
-<span id="cb44-7"><a href="data-transformation.html#cb44-7" tabindex="-1"></a><span class="co">#&gt; 2 1     incongruent blue  red     665</span></span>
-<span id="cb44-8"><a href="data-transformation.html#cb44-8" tabindex="-1"></a><span class="co">#&gt; 3 1     congruent   red   red    1568</span></span>
-<span id="cb44-9"><a href="data-transformation.html#cb44-9" tabindex="-1"></a><span class="co">#&gt; 4 1     congruent   blue  blue    955</span></span>
-<span id="cb44-10"><a href="data-transformation.html#cb44-10" tabindex="-1"></a><span class="co">#&gt; 5 1     incongruent red   blue    792</span></span>
-<span id="cb44-11"><a href="data-transformation.html#cb44-11" tabindex="-1"></a><span class="co">#&gt; 6 1     congruent   red   red     452</span></span>
-<span id="cb44-12"><a href="data-transformation.html#cb44-12" tabindex="-1"></a><span class="co">#&gt; # … with 314 more rows</span></span>
-<span id="cb44-13"><a href="data-transformation.html#cb44-13" tabindex="-1"></a></span>
-<span id="cb44-14"><a href="data-transformation.html#cb44-14" tabindex="-1"></a><span class="fu">class</span>(ccolor<span class="sc">$</span>s)</span>
-<span id="cb44-15"><a href="data-transformation.html#cb44-15" tabindex="-1"></a><span class="co">#&gt; [1] &quot;factor&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="data-transformation.html#cb45-1" tabindex="-1"></a><span class="fu">as_tibble</span>(ccolor <span class="sc">%&gt;%</span></span>
+<span id="cb45-2"><a href="data-transformation.html#cb45-2" tabindex="-1"></a>  <span class="fu">filter</span>(s <span class="sc">==</span> <span class="dv">1</span>))<span class="co"># &quot;==&quot; is a logic operator, which works with most classes of data</span></span>
+<span id="cb45-3"><a href="data-transformation.html#cb45-3" tabindex="-1"></a><span class="co">#&gt; # A tibble: 320 × 5</span></span>
+<span id="cb45-4"><a href="data-transformation.html#cb45-4" tabindex="-1"></a><span class="co">#&gt;   s     con         S     R        RT</span></span>
+<span id="cb45-5"><a href="data-transformation.html#cb45-5" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt; &lt;chr&gt;       &lt;fct&gt; &lt;chr&gt; &lt;dbl&gt;</span></span>
+<span id="cb45-6"><a href="data-transformation.html#cb45-6" tabindex="-1"></a><span class="co">#&gt; 1 1     congruent   blue  blue   1023</span></span>
+<span id="cb45-7"><a href="data-transformation.html#cb45-7" tabindex="-1"></a><span class="co">#&gt; 2 1     incongruent blue  red     665</span></span>
+<span id="cb45-8"><a href="data-transformation.html#cb45-8" tabindex="-1"></a><span class="co">#&gt; 3 1     congruent   red   red    1568</span></span>
+<span id="cb45-9"><a href="data-transformation.html#cb45-9" tabindex="-1"></a><span class="co">#&gt; 4 1     congruent   blue  blue    955</span></span>
+<span id="cb45-10"><a href="data-transformation.html#cb45-10" tabindex="-1"></a><span class="co">#&gt; 5 1     incongruent red   blue    792</span></span>
+<span id="cb45-11"><a href="data-transformation.html#cb45-11" tabindex="-1"></a><span class="co">#&gt; 6 1     congruent   red   red     452</span></span>
+<span id="cb45-12"><a href="data-transformation.html#cb45-12" tabindex="-1"></a><span class="co">#&gt; # … with 314 more rows</span></span>
+<span id="cb45-13"><a href="data-transformation.html#cb45-13" tabindex="-1"></a></span>
+<span id="cb45-14"><a href="data-transformation.html#cb45-14" tabindex="-1"></a><span class="fu">class</span>(ccolor<span class="sc">$</span>s)</span>
+<span id="cb45-15"><a href="data-transformation.html#cb45-15" tabindex="-1"></a><span class="co">#&gt; [1] &quot;factor&quot;</span></span></code></pre></div>
 </div>
 <div id="aside-on-the-apply-family" class="section level2 hasAnchor" number="4.3">
 <h2><span class="header-section-number">4.3</span> Aside on the apply family<a href="data-transformation.html#aside-on-the-apply-family" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -503,76 +505,76 @@ and many more.</p>
 this is how you’d do it. Here’s a quick introduction to the apply
 family. We can apply <code>class()</code> to muliple columns.</p>
 <p>Say we want to get the class of every column…</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="data-transformation.html#cb45-1" tabindex="-1"></a><span class="fu">apply</span>(ccolor, <span class="at">MARGIN =</span> <span class="dv">2</span>, <span class="at">FUN =</span> class) <span class="co">#Something about changing it to an array loses its class attributes</span></span>
-<span id="cb45-2"><a href="data-transformation.html#cb45-2" tabindex="-1"></a><span class="co">#&gt;           s         con           S           R          RT </span></span>
-<span id="cb45-3"><a href="data-transformation.html#cb45-3" tabindex="-1"></a><span class="co">#&gt; &quot;character&quot; &quot;character&quot; &quot;character&quot; &quot;character&quot; &quot;character&quot;</span></span>
-<span id="cb45-4"><a href="data-transformation.html#cb45-4" tabindex="-1"></a><span class="fu">lapply</span>(ccolor, <span class="at">FUN =</span> class) <span class="co">#list apply makes the output of the call a list</span></span>
-<span id="cb45-5"><a href="data-transformation.html#cb45-5" tabindex="-1"></a><span class="co">#&gt; $s</span></span>
-<span id="cb45-6"><a href="data-transformation.html#cb45-6" tabindex="-1"></a><span class="co">#&gt; [1] &quot;factor&quot;</span></span>
-<span id="cb45-7"><a href="data-transformation.html#cb45-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb45-8"><a href="data-transformation.html#cb45-8" tabindex="-1"></a><span class="co">#&gt; $con</span></span>
-<span id="cb45-9"><a href="data-transformation.html#cb45-9" tabindex="-1"></a><span class="co">#&gt; [1] &quot;character&quot;</span></span>
-<span id="cb45-10"><a href="data-transformation.html#cb45-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb45-11"><a href="data-transformation.html#cb45-11" tabindex="-1"></a><span class="co">#&gt; $S</span></span>
-<span id="cb45-12"><a href="data-transformation.html#cb45-12" tabindex="-1"></a><span class="co">#&gt; [1] &quot;factor&quot;</span></span>
-<span id="cb45-13"><a href="data-transformation.html#cb45-13" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb45-14"><a href="data-transformation.html#cb45-14" tabindex="-1"></a><span class="co">#&gt; $R</span></span>
-<span id="cb45-15"><a href="data-transformation.html#cb45-15" tabindex="-1"></a><span class="co">#&gt; [1] &quot;character&quot;</span></span>
-<span id="cb45-16"><a href="data-transformation.html#cb45-16" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb45-17"><a href="data-transformation.html#cb45-17" tabindex="-1"></a><span class="co">#&gt; $RT</span></span>
-<span id="cb45-18"><a href="data-transformation.html#cb45-18" tabindex="-1"></a><span class="co">#&gt; [1] &quot;numeric&quot;</span></span>
-<span id="cb45-19"><a href="data-transformation.html#cb45-19" tabindex="-1"></a><span class="fu">sapply</span>(ccolor,<span class="at">FUN =</span> class) <span class="co">#simple apply tries to output the simplest outcome</span></span>
-<span id="cb45-20"><a href="data-transformation.html#cb45-20" tabindex="-1"></a><span class="co">#&gt;           s         con           S           R          RT </span></span>
-<span id="cb45-21"><a href="data-transformation.html#cb45-21" tabindex="-1"></a><span class="co">#&gt;    &quot;factor&quot; &quot;character&quot;    &quot;factor&quot; &quot;character&quot;   &quot;numeric&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="data-transformation.html#cb46-1" tabindex="-1"></a><span class="fu">apply</span>(ccolor, <span class="at">MARGIN =</span> <span class="dv">2</span>, <span class="at">FUN =</span> class) <span class="co">#Something about changing it to an array loses its class attributes</span></span>
+<span id="cb46-2"><a href="data-transformation.html#cb46-2" tabindex="-1"></a><span class="co">#&gt;           s         con           S           R          RT </span></span>
+<span id="cb46-3"><a href="data-transformation.html#cb46-3" tabindex="-1"></a><span class="co">#&gt; &quot;character&quot; &quot;character&quot; &quot;character&quot; &quot;character&quot; &quot;character&quot;</span></span>
+<span id="cb46-4"><a href="data-transformation.html#cb46-4" tabindex="-1"></a><span class="fu">lapply</span>(ccolor, <span class="at">FUN =</span> class) <span class="co">#list apply makes the output of the call a list</span></span>
+<span id="cb46-5"><a href="data-transformation.html#cb46-5" tabindex="-1"></a><span class="co">#&gt; $s</span></span>
+<span id="cb46-6"><a href="data-transformation.html#cb46-6" tabindex="-1"></a><span class="co">#&gt; [1] &quot;factor&quot;</span></span>
+<span id="cb46-7"><a href="data-transformation.html#cb46-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb46-8"><a href="data-transformation.html#cb46-8" tabindex="-1"></a><span class="co">#&gt; $con</span></span>
+<span id="cb46-9"><a href="data-transformation.html#cb46-9" tabindex="-1"></a><span class="co">#&gt; [1] &quot;character&quot;</span></span>
+<span id="cb46-10"><a href="data-transformation.html#cb46-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb46-11"><a href="data-transformation.html#cb46-11" tabindex="-1"></a><span class="co">#&gt; $S</span></span>
+<span id="cb46-12"><a href="data-transformation.html#cb46-12" tabindex="-1"></a><span class="co">#&gt; [1] &quot;factor&quot;</span></span>
+<span id="cb46-13"><a href="data-transformation.html#cb46-13" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb46-14"><a href="data-transformation.html#cb46-14" tabindex="-1"></a><span class="co">#&gt; $R</span></span>
+<span id="cb46-15"><a href="data-transformation.html#cb46-15" tabindex="-1"></a><span class="co">#&gt; [1] &quot;character&quot;</span></span>
+<span id="cb46-16"><a href="data-transformation.html#cb46-16" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb46-17"><a href="data-transformation.html#cb46-17" tabindex="-1"></a><span class="co">#&gt; $RT</span></span>
+<span id="cb46-18"><a href="data-transformation.html#cb46-18" tabindex="-1"></a><span class="co">#&gt; [1] &quot;numeric&quot;</span></span>
+<span id="cb46-19"><a href="data-transformation.html#cb46-19" tabindex="-1"></a><span class="fu">sapply</span>(ccolor,<span class="at">FUN =</span> class) <span class="co">#simple apply tries to output the simplest outcome</span></span>
+<span id="cb46-20"><a href="data-transformation.html#cb46-20" tabindex="-1"></a><span class="co">#&gt;           s         con           S           R          RT </span></span>
+<span id="cb46-21"><a href="data-transformation.html#cb46-21" tabindex="-1"></a><span class="co">#&gt;    &quot;factor&quot; &quot;character&quot;    &quot;factor&quot; &quot;character&quot;   &quot;numeric&quot;</span></span></code></pre></div>
 <p>The bottom two assume you mean the columns, while the top one you have
 to specify. tapply is different, because you index (or group) by another
 variable. Say we want mean RT by subject…</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="data-transformation.html#cb46-1" tabindex="-1"></a><span class="fu">tapply</span>(<span class="at">X =</span> ccolor<span class="sc">$</span>RT, <span class="at">INDEX =</span> ccolor<span class="sc">$</span>s, <span class="at">FUN =</span> mean) <span class="co">#We&#39;d do it like that.</span></span>
-<span id="cb46-2"><a href="data-transformation.html#cb46-2" tabindex="-1"></a><span class="co">#&gt;    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16 </span></span>
-<span id="cb46-3"><a href="data-transformation.html#cb46-3" tabindex="-1"></a><span class="co">#&gt;  790  731  485  847  824  536 1065 1325 1090 1002  840  914  900 1012  953   NA </span></span>
-<span id="cb46-4"><a href="data-transformation.html#cb46-4" tabindex="-1"></a><span class="co">#&gt;   17   18   19   20 </span></span>
-<span id="cb46-5"><a href="data-transformation.html#cb46-5" tabindex="-1"></a><span class="co">#&gt;  996  980  719  623</span></span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="data-transformation.html#cb47-1" tabindex="-1"></a><span class="fu">tapply</span>(<span class="at">X =</span> ccolor<span class="sc">$</span>RT, <span class="at">INDEX =</span> ccolor<span class="sc">$</span>s, <span class="at">FUN =</span> mean) <span class="co">#We&#39;d do it like that.</span></span>
+<span id="cb47-2"><a href="data-transformation.html#cb47-2" tabindex="-1"></a><span class="co">#&gt;    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16 </span></span>
+<span id="cb47-3"><a href="data-transformation.html#cb47-3" tabindex="-1"></a><span class="co">#&gt;  790  731  485  847  824  536 1065 1325 1090 1002  840  914  900 1012  953   NA </span></span>
+<span id="cb47-4"><a href="data-transformation.html#cb47-4" tabindex="-1"></a><span class="co">#&gt;   17   18   19   20 </span></span>
+<span id="cb47-5"><a href="data-transformation.html#cb47-5" tabindex="-1"></a><span class="co">#&gt;  996  980  719  623</span></span></code></pre></div>
 <p>mapply stands for “multivariate apply’, and works like this:</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="data-transformation.html#cb47-1" tabindex="-1"></a><span class="co"># Create a 4x4 matrix</span></span>
-<span id="cb47-2"><a href="data-transformation.html#cb47-2" tabindex="-1"></a>Q1 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">4</span>), <span class="fu">rep</span>(<span class="dv">2</span>, <span class="dv">4</span>), <span class="fu">rep</span>(<span class="dv">3</span>, <span class="dv">4</span>), <span class="fu">rep</span>(<span class="dv">4</span>, <span class="dv">4</span>)),<span class="dv">4</span>,<span class="dv">4</span>)</span>
-<span id="cb47-3"><a href="data-transformation.html#cb47-3" tabindex="-1"></a>Q1 <span class="co">#Or you could use mapply()</span></span>
-<span id="cb47-4"><a href="data-transformation.html#cb47-4" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
-<span id="cb47-5"><a href="data-transformation.html#cb47-5" tabindex="-1"></a><span class="co">#&gt; [1,]    1    2    3    4</span></span>
-<span id="cb47-6"><a href="data-transformation.html#cb47-6" tabindex="-1"></a><span class="co">#&gt; [2,]    1    2    3    4</span></span>
-<span id="cb47-7"><a href="data-transformation.html#cb47-7" tabindex="-1"></a><span class="co">#&gt; [3,]    1    2    3    4</span></span>
-<span id="cb47-8"><a href="data-transformation.html#cb47-8" tabindex="-1"></a><span class="co">#&gt; [4,]    1    2    3    4</span></span>
-<span id="cb47-9"><a href="data-transformation.html#cb47-9" tabindex="-1"></a><span class="fu">mapply</span>(rep, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,<span class="dv">4</span>) <span class="co">#repeat 1 through 4, 4 times</span></span>
-<span id="cb47-10"><a href="data-transformation.html#cb47-10" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
-<span id="cb47-11"><a href="data-transformation.html#cb47-11" tabindex="-1"></a><span class="co">#&gt; [1,]    1    2    3    4</span></span>
-<span id="cb47-12"><a href="data-transformation.html#cb47-12" tabindex="-1"></a><span class="co">#&gt; [2,]    1    2    3    4</span></span>
-<span id="cb47-13"><a href="data-transformation.html#cb47-13" tabindex="-1"></a><span class="co">#&gt; [3,]    1    2    3    4</span></span>
-<span id="cb47-14"><a href="data-transformation.html#cb47-14" tabindex="-1"></a><span class="co">#&gt; [4,]    1    2    3    4</span></span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="data-transformation.html#cb48-1" tabindex="-1"></a><span class="co"># Create a 4x4 matrix</span></span>
+<span id="cb48-2"><a href="data-transformation.html#cb48-2" tabindex="-1"></a>Q1 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">4</span>), <span class="fu">rep</span>(<span class="dv">2</span>, <span class="dv">4</span>), <span class="fu">rep</span>(<span class="dv">3</span>, <span class="dv">4</span>), <span class="fu">rep</span>(<span class="dv">4</span>, <span class="dv">4</span>)),<span class="dv">4</span>,<span class="dv">4</span>)</span>
+<span id="cb48-3"><a href="data-transformation.html#cb48-3" tabindex="-1"></a>Q1 <span class="co">#Or you could use mapply()</span></span>
+<span id="cb48-4"><a href="data-transformation.html#cb48-4" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb48-5"><a href="data-transformation.html#cb48-5" tabindex="-1"></a><span class="co">#&gt; [1,]    1    2    3    4</span></span>
+<span id="cb48-6"><a href="data-transformation.html#cb48-6" tabindex="-1"></a><span class="co">#&gt; [2,]    1    2    3    4</span></span>
+<span id="cb48-7"><a href="data-transformation.html#cb48-7" tabindex="-1"></a><span class="co">#&gt; [3,]    1    2    3    4</span></span>
+<span id="cb48-8"><a href="data-transformation.html#cb48-8" tabindex="-1"></a><span class="co">#&gt; [4,]    1    2    3    4</span></span>
+<span id="cb48-9"><a href="data-transformation.html#cb48-9" tabindex="-1"></a><span class="fu">mapply</span>(rep, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,<span class="dv">4</span>) <span class="co">#repeat 1 through 4, 4 times</span></span>
+<span id="cb48-10"><a href="data-transformation.html#cb48-10" tabindex="-1"></a><span class="co">#&gt;      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb48-11"><a href="data-transformation.html#cb48-11" tabindex="-1"></a><span class="co">#&gt; [1,]    1    2    3    4</span></span>
+<span id="cb48-12"><a href="data-transformation.html#cb48-12" tabindex="-1"></a><span class="co">#&gt; [2,]    1    2    3    4</span></span>
+<span id="cb48-13"><a href="data-transformation.html#cb48-13" tabindex="-1"></a><span class="co">#&gt; [3,]    1    2    3    4</span></span>
+<span id="cb48-14"><a href="data-transformation.html#cb48-14" tabindex="-1"></a><span class="co">#&gt; [4,]    1    2    3    4</span></span></code></pre></div>
 <p>Say you want to mean-center some data</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="data-transformation.html#cb48-1" tabindex="-1"></a>dataPoints <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">30</span>), <span class="at">nrow=</span><span class="dv">5</span>, <span class="at">ncol=</span><span class="dv">6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="data-transformation.html#cb49-1" tabindex="-1"></a>dataPoints <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">30</span>), <span class="at">nrow=</span><span class="dv">5</span>, <span class="at">ncol=</span><span class="dv">6</span>)</span></code></pre></div>
 <p>Find means per column with <code>apply()</code></p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="data-transformation.html#cb49-1" tabindex="-1"></a>dataPoints_means <span class="ot">&lt;-</span> <span class="fu">apply</span>(dataPoints, <span class="dv">2</span>, mean) <span class="co">#Margin = 2 signifies &quot;do it to the columns&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="data-transformation.html#cb50-1" tabindex="-1"></a>dataPoints_means <span class="ot">&lt;-</span> <span class="fu">apply</span>(dataPoints, <span class="dv">2</span>, mean) <span class="co">#Margin = 2 signifies &quot;do it to the columns&quot;</span></span></code></pre></div>
 <p>Find standard deviation with <code>apply()</code></p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="data-transformation.html#cb50-1" tabindex="-1"></a>dataPoints_sdev <span class="ot">&lt;-</span> <span class="fu">apply</span>(dataPoints, <span class="dv">2</span>, sd)</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="data-transformation.html#cb51-1" tabindex="-1"></a>dataPoints_sdev <span class="ot">&lt;-</span> <span class="fu">apply</span>(dataPoints, <span class="dv">2</span>, sd)</span></code></pre></div>
 <p>Center the points</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="data-transformation.html#cb51-1" tabindex="-1"></a>dataPoints_Trans1 <span class="ot">&lt;-</span> <span class="fu">sweep</span>(dataPoints, <span class="dv">2</span>, dataPoints_means,<span class="st">&quot;-&quot;</span>) <span class="co">#subtract mean from points in columns</span></span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="data-transformation.html#cb52-1" tabindex="-1"></a>dataPoints_Trans1 <span class="ot">&lt;-</span> <span class="fu">sweep</span>(dataPoints, <span class="dv">2</span>, dataPoints_means,<span class="st">&quot;-&quot;</span>) <span class="co">#subtract mean from points in columns</span></span></code></pre></div>
 <p>Return the result</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="data-transformation.html#cb52-1" tabindex="-1"></a>dataPoints_Trans1</span>
-<span id="cb52-2"><a href="data-transformation.html#cb52-2" tabindex="-1"></a><span class="co">#&gt;        [,1]     [,2]   [,3]    [,4]    [,5]   [,6]</span></span>
-<span id="cb52-3"><a href="data-transformation.html#cb52-3" tabindex="-1"></a><span class="co">#&gt; [1,] -0.807  1.43794 -0.758 -1.3013  0.0376  0.580</span></span>
-<span id="cb52-4"><a href="data-transformation.html#cb52-4" tabindex="-1"></a><span class="co">#&gt; [2,]  0.849 -1.53229  0.425  0.0397 -0.0676 -0.258</span></span>
-<span id="cb52-5"><a href="data-transformation.html#cb52-5" tabindex="-1"></a><span class="co">#&gt; [3,] -1.844  0.04220  1.861  0.5091 -1.7351  0.662</span></span>
-<span id="cb52-6"><a href="data-transformation.html#cb52-6" tabindex="-1"></a><span class="co">#&gt; [4,]  0.588  0.04533 -1.835  1.1047  0.3072 -0.149</span></span>
-<span id="cb52-7"><a href="data-transformation.html#cb52-7" tabindex="-1"></a><span class="co">#&gt; [5,]  1.215  0.00682  0.308 -0.3523  1.4579 -0.835</span></span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="data-transformation.html#cb53-1" tabindex="-1"></a>dataPoints_Trans1</span>
+<span id="cb53-2"><a href="data-transformation.html#cb53-2" tabindex="-1"></a><span class="co">#&gt;        [,1]     [,2]   [,3]    [,4]    [,5]   [,6]</span></span>
+<span id="cb53-3"><a href="data-transformation.html#cb53-3" tabindex="-1"></a><span class="co">#&gt; [1,] -0.807  1.43794 -0.758 -1.3013  0.0376  0.580</span></span>
+<span id="cb53-4"><a href="data-transformation.html#cb53-4" tabindex="-1"></a><span class="co">#&gt; [2,]  0.849 -1.53229  0.425  0.0397 -0.0676 -0.258</span></span>
+<span id="cb53-5"><a href="data-transformation.html#cb53-5" tabindex="-1"></a><span class="co">#&gt; [3,] -1.844  0.04220  1.861  0.5091 -1.7351  0.662</span></span>
+<span id="cb53-6"><a href="data-transformation.html#cb53-6" tabindex="-1"></a><span class="co">#&gt; [4,]  0.588  0.04533 -1.835  1.1047  0.3072 -0.149</span></span>
+<span id="cb53-7"><a href="data-transformation.html#cb53-7" tabindex="-1"></a><span class="co">#&gt; [5,]  1.215  0.00682  0.308 -0.3523  1.4579 -0.835</span></span></code></pre></div>
 <p>Normalize</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="data-transformation.html#cb53-1" tabindex="-1"></a>dataPoints_Trans2 <span class="ot">&lt;-</span> <span class="fu">sweep</span>(dataPoints_Trans1, <span class="dv">2</span>, dataPoints_sdev, <span class="st">&quot;/&quot;</span>) <span class="co">#divide new point values by standard deviation in columns</span></span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="data-transformation.html#cb54-1" tabindex="-1"></a>dataPoints_Trans2 <span class="ot">&lt;-</span> <span class="fu">sweep</span>(dataPoints_Trans1, <span class="dv">2</span>, dataPoints_sdev, <span class="st">&quot;/&quot;</span>) <span class="co">#divide new point values by standard deviation in columns</span></span></code></pre></div>
 <p>Return the result</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="data-transformation.html#cb54-1" tabindex="-1"></a>dataPoints_Trans2</span>
-<span id="cb54-2"><a href="data-transformation.html#cb54-2" tabindex="-1"></a><span class="co">#&gt;        [,1]     [,2]   [,3]    [,4]    [,5]   [,6]</span></span>
-<span id="cb54-3"><a href="data-transformation.html#cb54-3" tabindex="-1"></a><span class="co">#&gt; [1,] -0.628  1.36800 -0.547 -1.4329  0.0328  0.929</span></span>
-<span id="cb54-4"><a href="data-transformation.html#cb54-4" tabindex="-1"></a><span class="co">#&gt; [2,]  0.661 -1.45776  0.306  0.0437 -0.0591 -0.413</span></span>
-<span id="cb54-5"><a href="data-transformation.html#cb54-5" tabindex="-1"></a><span class="co">#&gt; [3,] -1.436  0.04015  1.343  0.5607 -1.5165  1.060</span></span>
-<span id="cb54-6"><a href="data-transformation.html#cb54-6" tabindex="-1"></a><span class="co">#&gt; [4,]  0.458  0.04312 -1.325  1.2165  0.2685 -0.239</span></span>
-<span id="cb54-7"><a href="data-transformation.html#cb54-7" tabindex="-1"></a><span class="co">#&gt; [5,]  0.946  0.00649  0.222 -0.3880  1.2742 -1.337</span></span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="data-transformation.html#cb55-1" tabindex="-1"></a>dataPoints_Trans2</span>
+<span id="cb55-2"><a href="data-transformation.html#cb55-2" tabindex="-1"></a><span class="co">#&gt;        [,1]     [,2]   [,3]    [,4]    [,5]   [,6]</span></span>
+<span id="cb55-3"><a href="data-transformation.html#cb55-3" tabindex="-1"></a><span class="co">#&gt; [1,] -0.628  1.36800 -0.547 -1.4329  0.0328  0.929</span></span>
+<span id="cb55-4"><a href="data-transformation.html#cb55-4" tabindex="-1"></a><span class="co">#&gt; [2,]  0.661 -1.45776  0.306  0.0437 -0.0591 -0.413</span></span>
+<span id="cb55-5"><a href="data-transformation.html#cb55-5" tabindex="-1"></a><span class="co">#&gt; [3,] -1.436  0.04015  1.343  0.5607 -1.5165  1.060</span></span>
+<span id="cb55-6"><a href="data-transformation.html#cb55-6" tabindex="-1"></a><span class="co">#&gt; [4,]  0.458  0.04312 -1.325  1.2165  0.2685 -0.239</span></span>
+<span id="cb55-7"><a href="data-transformation.html#cb55-7" tabindex="-1"></a><span class="co">#&gt; [5,]  0.946  0.00649  0.222 -0.3880  1.2742 -1.337</span></span></code></pre></div>
 <p>Now you have mean-centered data points, probably for a regression model.</p>
 <p><em>&lt;/ASIDE&gt;</em></p>
 </div>
@@ -583,226 +585,226 @@ For example, in Reaction Time data we often trim the early responses as
 anticipatory, and the late responses as outliers.</p>
 <p><strong>Challenge 1</strong>: Find and remove the rows with NAs, save it out to
 “newdf”</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="data-transformation.html#cb55-1" tabindex="-1"></a>newdf <span class="ot">&lt;-</span> ...</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="data-transformation.html#cb56-1" tabindex="-1"></a>newdf <span class="ot">&lt;-</span> ...</span></code></pre></div>
 <p><strong>Challenge 2</strong>: Filter out RT’s below 150 milliseconds and show how
 many you’ve filtered out.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="data-transformation.html#cb56-1" tabindex="-1"></a>newdf <span class="sc">%&gt;%</span></span>
-<span id="cb56-2"><a href="data-transformation.html#cb56-2" tabindex="-1"></a>  <span class="fu">filter</span>(...) <span class="sc">%&gt;%</span></span>
-<span id="cb56-3"><a href="data-transformation.html#cb56-3" tabindex="-1"></a>  <span class="fu">summarise</span>(...)</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="data-transformation.html#cb57-1" tabindex="-1"></a>newdf <span class="sc">%&gt;%</span></span>
+<span id="cb57-2"><a href="data-transformation.html#cb57-2" tabindex="-1"></a>  <span class="fu">filter</span>(...) <span class="sc">%&gt;%</span></span>
+<span id="cb57-3"><a href="data-transformation.html#cb57-3" tabindex="-1"></a>  <span class="fu">summarise</span>(...)</span></code></pre></div>
 <p><strong>Challenge 3</strong>: Get the number of observations (rows) kept and removed
 with <code>group_by()</code></p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="data-transformation.html#cb57-1" tabindex="-1"></a>newdf <span class="sc">%&gt;%</span></span>
-<span id="cb57-2"><a href="data-transformation.html#cb57-2" tabindex="-1"></a>  <span class="fu">group_by</span>(...) <span class="sc">%&gt;%</span></span>
-<span id="cb57-3"><a href="data-transformation.html#cb57-3" tabindex="-1"></a>  <span class="fu">summarise</span>(...)</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="data-transformation.html#cb58-1" tabindex="-1"></a>newdf <span class="sc">%&gt;%</span></span>
+<span id="cb58-2"><a href="data-transformation.html#cb58-2" tabindex="-1"></a>  <span class="fu">group_by</span>(...) <span class="sc">%&gt;%</span></span>
+<span id="cb58-3"><a href="data-transformation.html#cb58-3" tabindex="-1"></a>  <span class="fu">summarise</span>(...)</span></code></pre></div>
 <p>In papers, you want to report the proportion of data you have removed
 and the criteria with which you removed that data.</p>
 <p>Now you have the slow responses, but a more appropriate standard might
 be removing data above three standard deviations from the mean for each
 participant’s own distribution. Let’s try that now…</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="data-transformation.html#cb58-1" tabindex="-1"></a>newdf <span class="sc">%&gt;%</span> <span class="co">#Step 1 is to group by the subject and get the mean and sd</span></span>
-<span id="cb58-2"><a href="data-transformation.html#cb58-2" tabindex="-1"></a>  <span class="fu">group_by</span>(s) <span class="sc">%&gt;%</span></span>
-<span id="cb58-3"><a href="data-transformation.html#cb58-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mRT =</span> <span class="fu">mean</span>(RT), <span class="at">RTsd =</span> <span class="fu">sd</span>(RT))</span>
-<span id="cb58-4"><a href="data-transformation.html#cb58-4" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6,399 × 7</span></span>
-<span id="cb58-5"><a href="data-transformation.html#cb58-5" tabindex="-1"></a><span class="co">#&gt; # Groups:   s [20]</span></span>
-<span id="cb58-6"><a href="data-transformation.html#cb58-6" tabindex="-1"></a><span class="co">#&gt;   s     con         S     R        RT   mRT  RTsd</span></span>
-<span id="cb58-7"><a href="data-transformation.html#cb58-7" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt; &lt;chr&gt;       &lt;fct&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
-<span id="cb58-8"><a href="data-transformation.html#cb58-8" tabindex="-1"></a><span class="co">#&gt; 1 1     congruent   blue  blue   1023  790.  775.</span></span>
-<span id="cb58-9"><a href="data-transformation.html#cb58-9" tabindex="-1"></a><span class="co">#&gt; 2 1     incongruent blue  red     665  790.  775.</span></span>
-<span id="cb58-10"><a href="data-transformation.html#cb58-10" tabindex="-1"></a><span class="co">#&gt; 3 1     congruent   red   red    1568  790.  775.</span></span>
-<span id="cb58-11"><a href="data-transformation.html#cb58-11" tabindex="-1"></a><span class="co">#&gt; 4 1     congruent   blue  blue    955  790.  775.</span></span>
-<span id="cb58-12"><a href="data-transformation.html#cb58-12" tabindex="-1"></a><span class="co">#&gt; 5 1     incongruent red   blue    792  790.  775.</span></span>
-<span id="cb58-13"><a href="data-transformation.html#cb58-13" tabindex="-1"></a><span class="co">#&gt; 6 1     congruent   red   red     452  790.  775.</span></span>
-<span id="cb58-14"><a href="data-transformation.html#cb58-14" tabindex="-1"></a><span class="co">#&gt; # ℹ 6,393 more rows</span></span>
-<span id="cb58-15"><a href="data-transformation.html#cb58-15" tabindex="-1"></a></span>
-<span id="cb58-16"><a href="data-transformation.html#cb58-16" tabindex="-1"></a>newdf <span class="sc">%&gt;%</span> <span class="co">#Step 2 is to make a cutoff 3 standard deviations above the mean for each participant</span></span>
-<span id="cb58-17"><a href="data-transformation.html#cb58-17" tabindex="-1"></a>  <span class="fu">group_by</span>(s) <span class="sc">%&gt;%</span></span>
-<span id="cb58-18"><a href="data-transformation.html#cb58-18" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mRT =</span> <span class="fu">mean</span>(RT), <span class="at">RTsd =</span> <span class="fu">sd</span>(RT)) <span class="sc">%&gt;%</span></span>
-<span id="cb58-19"><a href="data-transformation.html#cb58-19" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cutoff =</span> mRT <span class="sc">+</span> <span class="dv">3</span><span class="sc">*</span>RTsd)</span>
-<span id="cb58-20"><a href="data-transformation.html#cb58-20" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6,399 × 8</span></span>
-<span id="cb58-21"><a href="data-transformation.html#cb58-21" tabindex="-1"></a><span class="co">#&gt; # Groups:   s [20]</span></span>
-<span id="cb58-22"><a href="data-transformation.html#cb58-22" tabindex="-1"></a><span class="co">#&gt;   s     con         S     R        RT   mRT  RTsd cutoff</span></span>
-<span id="cb58-23"><a href="data-transformation.html#cb58-23" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt; &lt;chr&gt;       &lt;fct&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;</span></span>
-<span id="cb58-24"><a href="data-transformation.html#cb58-24" tabindex="-1"></a><span class="co">#&gt; 1 1     congruent   blue  blue   1023  790.  775.  3115.</span></span>
-<span id="cb58-25"><a href="data-transformation.html#cb58-25" tabindex="-1"></a><span class="co">#&gt; 2 1     incongruent blue  red     665  790.  775.  3115.</span></span>
-<span id="cb58-26"><a href="data-transformation.html#cb58-26" tabindex="-1"></a><span class="co">#&gt; 3 1     congruent   red   red    1568  790.  775.  3115.</span></span>
-<span id="cb58-27"><a href="data-transformation.html#cb58-27" tabindex="-1"></a><span class="co">#&gt; 4 1     congruent   blue  blue    955  790.  775.  3115.</span></span>
-<span id="cb58-28"><a href="data-transformation.html#cb58-28" tabindex="-1"></a><span class="co">#&gt; 5 1     incongruent red   blue    792  790.  775.  3115.</span></span>
-<span id="cb58-29"><a href="data-transformation.html#cb58-29" tabindex="-1"></a><span class="co">#&gt; 6 1     congruent   red   red     452  790.  775.  3115.</span></span>
-<span id="cb58-30"><a href="data-transformation.html#cb58-30" tabindex="-1"></a><span class="co">#&gt; # ℹ 6,393 more rows</span></span>
-<span id="cb58-31"><a href="data-transformation.html#cb58-31" tabindex="-1"></a></span>
-<span id="cb58-32"><a href="data-transformation.html#cb58-32" tabindex="-1"></a></span>
-<span id="cb58-33"><a href="data-transformation.html#cb58-33" tabindex="-1"></a>newdf <span class="sc">%&gt;%</span> <span class="co">#Step 3 Let&#39;s clean up the columns we need and the ones we don&#39;t</span></span>
-<span id="cb58-34"><a href="data-transformation.html#cb58-34" tabindex="-1"></a>  <span class="fu">group_by</span>(s) <span class="sc">%&gt;%</span></span>
-<span id="cb58-35"><a href="data-transformation.html#cb58-35" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mRT =</span> <span class="fu">mean</span>(RT), <span class="at">RTsd =</span> <span class="fu">sd</span>(RT)) <span class="sc">%&gt;%</span></span>
-<span id="cb58-36"><a href="data-transformation.html#cb58-36" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cutoff =</span> mRT <span class="sc">+</span> <span class="dv">3</span><span class="sc">*</span>RTsd) <span class="sc">%&gt;%</span></span>
-<span id="cb58-37"><a href="data-transformation.html#cb58-37" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>mRT, <span class="sc">-</span>RTsd)</span>
-<span id="cb58-38"><a href="data-transformation.html#cb58-38" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6,399 × 6</span></span>
-<span id="cb58-39"><a href="data-transformation.html#cb58-39" tabindex="-1"></a><span class="co">#&gt; # Groups:   s [20]</span></span>
-<span id="cb58-40"><a href="data-transformation.html#cb58-40" tabindex="-1"></a><span class="co">#&gt;   s     con         S     R        RT cutoff</span></span>
-<span id="cb58-41"><a href="data-transformation.html#cb58-41" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt; &lt;chr&gt;       &lt;fct&gt; &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt;</span></span>
-<span id="cb58-42"><a href="data-transformation.html#cb58-42" tabindex="-1"></a><span class="co">#&gt; 1 1     congruent   blue  blue   1023  3115.</span></span>
-<span id="cb58-43"><a href="data-transformation.html#cb58-43" tabindex="-1"></a><span class="co">#&gt; 2 1     incongruent blue  red     665  3115.</span></span>
-<span id="cb58-44"><a href="data-transformation.html#cb58-44" tabindex="-1"></a><span class="co">#&gt; 3 1     congruent   red   red    1568  3115.</span></span>
-<span id="cb58-45"><a href="data-transformation.html#cb58-45" tabindex="-1"></a><span class="co">#&gt; 4 1     congruent   blue  blue    955  3115.</span></span>
-<span id="cb58-46"><a href="data-transformation.html#cb58-46" tabindex="-1"></a><span class="co">#&gt; 5 1     incongruent red   blue    792  3115.</span></span>
-<span id="cb58-47"><a href="data-transformation.html#cb58-47" tabindex="-1"></a><span class="co">#&gt; 6 1     congruent   red   red     452  3115.</span></span>
-<span id="cb58-48"><a href="data-transformation.html#cb58-48" tabindex="-1"></a><span class="co">#&gt; # ℹ 6,393 more rows</span></span>
-<span id="cb58-49"><a href="data-transformation.html#cb58-49" tabindex="-1"></a></span>
-<span id="cb58-50"><a href="data-transformation.html#cb58-50" tabindex="-1"></a></span>
-<span id="cb58-51"><a href="data-transformation.html#cb58-51" tabindex="-1"></a>newdf <span class="sc">%&gt;%</span> <span class="co">#Step 4 Now let&#39;s filter those RTs above the cutoff and count them</span></span>
-<span id="cb58-52"><a href="data-transformation.html#cb58-52" tabindex="-1"></a>  <span class="fu">group_by</span>(s) <span class="sc">%&gt;%</span></span>
-<span id="cb58-53"><a href="data-transformation.html#cb58-53" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mRT =</span> <span class="fu">mean</span>(RT), <span class="at">RTsd =</span> <span class="fu">sd</span>(RT)) <span class="sc">%&gt;%</span></span>
-<span id="cb58-54"><a href="data-transformation.html#cb58-54" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cutoff =</span> mRT <span class="sc">+</span> <span class="dv">3</span><span class="sc">*</span>RTsd) <span class="sc">%&gt;%</span></span>
-<span id="cb58-55"><a href="data-transformation.html#cb58-55" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>mRT, <span class="sc">-</span>RTsd) <span class="sc">%&gt;%</span></span>
-<span id="cb58-56"><a href="data-transformation.html#cb58-56" tabindex="-1"></a>  <span class="fu">filter</span>(RT <span class="sc">&gt;</span> cutoff) <span class="sc">%&gt;%</span></span>
-<span id="cb58-57"><a href="data-transformation.html#cb58-57" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="co">#spread it out so its easy to read</span></span>
-<span id="cb58-58"><a href="data-transformation.html#cb58-58" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> s, <span class="at">values_from =</span> n)</span>
-<span id="cb58-59"><a href="data-transformation.html#cb58-59" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 20</span></span>
-<span id="cb58-60"><a href="data-transformation.html#cb58-60" tabindex="-1"></a><span class="co">#&gt;     `1`   `2`   `3`   `4`   `5`   `6`   `7`   `8`   `9`  `10`  `11`  `12`  `13`</span></span>
-<span id="cb58-61"><a href="data-transformation.html#cb58-61" tabindex="-1"></a><span class="co">#&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;</span></span>
-<span id="cb58-62"><a href="data-transformation.html#cb58-62" tabindex="-1"></a><span class="co">#&gt; 1     4     4     4     4     7     6     6     3     8     5     1     7     4</span></span>
-<span id="cb58-63"><a href="data-transformation.html#cb58-63" tabindex="-1"></a><span class="co">#&gt; # ℹ 7 more variables: `14` &lt;int&gt;, `15` &lt;int&gt;, `16` &lt;int&gt;, `17` &lt;int&gt;,</span></span>
-<span id="cb58-64"><a href="data-transformation.html#cb58-64" tabindex="-1"></a><span class="co">#&gt; #   `18` &lt;int&gt;, `19` &lt;int&gt;, `20` &lt;int&gt;</span></span>
-<span id="cb58-65"><a href="data-transformation.html#cb58-65" tabindex="-1"></a></span>
-<span id="cb58-66"><a href="data-transformation.html#cb58-66" tabindex="-1"></a></span>
-<span id="cb58-67"><a href="data-transformation.html#cb58-67" tabindex="-1"></a>newdf <span class="sc">%&gt;%</span> <span class="co">#We can see the proportion of removed data</span></span>
-<span id="cb58-68"><a href="data-transformation.html#cb58-68" tabindex="-1"></a>  <span class="fu">group_by</span>(s) <span class="sc">%&gt;%</span></span>
-<span id="cb58-69"><a href="data-transformation.html#cb58-69" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mRT =</span> <span class="fu">mean</span>(RT), <span class="at">RTsd =</span> <span class="fu">sd</span>(RT)) <span class="sc">%&gt;%</span></span>
-<span id="cb58-70"><a href="data-transformation.html#cb58-70" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cutoff =</span> mRT <span class="sc">+</span> <span class="dv">3</span><span class="sc">*</span>RTsd) <span class="sc">%&gt;%</span></span>
-<span id="cb58-71"><a href="data-transformation.html#cb58-71" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>mRT, <span class="sc">-</span>RTsd) <span class="sc">%&gt;%</span></span>
-<span id="cb58-72"><a href="data-transformation.html#cb58-72" tabindex="-1"></a>  <span class="fu">group_by</span>(RT <span class="sc">&gt;</span> cutoff <span class="sc">|</span> RT <span class="sc">&lt;</span> <span class="dv">150</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb58-73"><a href="data-transformation.html#cb58-73" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb58-74"><a href="data-transformation.html#cb58-74" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> (n<span class="sc">/</span><span class="fu">sum</span>(n))<span class="sc">*</span><span class="dv">100</span>)</span>
-<span id="cb58-75"><a href="data-transformation.html#cb58-75" tabindex="-1"></a><span class="co">#&gt; # A tibble: 2 × 3</span></span>
-<span id="cb58-76"><a href="data-transformation.html#cb58-76" tabindex="-1"></a><span class="co">#&gt;   `RT &gt; cutoff | RT &lt; 150`     n  prop</span></span>
-<span id="cb58-77"><a href="data-transformation.html#cb58-77" tabindex="-1"></a><span class="co">#&gt;   &lt;lgl&gt;                    &lt;int&gt; &lt;dbl&gt;</span></span>
-<span id="cb58-78"><a href="data-transformation.html#cb58-78" tabindex="-1"></a><span class="co">#&gt; 1 FALSE                     6289 98.3 </span></span>
-<span id="cb58-79"><a href="data-transformation.html#cb58-79" tabindex="-1"></a><span class="co">#&gt; 2 TRUE                       110  1.72</span></span>
-<span id="cb58-80"><a href="data-transformation.html#cb58-80" tabindex="-1"></a></span>
-<span id="cb58-81"><a href="data-transformation.html#cb58-81" tabindex="-1"></a>dfclean <span class="ot">&lt;-</span> newdf <span class="sc">%&gt;%</span> <span class="co">#Save it out as dfclean</span></span>
-<span id="cb58-82"><a href="data-transformation.html#cb58-82" tabindex="-1"></a>  <span class="fu">group_by</span>(s) <span class="sc">%&gt;%</span></span>
-<span id="cb58-83"><a href="data-transformation.html#cb58-83" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mRT =</span> <span class="fu">mean</span>(RT), <span class="at">RTsd =</span> <span class="fu">sd</span>(RT)) <span class="sc">%&gt;%</span></span>
-<span id="cb58-84"><a href="data-transformation.html#cb58-84" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cutoff =</span> mRT <span class="sc">+</span> <span class="dv">3</span><span class="sc">*</span>RTsd) <span class="sc">%&gt;%</span></span>
-<span id="cb58-85"><a href="data-transformation.html#cb58-85" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>mRT, <span class="sc">-</span>RTsd) <span class="sc">%&gt;%</span></span>
-<span id="cb58-86"><a href="data-transformation.html#cb58-86" tabindex="-1"></a>  <span class="fu">filter</span>(RT <span class="sc">&lt;</span> cutoff <span class="sc">&amp;</span> RT <span class="sc">&gt;</span> <span class="dv">150</span>) <span class="co">#The RTs must be less than the cutoff AND greater than 150 ms</span></span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="data-transformation.html#cb59-1" tabindex="-1"></a>newdf <span class="sc">%&gt;%</span> <span class="co">#Step 1 is to group by the subject and get the mean and sd</span></span>
+<span id="cb59-2"><a href="data-transformation.html#cb59-2" tabindex="-1"></a>  <span class="fu">group_by</span>(s) <span class="sc">%&gt;%</span></span>
+<span id="cb59-3"><a href="data-transformation.html#cb59-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mRT =</span> <span class="fu">mean</span>(RT), <span class="at">RTsd =</span> <span class="fu">sd</span>(RT))</span>
+<span id="cb59-4"><a href="data-transformation.html#cb59-4" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6,399 × 7</span></span>
+<span id="cb59-5"><a href="data-transformation.html#cb59-5" tabindex="-1"></a><span class="co">#&gt; # Groups:   s [20]</span></span>
+<span id="cb59-6"><a href="data-transformation.html#cb59-6" tabindex="-1"></a><span class="co">#&gt;   s     con         S     R        RT   mRT  RTsd</span></span>
+<span id="cb59-7"><a href="data-transformation.html#cb59-7" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt; &lt;chr&gt;       &lt;fct&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb59-8"><a href="data-transformation.html#cb59-8" tabindex="-1"></a><span class="co">#&gt; 1 1     congruent   blue  blue   1023  790.  775.</span></span>
+<span id="cb59-9"><a href="data-transformation.html#cb59-9" tabindex="-1"></a><span class="co">#&gt; 2 1     incongruent blue  red     665  790.  775.</span></span>
+<span id="cb59-10"><a href="data-transformation.html#cb59-10" tabindex="-1"></a><span class="co">#&gt; 3 1     congruent   red   red    1568  790.  775.</span></span>
+<span id="cb59-11"><a href="data-transformation.html#cb59-11" tabindex="-1"></a><span class="co">#&gt; 4 1     congruent   blue  blue    955  790.  775.</span></span>
+<span id="cb59-12"><a href="data-transformation.html#cb59-12" tabindex="-1"></a><span class="co">#&gt; 5 1     incongruent red   blue    792  790.  775.</span></span>
+<span id="cb59-13"><a href="data-transformation.html#cb59-13" tabindex="-1"></a><span class="co">#&gt; 6 1     congruent   red   red     452  790.  775.</span></span>
+<span id="cb59-14"><a href="data-transformation.html#cb59-14" tabindex="-1"></a><span class="co">#&gt; # ℹ 6,393 more rows</span></span>
+<span id="cb59-15"><a href="data-transformation.html#cb59-15" tabindex="-1"></a></span>
+<span id="cb59-16"><a href="data-transformation.html#cb59-16" tabindex="-1"></a>newdf <span class="sc">%&gt;%</span> <span class="co">#Step 2 is to make a cutoff 3 standard deviations above the mean for each participant</span></span>
+<span id="cb59-17"><a href="data-transformation.html#cb59-17" tabindex="-1"></a>  <span class="fu">group_by</span>(s) <span class="sc">%&gt;%</span></span>
+<span id="cb59-18"><a href="data-transformation.html#cb59-18" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mRT =</span> <span class="fu">mean</span>(RT), <span class="at">RTsd =</span> <span class="fu">sd</span>(RT)) <span class="sc">%&gt;%</span></span>
+<span id="cb59-19"><a href="data-transformation.html#cb59-19" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cutoff =</span> mRT <span class="sc">+</span> <span class="dv">3</span><span class="sc">*</span>RTsd)</span>
+<span id="cb59-20"><a href="data-transformation.html#cb59-20" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6,399 × 8</span></span>
+<span id="cb59-21"><a href="data-transformation.html#cb59-21" tabindex="-1"></a><span class="co">#&gt; # Groups:   s [20]</span></span>
+<span id="cb59-22"><a href="data-transformation.html#cb59-22" tabindex="-1"></a><span class="co">#&gt;   s     con         S     R        RT   mRT  RTsd cutoff</span></span>
+<span id="cb59-23"><a href="data-transformation.html#cb59-23" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt; &lt;chr&gt;       &lt;fct&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;</span></span>
+<span id="cb59-24"><a href="data-transformation.html#cb59-24" tabindex="-1"></a><span class="co">#&gt; 1 1     congruent   blue  blue   1023  790.  775.  3115.</span></span>
+<span id="cb59-25"><a href="data-transformation.html#cb59-25" tabindex="-1"></a><span class="co">#&gt; 2 1     incongruent blue  red     665  790.  775.  3115.</span></span>
+<span id="cb59-26"><a href="data-transformation.html#cb59-26" tabindex="-1"></a><span class="co">#&gt; 3 1     congruent   red   red    1568  790.  775.  3115.</span></span>
+<span id="cb59-27"><a href="data-transformation.html#cb59-27" tabindex="-1"></a><span class="co">#&gt; 4 1     congruent   blue  blue    955  790.  775.  3115.</span></span>
+<span id="cb59-28"><a href="data-transformation.html#cb59-28" tabindex="-1"></a><span class="co">#&gt; 5 1     incongruent red   blue    792  790.  775.  3115.</span></span>
+<span id="cb59-29"><a href="data-transformation.html#cb59-29" tabindex="-1"></a><span class="co">#&gt; 6 1     congruent   red   red     452  790.  775.  3115.</span></span>
+<span id="cb59-30"><a href="data-transformation.html#cb59-30" tabindex="-1"></a><span class="co">#&gt; # ℹ 6,393 more rows</span></span>
+<span id="cb59-31"><a href="data-transformation.html#cb59-31" tabindex="-1"></a></span>
+<span id="cb59-32"><a href="data-transformation.html#cb59-32" tabindex="-1"></a></span>
+<span id="cb59-33"><a href="data-transformation.html#cb59-33" tabindex="-1"></a>newdf <span class="sc">%&gt;%</span> <span class="co">#Step 3 Let&#39;s clean up the columns we need and the ones we don&#39;t</span></span>
+<span id="cb59-34"><a href="data-transformation.html#cb59-34" tabindex="-1"></a>  <span class="fu">group_by</span>(s) <span class="sc">%&gt;%</span></span>
+<span id="cb59-35"><a href="data-transformation.html#cb59-35" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mRT =</span> <span class="fu">mean</span>(RT), <span class="at">RTsd =</span> <span class="fu">sd</span>(RT)) <span class="sc">%&gt;%</span></span>
+<span id="cb59-36"><a href="data-transformation.html#cb59-36" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cutoff =</span> mRT <span class="sc">+</span> <span class="dv">3</span><span class="sc">*</span>RTsd) <span class="sc">%&gt;%</span></span>
+<span id="cb59-37"><a href="data-transformation.html#cb59-37" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>mRT, <span class="sc">-</span>RTsd)</span>
+<span id="cb59-38"><a href="data-transformation.html#cb59-38" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6,399 × 6</span></span>
+<span id="cb59-39"><a href="data-transformation.html#cb59-39" tabindex="-1"></a><span class="co">#&gt; # Groups:   s [20]</span></span>
+<span id="cb59-40"><a href="data-transformation.html#cb59-40" tabindex="-1"></a><span class="co">#&gt;   s     con         S     R        RT cutoff</span></span>
+<span id="cb59-41"><a href="data-transformation.html#cb59-41" tabindex="-1"></a><span class="co">#&gt;   &lt;fct&gt; &lt;chr&gt;       &lt;fct&gt; &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt;</span></span>
+<span id="cb59-42"><a href="data-transformation.html#cb59-42" tabindex="-1"></a><span class="co">#&gt; 1 1     congruent   blue  blue   1023  3115.</span></span>
+<span id="cb59-43"><a href="data-transformation.html#cb59-43" tabindex="-1"></a><span class="co">#&gt; 2 1     incongruent blue  red     665  3115.</span></span>
+<span id="cb59-44"><a href="data-transformation.html#cb59-44" tabindex="-1"></a><span class="co">#&gt; 3 1     congruent   red   red    1568  3115.</span></span>
+<span id="cb59-45"><a href="data-transformation.html#cb59-45" tabindex="-1"></a><span class="co">#&gt; 4 1     congruent   blue  blue    955  3115.</span></span>
+<span id="cb59-46"><a href="data-transformation.html#cb59-46" tabindex="-1"></a><span class="co">#&gt; 5 1     incongruent red   blue    792  3115.</span></span>
+<span id="cb59-47"><a href="data-transformation.html#cb59-47" tabindex="-1"></a><span class="co">#&gt; 6 1     congruent   red   red     452  3115.</span></span>
+<span id="cb59-48"><a href="data-transformation.html#cb59-48" tabindex="-1"></a><span class="co">#&gt; # ℹ 6,393 more rows</span></span>
+<span id="cb59-49"><a href="data-transformation.html#cb59-49" tabindex="-1"></a></span>
+<span id="cb59-50"><a href="data-transformation.html#cb59-50" tabindex="-1"></a></span>
+<span id="cb59-51"><a href="data-transformation.html#cb59-51" tabindex="-1"></a>newdf <span class="sc">%&gt;%</span> <span class="co">#Step 4 Now let&#39;s filter those RTs above the cutoff and count them</span></span>
+<span id="cb59-52"><a href="data-transformation.html#cb59-52" tabindex="-1"></a>  <span class="fu">group_by</span>(s) <span class="sc">%&gt;%</span></span>
+<span id="cb59-53"><a href="data-transformation.html#cb59-53" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mRT =</span> <span class="fu">mean</span>(RT), <span class="at">RTsd =</span> <span class="fu">sd</span>(RT)) <span class="sc">%&gt;%</span></span>
+<span id="cb59-54"><a href="data-transformation.html#cb59-54" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cutoff =</span> mRT <span class="sc">+</span> <span class="dv">3</span><span class="sc">*</span>RTsd) <span class="sc">%&gt;%</span></span>
+<span id="cb59-55"><a href="data-transformation.html#cb59-55" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>mRT, <span class="sc">-</span>RTsd) <span class="sc">%&gt;%</span></span>
+<span id="cb59-56"><a href="data-transformation.html#cb59-56" tabindex="-1"></a>  <span class="fu">filter</span>(RT <span class="sc">&gt;</span> cutoff) <span class="sc">%&gt;%</span></span>
+<span id="cb59-57"><a href="data-transformation.html#cb59-57" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> <span class="co">#spread it out so its easy to read</span></span>
+<span id="cb59-58"><a href="data-transformation.html#cb59-58" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> s, <span class="at">values_from =</span> n)</span>
+<span id="cb59-59"><a href="data-transformation.html#cb59-59" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 20</span></span>
+<span id="cb59-60"><a href="data-transformation.html#cb59-60" tabindex="-1"></a><span class="co">#&gt;     `1`   `2`   `3`   `4`   `5`   `6`   `7`   `8`   `9`  `10`  `11`  `12`  `13`</span></span>
+<span id="cb59-61"><a href="data-transformation.html#cb59-61" tabindex="-1"></a><span class="co">#&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;</span></span>
+<span id="cb59-62"><a href="data-transformation.html#cb59-62" tabindex="-1"></a><span class="co">#&gt; 1     4     4     4     4     7     6     6     3     8     5     1     7     4</span></span>
+<span id="cb59-63"><a href="data-transformation.html#cb59-63" tabindex="-1"></a><span class="co">#&gt; # ℹ 7 more variables: `14` &lt;int&gt;, `15` &lt;int&gt;, `16` &lt;int&gt;, `17` &lt;int&gt;,</span></span>
+<span id="cb59-64"><a href="data-transformation.html#cb59-64" tabindex="-1"></a><span class="co">#&gt; #   `18` &lt;int&gt;, `19` &lt;int&gt;, `20` &lt;int&gt;</span></span>
+<span id="cb59-65"><a href="data-transformation.html#cb59-65" tabindex="-1"></a></span>
+<span id="cb59-66"><a href="data-transformation.html#cb59-66" tabindex="-1"></a></span>
+<span id="cb59-67"><a href="data-transformation.html#cb59-67" tabindex="-1"></a>newdf <span class="sc">%&gt;%</span> <span class="co">#We can see the proportion of removed data</span></span>
+<span id="cb59-68"><a href="data-transformation.html#cb59-68" tabindex="-1"></a>  <span class="fu">group_by</span>(s) <span class="sc">%&gt;%</span></span>
+<span id="cb59-69"><a href="data-transformation.html#cb59-69" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mRT =</span> <span class="fu">mean</span>(RT), <span class="at">RTsd =</span> <span class="fu">sd</span>(RT)) <span class="sc">%&gt;%</span></span>
+<span id="cb59-70"><a href="data-transformation.html#cb59-70" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cutoff =</span> mRT <span class="sc">+</span> <span class="dv">3</span><span class="sc">*</span>RTsd) <span class="sc">%&gt;%</span></span>
+<span id="cb59-71"><a href="data-transformation.html#cb59-71" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>mRT, <span class="sc">-</span>RTsd) <span class="sc">%&gt;%</span></span>
+<span id="cb59-72"><a href="data-transformation.html#cb59-72" tabindex="-1"></a>  <span class="fu">group_by</span>(RT <span class="sc">&gt;</span> cutoff <span class="sc">|</span> RT <span class="sc">&lt;</span> <span class="dv">150</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb59-73"><a href="data-transformation.html#cb59-73" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb59-74"><a href="data-transformation.html#cb59-74" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> (n<span class="sc">/</span><span class="fu">sum</span>(n))<span class="sc">*</span><span class="dv">100</span>)</span>
+<span id="cb59-75"><a href="data-transformation.html#cb59-75" tabindex="-1"></a><span class="co">#&gt; # A tibble: 2 × 3</span></span>
+<span id="cb59-76"><a href="data-transformation.html#cb59-76" tabindex="-1"></a><span class="co">#&gt;   `RT &gt; cutoff | RT &lt; 150`     n  prop</span></span>
+<span id="cb59-77"><a href="data-transformation.html#cb59-77" tabindex="-1"></a><span class="co">#&gt;   &lt;lgl&gt;                    &lt;int&gt; &lt;dbl&gt;</span></span>
+<span id="cb59-78"><a href="data-transformation.html#cb59-78" tabindex="-1"></a><span class="co">#&gt; 1 FALSE                     6289 98.3 </span></span>
+<span id="cb59-79"><a href="data-transformation.html#cb59-79" tabindex="-1"></a><span class="co">#&gt; 2 TRUE                       110  1.72</span></span>
+<span id="cb59-80"><a href="data-transformation.html#cb59-80" tabindex="-1"></a></span>
+<span id="cb59-81"><a href="data-transformation.html#cb59-81" tabindex="-1"></a>dfclean <span class="ot">&lt;-</span> newdf <span class="sc">%&gt;%</span> <span class="co">#Save it out as dfclean</span></span>
+<span id="cb59-82"><a href="data-transformation.html#cb59-82" tabindex="-1"></a>  <span class="fu">group_by</span>(s) <span class="sc">%&gt;%</span></span>
+<span id="cb59-83"><a href="data-transformation.html#cb59-83" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mRT =</span> <span class="fu">mean</span>(RT), <span class="at">RTsd =</span> <span class="fu">sd</span>(RT)) <span class="sc">%&gt;%</span></span>
+<span id="cb59-84"><a href="data-transformation.html#cb59-84" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cutoff =</span> mRT <span class="sc">+</span> <span class="dv">3</span><span class="sc">*</span>RTsd) <span class="sc">%&gt;%</span></span>
+<span id="cb59-85"><a href="data-transformation.html#cb59-85" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>mRT, <span class="sc">-</span>RTsd) <span class="sc">%&gt;%</span></span>
+<span id="cb59-86"><a href="data-transformation.html#cb59-86" tabindex="-1"></a>  <span class="fu">filter</span>(RT <span class="sc">&lt;</span> cutoff <span class="sc">&amp;</span> RT <span class="sc">&gt;</span> <span class="dv">150</span>) <span class="co">#The RTs must be less than the cutoff AND greater than 150 ms</span></span></code></pre></div>
 <p>Now we’re ready to do some descriptive statistics with the groups</p>
 <p><strong>Challenge 4</strong>: What is the mean reaction time and standard deviation
 for congruent vs incongruent trials</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="data-transformation.html#cb59-1" tabindex="-1"></a><span class="co">#hint group_by(the factor you&#39;re interested in)</span></span>
-<span id="cb59-2"><a href="data-transformation.html#cb59-2" tabindex="-1"></a>dfclean <span class="sc">%&gt;%</span></span>
-<span id="cb59-3"><a href="data-transformation.html#cb59-3" tabindex="-1"></a>  <span class="fu">group_by</span>(...) <span class="sc">%&gt;%</span></span>
-<span id="cb59-4"><a href="data-transformation.html#cb59-4" tabindex="-1"></a>  <span class="fu">summarise</span>(...)</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="data-transformation.html#cb60-1" tabindex="-1"></a><span class="co">#hint group_by(the factor you&#39;re interested in)</span></span>
+<span id="cb60-2"><a href="data-transformation.html#cb60-2" tabindex="-1"></a>dfclean <span class="sc">%&gt;%</span></span>
+<span id="cb60-3"><a href="data-transformation.html#cb60-3" tabindex="-1"></a>  <span class="fu">group_by</span>(...) <span class="sc">%&gt;%</span></span>
+<span id="cb60-4"><a href="data-transformation.html#cb60-4" tabindex="-1"></a>  <span class="fu">summarise</span>(...)</span></code></pre></div>
 <p><strong>Challenge 5</strong>: Get the mean and sd of participant means for congruent
 vs incongruent trials and compare to the previous outcome.</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="data-transformation.html#cb60-1" tabindex="-1"></a>dfclean <span class="sc">%&gt;%</span></span>
-<span id="cb60-2"><a href="data-transformation.html#cb60-2" tabindex="-1"></a>  <span class="fu">group_by</span>(...) <span class="sc">%&gt;%</span></span>
-<span id="cb60-3"><a href="data-transformation.html#cb60-3" tabindex="-1"></a>  <span class="fu">summarise</span>(...) <span class="sc">%&gt;%</span></span>
-<span id="cb60-4"><a href="data-transformation.html#cb60-4" tabindex="-1"></a>  <span class="fu">group_by</span>(...) <span class="sc">%&gt;%</span></span>
-<span id="cb60-5"><a href="data-transformation.html#cb60-5" tabindex="-1"></a>  <span class="fu">summarise</span>(..., ...)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="data-transformation.html#cb61-1" tabindex="-1"></a>dfclean <span class="sc">%&gt;%</span></span>
+<span id="cb61-2"><a href="data-transformation.html#cb61-2" tabindex="-1"></a>  <span class="fu">group_by</span>(...) <span class="sc">%&gt;%</span></span>
+<span id="cb61-3"><a href="data-transformation.html#cb61-3" tabindex="-1"></a>  <span class="fu">summarise</span>(...) <span class="sc">%&gt;%</span></span>
+<span id="cb61-4"><a href="data-transformation.html#cb61-4" tabindex="-1"></a>  <span class="fu">group_by</span>(...) <span class="sc">%&gt;%</span></span>
+<span id="cb61-5"><a href="data-transformation.html#cb61-5" tabindex="-1"></a>  <span class="fu">summarise</span>(..., ...)</span></code></pre></div>
 <p>This is a quirk of repeated measures fully within designs, as the levels
 of analysis are nested. More on that later. We can quickly visualize
 some of these things, like the distribution of responses in base R.
 Note: Soon we will learn to visualize everything in ggplot2.</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="data-transformation.html#cb61-1" tabindex="-1"></a><span class="fu">hist</span>(dfclean<span class="sc">$</span>RT, <span class="at">breaks =</span> <span class="dv">100</span>)</span>
-<span id="cb61-2"><a href="data-transformation.html#cb61-2" tabindex="-1"></a></span>
-<span id="cb61-3"><a href="data-transformation.html#cb61-3" tabindex="-1"></a><span class="co">#Add a line for the mean</span></span>
-<span id="cb61-4"><a href="data-transformation.html#cb61-4" tabindex="-1"></a><span class="fu">hist</span>(dfclean<span class="sc">$</span>RT, <span class="at">breaks =</span> <span class="dv">100</span>)</span>
-<span id="cb61-5"><a href="data-transformation.html#cb61-5" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(dfclean<span class="sc">$</span>RT),</span>
-<span id="cb61-6"><a href="data-transformation.html#cb61-6" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">&quot;red&quot;</span>,</span>
-<span id="cb61-7"><a href="data-transformation.html#cb61-7" tabindex="-1"></a>       <span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb61-8"><a href="data-transformation.html#cb61-8" tabindex="-1"></a><span class="co">#add a line for the median</span></span>
-<span id="cb61-9"><a href="data-transformation.html#cb61-9" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">median</span>(dfclean<span class="sc">$</span>RT),</span>
-<span id="cb61-10"><a href="data-transformation.html#cb61-10" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>,</span>
-<span id="cb61-11"><a href="data-transformation.html#cb61-11" tabindex="-1"></a>       <span class="at">lwd =</span> <span class="dv">3</span>)</span>
-<span id="cb61-12"><a href="data-transformation.html#cb61-12" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(dfclean<span class="sc">$</span>RT),</span>
-<span id="cb61-13"><a href="data-transformation.html#cb61-13" tabindex="-1"></a>      <span class="at">lwd =</span> <span class="dv">2</span>, <span class="co"># thickness of line</span></span>
-<span id="cb61-14"><a href="data-transformation.html#cb61-14" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">&quot;chocolate3&quot;</span>)<span class="co"># density plot</span></span>
-<span id="cb61-15"><a href="data-transformation.html#cb61-15" tabindex="-1"></a></span>
-<span id="cb61-16"><a href="data-transformation.html#cb61-16" tabindex="-1"></a><span class="co">#Add a density plot,</span></span>
-<span id="cb61-17"><a href="data-transformation.html#cb61-17" tabindex="-1"></a><span class="fu">hist</span>(dfclean<span class="sc">$</span>RT, <span class="at">breaks =</span> <span class="dv">100</span>,</span>
-<span id="cb61-18"><a href="data-transformation.html#cb61-18" tabindex="-1"></a>     <span class="at">prob =</span> T)</span>
-<span id="cb61-19"><a href="data-transformation.html#cb61-19" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(dfclean<span class="sc">$</span>RT),</span>
-<span id="cb61-20"><a href="data-transformation.html#cb61-20" tabindex="-1"></a>      <span class="at">lwd =</span> <span class="dv">2</span>, <span class="co"># thickness of line</span></span>
-<span id="cb61-21"><a href="data-transformation.html#cb61-21" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">&quot;chocolate3&quot;</span>)<span class="co"># density plot</span></span>
-<span id="cb61-22"><a href="data-transformation.html#cb61-22" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(dfclean<span class="sc">$</span>RT),</span>
-<span id="cb61-23"><a href="data-transformation.html#cb61-23" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">&quot;red&quot;</span>,</span>
-<span id="cb61-24"><a href="data-transformation.html#cb61-24" tabindex="-1"></a>       <span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb61-25"><a href="data-transformation.html#cb61-25" tabindex="-1"></a><span class="co">#add a line for the median</span></span>
-<span id="cb61-26"><a href="data-transformation.html#cb61-26" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">median</span>(dfclean<span class="sc">$</span>RT),</span>
-<span id="cb61-27"><a href="data-transformation.html#cb61-27" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>,</span>
-<span id="cb61-28"><a href="data-transformation.html#cb61-28" tabindex="-1"></a>       <span class="at">lwd =</span> <span class="dv">3</span>)</span>
-<span id="cb61-29"><a href="data-transformation.html#cb61-29" tabindex="-1"></a></span>
-<span id="cb61-30"><a href="data-transformation.html#cb61-30" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x =</span> <span class="st">&quot;topright&quot;</span>, <span class="co"># location of legend within plot area</span></span>
-<span id="cb61-31"><a href="data-transformation.html#cb61-31" tabindex="-1"></a>       <span class="fu">c</span>(<span class="st">&quot;Density plot&quot;</span>, <span class="st">&quot;Mean&quot;</span>, <span class="st">&quot;Median&quot;</span>),</span>
-<span id="cb61-32"><a href="data-transformation.html#cb61-32" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;chocolate3&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>),</span>
-<span id="cb61-33"><a href="data-transformation.html#cb61-33" tabindex="-1"></a>       <span class="at">lwd =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="data-transformation.html#cb62-1" tabindex="-1"></a><span class="fu">hist</span>(dfclean<span class="sc">$</span>RT, <span class="at">breaks =</span> <span class="dv">100</span>)</span>
+<span id="cb62-2"><a href="data-transformation.html#cb62-2" tabindex="-1"></a></span>
+<span id="cb62-3"><a href="data-transformation.html#cb62-3" tabindex="-1"></a><span class="co">#Add a line for the mean</span></span>
+<span id="cb62-4"><a href="data-transformation.html#cb62-4" tabindex="-1"></a><span class="fu">hist</span>(dfclean<span class="sc">$</span>RT, <span class="at">breaks =</span> <span class="dv">100</span>)</span>
+<span id="cb62-5"><a href="data-transformation.html#cb62-5" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(dfclean<span class="sc">$</span>RT),</span>
+<span id="cb62-6"><a href="data-transformation.html#cb62-6" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">&quot;red&quot;</span>,</span>
+<span id="cb62-7"><a href="data-transformation.html#cb62-7" tabindex="-1"></a>       <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb62-8"><a href="data-transformation.html#cb62-8" tabindex="-1"></a><span class="co">#add a line for the median</span></span>
+<span id="cb62-9"><a href="data-transformation.html#cb62-9" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">median</span>(dfclean<span class="sc">$</span>RT),</span>
+<span id="cb62-10"><a href="data-transformation.html#cb62-10" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>,</span>
+<span id="cb62-11"><a href="data-transformation.html#cb62-11" tabindex="-1"></a>       <span class="at">lwd =</span> <span class="dv">3</span>)</span>
+<span id="cb62-12"><a href="data-transformation.html#cb62-12" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(dfclean<span class="sc">$</span>RT),</span>
+<span id="cb62-13"><a href="data-transformation.html#cb62-13" tabindex="-1"></a>      <span class="at">lwd =</span> <span class="dv">2</span>, <span class="co"># thickness of line</span></span>
+<span id="cb62-14"><a href="data-transformation.html#cb62-14" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">&quot;chocolate3&quot;</span>)<span class="co"># density plot</span></span>
+<span id="cb62-15"><a href="data-transformation.html#cb62-15" tabindex="-1"></a></span>
+<span id="cb62-16"><a href="data-transformation.html#cb62-16" tabindex="-1"></a><span class="co">#Add a density plot,</span></span>
+<span id="cb62-17"><a href="data-transformation.html#cb62-17" tabindex="-1"></a><span class="fu">hist</span>(dfclean<span class="sc">$</span>RT, <span class="at">breaks =</span> <span class="dv">100</span>,</span>
+<span id="cb62-18"><a href="data-transformation.html#cb62-18" tabindex="-1"></a>     <span class="at">prob =</span> T)</span>
+<span id="cb62-19"><a href="data-transformation.html#cb62-19" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(dfclean<span class="sc">$</span>RT),</span>
+<span id="cb62-20"><a href="data-transformation.html#cb62-20" tabindex="-1"></a>      <span class="at">lwd =</span> <span class="dv">2</span>, <span class="co"># thickness of line</span></span>
+<span id="cb62-21"><a href="data-transformation.html#cb62-21" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">&quot;chocolate3&quot;</span>)<span class="co"># density plot</span></span>
+<span id="cb62-22"><a href="data-transformation.html#cb62-22" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">mean</span>(dfclean<span class="sc">$</span>RT),</span>
+<span id="cb62-23"><a href="data-transformation.html#cb62-23" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">&quot;red&quot;</span>,</span>
+<span id="cb62-24"><a href="data-transformation.html#cb62-24" tabindex="-1"></a>       <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb62-25"><a href="data-transformation.html#cb62-25" tabindex="-1"></a><span class="co">#add a line for the median</span></span>
+<span id="cb62-26"><a href="data-transformation.html#cb62-26" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="fu">median</span>(dfclean<span class="sc">$</span>RT),</span>
+<span id="cb62-27"><a href="data-transformation.html#cb62-27" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>,</span>
+<span id="cb62-28"><a href="data-transformation.html#cb62-28" tabindex="-1"></a>       <span class="at">lwd =</span> <span class="dv">3</span>)</span>
+<span id="cb62-29"><a href="data-transformation.html#cb62-29" tabindex="-1"></a></span>
+<span id="cb62-30"><a href="data-transformation.html#cb62-30" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x =</span> <span class="st">&quot;topright&quot;</span>, <span class="co"># location of legend within plot area</span></span>
+<span id="cb62-31"><a href="data-transformation.html#cb62-31" tabindex="-1"></a>       <span class="fu">c</span>(<span class="st">&quot;Density plot&quot;</span>, <span class="st">&quot;Mean&quot;</span>, <span class="st">&quot;Median&quot;</span>),</span>
+<span id="cb62-32"><a href="data-transformation.html#cb62-32" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;chocolate3&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>),</span>
+<span id="cb62-33"><a href="data-transformation.html#cb62-33" tabindex="-1"></a>       <span class="at">lwd =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>))</span></code></pre></div>
 <p><img src="03_DataTransformation_files/figure-html/baseviz-1.png" width="70%" style="display: block; margin: auto;" /><img src="03_DataTransformation_files/figure-html/baseviz-2.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="pivoting-separating-and-uniting" class="section level2 hasAnchor" number="4.5">
 <h2><span class="header-section-number">4.5</span> Pivoting, Separating and Uniting<a href="data-transformation.html#pivoting-separating-and-uniting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>look at this <code>tibble(data.frame)</code></p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="data-transformation.html#cb62-1" tabindex="-1"></a>stocks <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb62-2"><a href="data-transformation.html#cb62-2" tabindex="-1"></a>  <span class="at">year   =</span> <span class="fu">c</span>(<span class="dv">2015</span>, <span class="dv">2015</span>, <span class="dv">2016</span>, <span class="dv">2016</span>),</span>
-<span id="cb62-3"><a href="data-transformation.html#cb62-3" tabindex="-1"></a>  <span class="at">half  =</span> <span class="fu">c</span>(   <span class="dv">1</span>,    <span class="dv">2</span>,     <span class="dv">1</span>,    <span class="dv">2</span>),</span>
-<span id="cb62-4"><a href="data-transformation.html#cb62-4" tabindex="-1"></a>  <span class="at">return =</span> <span class="fu">c</span>(<span class="fl">1.88</span>, <span class="fl">0.59</span>, <span class="fl">0.92</span>, <span class="fl">0.17</span>)</span>
-<span id="cb62-5"><a href="data-transformation.html#cb62-5" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="data-transformation.html#cb63-1" tabindex="-1"></a>stocks <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb63-2"><a href="data-transformation.html#cb63-2" tabindex="-1"></a>  <span class="at">year   =</span> <span class="fu">c</span>(<span class="dv">2015</span>, <span class="dv">2015</span>, <span class="dv">2016</span>, <span class="dv">2016</span>),</span>
+<span id="cb63-3"><a href="data-transformation.html#cb63-3" tabindex="-1"></a>  <span class="at">half  =</span> <span class="fu">c</span>(   <span class="dv">1</span>,    <span class="dv">2</span>,     <span class="dv">1</span>,    <span class="dv">2</span>),</span>
+<span id="cb63-4"><a href="data-transformation.html#cb63-4" tabindex="-1"></a>  <span class="at">return =</span> <span class="fu">c</span>(<span class="fl">1.88</span>, <span class="fl">0.59</span>, <span class="fl">0.92</span>, <span class="fl">0.17</span>)</span>
+<span id="cb63-5"><a href="data-transformation.html#cb63-5" tabindex="-1"></a>)</span></code></pre></div>
 <p><code>pivot_longer</code> and
 <code>pivot_wider</code> are not opposites.</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="data-transformation.html#cb63-1" tabindex="-1"></a></span>
-<span id="cb63-2"><a href="data-transformation.html#cb63-2" tabindex="-1"></a>stocks <span class="sc">%&gt;%</span></span>
-<span id="cb63-3"><a href="data-transformation.html#cb63-3" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">&quot;year&quot;</span>,<span class="at">values_from =</span> <span class="st">&quot;return&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb63-4"><a href="data-transformation.html#cb63-4" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="st">`</span><span class="at">2015</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2016</span><span class="st">`</span>,<span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>)</span>
-<span id="cb63-5"><a href="data-transformation.html#cb63-5" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 3</span></span>
-<span id="cb63-6"><a href="data-transformation.html#cb63-6" tabindex="-1"></a><span class="co">#&gt;    half year  value</span></span>
-<span id="cb63-7"><a href="data-transformation.html#cb63-7" tabindex="-1"></a><span class="co">#&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;</span></span>
-<span id="cb63-8"><a href="data-transformation.html#cb63-8" tabindex="-1"></a><span class="co">#&gt; 1     1 2015   1.88</span></span>
-<span id="cb63-9"><a href="data-transformation.html#cb63-9" tabindex="-1"></a><span class="co">#&gt; 2     1 2016   0.92</span></span>
-<span id="cb63-10"><a href="data-transformation.html#cb63-10" tabindex="-1"></a><span class="co">#&gt; 3     2 2015   0.59</span></span>
-<span id="cb63-11"><a href="data-transformation.html#cb63-11" tabindex="-1"></a><span class="co">#&gt; 4     2 2016   0.17</span></span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="data-transformation.html#cb64-1" tabindex="-1"></a></span>
+<span id="cb64-2"><a href="data-transformation.html#cb64-2" tabindex="-1"></a>stocks <span class="sc">%&gt;%</span></span>
+<span id="cb64-3"><a href="data-transformation.html#cb64-3" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">&quot;year&quot;</span>,<span class="at">values_from =</span> <span class="st">&quot;return&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb64-4"><a href="data-transformation.html#cb64-4" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="st">`</span><span class="at">2015</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2016</span><span class="st">`</span>,<span class="at">names_to =</span> <span class="st">&quot;year&quot;</span>)</span>
+<span id="cb64-5"><a href="data-transformation.html#cb64-5" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 3</span></span>
+<span id="cb64-6"><a href="data-transformation.html#cb64-6" tabindex="-1"></a><span class="co">#&gt;    half year  value</span></span>
+<span id="cb64-7"><a href="data-transformation.html#cb64-7" tabindex="-1"></a><span class="co">#&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;</span></span>
+<span id="cb64-8"><a href="data-transformation.html#cb64-8" tabindex="-1"></a><span class="co">#&gt; 1     1 2015   1.88</span></span>
+<span id="cb64-9"><a href="data-transformation.html#cb64-9" tabindex="-1"></a><span class="co">#&gt; 2     1 2016   0.92</span></span>
+<span id="cb64-10"><a href="data-transformation.html#cb64-10" tabindex="-1"></a><span class="co">#&gt; 3     2 2015   0.59</span></span>
+<span id="cb64-11"><a href="data-transformation.html#cb64-11" tabindex="-1"></a><span class="co">#&gt; 4     2 2016   0.17</span></span></code></pre></div>
 <p>You can make data.frames with space using the <code>tribble()</code>
 function</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="data-transformation.html#cb64-1" tabindex="-1"></a>people <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
-<span id="cb64-2"><a href="data-transformation.html#cb64-2" tabindex="-1"></a>  <span class="sc">~</span>name,             <span class="sc">~</span>key,    <span class="sc">~</span>value,</span>
-<span id="cb64-3"><a href="data-transformation.html#cb64-3" tabindex="-1"></a>  <span class="co">#-----------------|--------|------</span></span>
-<span id="cb64-4"><a href="data-transformation.html#cb64-4" tabindex="-1"></a>  <span class="st">&quot;Phillip Woods&quot;</span>,   <span class="st">&quot;age&quot;</span>,       <span class="dv">45</span>,</span>
-<span id="cb64-5"><a href="data-transformation.html#cb64-5" tabindex="-1"></a>  <span class="st">&quot;Phillip Woods&quot;</span>,   <span class="st">&quot;height&quot;</span>,   <span class="dv">186</span>,</span>
-<span id="cb64-6"><a href="data-transformation.html#cb64-6" tabindex="-1"></a>  <span class="st">&quot;Jessica Cordero&quot;</span>, <span class="st">&quot;age&quot;</span>,       <span class="dv">37</span>,</span>
-<span id="cb64-7"><a href="data-transformation.html#cb64-7" tabindex="-1"></a>  <span class="st">&quot;Jessica Cordero&quot;</span>, <span class="st">&quot;height&quot;</span>,   <span class="dv">156</span></span>
-<span id="cb64-8"><a href="data-transformation.html#cb64-8" tabindex="-1"></a>)</span>
-<span id="cb64-9"><a href="data-transformation.html#cb64-9" tabindex="-1"></a></span>
-<span id="cb64-10"><a href="data-transformation.html#cb64-10" tabindex="-1"></a>people</span>
-<span id="cb64-11"><a href="data-transformation.html#cb64-11" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 3</span></span>
-<span id="cb64-12"><a href="data-transformation.html#cb64-12" tabindex="-1"></a><span class="co">#&gt;   name            key    value</span></span>
-<span id="cb64-13"><a href="data-transformation.html#cb64-13" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;           &lt;chr&gt;  &lt;dbl&gt;</span></span>
-<span id="cb64-14"><a href="data-transformation.html#cb64-14" tabindex="-1"></a><span class="co">#&gt; 1 Phillip Woods   age       45</span></span>
-<span id="cb64-15"><a href="data-transformation.html#cb64-15" tabindex="-1"></a><span class="co">#&gt; 2 Phillip Woods   height   186</span></span>
-<span id="cb64-16"><a href="data-transformation.html#cb64-16" tabindex="-1"></a><span class="co">#&gt; 3 Jessica Cordero age       37</span></span>
-<span id="cb64-17"><a href="data-transformation.html#cb64-17" tabindex="-1"></a><span class="co">#&gt; 4 Jessica Cordero height   156</span></span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="data-transformation.html#cb65-1" tabindex="-1"></a>people <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb65-2"><a href="data-transformation.html#cb65-2" tabindex="-1"></a>  <span class="sc">~</span>name,             <span class="sc">~</span>key,    <span class="sc">~</span>value,</span>
+<span id="cb65-3"><a href="data-transformation.html#cb65-3" tabindex="-1"></a>  <span class="co">#-----------------|--------|------</span></span>
+<span id="cb65-4"><a href="data-transformation.html#cb65-4" tabindex="-1"></a>  <span class="st">&quot;Phillip Woods&quot;</span>,   <span class="st">&quot;age&quot;</span>,       <span class="dv">45</span>,</span>
+<span id="cb65-5"><a href="data-transformation.html#cb65-5" tabindex="-1"></a>  <span class="st">&quot;Phillip Woods&quot;</span>,   <span class="st">&quot;height&quot;</span>,   <span class="dv">186</span>,</span>
+<span id="cb65-6"><a href="data-transformation.html#cb65-6" tabindex="-1"></a>  <span class="st">&quot;Jessica Cordero&quot;</span>, <span class="st">&quot;age&quot;</span>,       <span class="dv">37</span>,</span>
+<span id="cb65-7"><a href="data-transformation.html#cb65-7" tabindex="-1"></a>  <span class="st">&quot;Jessica Cordero&quot;</span>, <span class="st">&quot;height&quot;</span>,   <span class="dv">156</span></span>
+<span id="cb65-8"><a href="data-transformation.html#cb65-8" tabindex="-1"></a>)</span>
+<span id="cb65-9"><a href="data-transformation.html#cb65-9" tabindex="-1"></a></span>
+<span id="cb65-10"><a href="data-transformation.html#cb65-10" tabindex="-1"></a>people</span>
+<span id="cb65-11"><a href="data-transformation.html#cb65-11" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 3</span></span>
+<span id="cb65-12"><a href="data-transformation.html#cb65-12" tabindex="-1"></a><span class="co">#&gt;   name            key    value</span></span>
+<span id="cb65-13"><a href="data-transformation.html#cb65-13" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;           &lt;chr&gt;  &lt;dbl&gt;</span></span>
+<span id="cb65-14"><a href="data-transformation.html#cb65-14" tabindex="-1"></a><span class="co">#&gt; 1 Phillip Woods   age       45</span></span>
+<span id="cb65-15"><a href="data-transformation.html#cb65-15" tabindex="-1"></a><span class="co">#&gt; 2 Phillip Woods   height   186</span></span>
+<span id="cb65-16"><a href="data-transformation.html#cb65-16" tabindex="-1"></a><span class="co">#&gt; 3 Jessica Cordero age       37</span></span>
+<span id="cb65-17"><a href="data-transformation.html#cb65-17" tabindex="-1"></a><span class="co">#&gt; 4 Jessica Cordero height   156</span></span></code></pre></div>
 <p><strong>Challenge 6</strong>: spread people so height and age have their own column</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="data-transformation.html#cb65-1" tabindex="-1"></a></span>
-<span id="cb65-2"><a href="data-transformation.html#cb65-2" tabindex="-1"></a>newpeople <span class="ot">&lt;-</span> people <span class="sc">%&gt;%</span></span>
-<span id="cb65-3"><a href="data-transformation.html#cb65-3" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(...)</span></code></pre></div>
-<p><strong>Challenge 7</strong>: gather newpeople so that height and age are back together</p>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="data-transformation.html#cb66-1" tabindex="-1"></a></span>
-<span id="cb66-2"><a href="data-transformation.html#cb66-2" tabindex="-1"></a>newpeople <span class="sc">%&gt;%</span></span>
-<span id="cb66-3"><a href="data-transformation.html#cb66-3" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(...)</span></code></pre></div>
+<span id="cb66-2"><a href="data-transformation.html#cb66-2" tabindex="-1"></a>newpeople <span class="ot">&lt;-</span> people <span class="sc">%&gt;%</span></span>
+<span id="cb66-3"><a href="data-transformation.html#cb66-3" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(...)</span></code></pre></div>
+<p><strong>Challenge 7</strong>: gather newpeople so that height and age are back together</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="data-transformation.html#cb67-1" tabindex="-1"></a></span>
+<span id="cb67-2"><a href="data-transformation.html#cb67-2" tabindex="-1"></a>newpeople <span class="sc">%&gt;%</span></span>
+<span id="cb67-3"><a href="data-transformation.html#cb67-3" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(...)</span></code></pre></div>
 <p>You can separate or unite columns based upon a separator</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="data-transformation.html#cb67-1" tabindex="-1"></a>people <span class="sc">%&gt;%</span></span>
-<span id="cb67-2"><a href="data-transformation.html#cb67-2" tabindex="-1"></a>  <span class="fu">separate</span>(name, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;first&quot;</span>,<span class="st">&quot;last&quot;</span>))</span>
-<span id="cb67-3"><a href="data-transformation.html#cb67-3" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 4</span></span>
-<span id="cb67-4"><a href="data-transformation.html#cb67-4" tabindex="-1"></a><span class="co">#&gt;   first   last    key    value</span></span>
-<span id="cb67-5"><a href="data-transformation.html#cb67-5" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt;</span></span>
-<span id="cb67-6"><a href="data-transformation.html#cb67-6" tabindex="-1"></a><span class="co">#&gt; 1 Phillip Woods   age       45</span></span>
-<span id="cb67-7"><a href="data-transformation.html#cb67-7" tabindex="-1"></a><span class="co">#&gt; 2 Phillip Woods   height   186</span></span>
-<span id="cb67-8"><a href="data-transformation.html#cb67-8" tabindex="-1"></a><span class="co">#&gt; 3 Jessica Cordero age       37</span></span>
-<span id="cb67-9"><a href="data-transformation.html#cb67-9" tabindex="-1"></a><span class="co">#&gt; 4 Jessica Cordero height   156</span></span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="data-transformation.html#cb68-1" tabindex="-1"></a>people <span class="sc">%&gt;%</span></span>
+<span id="cb68-2"><a href="data-transformation.html#cb68-2" tabindex="-1"></a>  <span class="fu">separate</span>(name, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;first&quot;</span>,<span class="st">&quot;last&quot;</span>))</span>
+<span id="cb68-3"><a href="data-transformation.html#cb68-3" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 4</span></span>
+<span id="cb68-4"><a href="data-transformation.html#cb68-4" tabindex="-1"></a><span class="co">#&gt;   first   last    key    value</span></span>
+<span id="cb68-5"><a href="data-transformation.html#cb68-5" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt;</span></span>
+<span id="cb68-6"><a href="data-transformation.html#cb68-6" tabindex="-1"></a><span class="co">#&gt; 1 Phillip Woods   age       45</span></span>
+<span id="cb68-7"><a href="data-transformation.html#cb68-7" tabindex="-1"></a><span class="co">#&gt; 2 Phillip Woods   height   186</span></span>
+<span id="cb68-8"><a href="data-transformation.html#cb68-8" tabindex="-1"></a><span class="co">#&gt; 3 Jessica Cordero age       37</span></span>
+<span id="cb68-9"><a href="data-transformation.html#cb68-9" tabindex="-1"></a><span class="co">#&gt; 4 Jessica Cordero height   156</span></span></code></pre></div>
 <p>How did it know? We usually have to specify the separator</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="data-transformation.html#cb68-1" tabindex="-1"></a>weirdpeople <span class="ot">&lt;-</span> people <span class="sc">%&gt;%</span></span>
-<span id="cb68-2"><a href="data-transformation.html#cb68-2" tabindex="-1"></a>  <span class="fu">separate</span>(name, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;befored&quot;</span>,<span class="st">&quot;afterd&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;d&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="data-transformation.html#cb69-1" tabindex="-1"></a>weirdpeople <span class="ot">&lt;-</span> people <span class="sc">%&gt;%</span></span>
+<span id="cb69-2"><a href="data-transformation.html#cb69-2" tabindex="-1"></a>  <span class="fu">separate</span>(name, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;befored&quot;</span>,<span class="st">&quot;afterd&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;d&quot;</span>)</span></code></pre></div>
 <p>Notice that the separator disappears</p>
 <p><strong>Challenge 8</strong>: Unite the two columns above with “d” as a separator</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="data-transformation.html#cb69-1" tabindex="-1"></a>weirdpeople <span class="sc">%&gt;%</span></span>
-<span id="cb69-2"><a href="data-transformation.html#cb69-2" tabindex="-1"></a>  <span class="fu">unite</span>(...)</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="data-transformation.html#cb70-1" tabindex="-1"></a>weirdpeople <span class="sc">%&gt;%</span></span>
+<span id="cb70-2"><a href="data-transformation.html#cb70-2" tabindex="-1"></a>  <span class="fu">unite</span>(...)</span></code></pre></div>
 <p>That’s a lot to take in, so we’ll do questions about this content or
 queries about how to accomplish different data transformations.</p>
 </div>
@@ -810,52 +812,52 @@ queries about how to accomplish different data transformations.</p>
 <h2><span class="header-section-number">4.6</span> Solutions to Challenges<a href="data-transformation.html#solutions-to-challenges" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Challenge 1</strong>: Find and remove the rows with NAs, save it out to
 “newdf”</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="data-transformation.html#cb70-1" tabindex="-1"></a>ccolor <span class="sc">%&gt;%</span></span>
-<span id="cb70-2"><a href="data-transformation.html#cb70-2" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">complete.cases</span>(.))</span>
-<span id="cb70-3"><a href="data-transformation.html#cb70-3" tabindex="-1"></a></span>
-<span id="cb70-4"><a href="data-transformation.html#cb70-4" tabindex="-1"></a>ccolor <span class="sc">%&gt;%</span></span>
-<span id="cb70-5"><a href="data-transformation.html#cb70-5" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(RT))</span>
-<span id="cb70-6"><a href="data-transformation.html#cb70-6" tabindex="-1"></a></span>
-<span id="cb70-7"><a href="data-transformation.html#cb70-7" tabindex="-1"></a><span class="fu">as_tibble</span>(ccolor <span class="sc">%&gt;%</span></span>
-<span id="cb70-8"><a href="data-transformation.html#cb70-8" tabindex="-1"></a>  <span class="fu">na.omit</span>())</span>
-<span id="cb70-9"><a href="data-transformation.html#cb70-9" tabindex="-1"></a></span>
-<span id="cb70-10"><a href="data-transformation.html#cb70-10" tabindex="-1"></a>newdf <span class="ot">&lt;-</span> ccolor <span class="sc">%&gt;%</span></span>
-<span id="cb70-11"><a href="data-transformation.html#cb70-11" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="data-transformation.html#cb71-1" tabindex="-1"></a>ccolor <span class="sc">%&gt;%</span></span>
+<span id="cb71-2"><a href="data-transformation.html#cb71-2" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">complete.cases</span>(.))</span>
+<span id="cb71-3"><a href="data-transformation.html#cb71-3" tabindex="-1"></a></span>
+<span id="cb71-4"><a href="data-transformation.html#cb71-4" tabindex="-1"></a>ccolor <span class="sc">%&gt;%</span></span>
+<span id="cb71-5"><a href="data-transformation.html#cb71-5" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(RT))</span>
+<span id="cb71-6"><a href="data-transformation.html#cb71-6" tabindex="-1"></a></span>
+<span id="cb71-7"><a href="data-transformation.html#cb71-7" tabindex="-1"></a><span class="fu">as_tibble</span>(ccolor <span class="sc">%&gt;%</span></span>
+<span id="cb71-8"><a href="data-transformation.html#cb71-8" tabindex="-1"></a>  <span class="fu">na.omit</span>())</span>
+<span id="cb71-9"><a href="data-transformation.html#cb71-9" tabindex="-1"></a></span>
+<span id="cb71-10"><a href="data-transformation.html#cb71-10" tabindex="-1"></a>newdf <span class="ot">&lt;-</span> ccolor <span class="sc">%&gt;%</span></span>
+<span id="cb71-11"><a href="data-transformation.html#cb71-11" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span></code></pre></div>
 <p><strong>Challenge 2</strong>: Filter out RT’s below 150 milliseconds and show how
 many you’ve filtered out.</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="data-transformation.html#cb71-1" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> newdf <span class="sc">%&gt;%</span></span>
-<span id="cb71-2"><a href="data-transformation.html#cb71-2" tabindex="-1"></a>  <span class="fu">filter</span>(RT <span class="sc">&gt;</span> <span class="dv">150</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb71-3"><a href="data-transformation.html#cb71-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="data-transformation.html#cb72-1" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> newdf <span class="sc">%&gt;%</span></span>
+<span id="cb72-2"><a href="data-transformation.html#cb72-2" tabindex="-1"></a>  <span class="fu">filter</span>(RT <span class="sc">&gt;</span> <span class="dv">150</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb72-3"><a href="data-transformation.html#cb72-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code></pre></div>
 <p><strong>Challenge 3</strong>: Get the number of observations (rows) kept and removed
 with <code>group_by()</code></p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="data-transformation.html#cb72-1" tabindex="-1"></a>newdf <span class="sc">%&gt;%</span></span>
-<span id="cb72-2"><a href="data-transformation.html#cb72-2" tabindex="-1"></a>  <span class="fu">group_by</span>(RT <span class="sc">&gt;</span> <span class="dv">150</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb72-3"><a href="data-transformation.html#cb72-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb72-4"><a href="data-transformation.html#cb72-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">freq =</span> (n <span class="sc">/</span> <span class="fu">sum</span>(n))<span class="sc">*</span><span class="dv">100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="data-transformation.html#cb73-1" tabindex="-1"></a>newdf <span class="sc">%&gt;%</span></span>
+<span id="cb73-2"><a href="data-transformation.html#cb73-2" tabindex="-1"></a>  <span class="fu">group_by</span>(RT <span class="sc">&gt;</span> <span class="dv">150</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb73-3"><a href="data-transformation.html#cb73-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb73-4"><a href="data-transformation.html#cb73-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">freq =</span> (n <span class="sc">/</span> <span class="fu">sum</span>(n))<span class="sc">*</span><span class="dv">100</span>)</span></code></pre></div>
 <p><strong>Challenge 4</strong>: What is the mean reaction time and standard deviation
 for congruent vs incongruent trials</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="data-transformation.html#cb73-1" tabindex="-1"></a><span class="co">#hint group_by(the factor you&#39;re interested in)</span></span>
-<span id="cb73-2"><a href="data-transformation.html#cb73-2" tabindex="-1"></a>dfclean <span class="sc">%&gt;%</span></span>
-<span id="cb73-3"><a href="data-transformation.html#cb73-3" tabindex="-1"></a>  <span class="fu">group_by</span>(con) <span class="sc">%&gt;%</span></span>
-<span id="cb73-4"><a href="data-transformation.html#cb73-4" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mRT =</span> <span class="fu">mean</span>(RT), <span class="at">RTsd =</span> <span class="fu">sd</span>(RT))</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="data-transformation.html#cb74-1" tabindex="-1"></a><span class="co">#hint group_by(the factor you&#39;re interested in)</span></span>
+<span id="cb74-2"><a href="data-transformation.html#cb74-2" tabindex="-1"></a>dfclean <span class="sc">%&gt;%</span></span>
+<span id="cb74-3"><a href="data-transformation.html#cb74-3" tabindex="-1"></a>  <span class="fu">group_by</span>(con) <span class="sc">%&gt;%</span></span>
+<span id="cb74-4"><a href="data-transformation.html#cb74-4" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mRT =</span> <span class="fu">mean</span>(RT), <span class="at">RTsd =</span> <span class="fu">sd</span>(RT))</span></code></pre></div>
 <p><strong>Challenge 5</strong>: Get the mean and sd of participant means for congruent
 vs incongruent trials and compare to the previous outcome.</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="data-transformation.html#cb74-1" tabindex="-1"></a>dfclean <span class="sc">%&gt;%</span></span>
-<span id="cb74-2"><a href="data-transformation.html#cb74-2" tabindex="-1"></a>  <span class="fu">group_by</span>(s,con) <span class="sc">%&gt;%</span></span>
-<span id="cb74-3"><a href="data-transformation.html#cb74-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">gmRT =</span> <span class="fu">mean</span>(RT)) <span class="sc">%&gt;%</span></span>
-<span id="cb74-4"><a href="data-transformation.html#cb74-4" tabindex="-1"></a>  <span class="fu">group_by</span>(con) <span class="sc">%&gt;%</span></span>
-<span id="cb74-5"><a href="data-transformation.html#cb74-5" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mRT =</span> <span class="fu">mean</span>(gmRT), <span class="at">RTsd =</span> <span class="fu">sd</span>(gmRT))</span>
-<span id="cb74-6"><a href="data-transformation.html#cb74-6" tabindex="-1"></a><span class="co">#&gt; `summarise()` has grouped output by &#39;s&#39;. You can override using the `.groups` argument.</span></span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="data-transformation.html#cb75-1" tabindex="-1"></a>dfclean <span class="sc">%&gt;%</span></span>
+<span id="cb75-2"><a href="data-transformation.html#cb75-2" tabindex="-1"></a>  <span class="fu">group_by</span>(s,con) <span class="sc">%&gt;%</span></span>
+<span id="cb75-3"><a href="data-transformation.html#cb75-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">gmRT =</span> <span class="fu">mean</span>(RT)) <span class="sc">%&gt;%</span></span>
+<span id="cb75-4"><a href="data-transformation.html#cb75-4" tabindex="-1"></a>  <span class="fu">group_by</span>(con) <span class="sc">%&gt;%</span></span>
+<span id="cb75-5"><a href="data-transformation.html#cb75-5" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mRT =</span> <span class="fu">mean</span>(gmRT), <span class="at">RTsd =</span> <span class="fu">sd</span>(gmRT))</span>
+<span id="cb75-6"><a href="data-transformation.html#cb75-6" tabindex="-1"></a><span class="co">#&gt; `summarise()` has grouped output by &#39;s&#39;. You can override using the `.groups` argument.</span></span></code></pre></div>
 <p><strong>Challenge 6</strong>: spread people so height and age have their own column</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="data-transformation.html#cb75-1" tabindex="-1"></a>newpeople <span class="ot">&lt;-</span> people <span class="sc">%&gt;%</span></span>
-<span id="cb75-2"><a href="data-transformation.html#cb75-2" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> key, <span class="at">values_from =</span> value)</span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="data-transformation.html#cb76-1" tabindex="-1"></a>newpeople <span class="ot">&lt;-</span> people <span class="sc">%&gt;%</span></span>
+<span id="cb76-2"><a href="data-transformation.html#cb76-2" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> key, <span class="at">values_from =</span> value)</span></code></pre></div>
 <p><strong>Challenge 7</strong>: gather newpeople so that height and age are back together</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="data-transformation.html#cb76-1" tabindex="-1"></a>newpeople <span class="sc">%&gt;%</span></span>
-<span id="cb76-2"><a href="data-transformation.html#cb76-2" tabindex="-1"></a> <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(age, height), <span class="at">names_to =</span> <span class="st">&quot;key&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;value&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="data-transformation.html#cb77-1" tabindex="-1"></a>newpeople <span class="sc">%&gt;%</span></span>
+<span id="cb77-2"><a href="data-transformation.html#cb77-2" tabindex="-1"></a> <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(age, height), <span class="at">names_to =</span> <span class="st">&quot;key&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;value&quot;</span>)</span></code></pre></div>
 <p><strong>Challenge 8</strong>: Unite the two columns above with “d” as a separator</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="data-transformation.html#cb77-1" tabindex="-1"></a></span>
-<span id="cb77-2"><a href="data-transformation.html#cb77-2" tabindex="-1"></a>weirdpeople <span class="sc">%&gt;%</span></span>
-<span id="cb77-3"><a href="data-transformation.html#cb77-3" tabindex="-1"></a>  <span class="fu">unite</span>(new, befored,afterd,<span class="at">sep =</span> <span class="st">&quot;d&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="data-transformation.html#cb78-1" tabindex="-1"></a></span>
+<span id="cb78-2"><a href="data-transformation.html#cb78-2" tabindex="-1"></a>weirdpeople <span class="sc">%&gt;%</span></span>
+<span id="cb78-3"><a href="data-transformation.html#cb78-3" tabindex="-1"></a>  <span class="fu">unite</span>(new, befored,afterd,<span class="at">sep =</span> <span class="st">&quot;d&quot;</span>)</span></code></pre></div>
 
 </div>
 </div>

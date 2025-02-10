@@ -159,6 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.11" data-path="syllabus.html"><a href="syllabus.html#student-support-accommodations"><i class="fa fa-check"></i><b>1.11</b> Student Support &amp; Accommodations</a></li>
 <li class="chapter" data-level="1.12" data-path="syllabus.html"><a href="syllabus.html#academic-calendar"><i class="fa fa-check"></i><b>1.12</b> Academic Calendar</a></li>
 <li class="chapter" data-level="1.13" data-path="syllabus.html"><a href="syllabus.html#course-schedule"><i class="fa fa-check"></i><b>1.13</b> Course Schedule</a></li>
+<li class="chapter" data-level="1.14" data-path="syllabus.html"><a href="syllabus.html#end-of-syllabus"><i class="fa fa-check"></i><b>1.14</b> End of Syllabus</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
 <ul>
@@ -176,10 +177,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="importing-data.html"><a href="importing-data.html"><i class="fa fa-check"></i><b>3</b> Importing Data</a>
 <ul>
+<li class="chapter" data-level="3.1" data-path="importing-data.html"><a href="importing-data.html#winner-jacob-bates"><i class="fa fa-check"></i><b>3.1</b> WINNER!!!!! Jacob Bates</a></li>
 <li class="chapter" data-level="" data-path="importing-data.html"><a href="importing-data.html#reading-files-into-r"><i class="fa fa-check"></i>Reading files into R</a></li>
-<li class="chapter" data-level="3.1" data-path="importing-data.html"><a href="importing-data.html#whats-a-tibble"><i class="fa fa-check"></i><b>3.1</b> What’s a tibble?</a></li>
-<li class="chapter" data-level="3.2" data-path="importing-data.html"><a href="importing-data.html#save-your-dataset"><i class="fa fa-check"></i><b>3.2</b> Save your dataset:</a></li>
-<li class="chapter" data-level="3.3" data-path="importing-data.html"><a href="importing-data.html#cleaning-your-data-file"><i class="fa fa-check"></i><b>3.3</b> Cleaning your data file</a></li>
+<li class="chapter" data-level="3.2" data-path="importing-data.html"><a href="importing-data.html#whats-a-tibble"><i class="fa fa-check"></i><b>3.2</b> What’s a tibble?</a></li>
+<li class="chapter" data-level="3.3" data-path="importing-data.html"><a href="importing-data.html#save-your-dataset"><i class="fa fa-check"></i><b>3.3</b> Save your dataset:</a></li>
+<li class="chapter" data-level="3.4" data-path="importing-data.html"><a href="importing-data.html#cleaning-your-data-file"><i class="fa fa-check"></i><b>3.4</b> Cleaning your data file</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>4</b> Data Transformation</a>
 <ul>
@@ -308,11 +310,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">12</span> Blogdown<a href="blogdown.html#blogdown" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>You can install blogdown from CRAN. If you want to test the development version, you may also install it from GitHub:</p>
 <p><strong><em>Challenge 1</em></strong> install blogdown</p>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="blogdown.html#cb255-1" tabindex="-1"></a><span class="co"># from CRAN</span></span>
-<span id="cb255-2"><a href="blogdown.html#cb255-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;blogdown&quot;</span>)</span>
-<span id="cb255-3"><a href="blogdown.html#cb255-3" tabindex="-1"></a></span>
-<span id="cb255-4"><a href="blogdown.html#cb255-4" tabindex="-1"></a><span class="co"># or the development version from GitHub</span></span>
-<span id="cb255-5"><a href="blogdown.html#cb255-5" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;rstudio/blogdown&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="blogdown.html#cb256-1" tabindex="-1"></a><span class="co"># from CRAN</span></span>
+<span id="cb256-2"><a href="blogdown.html#cb256-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;blogdown&quot;</span>)</span>
+<span id="cb256-3"><a href="blogdown.html#cb256-3" tabindex="-1"></a></span>
+<span id="cb256-4"><a href="blogdown.html#cb256-4" tabindex="-1"></a><span class="co"># or the development version from GitHub</span></span>
+<span id="cb256-5"><a href="blogdown.html#cb256-5" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;rstudio/blogdown&quot;</span>)</span></code></pre></div>
 <p>The easiest way to get started with a blogdown-based website is to create a website project from RStudio: File -&gt; New Project. If you do not use RStudio, you may call the function blogdown::new_site().</p>
 <p>The first time when you create a new website, blogdown will do a series of things behind the scenes: it downloads Hugo (the default static site generator), creates a website skeleton, installs a theme, adds some example posts, builds the site, and serves it so that you can see the website in your browser (or RStudio Viewer if you are in RStudio). It will not go through all these steps again the next time when you work on this website. All you need in the future is blogdown::serve_site(), or equivalently, the RStudio addin “Serve Site.”</p>
 <p>Every time you open a website project, you only need to serve the site once, and blogdown will keep running in the background, listening to changes in your source files, and rebuilding the website automatically. All you have to do is create new posts, or edit existing posts, and save them. You will see the automatic live preview as you save the changes (unless you have errors in a source document).</p>
@@ -328,10 +330,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>public/</li>
 </ul>
 <p>The configuration file config.toml can be used to specify options for the Hugo website, e.g.,</p>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="blogdown.html#cb256-1" tabindex="-1"></a>baseURL <span class="ot">=</span> <span class="st">&quot;/&quot;</span></span>
-<span id="cb256-2"><a href="blogdown.html#cb256-2" tabindex="-1"></a>languageCode <span class="ot">=</span> <span class="st">&quot;en-us&quot;</span></span>
-<span id="cb256-3"><a href="blogdown.html#cb256-3" tabindex="-1"></a>title <span class="ot">=</span> <span class="st">&quot;A Hugo website&quot;</span></span>
-<span id="cb256-4"><a href="blogdown.html#cb256-4" tabindex="-1"></a>theme <span class="ot">=</span> <span class="st">&quot;hugo-lithium-theme&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="blogdown.html#cb257-1" tabindex="-1"></a>baseURL <span class="ot">=</span> <span class="st">&quot;/&quot;</span></span>
+<span id="cb257-2"><a href="blogdown.html#cb257-2" tabindex="-1"></a>languageCode <span class="ot">=</span> <span class="st">&quot;en-us&quot;</span></span>
+<span id="cb257-3"><a href="blogdown.html#cb257-3" tabindex="-1"></a>title <span class="ot">=</span> <span class="st">&quot;A Hugo website&quot;</span></span>
+<span id="cb257-4"><a href="blogdown.html#cb257-4" tabindex="-1"></a>theme <span class="ot">=</span> <span class="st">&quot;hugo-lithium-theme&quot;</span></span></code></pre></div>
 <p>Some options are provided by Hugo itself, such as title and baseURL; you may refer to <a href="https://gohugo.io/getting-started/configuration/" class="uri">https://gohugo.io/getting-started/configuration/</a> for all built-in options. Some options are provided by the Hugo theme, and you need to read the documentation of the specific theme to know the additional options.</p>
 <p>All source Markdown or R Markdown files should be placed under the content/ directory. The directory structure under content/ can be arbitrary.</p>
 <p>The static/ directory contains static assets such as images and CSS files. Everything under static/ will be copied to the public/ directory when Hugo generates the website. For example, static/images/foo.png will be copied to public/images/foo.png, and if you want to include this image in your post, you may use <img src="/images/foo.png" alt="title" /> in Markdown (the leading / typically indicates the root of public/).</p>
@@ -343,27 +345,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>You can render collections of R Markdown documents as a website using the rmarkdown::render_site() function. We will call such websites “R Markdown websites” in this section. The RStudio IDE (version 1.0 or higher) also includes integrated support for developing R Markdown websites.</p>
 <p>To start with, let’s walk through a very simple example, a website that includes two pages (Home and About) and a navigation bar to switch between them.</p>
 <p>First, we need a configuration file _site.yml:</p>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="blogdown.html#cb257-1" tabindex="-1"></a>name<span class="sc">:</span> <span class="st">&quot;my-website&quot;</span></span>
-<span id="cb257-2"><a href="blogdown.html#cb257-2" tabindex="-1"></a>navbar<span class="sc">:</span></span>
-<span id="cb257-3"><a href="blogdown.html#cb257-3" tabindex="-1"></a>  title<span class="sc">:</span> <span class="st">&quot;My Website&quot;</span></span>
-<span id="cb257-4"><a href="blogdown.html#cb257-4" tabindex="-1"></a>  left<span class="sc">:</span></span>
-<span id="cb257-5"><a href="blogdown.html#cb257-5" tabindex="-1"></a>    <span class="sc">-</span> text<span class="sc">:</span> <span class="st">&quot;Home&quot;</span></span>
-<span id="cb257-6"><a href="blogdown.html#cb257-6" tabindex="-1"></a>      href<span class="sc">:</span> index.html</span>
-<span id="cb257-7"><a href="blogdown.html#cb257-7" tabindex="-1"></a>    <span class="sc">-</span> text<span class="sc">:</span> <span class="st">&quot;About&quot;</span></span>
-<span id="cb257-8"><a href="blogdown.html#cb257-8" tabindex="-1"></a>      href<span class="sc">:</span> about.html</span></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="blogdown.html#cb258-1" tabindex="-1"></a>name<span class="sc">:</span> <span class="st">&quot;my-website&quot;</span></span>
+<span id="cb258-2"><a href="blogdown.html#cb258-2" tabindex="-1"></a>navbar<span class="sc">:</span></span>
+<span id="cb258-3"><a href="blogdown.html#cb258-3" tabindex="-1"></a>  title<span class="sc">:</span> <span class="st">&quot;My Website&quot;</span></span>
+<span id="cb258-4"><a href="blogdown.html#cb258-4" tabindex="-1"></a>  left<span class="sc">:</span></span>
+<span id="cb258-5"><a href="blogdown.html#cb258-5" tabindex="-1"></a>    <span class="sc">-</span> text<span class="sc">:</span> <span class="st">&quot;Home&quot;</span></span>
+<span id="cb258-6"><a href="blogdown.html#cb258-6" tabindex="-1"></a>      href<span class="sc">:</span> index.html</span>
+<span id="cb258-7"><a href="blogdown.html#cb258-7" tabindex="-1"></a>    <span class="sc">-</span> text<span class="sc">:</span> <span class="st">&quot;About&quot;</span></span>
+<span id="cb258-8"><a href="blogdown.html#cb258-8" tabindex="-1"></a>      href<span class="sc">:</span> about.html</span></code></pre></div>
 <p><strong><em>Challenge 4</em></strong> Make a _site.yml file</p>
 <p>Then two Rmd files, <code>index.Rmd</code>:</p>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="blogdown.html#cb258-1" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb258-2"><a href="blogdown.html#cb258-2" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&quot;My Website&quot;</span></span>
-<span id="cb258-3"><a href="blogdown.html#cb258-3" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb258-4"><a href="blogdown.html#cb258-4" tabindex="-1"></a></span>
-<span id="cb258-5"><a href="blogdown.html#cb258-5" tabindex="-1"></a>Hello, Website<span class="sc">!</span></span></code></pre></div>
-<p>and <code>about.Rmd</code>:</p>
 <div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="blogdown.html#cb259-1" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb259-2"><a href="blogdown.html#cb259-2" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&quot;About This Website&quot;</span></span>
+<span id="cb259-2"><a href="blogdown.html#cb259-2" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&quot;My Website&quot;</span></span>
 <span id="cb259-3"><a href="blogdown.html#cb259-3" tabindex="-1"></a><span class="sc">---</span></span>
 <span id="cb259-4"><a href="blogdown.html#cb259-4" tabindex="-1"></a></span>
-<span id="cb259-5"><a href="blogdown.html#cb259-5" tabindex="-1"></a>More about this website.</span></code></pre></div>
+<span id="cb259-5"><a href="blogdown.html#cb259-5" tabindex="-1"></a>Hello, Website<span class="sc">!</span></span></code></pre></div>
+<p>and <code>about.Rmd</code>:</p>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="blogdown.html#cb260-1" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb260-2"><a href="blogdown.html#cb260-2" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">&quot;About This Website&quot;</span></span>
+<span id="cb260-3"><a href="blogdown.html#cb260-3" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb260-4"><a href="blogdown.html#cb260-4" tabindex="-1"></a></span>
+<span id="cb260-5"><a href="blogdown.html#cb260-5" tabindex="-1"></a>More about this website.</span></code></pre></div>
 <p>Note that the minimum requirement for any R Markdown website is that it have an index.Rmd file as well as a _site.yml file. If you execute the rmarkdown::render_site() function from within the directory containing the website, the following will occur:</p>
 <ol style="list-style-type: decimal">
 <li><p>All of the <em>.Rmd and</em> .md files in the root website directory will be rendered into HTML. Note, however, that Markdown files beginning with _ are not rendered (this is a convention to designate files that are to be included by top level Rmd documents as child documents).</p></li>
@@ -372,29 +374,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Typically when creating a website, there are various common elements you want to include on all pages (e.g., output options, CSS styles, header and footer elements, etc.). Here are additions in three files to the example above to make use of common elements:</p>
 <p><strong><em>Challenge 5</em></strong> Add these elements to the site</p>
 <p><code>_site.yml</code>:</p>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="blogdown.html#cb260-1" tabindex="-1"></a>name<span class="sc">:</span> <span class="st">&quot;my-website&quot;</span></span>
-<span id="cb260-2"><a href="blogdown.html#cb260-2" tabindex="-1"></a>navbar<span class="sc">:</span></span>
-<span id="cb260-3"><a href="blogdown.html#cb260-3" tabindex="-1"></a>  title<span class="sc">:</span> <span class="st">&quot;My Website&quot;</span></span>
-<span id="cb260-4"><a href="blogdown.html#cb260-4" tabindex="-1"></a>  left<span class="sc">:</span></span>
-<span id="cb260-5"><a href="blogdown.html#cb260-5" tabindex="-1"></a>    <span class="sc">-</span> text<span class="sc">:</span> <span class="st">&quot;Home&quot;</span></span>
-<span id="cb260-6"><a href="blogdown.html#cb260-6" tabindex="-1"></a>      href<span class="sc">:</span> index.html</span>
-<span id="cb260-7"><a href="blogdown.html#cb260-7" tabindex="-1"></a>    <span class="sc">-</span> text<span class="sc">:</span> <span class="st">&quot;About&quot;</span></span>
-<span id="cb260-8"><a href="blogdown.html#cb260-8" tabindex="-1"></a>      href<span class="sc">:</span> about.html</span>
-<span id="cb260-9"><a href="blogdown.html#cb260-9" tabindex="-1"></a>output<span class="sc">:</span></span>
-<span id="cb260-10"><a href="blogdown.html#cb260-10" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
-<span id="cb260-11"><a href="blogdown.html#cb260-11" tabindex="-1"></a>    theme<span class="sc">:</span> cosmo</span>
-<span id="cb260-12"><a href="blogdown.html#cb260-12" tabindex="-1"></a>    highlight<span class="sc">:</span> textmate</span>
-<span id="cb260-13"><a href="blogdown.html#cb260-13" tabindex="-1"></a>    include<span class="sc">:</span></span>
-<span id="cb260-14"><a href="blogdown.html#cb260-14" tabindex="-1"></a>      after_body<span class="sc">:</span> footer.html</span>
-<span id="cb260-15"><a href="blogdown.html#cb260-15" tabindex="-1"></a>    css<span class="sc">:</span> styles.css</span></code></pre></div>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="blogdown.html#cb261-1" tabindex="-1"></a>name<span class="sc">:</span> <span class="st">&quot;my-website&quot;</span></span>
+<span id="cb261-2"><a href="blogdown.html#cb261-2" tabindex="-1"></a>navbar<span class="sc">:</span></span>
+<span id="cb261-3"><a href="blogdown.html#cb261-3" tabindex="-1"></a>  title<span class="sc">:</span> <span class="st">&quot;My Website&quot;</span></span>
+<span id="cb261-4"><a href="blogdown.html#cb261-4" tabindex="-1"></a>  left<span class="sc">:</span></span>
+<span id="cb261-5"><a href="blogdown.html#cb261-5" tabindex="-1"></a>    <span class="sc">-</span> text<span class="sc">:</span> <span class="st">&quot;Home&quot;</span></span>
+<span id="cb261-6"><a href="blogdown.html#cb261-6" tabindex="-1"></a>      href<span class="sc">:</span> index.html</span>
+<span id="cb261-7"><a href="blogdown.html#cb261-7" tabindex="-1"></a>    <span class="sc">-</span> text<span class="sc">:</span> <span class="st">&quot;About&quot;</span></span>
+<span id="cb261-8"><a href="blogdown.html#cb261-8" tabindex="-1"></a>      href<span class="sc">:</span> about.html</span>
+<span id="cb261-9"><a href="blogdown.html#cb261-9" tabindex="-1"></a>output<span class="sc">:</span></span>
+<span id="cb261-10"><a href="blogdown.html#cb261-10" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
+<span id="cb261-11"><a href="blogdown.html#cb261-11" tabindex="-1"></a>    theme<span class="sc">:</span> cosmo</span>
+<span id="cb261-12"><a href="blogdown.html#cb261-12" tabindex="-1"></a>    highlight<span class="sc">:</span> textmate</span>
+<span id="cb261-13"><a href="blogdown.html#cb261-13" tabindex="-1"></a>    include<span class="sc">:</span></span>
+<span id="cb261-14"><a href="blogdown.html#cb261-14" tabindex="-1"></a>      after_body<span class="sc">:</span> footer.html</span>
+<span id="cb261-15"><a href="blogdown.html#cb261-15" tabindex="-1"></a>    css<span class="sc">:</span> styles.css</span></code></pre></div>
 <p><code>footer.html</code>:</p>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="blogdown.html#cb261-1" tabindex="-1"></a></span>
-<span id="cb261-2"><a href="blogdown.html#cb261-2" tabindex="-1"></a><span class="sc">&lt;</span>p<span class="sc">&gt;</span>Copyright <span class="sc">&amp;</span>copy; <span class="dv">2016</span> Skynet, Inc. All rights reserved.<span class="sc">&lt;</span><span class="er">/</span>p<span class="sc">&gt;</span></span></code></pre></div>
-<p><code>styles.css</code></p>
 <div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="blogdown.html#cb262-1" tabindex="-1"></a></span>
-<span id="cb262-2"><a href="blogdown.html#cb262-2" tabindex="-1"></a>blockquote {</span>
-<span id="cb262-3"><a href="blogdown.html#cb262-3" tabindex="-1"></a>  font<span class="sc">-</span>style<span class="sc">:</span> italic</span>
-<span id="cb262-4"><a href="blogdown.html#cb262-4" tabindex="-1"></a>}</span></code></pre></div>
+<span id="cb262-2"><a href="blogdown.html#cb262-2" tabindex="-1"></a><span class="sc">&lt;</span>p<span class="sc">&gt;</span>Copyright <span class="sc">&amp;</span>copy; <span class="dv">2016</span> Skynet, Inc. All rights reserved.<span class="sc">&lt;</span><span class="er">/</span>p<span class="sc">&gt;</span></span></code></pre></div>
+<p><code>styles.css</code></p>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="blogdown.html#cb263-1" tabindex="-1"></a></span>
+<span id="cb263-2"><a href="blogdown.html#cb263-2" tabindex="-1"></a>blockquote {</span>
+<span id="cb263-3"><a href="blogdown.html#cb263-3" tabindex="-1"></a>  font<span class="sc">-</span>style<span class="sc">:</span> italic</span>
+<span id="cb263-4"><a href="blogdown.html#cb263-4" tabindex="-1"></a>}</span></code></pre></div>
 
 </div>
 </div>

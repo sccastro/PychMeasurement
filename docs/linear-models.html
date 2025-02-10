@@ -159,6 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.11" data-path="syllabus.html"><a href="syllabus.html#student-support-accommodations"><i class="fa fa-check"></i><b>1.11</b> Student Support &amp; Accommodations</a></li>
 <li class="chapter" data-level="1.12" data-path="syllabus.html"><a href="syllabus.html#academic-calendar"><i class="fa fa-check"></i><b>1.12</b> Academic Calendar</a></li>
 <li class="chapter" data-level="1.13" data-path="syllabus.html"><a href="syllabus.html#course-schedule"><i class="fa fa-check"></i><b>1.13</b> Course Schedule</a></li>
+<li class="chapter" data-level="1.14" data-path="syllabus.html"><a href="syllabus.html#end-of-syllabus"><i class="fa fa-check"></i><b>1.14</b> End of Syllabus</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
 <ul>
@@ -176,10 +177,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="importing-data.html"><a href="importing-data.html"><i class="fa fa-check"></i><b>3</b> Importing Data</a>
 <ul>
+<li class="chapter" data-level="3.1" data-path="importing-data.html"><a href="importing-data.html#winner-jacob-bates"><i class="fa fa-check"></i><b>3.1</b> WINNER!!!!! Jacob Bates</a></li>
 <li class="chapter" data-level="" data-path="importing-data.html"><a href="importing-data.html#reading-files-into-r"><i class="fa fa-check"></i>Reading files into R</a></li>
-<li class="chapter" data-level="3.1" data-path="importing-data.html"><a href="importing-data.html#whats-a-tibble"><i class="fa fa-check"></i><b>3.1</b> What’s a tibble?</a></li>
-<li class="chapter" data-level="3.2" data-path="importing-data.html"><a href="importing-data.html#save-your-dataset"><i class="fa fa-check"></i><b>3.2</b> Save your dataset:</a></li>
-<li class="chapter" data-level="3.3" data-path="importing-data.html"><a href="importing-data.html#cleaning-your-data-file"><i class="fa fa-check"></i><b>3.3</b> Cleaning your data file</a></li>
+<li class="chapter" data-level="3.2" data-path="importing-data.html"><a href="importing-data.html#whats-a-tibble"><i class="fa fa-check"></i><b>3.2</b> What’s a tibble?</a></li>
+<li class="chapter" data-level="3.3" data-path="importing-data.html"><a href="importing-data.html#save-your-dataset"><i class="fa fa-check"></i><b>3.3</b> Save your dataset:</a></li>
+<li class="chapter" data-level="3.4" data-path="importing-data.html"><a href="importing-data.html#cleaning-your-data-file"><i class="fa fa-check"></i><b>3.4</b> Cleaning your data file</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>4</b> Data Transformation</a>
 <ul>
@@ -323,161 +325,161 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Advanced R Challenges
 </h4>
 <p>Create a linear model for the Navarro data set “clinical trials” that predicts how the treatment of drugs and therapy affect mood gain. Is it a good model fit? What are the outcomes? Visualize the analysis.</p>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="linear-models.html#cb215-1" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&#39;data/clinicaltrial.Rdata&#39;</span>)</span>
-<span id="cb215-2"><a href="linear-models.html#cb215-2" tabindex="-1"></a></span>
-<span id="cb215-3"><a href="linear-models.html#cb215-3" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(FORMULA, DATA)</span></code></pre></div>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="linear-models.html#cb216-1" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()); <span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span>
-<span id="cb216-2"><a href="linear-models.html#cb216-2" tabindex="-1"></a><span class="fu">require</span>(tidyverse)</span>
-<span id="cb216-3"><a href="linear-models.html#cb216-3" tabindex="-1"></a><span class="fu">require</span>(stats)</span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="linear-models.html#cb216-1" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&#39;data/clinicaltrial.Rdata&#39;</span>)</span>
+<span id="cb216-2"><a href="linear-models.html#cb216-2" tabindex="-1"></a></span>
+<span id="cb216-3"><a href="linear-models.html#cb216-3" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(FORMULA, DATA)</span></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="linear-models.html#cb217-1" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>()); <span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb217-2"><a href="linear-models.html#cb217-2" tabindex="-1"></a><span class="fu">require</span>(tidyverse)</span>
+<span id="cb217-3"><a href="linear-models.html#cb217-3" tabindex="-1"></a><span class="fu">require</span>(stats)</span></code></pre></div>
 <div id="steps-of-linear-models" class="section level2 unnumbered hasAnchor">
 <h2>Steps of Linear Models<a href="linear-models.html#steps-of-linear-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
 <div id="step-1.-get-your-data" class="section level2 hasAnchor" number="8.1">
 <h2><span class="header-section-number">8.1</span> Step 1. Get your data<a href="linear-models.html#step-1.-get-your-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="linear-models.html#cb217-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">cbind</span>(<span class="fu">cbind</span>(<span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">6</span>,<span class="dv">1</span>), <span class="co">#cbind (column bind) a seq() (sequence) from 1 to 6 by 1</span></span>
-<span id="cb217-2"><a href="linear-models.html#cb217-2" tabindex="-1"></a>            <span class="fu">sort</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;female&quot;</span>,<span class="st">&quot;male&quot;</span>),<span class="dv">3</span>)), <span class="co">#Next column: male and female sorted for 3 of each (see ?rep, ?sort)</span></span>
-<span id="cb217-3"><a href="linear-models.html#cb217-3" tabindex="-1"></a>            <span class="fu">c</span>(<span class="dv">233</span>,<span class="dv">204</span>,<span class="dv">242</span>,<span class="dv">130</span>,<span class="dv">112</span>,<span class="dv">142</span>)))); <span class="fu">colnames</span>(df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Subject&quot;</span>,<span class="st">&quot;Sex&quot;</span>, <span class="st">&quot;Voice.Pitch&quot;</span>) <span class="co">#pitches (number)</span></span>
-<span id="cb217-4"><a href="linear-models.html#cb217-4" tabindex="-1"></a>            <span class="co">#in Hz, also see the ; use for R and ?colnames</span></span></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="linear-models.html#cb218-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">cbind</span>(<span class="fu">cbind</span>(<span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">6</span>,<span class="dv">1</span>), <span class="co">#cbind (column bind) a seq() (sequence) from 1 to 6 by 1</span></span>
+<span id="cb218-2"><a href="linear-models.html#cb218-2" tabindex="-1"></a>            <span class="fu">sort</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;female&quot;</span>,<span class="st">&quot;male&quot;</span>),<span class="dv">3</span>)), <span class="co">#Next column: male and female sorted for 3 of each (see ?rep, ?sort)</span></span>
+<span id="cb218-3"><a href="linear-models.html#cb218-3" tabindex="-1"></a>            <span class="fu">c</span>(<span class="dv">233</span>,<span class="dv">204</span>,<span class="dv">242</span>,<span class="dv">130</span>,<span class="dv">112</span>,<span class="dv">142</span>)))); <span class="fu">colnames</span>(df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Subject&quot;</span>,<span class="st">&quot;Sex&quot;</span>, <span class="st">&quot;Voice.Pitch&quot;</span>) <span class="co">#pitches (number)</span></span>
+<span id="cb218-4"><a href="linear-models.html#cb218-4" tabindex="-1"></a>            <span class="co">#in Hz, also see the ; use for R and ?colnames</span></span></code></pre></div>
 <p>OR</p>
 <p>create two vectors…</p>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="linear-models.html#cb218-1" tabindex="-1"></a>pitch <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">233</span>,<span class="dv">204</span>,<span class="dv">242</span>,<span class="dv">130</span>,<span class="dv">112</span>,<span class="dv">142</span>) <span class="co">#You can use the &quot;=&quot; assignment operator, but it&#39;s not R-like</span></span>
-<span id="cb218-2"><a href="linear-models.html#cb218-2" tabindex="-1"></a>sex <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;female&quot;</span>,<span class="dv">3</span>),<span class="fu">rep</span>(<span class="st">&quot;male&quot;</span>,<span class="dv">3</span>))</span>
-<span id="cb218-3"><a href="linear-models.html#cb218-3" tabindex="-1"></a></span>
-<span id="cb218-4"><a href="linear-models.html#cb218-4" tabindex="-1"></a>my.df <span class="ot">=</span> <span class="fu">data.frame</span>(sex,pitch) <span class="co">#data.frame makes the vector names column names</span></span>
-<span id="cb218-5"><a href="linear-models.html#cb218-5" tabindex="-1"></a>my.df</span>
-<span id="cb218-6"><a href="linear-models.html#cb218-6" tabindex="-1"></a><span class="co">#&gt;      sex pitch</span></span>
-<span id="cb218-7"><a href="linear-models.html#cb218-7" tabindex="-1"></a><span class="co">#&gt; 1 female   233</span></span>
-<span id="cb218-8"><a href="linear-models.html#cb218-8" tabindex="-1"></a><span class="co">#&gt; 2 female   204</span></span>
-<span id="cb218-9"><a href="linear-models.html#cb218-9" tabindex="-1"></a><span class="co">#&gt; 3 female   242</span></span>
-<span id="cb218-10"><a href="linear-models.html#cb218-10" tabindex="-1"></a><span class="co">#&gt; 4   male   130</span></span>
-<span id="cb218-11"><a href="linear-models.html#cb218-11" tabindex="-1"></a><span class="co">#&gt; 5   male   112</span></span>
-<span id="cb218-12"><a href="linear-models.html#cb218-12" tabindex="-1"></a><span class="co">#&gt; 6   male   142</span></span></code></pre></div>
-<p>O.k., now we’ll proceed with the linear model. We take our formula above and feed it into the lm() function … except that we omit the “ε” term, because the linear model function doesn’t need you to specify this.</p>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="linear-models.html#cb219-1" tabindex="-1"></a>xmdl <span class="ot">&lt;-</span>  <span class="fu">lm</span>(pitch <span class="sc">~</span> sex, my.df)   <span class="co">#The arguments are:</span></span>
-<span id="cb219-2"><a href="linear-models.html#cb219-2" tabindex="-1"></a><span class="co"># lm(formula = DV by IV,data = my.df)</span></span>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="linear-models.html#cb219-1" tabindex="-1"></a>pitch <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">233</span>,<span class="dv">204</span>,<span class="dv">242</span>,<span class="dv">130</span>,<span class="dv">112</span>,<span class="dv">142</span>) <span class="co">#You can use the &quot;=&quot; assignment operator, but it&#39;s not R-like</span></span>
+<span id="cb219-2"><a href="linear-models.html#cb219-2" tabindex="-1"></a>sex <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;female&quot;</span>,<span class="dv">3</span>),<span class="fu">rep</span>(<span class="st">&quot;male&quot;</span>,<span class="dv">3</span>))</span>
 <span id="cb219-3"><a href="linear-models.html#cb219-3" tabindex="-1"></a></span>
-<span id="cb219-4"><a href="linear-models.html#cb219-4" tabindex="-1"></a><span class="fu">summary</span>(xmdl)</span>
-<span id="cb219-5"><a href="linear-models.html#cb219-5" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb219-6"><a href="linear-models.html#cb219-6" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb219-7"><a href="linear-models.html#cb219-7" tabindex="-1"></a><span class="co">#&gt; lm(formula = pitch ~ sex, data = my.df)</span></span>
-<span id="cb219-8"><a href="linear-models.html#cb219-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb219-9"><a href="linear-models.html#cb219-9" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
-<span id="cb219-10"><a href="linear-models.html#cb219-10" tabindex="-1"></a><span class="co">#&gt;      1      2      3      4      5      6 </span></span>
-<span id="cb219-11"><a href="linear-models.html#cb219-11" tabindex="-1"></a><span class="co">#&gt;   6.67 -22.33  15.67   2.00 -16.00  14.00 </span></span>
-<span id="cb219-12"><a href="linear-models.html#cb219-12" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb219-13"><a href="linear-models.html#cb219-13" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb219-14"><a href="linear-models.html#cb219-14" tabindex="-1"></a><span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
-<span id="cb219-15"><a href="linear-models.html#cb219-15" tabindex="-1"></a><span class="co">#&gt; (Intercept)    226.3       10.2   22.22  2.4e-05 ***</span></span>
-<span id="cb219-16"><a href="linear-models.html#cb219-16" tabindex="-1"></a><span class="co">#&gt; sexmale        -98.3       14.4   -6.83   0.0024 ** </span></span>
-<span id="cb219-17"><a href="linear-models.html#cb219-17" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
-<span id="cb219-18"><a href="linear-models.html#cb219-18" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb219-19"><a href="linear-models.html#cb219-19" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb219-20"><a href="linear-models.html#cb219-20" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 17.6 on 4 degrees of freedom</span></span>
-<span id="cb219-21"><a href="linear-models.html#cb219-21" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.921,  Adjusted R-squared:  0.901 </span></span>
-<span id="cb219-22"><a href="linear-models.html#cb219-22" tabindex="-1"></a><span class="co">#&gt; F-statistic: 46.6 on 1 and 4 DF,  p-value: 0.00241</span></span>
-<span id="cb219-23"><a href="linear-models.html#cb219-23" tabindex="-1"></a></span>
-<span id="cb219-24"><a href="linear-models.html#cb219-24" tabindex="-1"></a><span class="co"># Multiple R-squared:  0.921,   Adjusted R-squared:  0.9012 </span></span></code></pre></div>
+<span id="cb219-4"><a href="linear-models.html#cb219-4" tabindex="-1"></a>my.df <span class="ot">=</span> <span class="fu">data.frame</span>(sex,pitch) <span class="co">#data.frame makes the vector names column names</span></span>
+<span id="cb219-5"><a href="linear-models.html#cb219-5" tabindex="-1"></a>my.df</span>
+<span id="cb219-6"><a href="linear-models.html#cb219-6" tabindex="-1"></a><span class="co">#&gt;      sex pitch</span></span>
+<span id="cb219-7"><a href="linear-models.html#cb219-7" tabindex="-1"></a><span class="co">#&gt; 1 female   233</span></span>
+<span id="cb219-8"><a href="linear-models.html#cb219-8" tabindex="-1"></a><span class="co">#&gt; 2 female   204</span></span>
+<span id="cb219-9"><a href="linear-models.html#cb219-9" tabindex="-1"></a><span class="co">#&gt; 3 female   242</span></span>
+<span id="cb219-10"><a href="linear-models.html#cb219-10" tabindex="-1"></a><span class="co">#&gt; 4   male   130</span></span>
+<span id="cb219-11"><a href="linear-models.html#cb219-11" tabindex="-1"></a><span class="co">#&gt; 5   male   112</span></span>
+<span id="cb219-12"><a href="linear-models.html#cb219-12" tabindex="-1"></a><span class="co">#&gt; 6   male   142</span></span></code></pre></div>
+<p>O.k., now we’ll proceed with the linear model. We take our formula above and feed it into the lm() function … except that we omit the “ε” term, because the linear model function doesn’t need you to specify this.</p>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="linear-models.html#cb220-1" tabindex="-1"></a>xmdl <span class="ot">&lt;-</span>  <span class="fu">lm</span>(pitch <span class="sc">~</span> sex, my.df)   <span class="co">#The arguments are:</span></span>
+<span id="cb220-2"><a href="linear-models.html#cb220-2" tabindex="-1"></a><span class="co"># lm(formula = DV by IV,data = my.df)</span></span>
+<span id="cb220-3"><a href="linear-models.html#cb220-3" tabindex="-1"></a></span>
+<span id="cb220-4"><a href="linear-models.html#cb220-4" tabindex="-1"></a><span class="fu">summary</span>(xmdl)</span>
+<span id="cb220-5"><a href="linear-models.html#cb220-5" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb220-6"><a href="linear-models.html#cb220-6" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb220-7"><a href="linear-models.html#cb220-7" tabindex="-1"></a><span class="co">#&gt; lm(formula = pitch ~ sex, data = my.df)</span></span>
+<span id="cb220-8"><a href="linear-models.html#cb220-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb220-9"><a href="linear-models.html#cb220-9" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
+<span id="cb220-10"><a href="linear-models.html#cb220-10" tabindex="-1"></a><span class="co">#&gt;      1      2      3      4      5      6 </span></span>
+<span id="cb220-11"><a href="linear-models.html#cb220-11" tabindex="-1"></a><span class="co">#&gt;   6.67 -22.33  15.67   2.00 -16.00  14.00 </span></span>
+<span id="cb220-12"><a href="linear-models.html#cb220-12" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb220-13"><a href="linear-models.html#cb220-13" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb220-14"><a href="linear-models.html#cb220-14" tabindex="-1"></a><span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span id="cb220-15"><a href="linear-models.html#cb220-15" tabindex="-1"></a><span class="co">#&gt; (Intercept)    226.3       10.2   22.22  2.4e-05 ***</span></span>
+<span id="cb220-16"><a href="linear-models.html#cb220-16" tabindex="-1"></a><span class="co">#&gt; sexmale        -98.3       14.4   -6.83   0.0024 ** </span></span>
+<span id="cb220-17"><a href="linear-models.html#cb220-17" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb220-18"><a href="linear-models.html#cb220-18" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb220-19"><a href="linear-models.html#cb220-19" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb220-20"><a href="linear-models.html#cb220-20" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 17.6 on 4 degrees of freedom</span></span>
+<span id="cb220-21"><a href="linear-models.html#cb220-21" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.921,  Adjusted R-squared:  0.901 </span></span>
+<span id="cb220-22"><a href="linear-models.html#cb220-22" tabindex="-1"></a><span class="co">#&gt; F-statistic: 46.6 on 1 and 4 DF,  p-value: 0.00241</span></span>
+<span id="cb220-23"><a href="linear-models.html#cb220-23" tabindex="-1"></a></span>
+<span id="cb220-24"><a href="linear-models.html#cb220-24" tabindex="-1"></a><span class="co"># Multiple R-squared:  0.921,   Adjusted R-squared:  0.9012 </span></span></code></pre></div>
 <p>“Multiple R-Squared”. This refers to the statistic <span class="math inline">\(R^2\)</span> which is a measure of “variance explained” or if you prefer less causal language, it is a measure of “variance accounted for”. <span class="math inline">\(R^2\)</span> values range from 0 to 1.</p>
 <p>..92.1% of the stuff that’s happening in our dataset is “explained” by our model. In this case, because we have only one thing in our model doing the explaining (the fixed effect “sex”), the <span class="math inline">\(R^2\)</span> reflects how much variance in our data is accounted for by differences between males and females.</p>
 <p><strong>Challenge 1</strong></p>
 <p>Pick one dependent variable and one independent variable in your data.frame (It doesn’t really need to make sense for now, just that you set it up and run it.) Replace the variables with your own…</p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="linear-models.html#cb220-1" tabindex="-1"></a></span>
-<span id="cb220-2"><a href="linear-models.html#cb220-2" tabindex="-1"></a>newdf <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb220-3"><a href="linear-models.html#cb220-3" tabindex="-1"></a>  <span class="fu">select</span>(Sex,Voice.Pitch) <span class="sc">%&gt;%</span></span>
-<span id="cb220-4"><a href="linear-models.html#cb220-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Voice.Pitch =</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(Voice.Pitch)))</span>
-<span id="cb220-5"><a href="linear-models.html#cb220-5" tabindex="-1"></a></span>
-<span id="cb220-6"><a href="linear-models.html#cb220-6" tabindex="-1"></a><span class="co">#Set up your lm (linear model) object</span></span>
-<span id="cb220-7"><a href="linear-models.html#cb220-7" tabindex="-1"></a>my.lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> Voice.Pitch <span class="sc">~</span> Sex, <span class="at">data =</span> newdf)</span>
-<span id="cb220-8"><a href="linear-models.html#cb220-8" tabindex="-1"></a></span>
-<span id="cb220-9"><a href="linear-models.html#cb220-9" tabindex="-1"></a><span class="fu">summary</span>(my.lm)</span>
-<span id="cb220-10"><a href="linear-models.html#cb220-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb220-11"><a href="linear-models.html#cb220-11" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb220-12"><a href="linear-models.html#cb220-12" tabindex="-1"></a><span class="co">#&gt; lm(formula = Voice.Pitch ~ Sex, data = newdf)</span></span>
-<span id="cb220-13"><a href="linear-models.html#cb220-13" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb220-14"><a href="linear-models.html#cb220-14" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
-<span id="cb220-15"><a href="linear-models.html#cb220-15" tabindex="-1"></a><span class="co">#&gt;      1      2      3      4      5      6 </span></span>
-<span id="cb220-16"><a href="linear-models.html#cb220-16" tabindex="-1"></a><span class="co">#&gt;   6.67 -22.33  15.67   2.00 -16.00  14.00 </span></span>
-<span id="cb220-17"><a href="linear-models.html#cb220-17" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb220-18"><a href="linear-models.html#cb220-18" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb220-19"><a href="linear-models.html#cb220-19" tabindex="-1"></a><span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
-<span id="cb220-20"><a href="linear-models.html#cb220-20" tabindex="-1"></a><span class="co">#&gt; (Intercept)    226.3       10.2   22.22  2.4e-05 ***</span></span>
-<span id="cb220-21"><a href="linear-models.html#cb220-21" tabindex="-1"></a><span class="co">#&gt; Sexmale        -98.3       14.4   -6.83   0.0024 ** </span></span>
-<span id="cb220-22"><a href="linear-models.html#cb220-22" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
-<span id="cb220-23"><a href="linear-models.html#cb220-23" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb220-24"><a href="linear-models.html#cb220-24" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb220-25"><a href="linear-models.html#cb220-25" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 17.6 on 4 degrees of freedom</span></span>
-<span id="cb220-26"><a href="linear-models.html#cb220-26" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.921,  Adjusted R-squared:  0.901 </span></span>
-<span id="cb220-27"><a href="linear-models.html#cb220-27" tabindex="-1"></a><span class="co">#&gt; F-statistic: 46.6 on 1 and 4 DF,  p-value: 0.00241</span></span></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="linear-models.html#cb221-1" tabindex="-1"></a></span>
+<span id="cb221-2"><a href="linear-models.html#cb221-2" tabindex="-1"></a>newdf <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb221-3"><a href="linear-models.html#cb221-3" tabindex="-1"></a>  <span class="fu">select</span>(Sex,Voice.Pitch) <span class="sc">%&gt;%</span></span>
+<span id="cb221-4"><a href="linear-models.html#cb221-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Voice.Pitch =</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(Voice.Pitch)))</span>
+<span id="cb221-5"><a href="linear-models.html#cb221-5" tabindex="-1"></a></span>
+<span id="cb221-6"><a href="linear-models.html#cb221-6" tabindex="-1"></a><span class="co">#Set up your lm (linear model) object</span></span>
+<span id="cb221-7"><a href="linear-models.html#cb221-7" tabindex="-1"></a>my.lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> Voice.Pitch <span class="sc">~</span> Sex, <span class="at">data =</span> newdf)</span>
+<span id="cb221-8"><a href="linear-models.html#cb221-8" tabindex="-1"></a></span>
+<span id="cb221-9"><a href="linear-models.html#cb221-9" tabindex="-1"></a><span class="fu">summary</span>(my.lm)</span>
+<span id="cb221-10"><a href="linear-models.html#cb221-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb221-11"><a href="linear-models.html#cb221-11" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb221-12"><a href="linear-models.html#cb221-12" tabindex="-1"></a><span class="co">#&gt; lm(formula = Voice.Pitch ~ Sex, data = newdf)</span></span>
+<span id="cb221-13"><a href="linear-models.html#cb221-13" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb221-14"><a href="linear-models.html#cb221-14" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
+<span id="cb221-15"><a href="linear-models.html#cb221-15" tabindex="-1"></a><span class="co">#&gt;      1      2      3      4      5      6 </span></span>
+<span id="cb221-16"><a href="linear-models.html#cb221-16" tabindex="-1"></a><span class="co">#&gt;   6.67 -22.33  15.67   2.00 -16.00  14.00 </span></span>
+<span id="cb221-17"><a href="linear-models.html#cb221-17" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb221-18"><a href="linear-models.html#cb221-18" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb221-19"><a href="linear-models.html#cb221-19" tabindex="-1"></a><span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span id="cb221-20"><a href="linear-models.html#cb221-20" tabindex="-1"></a><span class="co">#&gt; (Intercept)    226.3       10.2   22.22  2.4e-05 ***</span></span>
+<span id="cb221-21"><a href="linear-models.html#cb221-21" tabindex="-1"></a><span class="co">#&gt; Sexmale        -98.3       14.4   -6.83   0.0024 ** </span></span>
+<span id="cb221-22"><a href="linear-models.html#cb221-22" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb221-23"><a href="linear-models.html#cb221-23" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb221-24"><a href="linear-models.html#cb221-24" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb221-25"><a href="linear-models.html#cb221-25" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 17.6 on 4 degrees of freedom</span></span>
+<span id="cb221-26"><a href="linear-models.html#cb221-26" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.921,  Adjusted R-squared:  0.901 </span></span>
+<span id="cb221-27"><a href="linear-models.html#cb221-27" tabindex="-1"></a><span class="co">#&gt; F-statistic: 46.6 on 1 and 4 DF,  p-value: 0.00241</span></span></code></pre></div>
 <p>Now back to the tutorial!</p>
 <p>But why does it say “sexmale” rather than just “sex”, which is how we named our fixed effect? And where did the females go? If you look at the estimate in the row that starts with “(Intercept)”, you’ll see that the value is 226.33 Hz. This looks like it could be the estimated mean of the female voice pitches. If you type the following…</p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="linear-models.html#cb221-1" tabindex="-1"></a></span>
-<span id="cb221-2"><a href="linear-models.html#cb221-2" tabindex="-1"></a><span class="fu">mean</span>(my.df[my.df<span class="sc">$</span>sex<span class="sc">==</span><span class="st">&quot;female&quot;</span>,]<span class="sc">$</span>pitch)</span>
-<span id="cb221-3"><a href="linear-models.html#cb221-3" tabindex="-1"></a><span class="co">#&gt; [1] 226</span></span>
-<span id="cb221-4"><a href="linear-models.html#cb221-4" tabindex="-1"></a><span class="fu">mean</span>(my.df[my.df<span class="sc">$</span>sex<span class="sc">==</span><span class="st">&quot;male&quot;</span>,]<span class="sc">$</span>pitch)</span>
-<span id="cb221-5"><a href="linear-models.html#cb221-5" tabindex="-1"></a><span class="co">#&gt; [1] 128</span></span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="linear-models.html#cb222-1" tabindex="-1"></a></span>
+<span id="cb222-2"><a href="linear-models.html#cb222-2" tabindex="-1"></a><span class="fu">mean</span>(my.df[my.df<span class="sc">$</span>sex<span class="sc">==</span><span class="st">&quot;female&quot;</span>,]<span class="sc">$</span>pitch)</span>
+<span id="cb222-3"><a href="linear-models.html#cb222-3" tabindex="-1"></a><span class="co">#&gt; [1] 226</span></span>
+<span id="cb222-4"><a href="linear-models.html#cb222-4" tabindex="-1"></a><span class="fu">mean</span>(my.df[my.df<span class="sc">$</span>sex<span class="sc">==</span><span class="st">&quot;male&quot;</span>,]<span class="sc">$</span>pitch)</span>
+<span id="cb222-5"><a href="linear-models.html#cb222-5" tabindex="-1"></a><span class="co">#&gt; [1] 128</span></span></code></pre></div>
 <p>…you’ll get the mean of female voice pitch values, and you’ll see that this value is very similar to the estimate value in the “(Intercept)” column.</p>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="linear-models.html#cb222-1" tabindex="-1"></a>my.df<span class="sc">$</span>sexcode <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">0</span>,<span class="dv">3</span>),<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span>
-<span id="cb222-2"><a href="linear-models.html#cb222-2" tabindex="-1"></a></span>
-<span id="cb222-3"><a href="linear-models.html#cb222-3" tabindex="-1"></a><span class="fu">scatter.smooth</span>(<span class="at">x =</span> my.df<span class="sc">$</span>sexcode, <span class="at">y =</span> my.df<span class="sc">$</span>pitch, <span class="at">ylab =</span> <span class="st">&quot;Pitch (Hz)&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Sex&quot;</span>)</span>
-<span id="cb222-4"><a href="linear-models.html#cb222-4" tabindex="-1"></a></span>
-<span id="cb222-5"><a href="linear-models.html#cb222-5" tabindex="-1"></a><span class="fu">plot</span>(pitch<span class="sc">~</span>sexcode, my.df)</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="linear-models.html#cb223-1" tabindex="-1"></a>my.df<span class="sc">$</span>sexcode <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">0</span>,<span class="dv">3</span>),<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span>
+<span id="cb223-2"><a href="linear-models.html#cb223-2" tabindex="-1"></a></span>
+<span id="cb223-3"><a href="linear-models.html#cb223-3" tabindex="-1"></a><span class="fu">scatter.smooth</span>(<span class="at">x =</span> my.df<span class="sc">$</span>sexcode, <span class="at">y =</span> my.df<span class="sc">$</span>pitch, <span class="at">ylab =</span> <span class="st">&quot;Pitch (Hz)&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Sex&quot;</span>)</span>
+<span id="cb223-4"><a href="linear-models.html#cb223-4" tabindex="-1"></a></span>
+<span id="cb223-5"><a href="linear-models.html#cb223-5" tabindex="-1"></a><span class="fu">plot</span>(pitch<span class="sc">~</span>sexcode, my.df)</span></code></pre></div>
 <p><img src="07_LinearModeling_files/figure-html/smooth-1.png" width="70%" style="display: block; margin: auto;" /><img src="07_LinearModeling_files/figure-html/smooth-2.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>Or with ggplot</p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="linear-models.html#cb223-1" tabindex="-1"></a><span class="fu">coef</span>(xmdl)</span>
-<span id="cb223-2"><a href="linear-models.html#cb223-2" tabindex="-1"></a><span class="co">#&gt; (Intercept)     sexmale </span></span>
-<span id="cb223-3"><a href="linear-models.html#cb223-3" tabindex="-1"></a><span class="co">#&gt;       226.3       -98.3</span></span>
-<span id="cb223-4"><a href="linear-models.html#cb223-4" tabindex="-1"></a></span>
-<span id="cb223-5"><a href="linear-models.html#cb223-5" tabindex="-1"></a><span class="fu">sapply</span>(<span class="at">X =</span> my.df, class)</span>
-<span id="cb223-6"><a href="linear-models.html#cb223-6" tabindex="-1"></a><span class="co">#&gt;         sex       pitch     sexcode </span></span>
-<span id="cb223-7"><a href="linear-models.html#cb223-7" tabindex="-1"></a><span class="co">#&gt; &quot;character&quot;   &quot;numeric&quot;   &quot;numeric&quot;</span></span>
-<span id="cb223-8"><a href="linear-models.html#cb223-8" tabindex="-1"></a></span>
-<span id="cb223-9"><a href="linear-models.html#cb223-9" tabindex="-1"></a><span class="fu">require</span>(forcats)</span>
-<span id="cb223-10"><a href="linear-models.html#cb223-10" tabindex="-1"></a>my.df <span class="sc">%&gt;%</span></span>
-<span id="cb223-11"><a href="linear-models.html#cb223-11" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">fct_recode</span>(sex, <span class="st">&quot;0&quot;</span> <span class="ot">=</span> <span class="st">&quot;female&quot;</span>, <span class="st">&quot;1&quot;</span> <span class="ot">=</span> <span class="st">&quot;male&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb223-12"><a href="linear-models.html#cb223-12" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(sex))) <span class="sc">%&gt;%</span></span>
-<span id="cb223-13"><a href="linear-models.html#cb223-13" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span> sex,<span class="at">y=</span>pitch)) <span class="sc">+</span></span>
-<span id="cb223-14"><a href="linear-models.html#cb223-14" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb223-15"><a href="linear-models.html#cb223-15" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="fu">coef</span>(xmdl)[<span class="dv">1</span>],<span class="at">slope =</span> <span class="fu">coef</span>(xmdl)[<span class="dv">2</span>]) <span class="sc">+</span></span>
-<span id="cb223-16"><a href="linear-models.html#cb223-16" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span>.<span class="dv">5</span>,<span class="fl">1.5</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">300</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="linear-models.html#cb224-1" tabindex="-1"></a><span class="fu">coef</span>(xmdl)</span>
+<span id="cb224-2"><a href="linear-models.html#cb224-2" tabindex="-1"></a><span class="co">#&gt; (Intercept)     sexmale </span></span>
+<span id="cb224-3"><a href="linear-models.html#cb224-3" tabindex="-1"></a><span class="co">#&gt;       226.3       -98.3</span></span>
+<span id="cb224-4"><a href="linear-models.html#cb224-4" tabindex="-1"></a></span>
+<span id="cb224-5"><a href="linear-models.html#cb224-5" tabindex="-1"></a><span class="fu">sapply</span>(<span class="at">X =</span> my.df, class)</span>
+<span id="cb224-6"><a href="linear-models.html#cb224-6" tabindex="-1"></a><span class="co">#&gt;         sex       pitch     sexcode </span></span>
+<span id="cb224-7"><a href="linear-models.html#cb224-7" tabindex="-1"></a><span class="co">#&gt; &quot;character&quot;   &quot;numeric&quot;   &quot;numeric&quot;</span></span>
+<span id="cb224-8"><a href="linear-models.html#cb224-8" tabindex="-1"></a></span>
+<span id="cb224-9"><a href="linear-models.html#cb224-9" tabindex="-1"></a><span class="fu">require</span>(forcats)</span>
+<span id="cb224-10"><a href="linear-models.html#cb224-10" tabindex="-1"></a>my.df <span class="sc">%&gt;%</span></span>
+<span id="cb224-11"><a href="linear-models.html#cb224-11" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">fct_recode</span>(sex, <span class="st">&quot;0&quot;</span> <span class="ot">=</span> <span class="st">&quot;female&quot;</span>, <span class="st">&quot;1&quot;</span> <span class="ot">=</span> <span class="st">&quot;male&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb224-12"><a href="linear-models.html#cb224-12" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(sex))) <span class="sc">%&gt;%</span></span>
+<span id="cb224-13"><a href="linear-models.html#cb224-13" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span> sex,<span class="at">y=</span>pitch)) <span class="sc">+</span></span>
+<span id="cb224-14"><a href="linear-models.html#cb224-14" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb224-15"><a href="linear-models.html#cb224-15" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="fu">coef</span>(xmdl)[<span class="dv">1</span>],<span class="at">slope =</span> <span class="fu">coef</span>(xmdl)[<span class="dv">2</span>]) <span class="sc">+</span></span>
+<span id="cb224-16"><a href="linear-models.html#cb224-16" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span>.<span class="dv">5</span>,<span class="fl">1.5</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">300</span>))</span></code></pre></div>
 <p><img src="07_LinearModeling_files/figure-html/ggplot-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p><strong>Challenge 2</strong></p>
 <p>Why did I have to go through all this trouble of getting the slope and intercept, and then changing Sex from a categorical factor to a numerical continuous variable?</p>
 <p>Explain the <code>geom_abline</code> call.</p>
 <p>What happens if I remove the <code>as.character(sex)</code> from the mutate argument on line above?</p>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="linear-models.html#cb224-1" tabindex="-1"></a></span>
-<span id="cb224-2"><a href="linear-models.html#cb224-2" tabindex="-1"></a>my.df <span class="sc">%&gt;%</span></span>
-<span id="cb224-3"><a href="linear-models.html#cb224-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">fct_recode</span>(sex, <span class="st">&quot;0&quot;</span> <span class="ot">=</span> <span class="st">&quot;female&quot;</span>, <span class="st">&quot;1&quot;</span> <span class="ot">=</span> <span class="st">&quot;male&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb224-4"><a href="linear-models.html#cb224-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">as.numeric</span>(sex)) <span class="sc">%&gt;%</span></span>
-<span id="cb224-5"><a href="linear-models.html#cb224-5" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span> sex,<span class="at">y=</span>pitch)) <span class="sc">+</span></span>
-<span id="cb224-6"><a href="linear-models.html#cb224-6" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb224-7"><a href="linear-models.html#cb224-7" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="fu">coef</span>(xmdl)[<span class="dv">1</span>],<span class="at">slope =</span> <span class="fu">coef</span>(xmdl)[<span class="dv">2</span>]) <span class="sc">+</span></span>
-<span id="cb224-8"><a href="linear-models.html#cb224-8" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span>.<span class="dv">5</span>,<span class="fl">1.5</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">300</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="linear-models.html#cb225-1" tabindex="-1"></a></span>
+<span id="cb225-2"><a href="linear-models.html#cb225-2" tabindex="-1"></a>my.df <span class="sc">%&gt;%</span></span>
+<span id="cb225-3"><a href="linear-models.html#cb225-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">fct_recode</span>(sex, <span class="st">&quot;0&quot;</span> <span class="ot">=</span> <span class="st">&quot;female&quot;</span>, <span class="st">&quot;1&quot;</span> <span class="ot">=</span> <span class="st">&quot;male&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb225-4"><a href="linear-models.html#cb225-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">as.numeric</span>(sex)) <span class="sc">%&gt;%</span></span>
+<span id="cb225-5"><a href="linear-models.html#cb225-5" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span> sex,<span class="at">y=</span>pitch)) <span class="sc">+</span></span>
+<span id="cb225-6"><a href="linear-models.html#cb225-6" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb225-7"><a href="linear-models.html#cb225-7" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="fu">coef</span>(xmdl)[<span class="dv">1</span>],<span class="at">slope =</span> <span class="fu">coef</span>(xmdl)[<span class="dv">2</span>]) <span class="sc">+</span></span>
+<span id="cb225-8"><a href="linear-models.html#cb225-8" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span>.<span class="dv">5</span>,<span class="fl">1.5</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">300</span>))</span></code></pre></div>
 <p><strong>Challenge 3</strong></p>
 <p>How does <code>coord_cartesian()</code> work? Does it transform any of the stats performed?</p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="linear-models.html#cb225-1" tabindex="-1"></a>my.df <span class="sc">%&gt;%</span></span>
-<span id="cb225-2"><a href="linear-models.html#cb225-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">fct_recode</span>(sex, <span class="st">&quot;0&quot;</span> <span class="ot">=</span> <span class="st">&quot;female&quot;</span>, <span class="st">&quot;1&quot;</span> <span class="ot">=</span> <span class="st">&quot;male&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb225-3"><a href="linear-models.html#cb225-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(sex))) <span class="sc">%&gt;%</span></span>
-<span id="cb225-4"><a href="linear-models.html#cb225-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span> sex,<span class="at">y=</span>pitch)) <span class="sc">+</span></span>
-<span id="cb225-5"><a href="linear-models.html#cb225-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb225-6"><a href="linear-models.html#cb225-6" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="fu">coef</span>(xmdl)[<span class="dv">1</span>],<span class="at">slope =</span> <span class="fu">coef</span>(xmdl)[<span class="dv">2</span>]) <span class="sc">+</span></span>
-<span id="cb225-7"><a href="linear-models.html#cb225-7" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span>.<span class="dv">5</span>,<span class="fl">1.5</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">300</span>)) <span class="sc">+</span></span>
-<span id="cb225-8"><a href="linear-models.html#cb225-8" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="dv">0</span>), <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">alpha =</span> .<span class="dv">7</span>) <span class="sc">+</span> </span>
-<span id="cb225-9"><a href="linear-models.html#cb225-9" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="dv">0</span>), <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">alpha =</span> .<span class="dv">7</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="linear-models.html#cb226-1" tabindex="-1"></a>my.df <span class="sc">%&gt;%</span></span>
+<span id="cb226-2"><a href="linear-models.html#cb226-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">fct_recode</span>(sex, <span class="st">&quot;0&quot;</span> <span class="ot">=</span> <span class="st">&quot;female&quot;</span>, <span class="st">&quot;1&quot;</span> <span class="ot">=</span> <span class="st">&quot;male&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb226-3"><a href="linear-models.html#cb226-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(sex))) <span class="sc">%&gt;%</span></span>
+<span id="cb226-4"><a href="linear-models.html#cb226-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span> sex,<span class="at">y=</span>pitch)) <span class="sc">+</span></span>
+<span id="cb226-5"><a href="linear-models.html#cb226-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb226-6"><a href="linear-models.html#cb226-6" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="fu">coef</span>(xmdl)[<span class="dv">1</span>],<span class="at">slope =</span> <span class="fu">coef</span>(xmdl)[<span class="dv">2</span>]) <span class="sc">+</span></span>
+<span id="cb226-7"><a href="linear-models.html#cb226-7" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span>.<span class="dv">5</span>,<span class="fl">1.5</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">300</span>)) <span class="sc">+</span></span>
+<span id="cb226-8"><a href="linear-models.html#cb226-8" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="dv">0</span>), <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">alpha =</span> .<span class="dv">7</span>) <span class="sc">+</span> </span>
+<span id="cb226-9"><a href="linear-models.html#cb226-9" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="dv">0</span>), <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">alpha =</span> .<span class="dv">7</span>)</span></code></pre></div>
 <p><img src="07_LinearModeling_files/figure-html/coord_cartesian-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p><strong>Challenge 4</strong></p>
 <p>Can you put the labels “female” and “male” back on the x-axis?</p>
 <p>Hint: Try scale_x_…</p>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="linear-models.html#cb226-1" tabindex="-1"></a></span>
-<span id="cb226-2"><a href="linear-models.html#cb226-2" tabindex="-1"></a>my.df <span class="sc">%&gt;%</span></span>
-<span id="cb226-3"><a href="linear-models.html#cb226-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">fct_recode</span>(sex, <span class="st">&quot;0&quot;</span> <span class="ot">=</span> <span class="st">&quot;female&quot;</span>, <span class="st">&quot;1&quot;</span> <span class="ot">=</span> <span class="st">&quot;male&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb226-4"><a href="linear-models.html#cb226-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(sex))) <span class="sc">%&gt;%</span></span>
-<span id="cb226-5"><a href="linear-models.html#cb226-5" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span> sex,<span class="at">y=</span>pitch)) <span class="sc">+</span></span>
-<span id="cb226-6"><a href="linear-models.html#cb226-6" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb226-7"><a href="linear-models.html#cb226-7" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="fu">coef</span>(xmdl)[<span class="dv">1</span>],<span class="at">slope =</span> <span class="fu">coef</span>(xmdl)[<span class="dv">2</span>]) <span class="sc">+</span></span>
-<span id="cb226-8"><a href="linear-models.html#cb226-8" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span>.<span class="dv">5</span>,<span class="fl">1.5</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">300</span>)) <span class="sc">+</span></span>
-<span id="cb226-9"><a href="linear-models.html#cb226-9" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="dv">0</span>), <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">alpha =</span> .<span class="dv">7</span>) <span class="sc">+</span> </span>
-<span id="cb226-10"><a href="linear-models.html#cb226-10" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="dv">0</span>), <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">alpha =</span> .<span class="dv">7</span>) <span class="sc">+</span> </span>
-<span id="cb226-11"><a href="linear-models.html#cb226-11" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;female&quot;</span>,<span class="st">&quot;male&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="linear-models.html#cb227-1" tabindex="-1"></a></span>
+<span id="cb227-2"><a href="linear-models.html#cb227-2" tabindex="-1"></a>my.df <span class="sc">%&gt;%</span></span>
+<span id="cb227-3"><a href="linear-models.html#cb227-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">fct_recode</span>(sex, <span class="st">&quot;0&quot;</span> <span class="ot">=</span> <span class="st">&quot;female&quot;</span>, <span class="st">&quot;1&quot;</span> <span class="ot">=</span> <span class="st">&quot;male&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb227-4"><a href="linear-models.html#cb227-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(sex))) <span class="sc">%&gt;%</span></span>
+<span id="cb227-5"><a href="linear-models.html#cb227-5" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span> sex,<span class="at">y=</span>pitch)) <span class="sc">+</span></span>
+<span id="cb227-6"><a href="linear-models.html#cb227-6" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb227-7"><a href="linear-models.html#cb227-7" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="fu">coef</span>(xmdl)[<span class="dv">1</span>],<span class="at">slope =</span> <span class="fu">coef</span>(xmdl)[<span class="dv">2</span>]) <span class="sc">+</span></span>
+<span id="cb227-8"><a href="linear-models.html#cb227-8" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span>.<span class="dv">5</span>,<span class="fl">1.5</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">300</span>)) <span class="sc">+</span></span>
+<span id="cb227-9"><a href="linear-models.html#cb227-9" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="dv">0</span>), <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">alpha =</span> .<span class="dv">7</span>) <span class="sc">+</span> </span>
+<span id="cb227-10"><a href="linear-models.html#cb227-10" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="dv">0</span>), <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">alpha =</span> .<span class="dv">7</span>) <span class="sc">+</span> </span>
+<span id="cb227-11"><a href="linear-models.html#cb227-11" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;female&quot;</span>,<span class="st">&quot;male&quot;</span>))</span></code></pre></div>
 <p><img src="07_LinearModeling_files/figure-html/challenge%204-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>Now back to the tutorial.</p>
 <ul>
@@ -486,55 +488,55 @@ Advanced R Challenges
 <li>It transfers to thinking about non-categorial things as slopes.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="linear-models.html#cb227-1" tabindex="-1"></a></span>
-<span id="cb227-2"><a href="linear-models.html#cb227-2" tabindex="-1"></a>age <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">14</span>,<span class="dv">23</span>,<span class="dv">35</span>,<span class="dv">48</span>,<span class="dv">52</span>,<span class="dv">67</span>)</span>
-<span id="cb227-3"><a href="linear-models.html#cb227-3" tabindex="-1"></a>pitch <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">252</span>,<span class="dv">244</span>,<span class="dv">240</span>,<span class="dv">233</span>,<span class="dv">212</span>,<span class="dv">204</span>)</span>
-<span id="cb227-4"><a href="linear-models.html#cb227-4" tabindex="-1"></a>my.df <span class="ot">=</span> <span class="fu">data.frame</span>(age,pitch)</span>
-<span id="cb227-5"><a href="linear-models.html#cb227-5" tabindex="-1"></a>xmdl <span class="ot">=</span> <span class="fu">lm</span>(pitch <span class="sc">~</span> age, my.df)</span>
-<span id="cb227-6"><a href="linear-models.html#cb227-6" tabindex="-1"></a><span class="fu">summary</span>(xmdl)</span>
-<span id="cb227-7"><a href="linear-models.html#cb227-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb227-8"><a href="linear-models.html#cb227-8" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb227-9"><a href="linear-models.html#cb227-9" tabindex="-1"></a><span class="co">#&gt; lm(formula = pitch ~ age, data = my.df)</span></span>
-<span id="cb227-10"><a href="linear-models.html#cb227-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb227-11"><a href="linear-models.html#cb227-11" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
-<span id="cb227-12"><a href="linear-models.html#cb227-12" tabindex="-1"></a><span class="co">#&gt;     1     2     3     4     5     6 </span></span>
-<span id="cb227-13"><a href="linear-models.html#cb227-13" tabindex="-1"></a><span class="co">#&gt; -2.34 -2.15  4.77  9.60 -7.76 -2.12 </span></span>
-<span id="cb227-14"><a href="linear-models.html#cb227-14" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb227-15"><a href="linear-models.html#cb227-15" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb227-16"><a href="linear-models.html#cb227-16" tabindex="-1"></a><span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
-<span id="cb227-17"><a href="linear-models.html#cb227-17" tabindex="-1"></a><span class="co">#&gt; (Intercept)  267.076      6.852    39.0  2.6e-06 ***</span></span>
-<span id="cb227-18"><a href="linear-models.html#cb227-18" tabindex="-1"></a><span class="co">#&gt; age           -0.910      0.157    -5.8   0.0044 ** </span></span>
-<span id="cb227-19"><a href="linear-models.html#cb227-19" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
-<span id="cb227-20"><a href="linear-models.html#cb227-20" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb227-21"><a href="linear-models.html#cb227-21" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb227-22"><a href="linear-models.html#cb227-22" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 6.89 on 4 degrees of freedom</span></span>
-<span id="cb227-23"><a href="linear-models.html#cb227-23" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.894,  Adjusted R-squared:  0.867 </span></span>
-<span id="cb227-24"><a href="linear-models.html#cb227-24" tabindex="-1"></a><span class="co">#&gt; F-statistic: 33.6 on 1 and 4 DF,  p-value: 0.00439</span></span></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="linear-models.html#cb228-1" tabindex="-1"></a></span>
+<span id="cb228-2"><a href="linear-models.html#cb228-2" tabindex="-1"></a>age <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">14</span>,<span class="dv">23</span>,<span class="dv">35</span>,<span class="dv">48</span>,<span class="dv">52</span>,<span class="dv">67</span>)</span>
+<span id="cb228-3"><a href="linear-models.html#cb228-3" tabindex="-1"></a>pitch <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">252</span>,<span class="dv">244</span>,<span class="dv">240</span>,<span class="dv">233</span>,<span class="dv">212</span>,<span class="dv">204</span>)</span>
+<span id="cb228-4"><a href="linear-models.html#cb228-4" tabindex="-1"></a>my.df <span class="ot">=</span> <span class="fu">data.frame</span>(age,pitch)</span>
+<span id="cb228-5"><a href="linear-models.html#cb228-5" tabindex="-1"></a>xmdl <span class="ot">=</span> <span class="fu">lm</span>(pitch <span class="sc">~</span> age, my.df)</span>
+<span id="cb228-6"><a href="linear-models.html#cb228-6" tabindex="-1"></a><span class="fu">summary</span>(xmdl)</span>
+<span id="cb228-7"><a href="linear-models.html#cb228-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb228-8"><a href="linear-models.html#cb228-8" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb228-9"><a href="linear-models.html#cb228-9" tabindex="-1"></a><span class="co">#&gt; lm(formula = pitch ~ age, data = my.df)</span></span>
+<span id="cb228-10"><a href="linear-models.html#cb228-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb228-11"><a href="linear-models.html#cb228-11" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
+<span id="cb228-12"><a href="linear-models.html#cb228-12" tabindex="-1"></a><span class="co">#&gt;     1     2     3     4     5     6 </span></span>
+<span id="cb228-13"><a href="linear-models.html#cb228-13" tabindex="-1"></a><span class="co">#&gt; -2.34 -2.15  4.77  9.60 -7.76 -2.12 </span></span>
+<span id="cb228-14"><a href="linear-models.html#cb228-14" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb228-15"><a href="linear-models.html#cb228-15" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb228-16"><a href="linear-models.html#cb228-16" tabindex="-1"></a><span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span id="cb228-17"><a href="linear-models.html#cb228-17" tabindex="-1"></a><span class="co">#&gt; (Intercept)  267.076      6.852    39.0  2.6e-06 ***</span></span>
+<span id="cb228-18"><a href="linear-models.html#cb228-18" tabindex="-1"></a><span class="co">#&gt; age           -0.910      0.157    -5.8   0.0044 ** </span></span>
+<span id="cb228-19"><a href="linear-models.html#cb228-19" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb228-20"><a href="linear-models.html#cb228-20" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb228-21"><a href="linear-models.html#cb228-21" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb228-22"><a href="linear-models.html#cb228-22" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 6.89 on 4 degrees of freedom</span></span>
+<span id="cb228-23"><a href="linear-models.html#cb228-23" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.894,  Adjusted R-squared:  0.867 </span></span>
+<span id="cb228-24"><a href="linear-models.html#cb228-24" tabindex="-1"></a><span class="co">#&gt; F-statistic: 33.6 on 1 and 4 DF,  p-value: 0.00439</span></span></code></pre></div>
 <p><strong>Challenge 5</strong></p>
 <p>Plot Voice Pitch by Age with a trend line.</p>
 <p>So how does age relate to voice pitch?</p>
 <p>Meaningful and meaningless intercepts. How can we make the intercept age = 0 more meaningful? We can center on the average age of our sample…</p>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="linear-models.html#cb228-1" tabindex="-1"></a>my.df<span class="sc">$</span>age.c <span class="ot">=</span> my.df<span class="sc">$</span>age <span class="sc">-</span> <span class="fu">mean</span>(my.df<span class="sc">$</span>age)</span>
-<span id="cb228-2"><a href="linear-models.html#cb228-2" tabindex="-1"></a>xmdl <span class="ot">=</span> <span class="fu">lm</span>(pitch <span class="sc">~</span> age.c, my.df)</span>
-<span id="cb228-3"><a href="linear-models.html#cb228-3" tabindex="-1"></a><span class="fu">summary</span>(xmdl)</span>
-<span id="cb228-4"><a href="linear-models.html#cb228-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb228-5"><a href="linear-models.html#cb228-5" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb228-6"><a href="linear-models.html#cb228-6" tabindex="-1"></a><span class="co">#&gt; lm(formula = pitch ~ age.c, data = my.df)</span></span>
-<span id="cb228-7"><a href="linear-models.html#cb228-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb228-8"><a href="linear-models.html#cb228-8" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
-<span id="cb228-9"><a href="linear-models.html#cb228-9" tabindex="-1"></a><span class="co">#&gt;     1     2     3     4     5     6 </span></span>
-<span id="cb228-10"><a href="linear-models.html#cb228-10" tabindex="-1"></a><span class="co">#&gt; -2.34 -2.15  4.77  9.60 -7.76 -2.12 </span></span>
-<span id="cb228-11"><a href="linear-models.html#cb228-11" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb228-12"><a href="linear-models.html#cb228-12" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb228-13"><a href="linear-models.html#cb228-13" tabindex="-1"></a><span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
-<span id="cb228-14"><a href="linear-models.html#cb228-14" tabindex="-1"></a><span class="co">#&gt; (Intercept)  230.833      2.811    82.1  1.3e-07 ***</span></span>
-<span id="cb228-15"><a href="linear-models.html#cb228-15" tabindex="-1"></a><span class="co">#&gt; age.c         -0.910      0.157    -5.8   0.0044 ** </span></span>
-<span id="cb228-16"><a href="linear-models.html#cb228-16" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
-<span id="cb228-17"><a href="linear-models.html#cb228-17" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb228-18"><a href="linear-models.html#cb228-18" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb228-19"><a href="linear-models.html#cb228-19" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 6.89 on 4 degrees of freedom</span></span>
-<span id="cb228-20"><a href="linear-models.html#cb228-20" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.894,  Adjusted R-squared:  0.867 </span></span>
-<span id="cb228-21"><a href="linear-models.html#cb228-21" tabindex="-1"></a><span class="co">#&gt; F-statistic: 33.6 on 1 and 4 DF,  p-value: 0.00439</span></span></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="linear-models.html#cb229-1" tabindex="-1"></a>my.df<span class="sc">$</span>age.c <span class="ot">=</span> my.df<span class="sc">$</span>age <span class="sc">-</span> <span class="fu">mean</span>(my.df<span class="sc">$</span>age)</span>
+<span id="cb229-2"><a href="linear-models.html#cb229-2" tabindex="-1"></a>xmdl <span class="ot">=</span> <span class="fu">lm</span>(pitch <span class="sc">~</span> age.c, my.df)</span>
+<span id="cb229-3"><a href="linear-models.html#cb229-3" tabindex="-1"></a><span class="fu">summary</span>(xmdl)</span>
+<span id="cb229-4"><a href="linear-models.html#cb229-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb229-5"><a href="linear-models.html#cb229-5" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
+<span id="cb229-6"><a href="linear-models.html#cb229-6" tabindex="-1"></a><span class="co">#&gt; lm(formula = pitch ~ age.c, data = my.df)</span></span>
+<span id="cb229-7"><a href="linear-models.html#cb229-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb229-8"><a href="linear-models.html#cb229-8" tabindex="-1"></a><span class="co">#&gt; Residuals:</span></span>
+<span id="cb229-9"><a href="linear-models.html#cb229-9" tabindex="-1"></a><span class="co">#&gt;     1     2     3     4     5     6 </span></span>
+<span id="cb229-10"><a href="linear-models.html#cb229-10" tabindex="-1"></a><span class="co">#&gt; -2.34 -2.15  4.77  9.60 -7.76 -2.12 </span></span>
+<span id="cb229-11"><a href="linear-models.html#cb229-11" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb229-12"><a href="linear-models.html#cb229-12" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
+<span id="cb229-13"><a href="linear-models.html#cb229-13" tabindex="-1"></a><span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span id="cb229-14"><a href="linear-models.html#cb229-14" tabindex="-1"></a><span class="co">#&gt; (Intercept)  230.833      2.811    82.1  1.3e-07 ***</span></span>
+<span id="cb229-15"><a href="linear-models.html#cb229-15" tabindex="-1"></a><span class="co">#&gt; age.c         -0.910      0.157    -5.8   0.0044 ** </span></span>
+<span id="cb229-16"><a href="linear-models.html#cb229-16" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
+<span id="cb229-17"><a href="linear-models.html#cb229-17" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb229-18"><a href="linear-models.html#cb229-18" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb229-19"><a href="linear-models.html#cb229-19" tabindex="-1"></a><span class="co">#&gt; Residual standard error: 6.89 on 4 degrees of freedom</span></span>
+<span id="cb229-20"><a href="linear-models.html#cb229-20" tabindex="-1"></a><span class="co">#&gt; Multiple R-squared:  0.894,  Adjusted R-squared:  0.867 </span></span>
+<span id="cb229-21"><a href="linear-models.html#cb229-21" tabindex="-1"></a><span class="co">#&gt; F-statistic: 33.6 on 1 and 4 DF,  p-value: 0.00439</span></span></code></pre></div>
 <p><strong>Some assumptions</strong></p>
 <ul>
 <li>Linearity
@@ -544,22 +546,22 @@ Advanced R Challenges
 </ul>
 <p>There are a bunch of tests you can do. Remember these residuals are how far the data point is from the linear model line.</p>
 <p>(The red lines indicate the residual values)</p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="linear-models.html#cb229-1" tabindex="-1"></a></span>
-<span id="cb229-2"><a href="linear-models.html#cb229-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> my.df, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> pitch)) <span class="sc">+</span></span>
-<span id="cb229-3"><a href="linear-models.html#cb229-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">size =</span> .<span class="dv">5</span>, <span class="at">se =</span> F, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
-<span id="cb229-4"><a href="linear-models.html#cb229-4" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> pitch, </span>
-<span id="cb229-5"><a href="linear-models.html#cb229-5" tabindex="-1"></a>                    <span class="at">ymax =</span> pitch <span class="sc">-</span> <span class="fu">resid</span>(xmdl)), <span class="at">width =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
-<span id="cb229-6"><a href="linear-models.html#cb229-6" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb229-7"><a href="linear-models.html#cb229-7" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> pitch <span class="sc">-</span> <span class="fu">resid</span>(xmdl)),<span class="at">size =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb229-8"><a href="linear-models.html#cb229-8" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
-<span id="cb229-9"><a href="linear-models.html#cb229-9" tabindex="-1"></a><span class="co">#&gt; `geom_smooth()` using formula &#39;y ~ x&#39;</span></span>
-<span id="cb229-10"><a href="linear-models.html#cb229-10" tabindex="-1"></a></span>
-<span id="cb229-11"><a href="linear-models.html#cb229-11" tabindex="-1"></a><span class="fu">resid</span>(xmdl)</span>
-<span id="cb229-12"><a href="linear-models.html#cb229-12" tabindex="-1"></a><span class="co">#&gt;     1     2     3     4     5     6 </span></span>
-<span id="cb229-13"><a href="linear-models.html#cb229-13" tabindex="-1"></a><span class="co">#&gt; -2.34 -2.15  4.77  9.60 -7.76 -2.12</span></span>
-<span id="cb229-14"><a href="linear-models.html#cb229-14" tabindex="-1"></a></span>
-<span id="cb229-15"><a href="linear-models.html#cb229-15" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> <span class="fu">fitted</span>(xmdl),<span class="at">y =</span> <span class="fu">residuals</span>(xmdl))</span>
-<span id="cb229-16"><a href="linear-models.html#cb229-16" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a =</span> <span class="dv">0</span>, <span class="at">b =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="linear-models.html#cb230-1" tabindex="-1"></a></span>
+<span id="cb230-2"><a href="linear-models.html#cb230-2" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> my.df, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> pitch)) <span class="sc">+</span></span>
+<span id="cb230-3"><a href="linear-models.html#cb230-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">size =</span> .<span class="dv">5</span>, <span class="at">se =</span> F, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb230-4"><a href="linear-models.html#cb230-4" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> pitch, </span>
+<span id="cb230-5"><a href="linear-models.html#cb230-5" tabindex="-1"></a>                    <span class="at">ymax =</span> pitch <span class="sc">-</span> <span class="fu">resid</span>(xmdl)), <span class="at">width =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
+<span id="cb230-6"><a href="linear-models.html#cb230-6" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb230-7"><a href="linear-models.html#cb230-7" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> pitch <span class="sc">-</span> <span class="fu">resid</span>(xmdl)),<span class="at">size =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb230-8"><a href="linear-models.html#cb230-8" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span>
+<span id="cb230-9"><a href="linear-models.html#cb230-9" tabindex="-1"></a><span class="co">#&gt; `geom_smooth()` using formula &#39;y ~ x&#39;</span></span>
+<span id="cb230-10"><a href="linear-models.html#cb230-10" tabindex="-1"></a></span>
+<span id="cb230-11"><a href="linear-models.html#cb230-11" tabindex="-1"></a><span class="fu">resid</span>(xmdl)</span>
+<span id="cb230-12"><a href="linear-models.html#cb230-12" tabindex="-1"></a><span class="co">#&gt;     1     2     3     4     5     6 </span></span>
+<span id="cb230-13"><a href="linear-models.html#cb230-13" tabindex="-1"></a><span class="co">#&gt; -2.34 -2.15  4.77  9.60 -7.76 -2.12</span></span>
+<span id="cb230-14"><a href="linear-models.html#cb230-14" tabindex="-1"></a></span>
+<span id="cb230-15"><a href="linear-models.html#cb230-15" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> <span class="fu">fitted</span>(xmdl),<span class="at">y =</span> <span class="fu">residuals</span>(xmdl))</span>
+<span id="cb230-16"><a href="linear-models.html#cb230-16" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a =</span> <span class="dv">0</span>, <span class="at">b =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">3</span>)</span></code></pre></div>
 <p><img src="07_LinearModeling_files/figure-html/residuals-1.png" width="70%" style="display: block; margin: auto;" /><img src="07_LinearModeling_files/figure-html/residuals-2.png" width="70%" style="display: block; margin: auto;" /></p>
 <ul>
 <li>Colinearity of independent variables (or predictors)
@@ -571,35 +573,35 @@ Advanced R Challenges
 <li>Approximately equal variances across your sample</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="linear-models.html#cb230-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>),<span class="fu">rnorm</span>(<span class="dv">100</span>))</span>
-<span id="cb230-2"><a href="linear-models.html#cb230-2" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a =</span> <span class="dv">0</span>, <span class="at">b =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="linear-models.html#cb231-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>),<span class="fu">rnorm</span>(<span class="dv">100</span>))</span>
+<span id="cb231-2"><a href="linear-models.html#cb231-2" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a =</span> <span class="dv">0</span>, <span class="at">b =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">3</span>)</span></code></pre></div>
 <p><img src="07_LinearModeling_files/figure-html/hetero-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <ul>
 <li>Normality of residuals</li>
 </ul>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="linear-models.html#cb231-1" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">residuals</span>(xmdl), <span class="at">breaks =</span> <span class="dv">6</span>)</span>
-<span id="cb231-2"><a href="linear-models.html#cb231-2" tabindex="-1"></a></span>
-<span id="cb231-3"><a href="linear-models.html#cb231-3" tabindex="-1"></a><span class="fu">qqnorm</span>(<span class="fu">residuals</span>(xmdl))</span>
-<span id="cb231-4"><a href="linear-models.html#cb231-4" tabindex="-1"></a><span class="co"># Seen above with...</span></span>
-<span id="cb231-5"><a href="linear-models.html#cb231-5" tabindex="-1"></a><span class="fu">plot</span>(xmdl)</span></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="linear-models.html#cb232-1" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">residuals</span>(xmdl), <span class="at">breaks =</span> <span class="dv">6</span>)</span>
+<span id="cb232-2"><a href="linear-models.html#cb232-2" tabindex="-1"></a></span>
+<span id="cb232-3"><a href="linear-models.html#cb232-3" tabindex="-1"></a><span class="fu">qqnorm</span>(<span class="fu">residuals</span>(xmdl))</span>
+<span id="cb232-4"><a href="linear-models.html#cb232-4" tabindex="-1"></a><span class="co"># Seen above with...</span></span>
+<span id="cb232-5"><a href="linear-models.html#cb232-5" tabindex="-1"></a><span class="fu">plot</span>(xmdl)</span></code></pre></div>
 <p><img src="07_LinearModeling_files/figure-html/rormality-1.png" width="70%" style="display: block; margin: auto;" /><img src="07_LinearModeling_files/figure-html/rormality-2.png" width="70%" style="display: block; margin: auto;" /><img src="07_LinearModeling_files/figure-html/rormality-3.png" width="70%" style="display: block; margin: auto;" /><img src="07_LinearModeling_files/figure-html/rormality-4.png" width="70%" style="display: block; margin: auto;" /><img src="07_LinearModeling_files/figure-html/rormality-5.png" width="70%" style="display: block; margin: auto;" /><img src="07_LinearModeling_files/figure-html/rormality-6.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>Absence of influential data points…</p>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="linear-models.html#cb232-1" tabindex="-1"></a></span>
-<span id="cb232-2"><a href="linear-models.html#cb232-2" tabindex="-1"></a><span class="fu">dfbeta</span>(xmdl)</span>
-<span id="cb232-3"><a href="linear-models.html#cb232-3" tabindex="-1"></a><span class="co">#&gt;   (Intercept)   age.c</span></span>
-<span id="cb232-4"><a href="linear-models.html#cb232-4" tabindex="-1"></a><span class="co">#&gt; 1      -0.800  0.0644</span></span>
-<span id="cb232-5"><a href="linear-models.html#cb232-5" tabindex="-1"></a><span class="co">#&gt; 2      -0.522  0.0274</span></span>
-<span id="cb232-6"><a href="linear-models.html#cb232-6" tabindex="-1"></a><span class="co">#&gt; 3       0.968 -0.0146</span></span>
-<span id="cb232-7"><a href="linear-models.html#cb232-7" tabindex="-1"></a><span class="co">#&gt; 4       2.003  0.0509</span></span>
-<span id="cb232-8"><a href="linear-models.html#cb232-8" tabindex="-1"></a><span class="co">#&gt; 5      -1.710 -0.0648</span></span>
-<span id="cb232-9"><a href="linear-models.html#cb232-9" tabindex="-1"></a><span class="co">#&gt; 6      -0.783 -0.0662</span></span>
-<span id="cb232-10"><a href="linear-models.html#cb232-10" tabindex="-1"></a><span class="co"># (Intercept)       age.c</span></span>
-<span id="cb232-11"><a href="linear-models.html#cb232-11" tabindex="-1"></a><span class="co"># 1  -0.8002664  0.06437573</span></span>
-<span id="cb232-12"><a href="linear-models.html#cb232-12" tabindex="-1"></a><span class="co"># 2  -0.5220150  0.02736278</span></span>
-<span id="cb232-13"><a href="linear-models.html#cb232-13" tabindex="-1"></a><span class="co"># 3   0.9678744 -0.01456709</span></span>
-<span id="cb232-14"><a href="linear-models.html#cb232-14" tabindex="-1"></a><span class="co"># 4   2.0026352  0.05092767</span></span>
-<span id="cb232-15"><a href="linear-models.html#cb232-15" tabindex="-1"></a><span class="co"># 5  -1.7103247 -0.06479736</span></span>
-<span id="cb232-16"><a href="linear-models.html#cb232-16" tabindex="-1"></a><span class="co"># 6  -0.7828787 -0.06622744</span></span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="linear-models.html#cb233-1" tabindex="-1"></a></span>
+<span id="cb233-2"><a href="linear-models.html#cb233-2" tabindex="-1"></a><span class="fu">dfbeta</span>(xmdl)</span>
+<span id="cb233-3"><a href="linear-models.html#cb233-3" tabindex="-1"></a><span class="co">#&gt;   (Intercept)   age.c</span></span>
+<span id="cb233-4"><a href="linear-models.html#cb233-4" tabindex="-1"></a><span class="co">#&gt; 1      -0.800  0.0644</span></span>
+<span id="cb233-5"><a href="linear-models.html#cb233-5" tabindex="-1"></a><span class="co">#&gt; 2      -0.522  0.0274</span></span>
+<span id="cb233-6"><a href="linear-models.html#cb233-6" tabindex="-1"></a><span class="co">#&gt; 3       0.968 -0.0146</span></span>
+<span id="cb233-7"><a href="linear-models.html#cb233-7" tabindex="-1"></a><span class="co">#&gt; 4       2.003  0.0509</span></span>
+<span id="cb233-8"><a href="linear-models.html#cb233-8" tabindex="-1"></a><span class="co">#&gt; 5      -1.710 -0.0648</span></span>
+<span id="cb233-9"><a href="linear-models.html#cb233-9" tabindex="-1"></a><span class="co">#&gt; 6      -0.783 -0.0662</span></span>
+<span id="cb233-10"><a href="linear-models.html#cb233-10" tabindex="-1"></a><span class="co"># (Intercept)       age.c</span></span>
+<span id="cb233-11"><a href="linear-models.html#cb233-11" tabindex="-1"></a><span class="co"># 1  -0.8002664  0.06437573</span></span>
+<span id="cb233-12"><a href="linear-models.html#cb233-12" tabindex="-1"></a><span class="co"># 2  -0.5220150  0.02736278</span></span>
+<span id="cb233-13"><a href="linear-models.html#cb233-13" tabindex="-1"></a><span class="co"># 3   0.9678744 -0.01456709</span></span>
+<span id="cb233-14"><a href="linear-models.html#cb233-14" tabindex="-1"></a><span class="co"># 4   2.0026352  0.05092767</span></span>
+<span id="cb233-15"><a href="linear-models.html#cb233-15" tabindex="-1"></a><span class="co"># 5  -1.7103247 -0.06479736</span></span>
+<span id="cb233-16"><a href="linear-models.html#cb233-16" tabindex="-1"></a><span class="co"># 6  -0.7828787 -0.06622744</span></span></code></pre></div>
 <p>Finally… Independence! Each observation must be independent from the others. We will deal with repeated measures corrections to linear models by including participants as a random effect (among other things).</p>
 </div>
 <div id="solutions-2" class="section level2 hasAnchor" number="8.2">
@@ -614,25 +616,25 @@ Advanced R Challenges
 </div>
 <div id="challenge-4" class="section level3 hasAnchor" number="8.2.3">
 <h3><span class="header-section-number">8.2.3</span> Challenge 4<a href="linear-models.html#challenge-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="linear-models.html#cb233-1" tabindex="-1"></a>my.df <span class="sc">%&gt;%</span></span>
-<span id="cb233-2"><a href="linear-models.html#cb233-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">fct_recode</span>(sex, <span class="st">&quot;0&quot;</span> <span class="ot">=</span> <span class="st">&quot;female&quot;</span>, <span class="st">&quot;1&quot;</span> <span class="ot">=</span> <span class="st">&quot;male&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb233-3"><a href="linear-models.html#cb233-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(sex))) <span class="sc">%&gt;%</span></span>
-<span id="cb233-4"><a href="linear-models.html#cb233-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span> sex,<span class="at">y=</span>pitch)) <span class="sc">+</span></span>
-<span id="cb233-5"><a href="linear-models.html#cb233-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb233-6"><a href="linear-models.html#cb233-6" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="fu">coef</span>(xmdl)[<span class="dv">1</span>],<span class="at">slope =</span> <span class="fu">coef</span>(xmdl)[<span class="dv">2</span>]) <span class="sc">+</span></span>
-<span id="cb233-7"><a href="linear-models.html#cb233-7" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span>.<span class="dv">5</span>,<span class="fl">1.5</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">300</span>)) <span class="sc">+</span></span>
-<span id="cb233-8"><a href="linear-models.html#cb233-8" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="dv">0</span>), <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">alpha =</span> .<span class="dv">7</span>) <span class="sc">+</span> </span>
-<span id="cb233-9"><a href="linear-models.html#cb233-9" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="dv">0</span>), <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">alpha =</span> .<span class="dv">7</span>) <span class="sc">+</span> </span>
-<span id="cb233-10"><a href="linear-models.html#cb233-10" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;female&quot;</span>,<span class="st">&quot;male&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="linear-models.html#cb234-1" tabindex="-1"></a>my.df <span class="sc">%&gt;%</span></span>
+<span id="cb234-2"><a href="linear-models.html#cb234-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">fct_recode</span>(sex, <span class="st">&quot;0&quot;</span> <span class="ot">=</span> <span class="st">&quot;female&quot;</span>, <span class="st">&quot;1&quot;</span> <span class="ot">=</span> <span class="st">&quot;male&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb234-3"><a href="linear-models.html#cb234-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(sex))) <span class="sc">%&gt;%</span></span>
+<span id="cb234-4"><a href="linear-models.html#cb234-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span> sex,<span class="at">y=</span>pitch)) <span class="sc">+</span></span>
+<span id="cb234-5"><a href="linear-models.html#cb234-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb234-6"><a href="linear-models.html#cb234-6" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="fu">coef</span>(xmdl)[<span class="dv">1</span>],<span class="at">slope =</span> <span class="fu">coef</span>(xmdl)[<span class="dv">2</span>]) <span class="sc">+</span></span>
+<span id="cb234-7"><a href="linear-models.html#cb234-7" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span>.<span class="dv">5</span>,<span class="fl">1.5</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">300</span>)) <span class="sc">+</span></span>
+<span id="cb234-8"><a href="linear-models.html#cb234-8" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="dv">0</span>), <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">alpha =</span> .<span class="dv">7</span>) <span class="sc">+</span> </span>
+<span id="cb234-9"><a href="linear-models.html#cb234-9" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="dv">0</span>), <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">alpha =</span> .<span class="dv">7</span>) <span class="sc">+</span> </span>
+<span id="cb234-10"><a href="linear-models.html#cb234-10" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;female&quot;</span>,<span class="st">&quot;male&quot;</span>))</span></code></pre></div>
 </div>
 <div id="challenge-5" class="section level3 hasAnchor" number="8.2.4">
 <h3><span class="header-section-number">8.2.4</span> Challenge 5<a href="linear-models.html#challenge-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="linear-models.html#cb234-1" tabindex="-1"></a>my.df <span class="sc">%&gt;%</span></span>
-<span id="cb234-2"><a href="linear-models.html#cb234-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> age,<span class="at">y =</span> pitch)) <span class="sc">+</span> </span>
-<span id="cb234-3"><a href="linear-models.html#cb234-3" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb234-4"><a href="linear-models.html#cb234-4" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>,<span class="at">se =</span> F, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb234-5"><a href="linear-models.html#cb234-5" tabindex="-1"></a>  <span class="co"># scale_y_continuous(n.breaks = 50) +</span></span>
-<span id="cb234-6"><a href="linear-models.html#cb234-6" tabindex="-1"></a>  <span class="co"># coord_cartesian()</span></span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="linear-models.html#cb235-1" tabindex="-1"></a>my.df <span class="sc">%&gt;%</span></span>
+<span id="cb235-2"><a href="linear-models.html#cb235-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> age,<span class="at">y =</span> pitch)) <span class="sc">+</span> </span>
+<span id="cb235-3"><a href="linear-models.html#cb235-3" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb235-4"><a href="linear-models.html#cb235-4" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>,<span class="at">se =</span> F, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb235-5"><a href="linear-models.html#cb235-5" tabindex="-1"></a>  <span class="co"># scale_y_continuous(n.breaks = 50) +</span></span>
+<span id="cb235-6"><a href="linear-models.html#cb235-6" tabindex="-1"></a>  <span class="co"># coord_cartesian()</span></span></code></pre></div>
 
 </div>
 </div>

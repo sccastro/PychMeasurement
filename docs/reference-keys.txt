@@ -12,6 +12,7 @@ university-attendance-requirements
 student-support-accommodations
 academic-calendar
 course-schedule
+end-of-syllabus
 introduction
 help
 vectors
@@ -22,6 +23,7 @@ ifelse-statement
 function
 assignment-1
 importing-data
+winner-jacob-bates
 whats-a-tibble
 save-your-dataset
 cleaning-your-data-file
@@ -91,4 +93,3 @@ blogdown
 rmarkdown-website
 shiny-applications
 kmeans-app
-winner-jacob-bates

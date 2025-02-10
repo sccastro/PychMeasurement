@@ -159,6 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.11" data-path="syllabus.html"><a href="syllabus.html#student-support-accommodations"><i class="fa fa-check"></i><b>1.11</b> Student Support &amp; Accommodations</a></li>
 <li class="chapter" data-level="1.12" data-path="syllabus.html"><a href="syllabus.html#academic-calendar"><i class="fa fa-check"></i><b>1.12</b> Academic Calendar</a></li>
 <li class="chapter" data-level="1.13" data-path="syllabus.html"><a href="syllabus.html#course-schedule"><i class="fa fa-check"></i><b>1.13</b> Course Schedule</a></li>
+<li class="chapter" data-level="1.14" data-path="syllabus.html"><a href="syllabus.html#end-of-syllabus"><i class="fa fa-check"></i><b>1.14</b> End of Syllabus</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
 <ul>
@@ -176,10 +177,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="importing-data.html"><a href="importing-data.html"><i class="fa fa-check"></i><b>3</b> Importing Data</a>
 <ul>
+<li class="chapter" data-level="3.1" data-path="importing-data.html"><a href="importing-data.html#winner-jacob-bates"><i class="fa fa-check"></i><b>3.1</b> WINNER!!!!! Jacob Bates</a></li>
 <li class="chapter" data-level="" data-path="importing-data.html"><a href="importing-data.html#reading-files-into-r"><i class="fa fa-check"></i>Reading files into R</a></li>
-<li class="chapter" data-level="3.1" data-path="importing-data.html"><a href="importing-data.html#whats-a-tibble"><i class="fa fa-check"></i><b>3.1</b> What’s a tibble?</a></li>
-<li class="chapter" data-level="3.2" data-path="importing-data.html"><a href="importing-data.html#save-your-dataset"><i class="fa fa-check"></i><b>3.2</b> Save your dataset:</a></li>
-<li class="chapter" data-level="3.3" data-path="importing-data.html"><a href="importing-data.html#cleaning-your-data-file"><i class="fa fa-check"></i><b>3.3</b> Cleaning your data file</a></li>
+<li class="chapter" data-level="3.2" data-path="importing-data.html"><a href="importing-data.html#whats-a-tibble"><i class="fa fa-check"></i><b>3.2</b> What’s a tibble?</a></li>
+<li class="chapter" data-level="3.3" data-path="importing-data.html"><a href="importing-data.html#save-your-dataset"><i class="fa fa-check"></i><b>3.3</b> Save your dataset:</a></li>
+<li class="chapter" data-level="3.4" data-path="importing-data.html"><a href="importing-data.html#cleaning-your-data-file"><i class="fa fa-check"></i><b>3.4</b> Cleaning your data file</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>4</b> Data Transformation</a>
 <ul>
@@ -323,78 +325,78 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Advanced R Challenges
 </h4>
 <p>Create a custom theme for your graphs!</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="visualization-with-ggplot2.html#cb106-1" tabindex="-1"></a><span class="fu">require</span>(tidyverse)</span>
-<span id="cb106-2"><a href="visualization-with-ggplot2.html#cb106-2" tabindex="-1"></a><span class="co">#&gt; Loading required package: tidyverse</span></span>
-<span id="cb106-3"><a href="visualization-with-ggplot2.html#cb106-3" tabindex="-1"></a><span class="co">#&gt; ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</span></span>
-<span id="cb106-4"><a href="visualization-with-ggplot2.html#cb106-4" tabindex="-1"></a><span class="co">#&gt; ✓ ggplot2 3.3.5     ✓ purrr   0.3.4</span></span>
-<span id="cb106-5"><a href="visualization-with-ggplot2.html#cb106-5" tabindex="-1"></a><span class="co">#&gt; ✓ tibble  3.1.6     ✓ dplyr   1.0.7</span></span>
-<span id="cb106-6"><a href="visualization-with-ggplot2.html#cb106-6" tabindex="-1"></a><span class="co">#&gt; ✓ tidyr   1.1.3     ✓ stringr 1.4.0</span></span>
-<span id="cb106-7"><a href="visualization-with-ggplot2.html#cb106-7" tabindex="-1"></a><span class="co">#&gt; ✓ readr   1.4.0     ✓ forcats 0.5.1</span></span>
-<span id="cb106-8"><a href="visualization-with-ggplot2.html#cb106-8" tabindex="-1"></a><span class="co">#&gt; ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──</span></span>
-<span id="cb106-9"><a href="visualization-with-ggplot2.html#cb106-9" tabindex="-1"></a><span class="co">#&gt; x dplyr::filter() masks stats::filter()</span></span>
-<span id="cb106-10"><a href="visualization-with-ggplot2.html#cb106-10" tabindex="-1"></a><span class="co">#&gt; x dplyr::lag()    masks stats::lag()</span></span>
-<span id="cb106-11"><a href="visualization-with-ggplot2.html#cb106-11" tabindex="-1"></a><span class="co">#Example 1.</span></span>
-<span id="cb106-12"><a href="visualization-with-ggplot2.html#cb106-12" tabindex="-1"></a>my.axis.font<span class="ot">&lt;-</span><span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">18</span>), <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">18</span>),</span>
-<span id="cb106-13"><a href="visualization-with-ggplot2.html#cb106-13" tabindex="-1"></a>                    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">18</span>), <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">18</span>), </span>
-<span id="cb106-14"><a href="visualization-with-ggplot2.html#cb106-14" tabindex="-1"></a>                    <span class="at">plot.title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">18</span>,<span class="at">face=</span><span class="st">&quot;bold&quot;</span>, <span class="at">hjust =</span> .<span class="dv">5</span>),</span>
-<span id="cb106-15"><a href="visualization-with-ggplot2.html#cb106-15" tabindex="-1"></a>                    <span class="at">legend.title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">14</span>),<span class="at">legend.text=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">14</span>))</span>
-<span id="cb106-16"><a href="visualization-with-ggplot2.html#cb106-16" tabindex="-1"></a></span>
-<span id="cb106-17"><a href="visualization-with-ggplot2.html#cb106-17" tabindex="-1"></a><span class="co"># theme_mine &lt;- theme(...)</span></span>
-<span id="cb106-18"><a href="visualization-with-ggplot2.html#cb106-18" tabindex="-1"></a><span class="co"># example 2.</span></span>
-<span id="cb106-19"><a href="visualization-with-ggplot2.html#cb106-19" tabindex="-1"></a><span class="do">### XKCD theme</span></span>
-<span id="cb106-20"><a href="visualization-with-ggplot2.html#cb106-20" tabindex="-1"></a>theme_xkcd2 <span class="ot">&lt;-</span> <span class="fu">theme</span>(</span>
-<span id="cb106-21"><a href="visualization-with-ggplot2.html#cb106-21" tabindex="-1"></a>  <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill=</span><span class="st">&quot;white&quot;</span>), </span>
-<span id="cb106-22"><a href="visualization-with-ggplot2.html#cb106-22" tabindex="-1"></a>  <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">colour=</span><span class="cn">NA</span>),</span>
-<span id="cb106-23"><a href="visualization-with-ggplot2.html#cb106-23" tabindex="-1"></a>  <span class="at">panel.grid =</span> <span class="fu">element_line</span>(<span class="at">colour=</span><span class="st">&quot;white&quot;</span>),</span>
-<span id="cb106-24"><a href="visualization-with-ggplot2.html#cb106-24" tabindex="-1"></a>  <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">colour=</span><span class="cn">NA</span>), </span>
-<span id="cb106-25"><a href="visualization-with-ggplot2.html#cb106-25" tabindex="-1"></a>  <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">colour=</span><span class="st">&quot;black&quot;</span>),</span>
-<span id="cb106-26"><a href="visualization-with-ggplot2.html#cb106-26" tabindex="-1"></a>  <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">16</span>, <span class="at">family=</span><span class="st">&quot;Humor Sans&quot;</span>)</span>
-<span id="cb106-27"><a href="visualization-with-ggplot2.html#cb106-27" tabindex="-1"></a>)</span>
-<span id="cb106-28"><a href="visualization-with-ggplot2.html#cb106-28" tabindex="-1"></a></span>
-<span id="cb106-29"><a href="visualization-with-ggplot2.html#cb106-29" tabindex="-1"></a><span class="do">###Jittery line###</span></span>
-<span id="cb106-30"><a href="visualization-with-ggplot2.html#cb106-30" tabindex="-1"></a>xkcd_line <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y, color) {</span>
-<span id="cb106-31"><a href="visualization-with-ggplot2.html#cb106-31" tabindex="-1"></a>  len <span class="ot">&lt;-</span> <span class="fu">length</span>(x);</span>
-<span id="cb106-32"><a href="visualization-with-ggplot2.html#cb106-32" tabindex="-1"></a>  rg <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="st">&quot;usr&quot;</span>);</span>
-<span id="cb106-33"><a href="visualization-with-ggplot2.html#cb106-33" tabindex="-1"></a>  yjitter <span class="ot">&lt;-</span> (rg[<span class="dv">4</span>] <span class="sc">-</span> rg[<span class="dv">3</span>]) <span class="sc">/</span> <span class="dv">1000</span>;</span>
-<span id="cb106-34"><a href="visualization-with-ggplot2.html#cb106-34" tabindex="-1"></a>  xjitter <span class="ot">&lt;-</span> (rg[<span class="dv">2</span>] <span class="sc">-</span> rg[<span class="dv">1</span>]) <span class="sc">/</span> <span class="dv">1000</span>;</span>
-<span id="cb106-35"><a href="visualization-with-ggplot2.html#cb106-35" tabindex="-1"></a>  x_mod <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="fu">rnorm</span>(len) <span class="sc">*</span> xjitter;</span>
-<span id="cb106-36"><a href="visualization-with-ggplot2.html#cb106-36" tabindex="-1"></a>  y_mod <span class="ot">&lt;-</span> y <span class="sc">+</span> <span class="fu">rnorm</span>(len) <span class="sc">*</span> yjitter;</span>
-<span id="cb106-37"><a href="visualization-with-ggplot2.html#cb106-37" tabindex="-1"></a>  <span class="fu">lines</span>(x_mod, y_mod, <span class="at">col=</span><span class="st">&#39;white&#39;</span>, <span class="at">lwd=</span><span class="dv">10</span>);</span>
-<span id="cb106-38"><a href="visualization-with-ggplot2.html#cb106-38" tabindex="-1"></a>  <span class="fu">lines</span>(x_mod, y_mod, <span class="at">col=</span>color, <span class="at">lwd=</span><span class="dv">5</span>);</span>
-<span id="cb106-39"><a href="visualization-with-ggplot2.html#cb106-39" tabindex="-1"></a>}</span>
-<span id="cb106-40"><a href="visualization-with-ggplot2.html#cb106-40" tabindex="-1"></a></span>
-<span id="cb106-41"><a href="visualization-with-ggplot2.html#cb106-41" tabindex="-1"></a><span class="do">###Off-axis###</span></span>
-<span id="cb106-42"><a href="visualization-with-ggplot2.html#cb106-42" tabindex="-1"></a>xkcd_axis <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb106-43"><a href="visualization-with-ggplot2.html#cb106-43" tabindex="-1"></a>  rg <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="st">&quot;usr&quot;</span>);</span>
-<span id="cb106-44"><a href="visualization-with-ggplot2.html#cb106-44" tabindex="-1"></a>  yaxis <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span> <span class="sc">/</span> <span class="dv">100</span> <span class="sc">*</span> (rg[<span class="dv">4</span>] <span class="sc">-</span> rg[<span class="dv">3</span>]) <span class="sc">+</span> rg[<span class="dv">3</span>];</span>
-<span id="cb106-45"><a href="visualization-with-ggplot2.html#cb106-45" tabindex="-1"></a>  xaxis <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span> <span class="sc">/</span> <span class="dv">100</span> <span class="sc">*</span> (rg[<span class="dv">2</span>] <span class="sc">-</span> rg[<span class="dv">1</span>]) <span class="sc">+</span> rg[<span class="dv">1</span>];</span>
-<span id="cb106-46"><a href="visualization-with-ggplot2.html#cb106-46" tabindex="-1"></a>  <span class="fu">xkcd_line</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span> <span class="sc">*</span> <span class="dv">0</span> <span class="sc">+</span> rg[<span class="dv">1</span>] <span class="sc">+</span> (rg[<span class="dv">2</span>]<span class="sc">-</span>rg[<span class="dv">1</span>])<span class="sc">/</span><span class="dv">100</span>, yaxis,<span class="st">&#39;black&#39;</span>)</span>
-<span id="cb106-47"><a href="visualization-with-ggplot2.html#cb106-47" tabindex="-1"></a>  <span class="fu">xkcd_line</span>(xaxis, <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span> <span class="sc">*</span> <span class="dv">0</span> <span class="sc">+</span> rg[<span class="dv">3</span>] <span class="sc">+</span> (rg[<span class="dv">4</span>]<span class="sc">-</span>rg[<span class="dv">3</span>])<span class="sc">/</span><span class="dv">100</span>, <span class="st">&#39;black&#39;</span>)</span>
-<span id="cb106-48"><a href="visualization-with-ggplot2.html#cb106-48" tabindex="-1"></a>}</span>
-<span id="cb106-49"><a href="visualization-with-ggplot2.html#cb106-49" tabindex="-1"></a></span>
-<span id="cb106-50"><a href="visualization-with-ggplot2.html#cb106-50" tabindex="-1"></a><span class="co">#Now use it to  plot some graphs.</span></span>
-<span id="cb106-51"><a href="visualization-with-ggplot2.html#cb106-51" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
-<span id="cb106-52"><a href="visualization-with-ggplot2.html#cb106-52" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class)) <span class="sc">+</span></span>
-<span id="cb106-53"><a href="visualization-with-ggplot2.html#cb106-53" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;My Plot&quot;</span>) <span class="sc">+</span></span>
-<span id="cb106-54"><a href="visualization-with-ggplot2.html#cb106-54" tabindex="-1"></a>  my.axis.font</span>
-<span id="cb106-55"><a href="visualization-with-ggplot2.html#cb106-55" tabindex="-1"></a></span>
-<span id="cb106-56"><a href="visualization-with-ggplot2.html#cb106-56" tabindex="-1"></a><span class="co">#Some squiggly lines:</span></span>
-<span id="cb106-57"><a href="visualization-with-ggplot2.html#cb106-57" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>)</span>
-<span id="cb106-58"><a href="visualization-with-ggplot2.html#cb106-58" tabindex="-1"></a>d<span class="sc">$</span>one <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="sc">-</span>((d<span class="sc">$</span>x <span class="sc">-</span> <span class="dv">50</span>)<span class="sc">/</span><span class="dv">10</span>)<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb106-59"><a href="visualization-with-ggplot2.html#cb106-59" tabindex="-1"></a>d<span class="sc">$</span>two <span class="ot">&lt;-</span> <span class="fu">sin</span>(d<span class="sc">$</span>x<span class="sc">/</span><span class="dv">10</span>)</span>
-<span id="cb106-60"><a href="visualization-with-ggplot2.html#cb106-60" tabindex="-1"></a><span class="fu">plot.new</span>()</span>
-<span id="cb106-61"><a href="visualization-with-ggplot2.html#cb106-61" tabindex="-1"></a><span class="fu">plot.window</span>(</span>
-<span id="cb106-62"><a href="visualization-with-ggplot2.html#cb106-62" tabindex="-1"></a>  <span class="fu">c</span>(<span class="fu">min</span>(d<span class="sc">$</span>x),<span class="fu">max</span>(d<span class="sc">$</span>x)),</span>
-<span id="cb106-63"><a href="visualization-with-ggplot2.html#cb106-63" tabindex="-1"></a>  <span class="fu">c</span>(<span class="fu">min</span>(<span class="fu">c</span>(d<span class="sc">$</span>one,d<span class="sc">$</span>two)),<span class="fu">max</span>(<span class="fu">c</span>(d<span class="sc">$</span>one,d<span class="sc">$</span>two))))</span>
-<span id="cb106-64"><a href="visualization-with-ggplot2.html#cb106-64" tabindex="-1"></a><span class="fu">xkcd_axis</span>()</span>
-<span id="cb106-65"><a href="visualization-with-ggplot2.html#cb106-65" tabindex="-1"></a><span class="fu">xkcd_line</span>(d<span class="sc">$</span>x, d<span class="sc">$</span>one, <span class="st">&#39;red&#39;</span>)</span>
-<span id="cb106-66"><a href="visualization-with-ggplot2.html#cb106-66" tabindex="-1"></a><span class="fu">xkcd_line</span>(d<span class="sc">$</span>x, d<span class="sc">$</span>two, <span class="st">&#39;blue&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="visualization-with-ggplot2.html#cb107-1" tabindex="-1"></a><span class="fu">require</span>(tidyverse)</span>
+<span id="cb107-2"><a href="visualization-with-ggplot2.html#cb107-2" tabindex="-1"></a><span class="co">#&gt; Loading required package: tidyverse</span></span>
+<span id="cb107-3"><a href="visualization-with-ggplot2.html#cb107-3" tabindex="-1"></a><span class="co">#&gt; ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</span></span>
+<span id="cb107-4"><a href="visualization-with-ggplot2.html#cb107-4" tabindex="-1"></a><span class="co">#&gt; ✓ ggplot2 3.3.5     ✓ purrr   0.3.4</span></span>
+<span id="cb107-5"><a href="visualization-with-ggplot2.html#cb107-5" tabindex="-1"></a><span class="co">#&gt; ✓ tibble  3.1.6     ✓ dplyr   1.0.7</span></span>
+<span id="cb107-6"><a href="visualization-with-ggplot2.html#cb107-6" tabindex="-1"></a><span class="co">#&gt; ✓ tidyr   1.1.3     ✓ stringr 1.4.0</span></span>
+<span id="cb107-7"><a href="visualization-with-ggplot2.html#cb107-7" tabindex="-1"></a><span class="co">#&gt; ✓ readr   1.4.0     ✓ forcats 0.5.1</span></span>
+<span id="cb107-8"><a href="visualization-with-ggplot2.html#cb107-8" tabindex="-1"></a><span class="co">#&gt; ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──</span></span>
+<span id="cb107-9"><a href="visualization-with-ggplot2.html#cb107-9" tabindex="-1"></a><span class="co">#&gt; x dplyr::filter() masks stats::filter()</span></span>
+<span id="cb107-10"><a href="visualization-with-ggplot2.html#cb107-10" tabindex="-1"></a><span class="co">#&gt; x dplyr::lag()    masks stats::lag()</span></span>
+<span id="cb107-11"><a href="visualization-with-ggplot2.html#cb107-11" tabindex="-1"></a><span class="co">#Example 1.</span></span>
+<span id="cb107-12"><a href="visualization-with-ggplot2.html#cb107-12" tabindex="-1"></a>my.axis.font<span class="ot">&lt;-</span><span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">18</span>), <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">18</span>),</span>
+<span id="cb107-13"><a href="visualization-with-ggplot2.html#cb107-13" tabindex="-1"></a>                    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">18</span>), <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">18</span>), </span>
+<span id="cb107-14"><a href="visualization-with-ggplot2.html#cb107-14" tabindex="-1"></a>                    <span class="at">plot.title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">18</span>,<span class="at">face=</span><span class="st">&quot;bold&quot;</span>, <span class="at">hjust =</span> .<span class="dv">5</span>),</span>
+<span id="cb107-15"><a href="visualization-with-ggplot2.html#cb107-15" tabindex="-1"></a>                    <span class="at">legend.title=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">14</span>),<span class="at">legend.text=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">14</span>))</span>
+<span id="cb107-16"><a href="visualization-with-ggplot2.html#cb107-16" tabindex="-1"></a></span>
+<span id="cb107-17"><a href="visualization-with-ggplot2.html#cb107-17" tabindex="-1"></a><span class="co"># theme_mine &lt;- theme(...)</span></span>
+<span id="cb107-18"><a href="visualization-with-ggplot2.html#cb107-18" tabindex="-1"></a><span class="co"># example 2.</span></span>
+<span id="cb107-19"><a href="visualization-with-ggplot2.html#cb107-19" tabindex="-1"></a><span class="do">### XKCD theme</span></span>
+<span id="cb107-20"><a href="visualization-with-ggplot2.html#cb107-20" tabindex="-1"></a>theme_xkcd2 <span class="ot">&lt;-</span> <span class="fu">theme</span>(</span>
+<span id="cb107-21"><a href="visualization-with-ggplot2.html#cb107-21" tabindex="-1"></a>  <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill=</span><span class="st">&quot;white&quot;</span>), </span>
+<span id="cb107-22"><a href="visualization-with-ggplot2.html#cb107-22" tabindex="-1"></a>  <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">colour=</span><span class="cn">NA</span>),</span>
+<span id="cb107-23"><a href="visualization-with-ggplot2.html#cb107-23" tabindex="-1"></a>  <span class="at">panel.grid =</span> <span class="fu">element_line</span>(<span class="at">colour=</span><span class="st">&quot;white&quot;</span>),</span>
+<span id="cb107-24"><a href="visualization-with-ggplot2.html#cb107-24" tabindex="-1"></a>  <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">colour=</span><span class="cn">NA</span>), </span>
+<span id="cb107-25"><a href="visualization-with-ggplot2.html#cb107-25" tabindex="-1"></a>  <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">colour=</span><span class="st">&quot;black&quot;</span>),</span>
+<span id="cb107-26"><a href="visualization-with-ggplot2.html#cb107-26" tabindex="-1"></a>  <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">16</span>, <span class="at">family=</span><span class="st">&quot;Humor Sans&quot;</span>)</span>
+<span id="cb107-27"><a href="visualization-with-ggplot2.html#cb107-27" tabindex="-1"></a>)</span>
+<span id="cb107-28"><a href="visualization-with-ggplot2.html#cb107-28" tabindex="-1"></a></span>
+<span id="cb107-29"><a href="visualization-with-ggplot2.html#cb107-29" tabindex="-1"></a><span class="do">###Jittery line###</span></span>
+<span id="cb107-30"><a href="visualization-with-ggplot2.html#cb107-30" tabindex="-1"></a>xkcd_line <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y, color) {</span>
+<span id="cb107-31"><a href="visualization-with-ggplot2.html#cb107-31" tabindex="-1"></a>  len <span class="ot">&lt;-</span> <span class="fu">length</span>(x);</span>
+<span id="cb107-32"><a href="visualization-with-ggplot2.html#cb107-32" tabindex="-1"></a>  rg <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="st">&quot;usr&quot;</span>);</span>
+<span id="cb107-33"><a href="visualization-with-ggplot2.html#cb107-33" tabindex="-1"></a>  yjitter <span class="ot">&lt;-</span> (rg[<span class="dv">4</span>] <span class="sc">-</span> rg[<span class="dv">3</span>]) <span class="sc">/</span> <span class="dv">1000</span>;</span>
+<span id="cb107-34"><a href="visualization-with-ggplot2.html#cb107-34" tabindex="-1"></a>  xjitter <span class="ot">&lt;-</span> (rg[<span class="dv">2</span>] <span class="sc">-</span> rg[<span class="dv">1</span>]) <span class="sc">/</span> <span class="dv">1000</span>;</span>
+<span id="cb107-35"><a href="visualization-with-ggplot2.html#cb107-35" tabindex="-1"></a>  x_mod <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="fu">rnorm</span>(len) <span class="sc">*</span> xjitter;</span>
+<span id="cb107-36"><a href="visualization-with-ggplot2.html#cb107-36" tabindex="-1"></a>  y_mod <span class="ot">&lt;-</span> y <span class="sc">+</span> <span class="fu">rnorm</span>(len) <span class="sc">*</span> yjitter;</span>
+<span id="cb107-37"><a href="visualization-with-ggplot2.html#cb107-37" tabindex="-1"></a>  <span class="fu">lines</span>(x_mod, y_mod, <span class="at">col=</span><span class="st">&#39;white&#39;</span>, <span class="at">lwd=</span><span class="dv">10</span>);</span>
+<span id="cb107-38"><a href="visualization-with-ggplot2.html#cb107-38" tabindex="-1"></a>  <span class="fu">lines</span>(x_mod, y_mod, <span class="at">col=</span>color, <span class="at">lwd=</span><span class="dv">5</span>);</span>
+<span id="cb107-39"><a href="visualization-with-ggplot2.html#cb107-39" tabindex="-1"></a>}</span>
+<span id="cb107-40"><a href="visualization-with-ggplot2.html#cb107-40" tabindex="-1"></a></span>
+<span id="cb107-41"><a href="visualization-with-ggplot2.html#cb107-41" tabindex="-1"></a><span class="do">###Off-axis###</span></span>
+<span id="cb107-42"><a href="visualization-with-ggplot2.html#cb107-42" tabindex="-1"></a>xkcd_axis <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb107-43"><a href="visualization-with-ggplot2.html#cb107-43" tabindex="-1"></a>  rg <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="st">&quot;usr&quot;</span>);</span>
+<span id="cb107-44"><a href="visualization-with-ggplot2.html#cb107-44" tabindex="-1"></a>  yaxis <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span> <span class="sc">/</span> <span class="dv">100</span> <span class="sc">*</span> (rg[<span class="dv">4</span>] <span class="sc">-</span> rg[<span class="dv">3</span>]) <span class="sc">+</span> rg[<span class="dv">3</span>];</span>
+<span id="cb107-45"><a href="visualization-with-ggplot2.html#cb107-45" tabindex="-1"></a>  xaxis <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span> <span class="sc">/</span> <span class="dv">100</span> <span class="sc">*</span> (rg[<span class="dv">2</span>] <span class="sc">-</span> rg[<span class="dv">1</span>]) <span class="sc">+</span> rg[<span class="dv">1</span>];</span>
+<span id="cb107-46"><a href="visualization-with-ggplot2.html#cb107-46" tabindex="-1"></a>  <span class="fu">xkcd_line</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span> <span class="sc">*</span> <span class="dv">0</span> <span class="sc">+</span> rg[<span class="dv">1</span>] <span class="sc">+</span> (rg[<span class="dv">2</span>]<span class="sc">-</span>rg[<span class="dv">1</span>])<span class="sc">/</span><span class="dv">100</span>, yaxis,<span class="st">&#39;black&#39;</span>)</span>
+<span id="cb107-47"><a href="visualization-with-ggplot2.html#cb107-47" tabindex="-1"></a>  <span class="fu">xkcd_line</span>(xaxis, <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span> <span class="sc">*</span> <span class="dv">0</span> <span class="sc">+</span> rg[<span class="dv">3</span>] <span class="sc">+</span> (rg[<span class="dv">4</span>]<span class="sc">-</span>rg[<span class="dv">3</span>])<span class="sc">/</span><span class="dv">100</span>, <span class="st">&#39;black&#39;</span>)</span>
+<span id="cb107-48"><a href="visualization-with-ggplot2.html#cb107-48" tabindex="-1"></a>}</span>
+<span id="cb107-49"><a href="visualization-with-ggplot2.html#cb107-49" tabindex="-1"></a></span>
+<span id="cb107-50"><a href="visualization-with-ggplot2.html#cb107-50" tabindex="-1"></a><span class="co">#Now use it to  plot some graphs.</span></span>
+<span id="cb107-51"><a href="visualization-with-ggplot2.html#cb107-51" tabindex="-1"></a>mpg <span class="sc">%&gt;%</span></span>
+<span id="cb107-52"><a href="visualization-with-ggplot2.html#cb107-52" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class)) <span class="sc">+</span></span>
+<span id="cb107-53"><a href="visualization-with-ggplot2.html#cb107-53" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;My Plot&quot;</span>) <span class="sc">+</span></span>
+<span id="cb107-54"><a href="visualization-with-ggplot2.html#cb107-54" tabindex="-1"></a>  my.axis.font</span>
+<span id="cb107-55"><a href="visualization-with-ggplot2.html#cb107-55" tabindex="-1"></a></span>
+<span id="cb107-56"><a href="visualization-with-ggplot2.html#cb107-56" tabindex="-1"></a><span class="co">#Some squiggly lines:</span></span>
+<span id="cb107-57"><a href="visualization-with-ggplot2.html#cb107-57" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>)</span>
+<span id="cb107-58"><a href="visualization-with-ggplot2.html#cb107-58" tabindex="-1"></a>d<span class="sc">$</span>one <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="sc">-</span>((d<span class="sc">$</span>x <span class="sc">-</span> <span class="dv">50</span>)<span class="sc">/</span><span class="dv">10</span>)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb107-59"><a href="visualization-with-ggplot2.html#cb107-59" tabindex="-1"></a>d<span class="sc">$</span>two <span class="ot">&lt;-</span> <span class="fu">sin</span>(d<span class="sc">$</span>x<span class="sc">/</span><span class="dv">10</span>)</span>
+<span id="cb107-60"><a href="visualization-with-ggplot2.html#cb107-60" tabindex="-1"></a><span class="fu">plot.new</span>()</span>
+<span id="cb107-61"><a href="visualization-with-ggplot2.html#cb107-61" tabindex="-1"></a><span class="fu">plot.window</span>(</span>
+<span id="cb107-62"><a href="visualization-with-ggplot2.html#cb107-62" tabindex="-1"></a>  <span class="fu">c</span>(<span class="fu">min</span>(d<span class="sc">$</span>x),<span class="fu">max</span>(d<span class="sc">$</span>x)),</span>
+<span id="cb107-63"><a href="visualization-with-ggplot2.html#cb107-63" tabindex="-1"></a>  <span class="fu">c</span>(<span class="fu">min</span>(<span class="fu">c</span>(d<span class="sc">$</span>one,d<span class="sc">$</span>two)),<span class="fu">max</span>(<span class="fu">c</span>(d<span class="sc">$</span>one,d<span class="sc">$</span>two))))</span>
+<span id="cb107-64"><a href="visualization-with-ggplot2.html#cb107-64" tabindex="-1"></a><span class="fu">xkcd_axis</span>()</span>
+<span id="cb107-65"><a href="visualization-with-ggplot2.html#cb107-65" tabindex="-1"></a><span class="fu">xkcd_line</span>(d<span class="sc">$</span>x, d<span class="sc">$</span>one, <span class="st">&#39;red&#39;</span>)</span>
+<span id="cb107-66"><a href="visualization-with-ggplot2.html#cb107-66" tabindex="-1"></a><span class="fu">xkcd_line</span>(d<span class="sc">$</span>x, d<span class="sc">$</span>two, <span class="st">&#39;blue&#39;</span>)</span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/advancedR-1.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/advancedR-2.png" width="70%" style="display: block; margin: auto;" /></p>
 <div id="steps-of-visualization" class="section level2 unnumbered hasAnchor">
 <h2>Steps of Visualization<a href="visualization-with-ggplot2.html#steps-of-visualization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Step 1: Get some data</p>
 <p><code>ggplot2</code> has the mpg dataset.</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="visualization-with-ggplot2.html#cb107-1" tabindex="-1"></a><span class="fu">kable</span>(ggplot2<span class="sc">::</span>mpg[<span class="dv">1</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="visualization-with-ggplot2.html#cb108-1" tabindex="-1"></a><span class="fu">kable</span>(ggplot2<span class="sc">::</span>mpg[<span class="dv">1</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>])</span></code></pre></div>
 <table>
 <thead>
 <tr>
@@ -472,50 +474,50 @@ compact
 </tbody>
 </table>
 <p>Let’s save it to something…</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="visualization-with-ggplot2.html#cb108-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> ggplot2<span class="sc">::</span>mpg</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="visualization-with-ggplot2.html#cb109-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> ggplot2<span class="sc">::</span>mpg</span></code></pre></div>
 <p>take a look at it…</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="visualization-with-ggplot2.html#cb109-1" tabindex="-1"></a><span class="fu">View</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="visualization-with-ggplot2.html#cb110-1" tabindex="-1"></a><span class="fu">View</span>(df)</span></code></pre></div>
 <p>Also look at its dimensions up in the environment —-&gt;
 (usually it’s in the upper-right corner)
 or print them to the console…</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="visualization-with-ggplot2.html#cb110-1" tabindex="-1"></a><span class="fu">dim</span>(df)</span>
-<span id="cb110-2"><a href="visualization-with-ggplot2.html#cb110-2" tabindex="-1"></a><span class="co">#&gt; [1] 234  11</span></span>
-<span id="cb110-3"><a href="visualization-with-ggplot2.html#cb110-3" tabindex="-1"></a><span class="fu">str</span>(df) <span class="co">#what kind of classes are we dealing with?</span></span>
-<span id="cb110-4"><a href="visualization-with-ggplot2.html#cb110-4" tabindex="-1"></a><span class="co">#&gt; tibble [234 × 11] (S3: tbl_df/tbl/data.frame)</span></span>
-<span id="cb110-5"><a href="visualization-with-ggplot2.html#cb110-5" tabindex="-1"></a><span class="co">#&gt;  $ manufacturer: chr [1:234] &quot;audi&quot; &quot;audi&quot; &quot;audi&quot; &quot;audi&quot; ...</span></span>
-<span id="cb110-6"><a href="visualization-with-ggplot2.html#cb110-6" tabindex="-1"></a><span class="co">#&gt;  $ model       : chr [1:234] &quot;a4&quot; &quot;a4&quot; &quot;a4&quot; &quot;a4&quot; ...</span></span>
-<span id="cb110-7"><a href="visualization-with-ggplot2.html#cb110-7" tabindex="-1"></a><span class="co">#&gt;  $ displ       : num [1:234] 1.8 1.8 2 2 2.8 2.8 3.1 1.8 1.8 2 ...</span></span>
-<span id="cb110-8"><a href="visualization-with-ggplot2.html#cb110-8" tabindex="-1"></a><span class="co">#&gt;  $ year        : int [1:234] 1999 1999 2008 2008 1999 1999 2008 1999 1999 2008 ...</span></span>
-<span id="cb110-9"><a href="visualization-with-ggplot2.html#cb110-9" tabindex="-1"></a><span class="co">#&gt;  $ cyl         : int [1:234] 4 4 4 4 6 6 6 4 4 4 ...</span></span>
-<span id="cb110-10"><a href="visualization-with-ggplot2.html#cb110-10" tabindex="-1"></a><span class="co">#&gt;  $ trans       : chr [1:234] &quot;auto(l5)&quot; &quot;manual(m5)&quot; &quot;manual(m6)&quot; &quot;auto(av)&quot; ...</span></span>
-<span id="cb110-11"><a href="visualization-with-ggplot2.html#cb110-11" tabindex="-1"></a><span class="co">#&gt;  $ drv         : chr [1:234] &quot;f&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot; ...</span></span>
-<span id="cb110-12"><a href="visualization-with-ggplot2.html#cb110-12" tabindex="-1"></a><span class="co">#&gt;  $ cty         : int [1:234] 18 21 20 21 16 18 18 18 16 20 ...</span></span>
-<span id="cb110-13"><a href="visualization-with-ggplot2.html#cb110-13" tabindex="-1"></a><span class="co">#&gt;  $ hwy         : int [1:234] 29 29 31 30 26 26 27 26 25 28 ...</span></span>
-<span id="cb110-14"><a href="visualization-with-ggplot2.html#cb110-14" tabindex="-1"></a><span class="co">#&gt;  $ fl          : chr [1:234] &quot;p&quot; &quot;p&quot; &quot;p&quot; &quot;p&quot; ...</span></span>
-<span id="cb110-15"><a href="visualization-with-ggplot2.html#cb110-15" tabindex="-1"></a><span class="co">#&gt;  $ class       : chr [1:234] &quot;compact&quot; &quot;compact&quot; &quot;compact&quot; &quot;compact&quot; ...</span></span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="visualization-with-ggplot2.html#cb111-1" tabindex="-1"></a><span class="fu">dim</span>(df)</span>
+<span id="cb111-2"><a href="visualization-with-ggplot2.html#cb111-2" tabindex="-1"></a><span class="co">#&gt; [1] 234  11</span></span>
+<span id="cb111-3"><a href="visualization-with-ggplot2.html#cb111-3" tabindex="-1"></a><span class="fu">str</span>(df) <span class="co">#what kind of classes are we dealing with?</span></span>
+<span id="cb111-4"><a href="visualization-with-ggplot2.html#cb111-4" tabindex="-1"></a><span class="co">#&gt; tibble [234 × 11] (S3: tbl_df/tbl/data.frame)</span></span>
+<span id="cb111-5"><a href="visualization-with-ggplot2.html#cb111-5" tabindex="-1"></a><span class="co">#&gt;  $ manufacturer: chr [1:234] &quot;audi&quot; &quot;audi&quot; &quot;audi&quot; &quot;audi&quot; ...</span></span>
+<span id="cb111-6"><a href="visualization-with-ggplot2.html#cb111-6" tabindex="-1"></a><span class="co">#&gt;  $ model       : chr [1:234] &quot;a4&quot; &quot;a4&quot; &quot;a4&quot; &quot;a4&quot; ...</span></span>
+<span id="cb111-7"><a href="visualization-with-ggplot2.html#cb111-7" tabindex="-1"></a><span class="co">#&gt;  $ displ       : num [1:234] 1.8 1.8 2 2 2.8 2.8 3.1 1.8 1.8 2 ...</span></span>
+<span id="cb111-8"><a href="visualization-with-ggplot2.html#cb111-8" tabindex="-1"></a><span class="co">#&gt;  $ year        : int [1:234] 1999 1999 2008 2008 1999 1999 2008 1999 1999 2008 ...</span></span>
+<span id="cb111-9"><a href="visualization-with-ggplot2.html#cb111-9" tabindex="-1"></a><span class="co">#&gt;  $ cyl         : int [1:234] 4 4 4 4 6 6 6 4 4 4 ...</span></span>
+<span id="cb111-10"><a href="visualization-with-ggplot2.html#cb111-10" tabindex="-1"></a><span class="co">#&gt;  $ trans       : chr [1:234] &quot;auto(l5)&quot; &quot;manual(m5)&quot; &quot;manual(m6)&quot; &quot;auto(av)&quot; ...</span></span>
+<span id="cb111-11"><a href="visualization-with-ggplot2.html#cb111-11" tabindex="-1"></a><span class="co">#&gt;  $ drv         : chr [1:234] &quot;f&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot; ...</span></span>
+<span id="cb111-12"><a href="visualization-with-ggplot2.html#cb111-12" tabindex="-1"></a><span class="co">#&gt;  $ cty         : int [1:234] 18 21 20 21 16 18 18 18 16 20 ...</span></span>
+<span id="cb111-13"><a href="visualization-with-ggplot2.html#cb111-13" tabindex="-1"></a><span class="co">#&gt;  $ hwy         : int [1:234] 29 29 31 30 26 26 27 26 25 28 ...</span></span>
+<span id="cb111-14"><a href="visualization-with-ggplot2.html#cb111-14" tabindex="-1"></a><span class="co">#&gt;  $ fl          : chr [1:234] &quot;p&quot; &quot;p&quot; &quot;p&quot; &quot;p&quot; ...</span></span>
+<span id="cb111-15"><a href="visualization-with-ggplot2.html#cb111-15" tabindex="-1"></a><span class="co">#&gt;  $ class       : chr [1:234] &quot;compact&quot; &quot;compact&quot; &quot;compact&quot; &quot;compact&quot; ...</span></span></code></pre></div>
 <p>Where can I read more about this dataset?</p>
 <p>hint:</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="visualization-with-ggplot2.html#cb111-1" tabindex="-1"></a>?mpg</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="visualization-with-ggplot2.html#cb112-1" tabindex="-1"></a>?mpg</span></code></pre></div>
 <p>You can plot this data quickly in many ways:</p>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="visualization-with-ggplot2.html#cb112-1" tabindex="-1"></a><span class="fu">stem</span>(mpg<span class="sc">$</span>displ)</span>
-<span id="cb112-2"><a href="visualization-with-ggplot2.html#cb112-2" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb112-3"><a href="visualization-with-ggplot2.html#cb112-3" tabindex="-1"></a><span class="co">#&gt;   The decimal point is at the |</span></span>
-<span id="cb112-4"><a href="visualization-with-ggplot2.html#cb112-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb112-5"><a href="visualization-with-ggplot2.html#cb112-5" tabindex="-1"></a><span class="co">#&gt;   1 | 6666688888888888888999</span></span>
-<span id="cb112-6"><a href="visualization-with-ggplot2.html#cb112-6" tabindex="-1"></a><span class="co">#&gt;   2 | 0000000000000000000002222224444444444444</span></span>
-<span id="cb112-7"><a href="visualization-with-ggplot2.html#cb112-7" tabindex="-1"></a><span class="co">#&gt;   2 | 55555555555555555555777777778888888888</span></span>
-<span id="cb112-8"><a href="visualization-with-ggplot2.html#cb112-8" tabindex="-1"></a><span class="co">#&gt;   3 | 000000001111113333333334444</span></span>
-<span id="cb112-9"><a href="visualization-with-ggplot2.html#cb112-9" tabindex="-1"></a><span class="co">#&gt;   3 | 555556677788888888999</span></span>
-<span id="cb112-10"><a href="visualization-with-ggplot2.html#cb112-10" tabindex="-1"></a><span class="co">#&gt;   4 | 00000000000000022224</span></span>
-<span id="cb112-11"><a href="visualization-with-ggplot2.html#cb112-11" tabindex="-1"></a><span class="co">#&gt;   4 | 6666666666677777777777777777</span></span>
-<span id="cb112-12"><a href="visualization-with-ggplot2.html#cb112-12" tabindex="-1"></a><span class="co">#&gt;   5 | 002222233333344444444</span></span>
-<span id="cb112-13"><a href="visualization-with-ggplot2.html#cb112-13" tabindex="-1"></a><span class="co">#&gt;   5 | 67777777799</span></span>
-<span id="cb112-14"><a href="visualization-with-ggplot2.html#cb112-14" tabindex="-1"></a><span class="co">#&gt;   6 | 0122</span></span>
-<span id="cb112-15"><a href="visualization-with-ggplot2.html#cb112-15" tabindex="-1"></a><span class="co">#&gt;   6 | 5</span></span>
-<span id="cb112-16"><a href="visualization-with-ggplot2.html#cb112-16" tabindex="-1"></a><span class="co">#&gt;   7 | 0</span></span>
-<span id="cb112-17"><a href="visualization-with-ggplot2.html#cb112-17" tabindex="-1"></a><span class="fu">hist</span>(mpg<span class="sc">$</span>displ)</span>
-<span id="cb112-18"><a href="visualization-with-ggplot2.html#cb112-18" tabindex="-1"></a><span class="fu">plot</span>(mpg<span class="sc">$</span>displ)</span>
-<span id="cb112-19"><a href="visualization-with-ggplot2.html#cb112-19" tabindex="-1"></a><span class="fu">plot</span>(mpg<span class="sc">$</span>cty, mpg<span class="sc">$</span>hwy)</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="visualization-with-ggplot2.html#cb113-1" tabindex="-1"></a><span class="fu">stem</span>(mpg<span class="sc">$</span>displ)</span>
+<span id="cb113-2"><a href="visualization-with-ggplot2.html#cb113-2" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb113-3"><a href="visualization-with-ggplot2.html#cb113-3" tabindex="-1"></a><span class="co">#&gt;   The decimal point is at the |</span></span>
+<span id="cb113-4"><a href="visualization-with-ggplot2.html#cb113-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb113-5"><a href="visualization-with-ggplot2.html#cb113-5" tabindex="-1"></a><span class="co">#&gt;   1 | 6666688888888888888999</span></span>
+<span id="cb113-6"><a href="visualization-with-ggplot2.html#cb113-6" tabindex="-1"></a><span class="co">#&gt;   2 | 0000000000000000000002222224444444444444</span></span>
+<span id="cb113-7"><a href="visualization-with-ggplot2.html#cb113-7" tabindex="-1"></a><span class="co">#&gt;   2 | 55555555555555555555777777778888888888</span></span>
+<span id="cb113-8"><a href="visualization-with-ggplot2.html#cb113-8" tabindex="-1"></a><span class="co">#&gt;   3 | 000000001111113333333334444</span></span>
+<span id="cb113-9"><a href="visualization-with-ggplot2.html#cb113-9" tabindex="-1"></a><span class="co">#&gt;   3 | 555556677788888888999</span></span>
+<span id="cb113-10"><a href="visualization-with-ggplot2.html#cb113-10" tabindex="-1"></a><span class="co">#&gt;   4 | 00000000000000022224</span></span>
+<span id="cb113-11"><a href="visualization-with-ggplot2.html#cb113-11" tabindex="-1"></a><span class="co">#&gt;   4 | 6666666666677777777777777777</span></span>
+<span id="cb113-12"><a href="visualization-with-ggplot2.html#cb113-12" tabindex="-1"></a><span class="co">#&gt;   5 | 002222233333344444444</span></span>
+<span id="cb113-13"><a href="visualization-with-ggplot2.html#cb113-13" tabindex="-1"></a><span class="co">#&gt;   5 | 67777777799</span></span>
+<span id="cb113-14"><a href="visualization-with-ggplot2.html#cb113-14" tabindex="-1"></a><span class="co">#&gt;   6 | 0122</span></span>
+<span id="cb113-15"><a href="visualization-with-ggplot2.html#cb113-15" tabindex="-1"></a><span class="co">#&gt;   6 | 5</span></span>
+<span id="cb113-16"><a href="visualization-with-ggplot2.html#cb113-16" tabindex="-1"></a><span class="co">#&gt;   7 | 0</span></span>
+<span id="cb113-17"><a href="visualization-with-ggplot2.html#cb113-17" tabindex="-1"></a><span class="fu">hist</span>(mpg<span class="sc">$</span>displ)</span>
+<span id="cb113-18"><a href="visualization-with-ggplot2.html#cb113-18" tabindex="-1"></a><span class="fu">plot</span>(mpg<span class="sc">$</span>displ)</span>
+<span id="cb113-19"><a href="visualization-with-ggplot2.html#cb113-19" tabindex="-1"></a><span class="fu">plot</span>(mpg<span class="sc">$</span>cty, mpg<span class="sc">$</span>hwy)</span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/ezplots-1.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/ezplots-2.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/ezplots-3.png" width="70%" style="display: block; margin: auto;" />
 However, the ggplot package offers a structure and flexibility to create
 almost any plot you can imagine. Other packages work with ggplot to
@@ -524,62 +526,62 @@ create the rest.</p>
 <div id="ggplot2" class="section level2 hasAnchor" number="6.1">
 <h2><span class="header-section-number">6.1</span> ggplot2<a href="visualization-with-ggplot2.html#ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Remember this scaffolding for your ggplots:</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="visualization-with-ggplot2.html#cb113-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="sc">&lt;</span>DATA<span class="sc">&gt;</span>) <span class="sc">+</span></span>
-<span id="cb113-2"><a href="visualization-with-ggplot2.html#cb113-2" tabindex="-1"></a>  <span class="er">&lt;</span>GEOM_FUNCTION<span class="sc">&gt;</span>(</span>
-<span id="cb113-3"><a href="visualization-with-ggplot2.html#cb113-3" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="sc">&lt;</span>MAPPINGS<span class="sc">&gt;</span>),</span>
-<span id="cb113-4"><a href="visualization-with-ggplot2.html#cb113-4" tabindex="-1"></a>    <span class="at">stat =</span> <span class="sc">&lt;</span>STAT<span class="sc">&gt;</span>,</span>
-<span id="cb113-5"><a href="visualization-with-ggplot2.html#cb113-5" tabindex="-1"></a>    <span class="at">position =</span> <span class="sc">&lt;</span>POSITION<span class="sc">&gt;</span></span>
-<span id="cb113-6"><a href="visualization-with-ggplot2.html#cb113-6" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb113-7"><a href="visualization-with-ggplot2.html#cb113-7" tabindex="-1"></a>  <span class="er">&lt;</span>COORDINATE_FUNCTION<span class="sc">&gt;</span> <span class="sc">+</span></span>
-<span id="cb113-8"><a href="visualization-with-ggplot2.html#cb113-8" tabindex="-1"></a>  <span class="er">&lt;</span>FACET_FUNCTION<span class="sc">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="visualization-with-ggplot2.html#cb114-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="sc">&lt;</span>DATA<span class="sc">&gt;</span>) <span class="sc">+</span></span>
+<span id="cb114-2"><a href="visualization-with-ggplot2.html#cb114-2" tabindex="-1"></a>  <span class="er">&lt;</span>GEOM_FUNCTION<span class="sc">&gt;</span>(</span>
+<span id="cb114-3"><a href="visualization-with-ggplot2.html#cb114-3" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="sc">&lt;</span>MAPPINGS<span class="sc">&gt;</span>),</span>
+<span id="cb114-4"><a href="visualization-with-ggplot2.html#cb114-4" tabindex="-1"></a>    <span class="at">stat =</span> <span class="sc">&lt;</span>STAT<span class="sc">&gt;</span>,</span>
+<span id="cb114-5"><a href="visualization-with-ggplot2.html#cb114-5" tabindex="-1"></a>    <span class="at">position =</span> <span class="sc">&lt;</span>POSITION<span class="sc">&gt;</span></span>
+<span id="cb114-6"><a href="visualization-with-ggplot2.html#cb114-6" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb114-7"><a href="visualization-with-ggplot2.html#cb114-7" tabindex="-1"></a>  <span class="er">&lt;</span>COORDINATE_FUNCTION<span class="sc">&gt;</span> <span class="sc">+</span></span>
+<span id="cb114-8"><a href="visualization-with-ggplot2.html#cb114-8" tabindex="-1"></a>  <span class="er">&lt;</span>FACET_FUNCTION<span class="sc">&gt;</span></span></code></pre></div>
 <p>ggplot consists of a data.frame (or a tibble), a coordinate system,
 and geoms (marks that represent data values)</p>
 <p>This is usually how we start:</p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="visualization-with-ggplot2.html#cb114-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="co">#the tibble</span></span>
-<span id="cb114-2"><a href="visualization-with-ggplot2.html#cb114-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> <span class="co">#the x and y coordinates (what goes on the axes)</span></span>
-<span id="cb114-3"><a href="visualization-with-ggplot2.html#cb114-3" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="co">#marks that represent the data values</span></span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="visualization-with-ggplot2.html#cb115-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="co">#the tibble</span></span>
+<span id="cb115-2"><a href="visualization-with-ggplot2.html#cb115-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> <span class="co">#the x and y coordinates (what goes on the axes)</span></span>
+<span id="cb115-3"><a href="visualization-with-ggplot2.html#cb115-3" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="co">#marks that represent the data values</span></span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/baseggplot-1.png" width="70%" style="display: block; margin: auto;" />
 You can do the same with qplot(), which is short for quick plot…</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="visualization-with-ggplot2.html#cb115-1" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">data =</span> df, <span class="at">geom =</span> <span class="st">&quot;point&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="visualization-with-ggplot2.html#cb116-1" tabindex="-1"></a><span class="fu">qplot</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">data =</span> df, <span class="at">geom =</span> <span class="st">&quot;point&quot;</span>)</span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/qplot-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p><strong>Challenge 1</strong>
 What does “displ” mean? What does “hwy” mean? What is the relationship between these variables?</p>
 <p>Some geoms summarize data or provide trends. For example, <code>geom_smooth()</code> plots the relationship between two variables as smoothed conditional means.</p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="visualization-with-ggplot2.html#cb116-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb116-2"><a href="visualization-with-ggplot2.html#cb116-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> </span>
-<span id="cb116-3"><a href="visualization-with-ggplot2.html#cb116-3" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb116-4"><a href="visualization-with-ggplot2.html#cb116-4" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()</span>
-<span id="cb116-5"><a href="visualization-with-ggplot2.html#cb116-5" tabindex="-1"></a><span class="co">#&gt; `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="visualization-with-ggplot2.html#cb117-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb117-2"><a href="visualization-with-ggplot2.html#cb117-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(displ, hwy)) <span class="sc">+</span> </span>
+<span id="cb117-3"><a href="visualization-with-ggplot2.html#cb117-3" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb117-4"><a href="visualization-with-ggplot2.html#cb117-4" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()</span>
+<span id="cb117-5"><a href="visualization-with-ggplot2.html#cb117-5" tabindex="-1"></a><span class="co">#&gt; `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</span></span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/smooth-1.png" width="70%" style="display: block; margin: auto;" />
 Remember, this is equivalent to the example written above…</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="visualization-with-ggplot2.html#cb117-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
-<span id="cb117-2"><a href="visualization-with-ggplot2.html#cb117-2" tabindex="-1"></a>  <span class="fu">geom_smooth</span>() <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
-<span id="cb117-3"><a href="visualization-with-ggplot2.html#cb117-3" tabindex="-1"></a><span class="co">#&gt; `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="visualization-with-ggplot2.html#cb118-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
+<span id="cb118-2"><a href="visualization-with-ggplot2.html#cb118-2" tabindex="-1"></a>  <span class="fu">geom_smooth</span>() <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb118-3"><a href="visualization-with-ggplot2.html#cb118-3" tabindex="-1"></a><span class="co">#&gt; `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</span></span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/equivalent-1.png" width="70%" style="display: block; margin: auto;" />
 We can get some useful information out of this plot, like cars that don’t follow the trend.</p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="visualization-with-ggplot2.html#cb118-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
-<span id="cb118-2"><a href="visualization-with-ggplot2.html#cb118-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> displ <span class="sc">&gt;</span> <span class="dv">5</span> <span class="sc">&amp;</span> hwy <span class="sc">&gt;</span> <span class="dv">20</span>)) <span class="sc">+</span> <span class="fu">geom_smooth</span>()</span>
-<span id="cb118-3"><a href="visualization-with-ggplot2.html#cb118-3" tabindex="-1"></a><span class="co">#&gt; `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="visualization-with-ggplot2.html#cb119-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
+<span id="cb119-2"><a href="visualization-with-ggplot2.html#cb119-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> displ <span class="sc">&gt;</span> <span class="dv">5</span> <span class="sc">&amp;</span> hwy <span class="sc">&gt;</span> <span class="dv">20</span>)) <span class="sc">+</span> <span class="fu">geom_smooth</span>()</span>
+<span id="cb119-3"><a href="visualization-with-ggplot2.html#cb119-3" tabindex="-1"></a><span class="co">#&gt; `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</span></span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/outlier-1.png" width="70%" style="display: block; margin: auto;" />
 These cars don’t follow the trend, getting higher mpg with bigger engines. We can identify these cars in the data.frame…</p>
 <p><strong>Challenge 2</strong>
 Get the cars that were identified in blue and print the data.frame (tibble)</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="visualization-with-ggplot2.html#cb119-1" tabindex="-1"></a><span class="fu">View</span>(df <span class="sc">%&gt;%</span></span>
-<span id="cb119-2"><a href="visualization-with-ggplot2.html#cb119-2" tabindex="-1"></a>  <span class="fu">filter</span>(displ <span class="sc">&gt;</span> <span class="dv">5</span> <span class="sc">&amp;</span> hwy <span class="sc">&gt;</span> <span class="dv">20</span>))</span>
-<span id="cb119-3"><a href="visualization-with-ggplot2.html#cb119-3" tabindex="-1"></a><span class="co">#&gt; Warning in system2(&quot;/usr/bin/otool&quot;, c(&quot;-L&quot;, shQuote(DSO)), stdout = TRUE):</span></span>
-<span id="cb119-4"><a href="visualization-with-ggplot2.html#cb119-4" tabindex="-1"></a><span class="co">#&gt; running command &#39;&#39;/usr/bin/otool&#39; -L &#39;/Library/Frameworks/R.framework/Resources/</span></span>
-<span id="cb119-5"><a href="visualization-with-ggplot2.html#cb119-5" tabindex="-1"></a><span class="co">#&gt; modules/R_de.so&#39;&#39; had status 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="visualization-with-ggplot2.html#cb120-1" tabindex="-1"></a><span class="fu">View</span>(df <span class="sc">%&gt;%</span></span>
+<span id="cb120-2"><a href="visualization-with-ggplot2.html#cb120-2" tabindex="-1"></a>  <span class="fu">filter</span>(displ <span class="sc">&gt;</span> <span class="dv">5</span> <span class="sc">&amp;</span> hwy <span class="sc">&gt;</span> <span class="dv">20</span>))</span>
+<span id="cb120-3"><a href="visualization-with-ggplot2.html#cb120-3" tabindex="-1"></a><span class="co">#&gt; Warning in system2(&quot;/usr/bin/otool&quot;, c(&quot;-L&quot;, shQuote(DSO)), stdout = TRUE):</span></span>
+<span id="cb120-4"><a href="visualization-with-ggplot2.html#cb120-4" tabindex="-1"></a><span class="co">#&gt; running command &#39;&#39;/usr/bin/otool&#39; -L &#39;/Library/Frameworks/R.framework/Resources/</span></span>
+<span id="cb120-5"><a href="visualization-with-ggplot2.html#cb120-5" tabindex="-1"></a><span class="co">#&gt; modules/R_de.so&#39;&#39; had status 1</span></span></code></pre></div>
 <p>All of these cars have an “fl” of “p”. What does that mean?
 How would you find out?</p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="visualization-with-ggplot2.html#cb120-1" tabindex="-1"></a><span class="fu">unique</span>(df<span class="sc">$</span>fl)</span>
-<span id="cb120-2"><a href="visualization-with-ggplot2.html#cb120-2" tabindex="-1"></a><span class="co">#&gt; [1] &quot;p&quot; &quot;r&quot; &quot;e&quot; &quot;d&quot; &quot;c&quot;</span></span>
-<span id="cb120-3"><a href="visualization-with-ggplot2.html#cb120-3" tabindex="-1"></a></span>
-<span id="cb120-4"><a href="visualization-with-ggplot2.html#cb120-4" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x=</span>fl, <span class="at">y=</span>hwy)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>cyl, <span class="at">nrow=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="visualization-with-ggplot2.html#cb121-1" tabindex="-1"></a><span class="fu">unique</span>(df<span class="sc">$</span>fl)</span>
+<span id="cb121-2"><a href="visualization-with-ggplot2.html#cb121-2" tabindex="-1"></a><span class="co">#&gt; [1] &quot;p&quot; &quot;r&quot; &quot;e&quot; &quot;d&quot; &quot;c&quot;</span></span>
+<span id="cb121-3"><a href="visualization-with-ggplot2.html#cb121-3" tabindex="-1"></a></span>
+<span id="cb121-4"><a href="visualization-with-ggplot2.html#cb121-4" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x=</span>fl, <span class="at">y=</span>hwy)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>cyl, <span class="at">nrow=</span><span class="dv">1</span>)</span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/unnamed-chunk-3-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>You can add a third variable, like class, to a two dimensional scatterplot by mapping it to an aesthetic. An aesthetic is a visual property of the objects in your plot.Aesthetics include things like the size, the shape, or the color of your points. You can display a point in
 different ways by changing the values of its aesthetic properties.</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="visualization-with-ggplot2.html#cb121-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
-<span id="cb121-2"><a href="visualization-with-ggplot2.html#cb121-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class))</span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="visualization-with-ggplot2.html#cb122-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
+<span id="cb122-2"><a href="visualization-with-ggplot2.html#cb122-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class))</span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/coloring-1.png" width="70%" style="display: block; margin: auto;" />
 Notice that a legend is automatically created.
 Grouping variables, such as color, might include:</p>
@@ -593,28 +595,28 @@ size</p>
 <div id="linetypes" class="section level2 hasAnchor" number="6.2">
 <h2><span class="header-section-number">6.2</span> Linetypes<a href="visualization-with-ggplot2.html#linetypes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Here are the linetypes</p>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="visualization-with-ggplot2.html#cb122-1" tabindex="-1"></a>generateRLineTypes<span class="ot">&lt;-</span><span class="cf">function</span>(){</span>
-<span id="cb122-2"><a href="visualization-with-ggplot2.html#cb122-2" tabindex="-1"></a>  oldPar<span class="ot">&lt;-</span><span class="fu">par</span>()</span>
-<span id="cb122-3"><a href="visualization-with-ggplot2.html#cb122-3" tabindex="-1"></a>  <span class="fu">par</span>(<span class="at">font=</span><span class="dv">2</span>, <span class="at">mar=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
-<span id="cb122-4"><a href="visualization-with-ggplot2.html#cb122-4" tabindex="-1"></a>  <span class="fu">plot</span>(<span class="dv">1</span>, <span class="at">pch=</span><span class="st">&quot;&quot;</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">6</span>), <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.7</span>),  <span class="at">axes=</span><span class="cn">FALSE</span>,<span class="at">xlab=</span><span class="st">&quot;&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;&quot;</span>)</span>
-<span id="cb122-5"><a href="visualization-with-ggplot2.html#cb122-5" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">6</span>) <span class="fu">lines</span>(<span class="fu">c</span>(<span class="fl">0.3</span>,<span class="fl">0.7</span>), <span class="fu">c</span>(i,i), <span class="at">lty=</span>i, <span class="at">lwd=</span><span class="dv">3</span>)</span>
-<span id="cb122-6"><a href="visualization-with-ggplot2.html#cb122-6" tabindex="-1"></a>  <span class="fu">text</span>(<span class="fu">rep</span>(<span class="fl">0.1</span>,<span class="dv">6</span>), <span class="dv">0</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;0.&#39;blank&#39;&quot;</span>, <span class="st">&quot;1.&#39;solid&#39;&quot;</span>, <span class="st">&quot;2.&#39;dashed&#39;&quot;</span>, <span class="st">&quot;3.&#39;dotted&#39;&quot;</span>,</span>
-<span id="cb122-7"><a href="visualization-with-ggplot2.html#cb122-7" tabindex="-1"></a>                                 <span class="st">&quot;4.&#39;dotdash&#39;&quot;</span>, <span class="st">&quot;5.&#39;longdash&#39;&quot;</span>, <span class="st">&quot;6.&#39;twodash&#39;&quot;</span>))</span>
-<span id="cb122-8"><a href="visualization-with-ggplot2.html#cb122-8" tabindex="-1"></a>  <span class="fu">par</span>(<span class="at">mar=</span>oldPar<span class="sc">$</span>mar,<span class="at">font=</span>oldPar<span class="sc">$</span>font )</span>
-<span id="cb122-9"><a href="visualization-with-ggplot2.html#cb122-9" tabindex="-1"></a>}</span>
-<span id="cb122-10"><a href="visualization-with-ggplot2.html#cb122-10" tabindex="-1"></a><span class="fu">generateRLineTypes</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="visualization-with-ggplot2.html#cb123-1" tabindex="-1"></a>generateRLineTypes<span class="ot">&lt;-</span><span class="cf">function</span>(){</span>
+<span id="cb123-2"><a href="visualization-with-ggplot2.html#cb123-2" tabindex="-1"></a>  oldPar<span class="ot">&lt;-</span><span class="fu">par</span>()</span>
+<span id="cb123-3"><a href="visualization-with-ggplot2.html#cb123-3" tabindex="-1"></a>  <span class="fu">par</span>(<span class="at">font=</span><span class="dv">2</span>, <span class="at">mar=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
+<span id="cb123-4"><a href="visualization-with-ggplot2.html#cb123-4" tabindex="-1"></a>  <span class="fu">plot</span>(<span class="dv">1</span>, <span class="at">pch=</span><span class="st">&quot;&quot;</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">6</span>), <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.7</span>),  <span class="at">axes=</span><span class="cn">FALSE</span>,<span class="at">xlab=</span><span class="st">&quot;&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb123-5"><a href="visualization-with-ggplot2.html#cb123-5" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">6</span>) <span class="fu">lines</span>(<span class="fu">c</span>(<span class="fl">0.3</span>,<span class="fl">0.7</span>), <span class="fu">c</span>(i,i), <span class="at">lty=</span>i, <span class="at">lwd=</span><span class="dv">3</span>)</span>
+<span id="cb123-6"><a href="visualization-with-ggplot2.html#cb123-6" tabindex="-1"></a>  <span class="fu">text</span>(<span class="fu">rep</span>(<span class="fl">0.1</span>,<span class="dv">6</span>), <span class="dv">0</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">labels=</span><span class="fu">c</span>(<span class="st">&quot;0.&#39;blank&#39;&quot;</span>, <span class="st">&quot;1.&#39;solid&#39;&quot;</span>, <span class="st">&quot;2.&#39;dashed&#39;&quot;</span>, <span class="st">&quot;3.&#39;dotted&#39;&quot;</span>,</span>
+<span id="cb123-7"><a href="visualization-with-ggplot2.html#cb123-7" tabindex="-1"></a>                                 <span class="st">&quot;4.&#39;dotdash&#39;&quot;</span>, <span class="st">&quot;5.&#39;longdash&#39;&quot;</span>, <span class="st">&quot;6.&#39;twodash&#39;&quot;</span>))</span>
+<span id="cb123-8"><a href="visualization-with-ggplot2.html#cb123-8" tabindex="-1"></a>  <span class="fu">par</span>(<span class="at">mar=</span>oldPar<span class="sc">$</span>mar,<span class="at">font=</span>oldPar<span class="sc">$</span>font )</span>
+<span id="cb123-9"><a href="visualization-with-ggplot2.html#cb123-9" tabindex="-1"></a>}</span>
+<span id="cb123-10"><a href="visualization-with-ggplot2.html#cb123-10" tabindex="-1"></a><span class="fu">generateRLineTypes</span>()</span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/linetypes-1.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="symbols" class="section level2 hasAnchor" number="6.3">
 <h2><span class="header-section-number">6.3</span> Symbols<a href="visualization-with-ggplot2.html#symbols" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Here’s an example of symbols and their numbers</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="visualization-with-ggplot2.html#cb123-1" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">p=</span><span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">25</span>,<span class="dv">32</span><span class="sc">:</span><span class="dv">127</span>))</span>
-<span id="cb123-2"><a href="visualization-with-ggplot2.html#cb123-2" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb123-3"><a href="visualization-with-ggplot2.html#cb123-3" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name=</span><span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
-<span id="cb123-4"><a href="visualization-with-ggplot2.html#cb123-4" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name=</span><span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
-<span id="cb123-5"><a href="visualization-with-ggplot2.html#cb123-5" tabindex="-1"></a>  <span class="fu">scale_shape_identity</span>() <span class="sc">+</span></span>
-<span id="cb123-6"><a href="visualization-with-ggplot2.html#cb123-6" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>d, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>p<span class="sc">%%</span><span class="dv">16</span>, <span class="at">y=</span>p<span class="sc">%/%</span><span class="dv">16</span>, <span class="at">shape=</span>p), <span class="at">size=</span><span class="dv">5</span>, <span class="at">fill=</span><span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
-<span id="cb123-7"><a href="visualization-with-ggplot2.html#cb123-7" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">data=</span>d, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>p<span class="sc">%%</span><span class="dv">16</span>, <span class="at">y=</span>p<span class="sc">%/%</span><span class="dv">16</span><span class="fl">+0.25</span>, <span class="at">label=</span>p), <span class="at">size=</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="visualization-with-ggplot2.html#cb124-1" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">p=</span><span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">25</span>,<span class="dv">32</span><span class="sc">:</span><span class="dv">127</span>))</span>
+<span id="cb124-2"><a href="visualization-with-ggplot2.html#cb124-2" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb124-3"><a href="visualization-with-ggplot2.html#cb124-3" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name=</span><span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
+<span id="cb124-4"><a href="visualization-with-ggplot2.html#cb124-4" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name=</span><span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
+<span id="cb124-5"><a href="visualization-with-ggplot2.html#cb124-5" tabindex="-1"></a>  <span class="fu">scale_shape_identity</span>() <span class="sc">+</span></span>
+<span id="cb124-6"><a href="visualization-with-ggplot2.html#cb124-6" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>d, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>p<span class="sc">%%</span><span class="dv">16</span>, <span class="at">y=</span>p<span class="sc">%/%</span><span class="dv">16</span>, <span class="at">shape=</span>p), <span class="at">size=</span><span class="dv">5</span>, <span class="at">fill=</span><span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
+<span id="cb124-7"><a href="visualization-with-ggplot2.html#cb124-7" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">data=</span>d, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>p<span class="sc">%%</span><span class="dv">16</span>, <span class="at">y=</span>p<span class="sc">%/%</span><span class="dv">16</span><span class="fl">+0.25</span>, <span class="at">label=</span>p), <span class="at">size=</span><span class="dv">3</span>)</span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/symbols-1.png" width="70%" style="display: block; margin: auto;" />
 There are 32 quickly referenced geoms, including:</p>
 <p>geom_abline<br />
@@ -635,324 +637,324 @@ geom_text<br />
 geom_vline</p>
 <p>See them all here: <a href="http://sape.inf.usi.ch/quick-reference/ggplot2/geom" class="uri">http://sape.inf.usi.ch/quick-reference/ggplot2/geom</a></p>
 <p>Try them now.</p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="visualization-with-ggplot2.html#cb124-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb124-2"><a href="visualization-with-ggplot2.html#cb124-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
-<span id="cb124-3"><a href="visualization-with-ggplot2.html#cb124-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">linetype =</span> class)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> class))</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="visualization-with-ggplot2.html#cb125-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb125-2"><a href="visualization-with-ggplot2.html#cb125-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
+<span id="cb125-3"><a href="visualization-with-ggplot2.html#cb125-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">linetype =</span> class)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> class))</span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/linetype-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p><strong>Challenge 3</strong>
 What happens if you move the grouping aesthetic “color = class” to the ggplot() function? Why?</p>
 <p>Try it:</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="visualization-with-ggplot2.html#cb125-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb125-2"><a href="visualization-with-ggplot2.html#cb125-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(...) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="visualization-with-ggplot2.html#cb126-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb126-2"><a href="visualization-with-ggplot2.html#cb126-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(...) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
 </div>
 <div id="play-time-1" class="section level2 hasAnchor" number="6.4">
 <h2><span class="header-section-number">6.4</span> Play time<a href="visualization-with-ggplot2.html#play-time-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Keep in mind which geoms you would like to apply to your data.</p>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="visualization-with-ggplot2.html#cb126-1" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;data/eyedata.RData&quot;</span>)</span>
-<span id="cb126-2"><a href="visualization-with-ggplot2.html#cb126-2" tabindex="-1"></a></span>
-<span id="cb126-3"><a href="visualization-with-ggplot2.html#cb126-3" tabindex="-1"></a><span class="co"># View(df)</span></span>
-<span id="cb126-4"><a href="visualization-with-ggplot2.html#cb126-4" tabindex="-1"></a></span>
-<span id="cb126-5"><a href="visualization-with-ggplot2.html#cb126-5" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb126-6"><a href="visualization-with-ggplot2.html#cb126-6" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dif =</span> Stop <span class="sc">-</span> Start) <span class="sc">%&gt;%</span></span>
-<span id="cb126-7"><a href="visualization-with-ggplot2.html#cb126-7" tabindex="-1"></a>  <span class="fu">group_by</span>(Participant) <span class="sc">%&gt;%</span></span>
-<span id="cb126-8"><a href="visualization-with-ggplot2.html#cb126-8" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Participant, <span class="at">y =</span> dif, <span class="at">group =</span> Participant)) <span class="sc">+</span> </span>
-<span id="cb126-9"><a href="visualization-with-ggplot2.html#cb126-9" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span>
-<span id="cb126-10"><a href="visualization-with-ggplot2.html#cb126-10" tabindex="-1"></a><span class="co">#&gt; Warning: Removed 2 rows containing non-finite values (stat_boxplot).</span></span>
-<span id="cb126-11"><a href="visualization-with-ggplot2.html#cb126-11" tabindex="-1"></a></span>
-<span id="cb126-12"><a href="visualization-with-ggplot2.html#cb126-12" tabindex="-1"></a>df <span class="ot">&lt;-</span> mpg</span>
-<span id="cb126-13"><a href="visualization-with-ggplot2.html#cb126-13" tabindex="-1"></a></span>
-<span id="cb126-14"><a href="visualization-with-ggplot2.html#cb126-14" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb126-15"><a href="visualization-with-ggplot2.html#cb126-15" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> <span class="fu">geom_bin2d</span>()</span>
-<span id="cb126-16"><a href="visualization-with-ggplot2.html#cb126-16" tabindex="-1"></a></span>
-<span id="cb126-17"><a href="visualization-with-ggplot2.html#cb126-17" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
-<span id="cb126-18"><a href="visualization-with-ggplot2.html#cb126-18" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> manufacturer)) <span class="sc">+</span> </span>
-<span id="cb126-19"><a href="visualization-with-ggplot2.html#cb126-19" tabindex="-1"></a>  <span class="fu">stat_count</span>() <span class="sc">+</span> </span>
-<span id="cb126-20"><a href="visualization-with-ggplot2.html#cb126-20" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="visualization-with-ggplot2.html#cb127-1" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;data/eyedata.RData&quot;</span>)</span>
+<span id="cb127-2"><a href="visualization-with-ggplot2.html#cb127-2" tabindex="-1"></a></span>
+<span id="cb127-3"><a href="visualization-with-ggplot2.html#cb127-3" tabindex="-1"></a><span class="co"># View(df)</span></span>
+<span id="cb127-4"><a href="visualization-with-ggplot2.html#cb127-4" tabindex="-1"></a></span>
+<span id="cb127-5"><a href="visualization-with-ggplot2.html#cb127-5" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb127-6"><a href="visualization-with-ggplot2.html#cb127-6" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dif =</span> Stop <span class="sc">-</span> Start) <span class="sc">%&gt;%</span></span>
+<span id="cb127-7"><a href="visualization-with-ggplot2.html#cb127-7" tabindex="-1"></a>  <span class="fu">group_by</span>(Participant) <span class="sc">%&gt;%</span></span>
+<span id="cb127-8"><a href="visualization-with-ggplot2.html#cb127-8" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Participant, <span class="at">y =</span> dif, <span class="at">group =</span> Participant)) <span class="sc">+</span> </span>
+<span id="cb127-9"><a href="visualization-with-ggplot2.html#cb127-9" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span>
+<span id="cb127-10"><a href="visualization-with-ggplot2.html#cb127-10" tabindex="-1"></a><span class="co">#&gt; Warning: Removed 2 rows containing non-finite values (stat_boxplot).</span></span>
+<span id="cb127-11"><a href="visualization-with-ggplot2.html#cb127-11" tabindex="-1"></a></span>
+<span id="cb127-12"><a href="visualization-with-ggplot2.html#cb127-12" tabindex="-1"></a>df <span class="ot">&lt;-</span> mpg</span>
+<span id="cb127-13"><a href="visualization-with-ggplot2.html#cb127-13" tabindex="-1"></a></span>
+<span id="cb127-14"><a href="visualization-with-ggplot2.html#cb127-14" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb127-15"><a href="visualization-with-ggplot2.html#cb127-15" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> <span class="fu">geom_bin2d</span>()</span>
+<span id="cb127-16"><a href="visualization-with-ggplot2.html#cb127-16" tabindex="-1"></a></span>
+<span id="cb127-17"><a href="visualization-with-ggplot2.html#cb127-17" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb127-18"><a href="visualization-with-ggplot2.html#cb127-18" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> manufacturer)) <span class="sc">+</span> </span>
+<span id="cb127-19"><a href="visualization-with-ggplot2.html#cb127-19" tabindex="-1"></a>  <span class="fu">stat_count</span>() <span class="sc">+</span> </span>
+<span id="cb127-20"><a href="visualization-with-ggplot2.html#cb127-20" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/play-1.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/play-2.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/play-3.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>If you really want to create some ridiculous plots…</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="visualization-with-ggplot2.html#cb127-1" tabindex="-1"></a><span class="co">#install.packages(&quot;ggthemes&quot;)</span></span>
-<span id="cb127-2"><a href="visualization-with-ggplot2.html#cb127-2" tabindex="-1"></a><span class="co">#install.packages(&quot;xkcd&quot;)</span></span>
-<span id="cb127-3"><a href="visualization-with-ggplot2.html#cb127-3" tabindex="-1"></a><span class="fu">require</span>(ggthemes)</span>
-<span id="cb127-4"><a href="visualization-with-ggplot2.html#cb127-4" tabindex="-1"></a><span class="co">#&gt; Loading required package: ggthemes</span></span>
-<span id="cb127-5"><a href="visualization-with-ggplot2.html#cb127-5" tabindex="-1"></a><span class="fu">require</span>(xkcd)</span>
-<span id="cb127-6"><a href="visualization-with-ggplot2.html#cb127-6" tabindex="-1"></a><span class="co">#&gt; Loading required package: xkcd</span></span>
-<span id="cb127-7"><a href="visualization-with-ggplot2.html#cb127-7" tabindex="-1"></a><span class="co">#&gt; Loading required package: extrafont</span></span>
-<span id="cb127-8"><a href="visualization-with-ggplot2.html#cb127-8" tabindex="-1"></a><span class="co">#&gt; Registering fonts with R</span></span>
-<span id="cb127-9"><a href="visualization-with-ggplot2.html#cb127-9" tabindex="-1"></a></span>
-<span id="cb127-10"><a href="visualization-with-ggplot2.html#cb127-10" tabindex="-1"></a><span class="cf">if</span>( <span class="st">&#39;xkcd&#39;</span> <span class="sc">%in%</span> <span class="fu">fonts</span>()) {</span>
-<span id="cb127-11"><a href="visualization-with-ggplot2.html#cb127-11" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>mpg, <span class="at">y=</span>wt), <span class="at">data=</span>mtcars) <span class="sc">+</span></span>
-<span id="cb127-12"><a href="visualization-with-ggplot2.html#cb127-12" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">family =</span> <span class="st">&quot;xkcd&quot;</span>))</span>
-<span id="cb127-13"><a href="visualization-with-ggplot2.html#cb127-13" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb127-14"><a href="visualization-with-ggplot2.html#cb127-14" tabindex="-1"></a>  <span class="fu">warning</span>(<span class="st">&quot;No xkcd fonts installed!&quot;</span>)</span>
-<span id="cb127-15"><a href="visualization-with-ggplot2.html#cb127-15" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>mpg, <span class="at">y=</span>wt), <span class="at">data=</span>mtcars)</span>
-<span id="cb127-16"><a href="visualization-with-ggplot2.html#cb127-16" tabindex="-1"></a>  }</span>
-<span id="cb127-17"><a href="visualization-with-ggplot2.html#cb127-17" tabindex="-1"></a><span class="co">#&gt; Warning: No xkcd fonts installed!</span></span>
-<span id="cb127-18"><a href="visualization-with-ggplot2.html#cb127-18" tabindex="-1"></a>p</span>
-<span id="cb127-19"><a href="visualization-with-ggplot2.html#cb127-19" tabindex="-1"></a><span class="do">### How to get it (I wouldn&#39;t mess with this unless you know about installing fonts) </span><span class="al">###</span></span>
-<span id="cb127-20"><a href="visualization-with-ggplot2.html#cb127-20" tabindex="-1"></a><span class="co"># download.file(&quot;http://simonsoftware.se/other/xkcd.ttf&quot;,dest=&quot;xkcd.ttf&quot;, mode=&quot;wb&quot;)</span></span>
-<span id="cb127-21"><a href="visualization-with-ggplot2.html#cb127-21" tabindex="-1"></a><span class="co"># system(&quot;mkdir ~/.fonts&quot;)</span></span>
-<span id="cb127-22"><a href="visualization-with-ggplot2.html#cb127-22" tabindex="-1"></a><span class="co"># system(&quot;cp ~/.fonts/xkcd.ttf&quot;)</span></span>
-<span id="cb127-23"><a href="visualization-with-ggplot2.html#cb127-23" tabindex="-1"></a><span class="co"># font_import(pattern = &quot;xkcd&quot;, prompt=FALSE)</span></span>
-<span id="cb127-24"><a href="visualization-with-ggplot2.html#cb127-24" tabindex="-1"></a><span class="co"># fonts()</span></span>
-<span id="cb127-25"><a href="visualization-with-ggplot2.html#cb127-25" tabindex="-1"></a><span class="co"># fonttable()</span></span>
-<span id="cb127-26"><a href="visualization-with-ggplot2.html#cb127-26" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb127-27"><a href="visualization-with-ggplot2.html#cb127-27" tabindex="-1"></a><span class="co"># if(.Platform$OS.type != &quot;unix&quot;) {</span></span>
-<span id="cb127-28"><a href="visualization-with-ggplot2.html#cb127-28" tabindex="-1"></a><span class="co">#    ## Register fonts for Windows bitmap output</span></span>
-<span id="cb127-29"><a href="visualization-with-ggplot2.html#cb127-29" tabindex="-1"></a><span class="co">#      loadfonts(device=&quot;pdf&quot;)</span></span>
-<span id="cb127-30"><a href="visualization-with-ggplot2.html#cb127-30" tabindex="-1"></a><span class="co">#    } else {</span></span>
-<span id="cb127-31"><a href="visualization-with-ggplot2.html#cb127-31" tabindex="-1"></a><span class="co">#     loadfonts()</span></span>
-<span id="cb127-32"><a href="visualization-with-ggplot2.html#cb127-32" tabindex="-1"></a><span class="co">#     }</span></span>
-<span id="cb127-33"><a href="visualization-with-ggplot2.html#cb127-33" tabindex="-1"></a></span>
-<span id="cb127-34"><a href="visualization-with-ggplot2.html#cb127-34" tabindex="-1"></a></span>
-<span id="cb127-35"><a href="visualization-with-ggplot2.html#cb127-35" tabindex="-1"></a><span class="do">#### All of the code below should work unless it&#39;s xkcd related and you haven&#39;t</span></span>
-<span id="cb127-36"><a href="visualization-with-ggplot2.html#cb127-36" tabindex="-1"></a><span class="do">#### installed the fonts.</span></span>
-<span id="cb127-37"><a href="visualization-with-ggplot2.html#cb127-37" tabindex="-1"></a></span>
-<span id="cb127-38"><a href="visualization-with-ggplot2.html#cb127-38" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb127-39"><a href="visualization-with-ggplot2.html#cb127-39" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> manufacturer)) <span class="sc">+</span> </span>
-<span id="cb127-40"><a href="visualization-with-ggplot2.html#cb127-40" tabindex="-1"></a>  <span class="fu">stat_count</span>() <span class="sc">+</span> <span class="fu">theme_fivethirtyeight</span>() <span class="sc">+</span> <span class="co">#fivethirtyeight theme</span></span>
-<span id="cb127-41"><a href="visualization-with-ggplot2.html#cb127-41" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Look at me </span><span class="sc">\n</span><span class="st"> I&#39;m Nate Silver&quot;</span>) <span class="sc">+</span></span>
-<span id="cb127-42"><a href="visualization-with-ggplot2.html#cb127-42" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
-<span id="cb127-43"><a href="visualization-with-ggplot2.html#cb127-43" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> .<span class="dv">5</span>))</span>
-<span id="cb127-44"><a href="visualization-with-ggplot2.html#cb127-44" tabindex="-1"></a></span>
-<span id="cb127-45"><a href="visualization-with-ggplot2.html#cb127-45" tabindex="-1"></a></span>
-<span id="cb127-46"><a href="visualization-with-ggplot2.html#cb127-46" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
-<span id="cb127-47"><a href="visualization-with-ggplot2.html#cb127-47" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> manufacturer)) <span class="sc">+</span> </span>
-<span id="cb127-48"><a href="visualization-with-ggplot2.html#cb127-48" tabindex="-1"></a>  <span class="fu">stat_count</span>(<span class="at">fill =</span> <span class="st">&quot;#D4E8E7&quot;</span>) <span class="sc">+</span> <span class="fu">theme_tufte</span>() <span class="sc">+</span></span>
-<span id="cb127-49"><a href="visualization-with-ggplot2.html#cb127-49" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;...or Edward Tufte&quot;</span>) <span class="sc">+</span></span>
-<span id="cb127-50"><a href="visualization-with-ggplot2.html#cb127-50" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
-<span id="cb127-51"><a href="visualization-with-ggplot2.html#cb127-51" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> .<span class="dv">5</span>))</span>
-<span id="cb127-52"><a href="visualization-with-ggplot2.html#cb127-52" tabindex="-1"></a></span>
-<span id="cb127-53"><a href="visualization-with-ggplot2.html#cb127-53" tabindex="-1"></a></span>
-<span id="cb127-54"><a href="visualization-with-ggplot2.html#cb127-54" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
-<span id="cb127-55"><a href="visualization-with-ggplot2.html#cb127-55" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> manufacturer)) <span class="sc">+</span> </span>
-<span id="cb127-56"><a href="visualization-with-ggplot2.html#cb127-56" tabindex="-1"></a>  <span class="fu">stat_count</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">h =</span> <span class="fl">0.0005</span>), <span class="at">fill =</span> <span class="st">&quot;grey&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb127-57"><a href="visualization-with-ggplot2.html#cb127-57" tabindex="-1"></a>  <span class="fu">theme_xkcd</span>() <span class="sc">+</span></span>
-<span id="cb127-58"><a href="visualization-with-ggplot2.html#cb127-58" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Now I&#39;m Randall Munroe&quot;</span>) <span class="sc">+</span></span>
-<span id="cb127-59"><a href="visualization-with-ggplot2.html#cb127-59" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
-<span id="cb127-60"><a href="visualization-with-ggplot2.html#cb127-60" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> .<span class="dv">5</span>))</span>
-<span id="cb127-61"><a href="visualization-with-ggplot2.html#cb127-61" tabindex="-1"></a><span class="co">#&gt; Warning in theme_xkcd(): Not xkcd fonts installed! See vignette(&quot;xkcd-intro&quot;)</span></span>
-<span id="cb127-62"><a href="visualization-with-ggplot2.html#cb127-62" tabindex="-1"></a></span>
-<span id="cb127-63"><a href="visualization-with-ggplot2.html#cb127-63" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb127-64"><a href="visualization-with-ggplot2.html#cb127-64" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class)) <span class="sc">+</span></span>
-<span id="cb127-65"><a href="visualization-with-ggplot2.html#cb127-65" tabindex="-1"></a>  <span class="fu">theme_xkcd</span>() <span class="sc">+</span> </span>
-<span id="cb127-66"><a href="visualization-with-ggplot2.html#cb127-66" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Because who needs </span><span class="sc">\n</span><span class="st"> to interpret your plots?&quot;</span>) <span class="sc">+</span></span>
-<span id="cb127-67"><a href="visualization-with-ggplot2.html#cb127-67" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> cyl),</span>
-<span id="cb127-68"><a href="visualization-with-ggplot2.html#cb127-68" tabindex="-1"></a>             <span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span> </span>
-<span id="cb127-69"><a href="visualization-with-ggplot2.html#cb127-69" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> .<span class="dv">5</span>))</span>
-<span id="cb127-70"><a href="visualization-with-ggplot2.html#cb127-70" tabindex="-1"></a><span class="co">#&gt; Warning in theme_xkcd(): Not xkcd fonts installed! See vignette(&quot;xkcd-intro&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="visualization-with-ggplot2.html#cb128-1" tabindex="-1"></a><span class="co">#install.packages(&quot;ggthemes&quot;)</span></span>
+<span id="cb128-2"><a href="visualization-with-ggplot2.html#cb128-2" tabindex="-1"></a><span class="co">#install.packages(&quot;xkcd&quot;)</span></span>
+<span id="cb128-3"><a href="visualization-with-ggplot2.html#cb128-3" tabindex="-1"></a><span class="fu">require</span>(ggthemes)</span>
+<span id="cb128-4"><a href="visualization-with-ggplot2.html#cb128-4" tabindex="-1"></a><span class="co">#&gt; Loading required package: ggthemes</span></span>
+<span id="cb128-5"><a href="visualization-with-ggplot2.html#cb128-5" tabindex="-1"></a><span class="fu">require</span>(xkcd)</span>
+<span id="cb128-6"><a href="visualization-with-ggplot2.html#cb128-6" tabindex="-1"></a><span class="co">#&gt; Loading required package: xkcd</span></span>
+<span id="cb128-7"><a href="visualization-with-ggplot2.html#cb128-7" tabindex="-1"></a><span class="co">#&gt; Loading required package: extrafont</span></span>
+<span id="cb128-8"><a href="visualization-with-ggplot2.html#cb128-8" tabindex="-1"></a><span class="co">#&gt; Registering fonts with R</span></span>
+<span id="cb128-9"><a href="visualization-with-ggplot2.html#cb128-9" tabindex="-1"></a></span>
+<span id="cb128-10"><a href="visualization-with-ggplot2.html#cb128-10" tabindex="-1"></a><span class="cf">if</span>( <span class="st">&#39;xkcd&#39;</span> <span class="sc">%in%</span> <span class="fu">fonts</span>()) {</span>
+<span id="cb128-11"><a href="visualization-with-ggplot2.html#cb128-11" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>mpg, <span class="at">y=</span>wt), <span class="at">data=</span>mtcars) <span class="sc">+</span></span>
+<span id="cb128-12"><a href="visualization-with-ggplot2.html#cb128-12" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">family =</span> <span class="st">&quot;xkcd&quot;</span>))</span>
+<span id="cb128-13"><a href="visualization-with-ggplot2.html#cb128-13" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb128-14"><a href="visualization-with-ggplot2.html#cb128-14" tabindex="-1"></a>  <span class="fu">warning</span>(<span class="st">&quot;No xkcd fonts installed!&quot;</span>)</span>
+<span id="cb128-15"><a href="visualization-with-ggplot2.html#cb128-15" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>mpg, <span class="at">y=</span>wt), <span class="at">data=</span>mtcars)</span>
+<span id="cb128-16"><a href="visualization-with-ggplot2.html#cb128-16" tabindex="-1"></a>  }</span>
+<span id="cb128-17"><a href="visualization-with-ggplot2.html#cb128-17" tabindex="-1"></a><span class="co">#&gt; Warning: No xkcd fonts installed!</span></span>
+<span id="cb128-18"><a href="visualization-with-ggplot2.html#cb128-18" tabindex="-1"></a>p</span>
+<span id="cb128-19"><a href="visualization-with-ggplot2.html#cb128-19" tabindex="-1"></a><span class="do">### How to get it (I wouldn&#39;t mess with this unless you know about installing fonts) </span><span class="al">###</span></span>
+<span id="cb128-20"><a href="visualization-with-ggplot2.html#cb128-20" tabindex="-1"></a><span class="co"># download.file(&quot;http://simonsoftware.se/other/xkcd.ttf&quot;,dest=&quot;xkcd.ttf&quot;, mode=&quot;wb&quot;)</span></span>
+<span id="cb128-21"><a href="visualization-with-ggplot2.html#cb128-21" tabindex="-1"></a><span class="co"># system(&quot;mkdir ~/.fonts&quot;)</span></span>
+<span id="cb128-22"><a href="visualization-with-ggplot2.html#cb128-22" tabindex="-1"></a><span class="co"># system(&quot;cp ~/.fonts/xkcd.ttf&quot;)</span></span>
+<span id="cb128-23"><a href="visualization-with-ggplot2.html#cb128-23" tabindex="-1"></a><span class="co"># font_import(pattern = &quot;xkcd&quot;, prompt=FALSE)</span></span>
+<span id="cb128-24"><a href="visualization-with-ggplot2.html#cb128-24" tabindex="-1"></a><span class="co"># fonts()</span></span>
+<span id="cb128-25"><a href="visualization-with-ggplot2.html#cb128-25" tabindex="-1"></a><span class="co"># fonttable()</span></span>
+<span id="cb128-26"><a href="visualization-with-ggplot2.html#cb128-26" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb128-27"><a href="visualization-with-ggplot2.html#cb128-27" tabindex="-1"></a><span class="co"># if(.Platform$OS.type != &quot;unix&quot;) {</span></span>
+<span id="cb128-28"><a href="visualization-with-ggplot2.html#cb128-28" tabindex="-1"></a><span class="co">#    ## Register fonts for Windows bitmap output</span></span>
+<span id="cb128-29"><a href="visualization-with-ggplot2.html#cb128-29" tabindex="-1"></a><span class="co">#      loadfonts(device=&quot;pdf&quot;)</span></span>
+<span id="cb128-30"><a href="visualization-with-ggplot2.html#cb128-30" tabindex="-1"></a><span class="co">#    } else {</span></span>
+<span id="cb128-31"><a href="visualization-with-ggplot2.html#cb128-31" tabindex="-1"></a><span class="co">#     loadfonts()</span></span>
+<span id="cb128-32"><a href="visualization-with-ggplot2.html#cb128-32" tabindex="-1"></a><span class="co">#     }</span></span>
+<span id="cb128-33"><a href="visualization-with-ggplot2.html#cb128-33" tabindex="-1"></a></span>
+<span id="cb128-34"><a href="visualization-with-ggplot2.html#cb128-34" tabindex="-1"></a></span>
+<span id="cb128-35"><a href="visualization-with-ggplot2.html#cb128-35" tabindex="-1"></a><span class="do">#### All of the code below should work unless it&#39;s xkcd related and you haven&#39;t</span></span>
+<span id="cb128-36"><a href="visualization-with-ggplot2.html#cb128-36" tabindex="-1"></a><span class="do">#### installed the fonts.</span></span>
+<span id="cb128-37"><a href="visualization-with-ggplot2.html#cb128-37" tabindex="-1"></a></span>
+<span id="cb128-38"><a href="visualization-with-ggplot2.html#cb128-38" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb128-39"><a href="visualization-with-ggplot2.html#cb128-39" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> manufacturer)) <span class="sc">+</span> </span>
+<span id="cb128-40"><a href="visualization-with-ggplot2.html#cb128-40" tabindex="-1"></a>  <span class="fu">stat_count</span>() <span class="sc">+</span> <span class="fu">theme_fivethirtyeight</span>() <span class="sc">+</span> <span class="co">#fivethirtyeight theme</span></span>
+<span id="cb128-41"><a href="visualization-with-ggplot2.html#cb128-41" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Look at me </span><span class="sc">\n</span><span class="st"> I&#39;m Nate Silver&quot;</span>) <span class="sc">+</span></span>
+<span id="cb128-42"><a href="visualization-with-ggplot2.html#cb128-42" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb128-43"><a href="visualization-with-ggplot2.html#cb128-43" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> .<span class="dv">5</span>))</span>
+<span id="cb128-44"><a href="visualization-with-ggplot2.html#cb128-44" tabindex="-1"></a></span>
+<span id="cb128-45"><a href="visualization-with-ggplot2.html#cb128-45" tabindex="-1"></a></span>
+<span id="cb128-46"><a href="visualization-with-ggplot2.html#cb128-46" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb128-47"><a href="visualization-with-ggplot2.html#cb128-47" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> manufacturer)) <span class="sc">+</span> </span>
+<span id="cb128-48"><a href="visualization-with-ggplot2.html#cb128-48" tabindex="-1"></a>  <span class="fu">stat_count</span>(<span class="at">fill =</span> <span class="st">&quot;#D4E8E7&quot;</span>) <span class="sc">+</span> <span class="fu">theme_tufte</span>() <span class="sc">+</span></span>
+<span id="cb128-49"><a href="visualization-with-ggplot2.html#cb128-49" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;...or Edward Tufte&quot;</span>) <span class="sc">+</span></span>
+<span id="cb128-50"><a href="visualization-with-ggplot2.html#cb128-50" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb128-51"><a href="visualization-with-ggplot2.html#cb128-51" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> .<span class="dv">5</span>))</span>
+<span id="cb128-52"><a href="visualization-with-ggplot2.html#cb128-52" tabindex="-1"></a></span>
+<span id="cb128-53"><a href="visualization-with-ggplot2.html#cb128-53" tabindex="-1"></a></span>
+<span id="cb128-54"><a href="visualization-with-ggplot2.html#cb128-54" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb128-55"><a href="visualization-with-ggplot2.html#cb128-55" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> manufacturer)) <span class="sc">+</span> </span>
+<span id="cb128-56"><a href="visualization-with-ggplot2.html#cb128-56" tabindex="-1"></a>  <span class="fu">stat_count</span>(<span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">h =</span> <span class="fl">0.0005</span>), <span class="at">fill =</span> <span class="st">&quot;grey&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb128-57"><a href="visualization-with-ggplot2.html#cb128-57" tabindex="-1"></a>  <span class="fu">theme_xkcd</span>() <span class="sc">+</span></span>
+<span id="cb128-58"><a href="visualization-with-ggplot2.html#cb128-58" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Now I&#39;m Randall Munroe&quot;</span>) <span class="sc">+</span></span>
+<span id="cb128-59"><a href="visualization-with-ggplot2.html#cb128-59" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb128-60"><a href="visualization-with-ggplot2.html#cb128-60" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> .<span class="dv">5</span>))</span>
+<span id="cb128-61"><a href="visualization-with-ggplot2.html#cb128-61" tabindex="-1"></a><span class="co">#&gt; Warning in theme_xkcd(): Not xkcd fonts installed! See vignette(&quot;xkcd-intro&quot;)</span></span>
+<span id="cb128-62"><a href="visualization-with-ggplot2.html#cb128-62" tabindex="-1"></a></span>
+<span id="cb128-63"><a href="visualization-with-ggplot2.html#cb128-63" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb128-64"><a href="visualization-with-ggplot2.html#cb128-64" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class)) <span class="sc">+</span></span>
+<span id="cb128-65"><a href="visualization-with-ggplot2.html#cb128-65" tabindex="-1"></a>  <span class="fu">theme_xkcd</span>() <span class="sc">+</span> </span>
+<span id="cb128-66"><a href="visualization-with-ggplot2.html#cb128-66" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Because who needs </span><span class="sc">\n</span><span class="st"> to interpret your plots?&quot;</span>) <span class="sc">+</span></span>
+<span id="cb128-67"><a href="visualization-with-ggplot2.html#cb128-67" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> cyl),</span>
+<span id="cb128-68"><a href="visualization-with-ggplot2.html#cb128-68" tabindex="-1"></a>             <span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span> </span>
+<span id="cb128-69"><a href="visualization-with-ggplot2.html#cb128-69" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> .<span class="dv">5</span>))</span>
+<span id="cb128-70"><a href="visualization-with-ggplot2.html#cb128-70" tabindex="-1"></a><span class="co">#&gt; Warning in theme_xkcd(): Not xkcd fonts installed! See vignette(&quot;xkcd-intro&quot;)</span></span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/themes-1.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/themes-2.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/themes-3.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/themes-4.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/themes-5.png" width="70%" style="display: block; margin: auto;" />
 Now for serious plots</p>
 <p><strong>Challenge 4</strong></p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="visualization-with-ggplot2.html#cb128-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
-<span id="cb128-2"><a href="visualization-with-ggplot2.html#cb128-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="visualization-with-ggplot2.html#cb129-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
+<span id="cb129-2"><a href="visualization-with-ggplot2.html#cb129-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>))</span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/darkgreen-1.png" width="70%" style="display: block; margin: auto;" />
 Why are the dots not blue?</p>
 <p>facet_wrap can create multiple plots based on levels of a factor (column)…</p>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="visualization-with-ggplot2.html#cb129-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
-<span id="cb129-2"><a href="visualization-with-ggplot2.html#cb129-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
-<span id="cb129-3"><a href="visualization-with-ggplot2.html#cb129-3" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> class, <span class="at">nrow =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="05_Visualize_files/figure-html/wrapping-1.png" width="70%" style="display: block; margin: auto;" />
-facet_grid takes slightly different arguments, and facets the plot on two variables…</p>
 <div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="visualization-with-ggplot2.html#cb130-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
 <span id="cb130-2"><a href="visualization-with-ggplot2.html#cb130-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
-<span id="cb130-3"><a href="visualization-with-ggplot2.html#cb130-3" tabindex="-1"></a>  <span class="fu">facet_grid</span>(drv <span class="sc">~</span> cyl)</span></code></pre></div>
+<span id="cb130-3"><a href="visualization-with-ggplot2.html#cb130-3" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> class, <span class="at">nrow =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="05_Visualize_files/figure-html/wrapping-1.png" width="70%" style="display: block; margin: auto;" />
+facet_grid takes slightly different arguments, and facets the plot on two variables…</p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="visualization-with-ggplot2.html#cb131-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
+<span id="cb131-2"><a href="visualization-with-ggplot2.html#cb131-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
+<span id="cb131-3"><a href="visualization-with-ggplot2.html#cb131-3" tabindex="-1"></a>  <span class="fu">facet_grid</span>(drv <span class="sc">~</span> cyl)</span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/grid-1.png" width="70%" style="display: block; margin: auto;" />
 If you prefer to not facet in the rows or columns dimension, use a . instead of a variable name, e.g. + facet_grid(. ~ cyl).</p>
 <p>…facet on a continuous variable?</p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="visualization-with-ggplot2.html#cb131-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
-<span id="cb131-2"><a href="visualization-with-ggplot2.html#cb131-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> class, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
-<span id="cb131-3"><a href="visualization-with-ggplot2.html#cb131-3" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>cty)</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="visualization-with-ggplot2.html#cb132-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
+<span id="cb132-2"><a href="visualization-with-ggplot2.html#cb132-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> class, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
+<span id="cb132-3"><a href="visualization-with-ggplot2.html#cb132-3" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>cty)</span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/wrapcont-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p><strong>Challenge 5</strong><br />
 What plots does the following code make? What does . do?</p>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="visualization-with-ggplot2.html#cb132-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
-<span id="cb132-2"><a href="visualization-with-ggplot2.html#cb132-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
-<span id="cb132-3"><a href="visualization-with-ggplot2.html#cb132-3" tabindex="-1"></a>  <span class="fu">facet_grid</span>(drv <span class="sc">~</span> .)</span></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="visualization-with-ggplot2.html#cb133-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
+<span id="cb133-2"><a href="visualization-with-ggplot2.html#cb133-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb133-3"><a href="visualization-with-ggplot2.html#cb133-3" tabindex="-1"></a>  <span class="fu">facet_grid</span>(drv <span class="sc">~</span> .)</span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/challenge5-1.png" width="70%" style="display: block; margin: auto;" />
 hint: try switching the . and drv</p>
 <p>You can group by color, shape, linetype, etc. or facet, but you can also apply geoms to only a subset of the data. Below, our smooth line displays just a subset of the mpg dataset, the subcompact cars. The local data argument in geom_smooth() overrides the global data argument in ggplot() for that layer only.</p>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="visualization-with-ggplot2.html#cb133-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
-<span id="cb133-2"><a href="visualization-with-ggplot2.html#cb133-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">color =</span> class)) <span class="sc">+</span> </span>
-<span id="cb133-3"><a href="visualization-with-ggplot2.html#cb133-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">data =</span> <span class="fu">filter</span>(mpg, class <span class="sc">==</span> <span class="st">&quot;pickup&quot;</span>), <span class="at">se =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb133-4"><a href="visualization-with-ggplot2.html#cb133-4" tabindex="-1"></a><span class="co">#&gt; `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="visualization-with-ggplot2.html#cb134-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
+<span id="cb134-2"><a href="visualization-with-ggplot2.html#cb134-2" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">color =</span> class)) <span class="sc">+</span> </span>
+<span id="cb134-3"><a href="visualization-with-ggplot2.html#cb134-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">data =</span> <span class="fu">filter</span>(mpg, class <span class="sc">==</span> <span class="st">&quot;pickup&quot;</span>), <span class="at">se =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb134-4"><a href="visualization-with-ggplot2.html#cb134-4" tabindex="-1"></a><span class="co">#&gt; `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</span></span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/se-1.png" width="70%" style="display: block; margin: auto;" />
 Notice how we used the filter function in the geom function?</p>
 </div>
 <div id="statistical-transformations" class="section level2 hasAnchor" number="6.5">
 <h2><span class="header-section-number">6.5</span> Statistical Transformations<a href="visualization-with-ggplot2.html#statistical-transformations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let’s get a new dataset:</p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="visualization-with-ggplot2.html#cb134-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> ggplot2<span class="sc">::</span>diamonds</span></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="visualization-with-ggplot2.html#cb135-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> ggplot2<span class="sc">::</span>diamonds</span></code></pre></div>
 <p>Look in the usual places for information on your diamonds datset.</p>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="visualization-with-ggplot2.html#cb135-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
-<span id="cb135-2"><a href="visualization-with-ggplot2.html#cb135-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut)) <span class="sc">+</span> </span>
-<span id="cb135-3"><a href="visualization-with-ggplot2.html#cb135-3" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="visualization-with-ggplot2.html#cb136-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
+<span id="cb136-2"><a href="visualization-with-ggplot2.html#cb136-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut)) <span class="sc">+</span> </span>
+<span id="cb136-3"><a href="visualization-with-ggplot2.html#cb136-3" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/daimonddim-1.png" width="70%" style="display: block; margin: auto;" />
 In this case, the geom_bar function has a “count” statistic. <code>count</code> is the default statistic for <code>geom_bar()</code> You can change it</p>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="visualization-with-ggplot2.html#cb136-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
-<span id="cb136-2"><a href="visualization-with-ggplot2.html#cb136-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut),<span class="at">stat =</span> <span class="st">&quot;density&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb136-3"><a href="visualization-with-ggplot2.html#cb136-3" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="visualization-with-ggplot2.html#cb137-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
+<span id="cb137-2"><a href="visualization-with-ggplot2.html#cb137-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut),<span class="at">stat =</span> <span class="st">&quot;density&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb137-3"><a href="visualization-with-ggplot2.html#cb137-3" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/dens-1.png" width="70%" style="display: block; margin: auto;" />
 …but it doesn’t make sense because we have a categorical variable on the x-axis. Remember…</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="visualization-with-ggplot2.html#cb137-1" tabindex="-1"></a>?geom_bar</span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="visualization-with-ggplot2.html#cb138-1" tabindex="-1"></a>?geom_bar</span></code></pre></div>
 <p>We can also do the counting beforehand and then plot with the “identity” statistic…</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="visualization-with-ggplot2.html#cb138-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb138-2"><a href="visualization-with-ggplot2.html#cb138-2" tabindex="-1"></a>  <span class="fu">group_by</span>(cut) <span class="sc">%&gt;%</span></span>
-<span id="cb138-3"><a href="visualization-with-ggplot2.html#cb138-3" tabindex="-1"></a>  <span class="fu">count</span>() </span>
-<span id="cb138-4"><a href="visualization-with-ggplot2.html#cb138-4" tabindex="-1"></a><span class="co">#&gt; # A tibble: 5 × 2</span></span>
-<span id="cb138-5"><a href="visualization-with-ggplot2.html#cb138-5" tabindex="-1"></a><span class="co">#&gt; # Groups:   cut [5]</span></span>
-<span id="cb138-6"><a href="visualization-with-ggplot2.html#cb138-6" tabindex="-1"></a><span class="co">#&gt;   cut           n</span></span>
-<span id="cb138-7"><a href="visualization-with-ggplot2.html#cb138-7" tabindex="-1"></a><span class="co">#&gt;   &lt;ord&gt;     &lt;int&gt;</span></span>
-<span id="cb138-8"><a href="visualization-with-ggplot2.html#cb138-8" tabindex="-1"></a><span class="co">#&gt; 1 Fair       1610</span></span>
-<span id="cb138-9"><a href="visualization-with-ggplot2.html#cb138-9" tabindex="-1"></a><span class="co">#&gt; 2 Good       4906</span></span>
-<span id="cb138-10"><a href="visualization-with-ggplot2.html#cb138-10" tabindex="-1"></a><span class="co">#&gt; 3 Very Good 12082</span></span>
-<span id="cb138-11"><a href="visualization-with-ggplot2.html#cb138-11" tabindex="-1"></a><span class="co">#&gt; 4 Premium   13791</span></span>
-<span id="cb138-12"><a href="visualization-with-ggplot2.html#cb138-12" tabindex="-1"></a><span class="co">#&gt; 5 Ideal     21551</span></span></code></pre></div>
 <div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="visualization-with-ggplot2.html#cb139-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
 <span id="cb139-2"><a href="visualization-with-ggplot2.html#cb139-2" tabindex="-1"></a>  <span class="fu">group_by</span>(cut) <span class="sc">%&gt;%</span></span>
-<span id="cb139-3"><a href="visualization-with-ggplot2.html#cb139-3" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb139-4"><a href="visualization-with-ggplot2.html#cb139-4" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> n),<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
-<span id="cb139-5"><a href="visualization-with-ggplot2.html#cb139-5" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<p><img src="05_Visualize_files/figure-html/classic-1.png" width="70%" style="display: block; margin: auto;" />
-Now we had to specify the y value because that is how high the bar should be.</p>
-<p>We can also use geom_point with stat = “identity”, which usually creates scatterplots</p>
+<span id="cb139-3"><a href="visualization-with-ggplot2.html#cb139-3" tabindex="-1"></a>  <span class="fu">count</span>() </span>
+<span id="cb139-4"><a href="visualization-with-ggplot2.html#cb139-4" tabindex="-1"></a><span class="co">#&gt; # A tibble: 5 × 2</span></span>
+<span id="cb139-5"><a href="visualization-with-ggplot2.html#cb139-5" tabindex="-1"></a><span class="co">#&gt; # Groups:   cut [5]</span></span>
+<span id="cb139-6"><a href="visualization-with-ggplot2.html#cb139-6" tabindex="-1"></a><span class="co">#&gt;   cut           n</span></span>
+<span id="cb139-7"><a href="visualization-with-ggplot2.html#cb139-7" tabindex="-1"></a><span class="co">#&gt;   &lt;ord&gt;     &lt;int&gt;</span></span>
+<span id="cb139-8"><a href="visualization-with-ggplot2.html#cb139-8" tabindex="-1"></a><span class="co">#&gt; 1 Fair       1610</span></span>
+<span id="cb139-9"><a href="visualization-with-ggplot2.html#cb139-9" tabindex="-1"></a><span class="co">#&gt; 2 Good       4906</span></span>
+<span id="cb139-10"><a href="visualization-with-ggplot2.html#cb139-10" tabindex="-1"></a><span class="co">#&gt; 3 Very Good 12082</span></span>
+<span id="cb139-11"><a href="visualization-with-ggplot2.html#cb139-11" tabindex="-1"></a><span class="co">#&gt; 4 Premium   13791</span></span>
+<span id="cb139-12"><a href="visualization-with-ggplot2.html#cb139-12" tabindex="-1"></a><span class="co">#&gt; 5 Ideal     21551</span></span></code></pre></div>
 <div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="visualization-with-ggplot2.html#cb140-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
 <span id="cb140-2"><a href="visualization-with-ggplot2.html#cb140-2" tabindex="-1"></a>  <span class="fu">group_by</span>(cut) <span class="sc">%&gt;%</span></span>
 <span id="cb140-3"><a href="visualization-with-ggplot2.html#cb140-3" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb140-4"><a href="visualization-with-ggplot2.html#cb140-4" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> n),<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb140-4"><a href="visualization-with-ggplot2.html#cb140-4" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> n),<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
 <span id="cb140-5"><a href="visualization-with-ggplot2.html#cb140-5" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<p><img src="05_Visualize_files/figure-html/classic-1.png" width="70%" style="display: block; margin: auto;" />
+Now we had to specify the y value because that is how high the bar should be.</p>
+<p>We can also use geom_point with stat = “identity”, which usually creates scatterplots</p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="visualization-with-ggplot2.html#cb141-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb141-2"><a href="visualization-with-ggplot2.html#cb141-2" tabindex="-1"></a>  <span class="fu">group_by</span>(cut) <span class="sc">%&gt;%</span></span>
+<span id="cb141-3"><a href="visualization-with-ggplot2.html#cb141-3" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb141-4"><a href="visualization-with-ggplot2.html#cb141-4" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> n),<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb141-5"><a href="visualization-with-ggplot2.html#cb141-5" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/cutgroup-1.png" width="70%" style="display: block; margin: auto;" />
 Here’s a cool trick, we can use proportion in the argument to get fractions of the whole:</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="visualization-with-ggplot2.html#cb141-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
-<span id="cb141-2"><a href="visualization-with-ggplot2.html#cb141-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> ..prop.., <span class="at">group =</span> <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="visualization-with-ggplot2.html#cb142-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
+<span id="cb142-2"><a href="visualization-with-ggplot2.html#cb142-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> ..prop.., <span class="at">group =</span> <span class="dv">1</span>))</span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/group1-1.png" width="70%" style="display: block; margin: auto;" />
 Notice that we had to specify the computed variable in dots ..”stat”..</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="visualization-with-ggplot2.html#cb142-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
-<span id="cb142-2"><a href="visualization-with-ggplot2.html#cb142-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> ..count.., <span class="at">group =</span> <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="visualization-with-ggplot2.html#cb143-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
+<span id="cb143-2"><a href="visualization-with-ggplot2.html#cb143-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> ..count.., <span class="at">group =</span> <span class="dv">1</span>))</span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/ycount-1.png" width="70%" style="display: block; margin: auto;" />
 also you have to specify that the proportion is out of a group of 1 and not cut. Otherwise they would all be a proportion of 1 for their group.</p>
 <p>We can do this before in the data.frame as well:</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="visualization-with-ggplot2.html#cb143-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb143-2"><a href="visualization-with-ggplot2.html#cb143-2" tabindex="-1"></a>  <span class="fu">group_by</span>(cut) <span class="sc">%&gt;%</span></span>
-<span id="cb143-3"><a href="visualization-with-ggplot2.html#cb143-3" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb143-4"><a href="visualization-with-ggplot2.html#cb143-4" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb143-5"><a href="visualization-with-ggplot2.html#cb143-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span></span>
-<span id="cb143-6"><a href="visualization-with-ggplot2.html#cb143-6" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> prop), <span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="visualization-with-ggplot2.html#cb144-1" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb144-2"><a href="visualization-with-ggplot2.html#cb144-2" tabindex="-1"></a>  <span class="fu">group_by</span>(cut) <span class="sc">%&gt;%</span></span>
+<span id="cb144-3"><a href="visualization-with-ggplot2.html#cb144-3" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb144-4"><a href="visualization-with-ggplot2.html#cb144-4" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb144-5"><a href="visualization-with-ggplot2.html#cb144-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span></span>
+<span id="cb144-6"><a href="visualization-with-ggplot2.html#cb144-6" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> prop), <span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/sum-1.png" width="70%" style="display: block; margin: auto;" />
 You can get summary stats inside ggplot with stat_summary:</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="visualization-with-ggplot2.html#cb144-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
-<span id="cb144-2"><a href="visualization-with-ggplot2.html#cb144-2" tabindex="-1"></a>  <span class="fu">stat_summary</span>(</span>
-<span id="cb144-3"><a href="visualization-with-ggplot2.html#cb144-3" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> depth),</span>
-<span id="cb144-4"><a href="visualization-with-ggplot2.html#cb144-4" tabindex="-1"></a>    <span class="at">fun.ymin =</span> min,</span>
-<span id="cb144-5"><a href="visualization-with-ggplot2.html#cb144-5" tabindex="-1"></a>    <span class="at">fun.ymax =</span> max,</span>
-<span id="cb144-6"><a href="visualization-with-ggplot2.html#cb144-6" tabindex="-1"></a>    <span class="at">fun.y =</span> median</span>
-<span id="cb144-7"><a href="visualization-with-ggplot2.html#cb144-7" tabindex="-1"></a>  )</span>
-<span id="cb144-8"><a href="visualization-with-ggplot2.html#cb144-8" tabindex="-1"></a><span class="co">#&gt; Warning: `fun.y` is deprecated. Use `fun` instead.</span></span>
-<span id="cb144-9"><a href="visualization-with-ggplot2.html#cb144-9" tabindex="-1"></a><span class="co">#&gt; Warning: `fun.ymin` is deprecated. Use `fun.min` instead.</span></span>
-<span id="cb144-10"><a href="visualization-with-ggplot2.html#cb144-10" tabindex="-1"></a><span class="co">#&gt; Warning: `fun.ymax` is deprecated. Use `fun.max` instead.</span></span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="visualization-with-ggplot2.html#cb145-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
+<span id="cb145-2"><a href="visualization-with-ggplot2.html#cb145-2" tabindex="-1"></a>  <span class="fu">stat_summary</span>(</span>
+<span id="cb145-3"><a href="visualization-with-ggplot2.html#cb145-3" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> depth),</span>
+<span id="cb145-4"><a href="visualization-with-ggplot2.html#cb145-4" tabindex="-1"></a>    <span class="at">fun.ymin =</span> min,</span>
+<span id="cb145-5"><a href="visualization-with-ggplot2.html#cb145-5" tabindex="-1"></a>    <span class="at">fun.ymax =</span> max,</span>
+<span id="cb145-6"><a href="visualization-with-ggplot2.html#cb145-6" tabindex="-1"></a>    <span class="at">fun.y =</span> median</span>
+<span id="cb145-7"><a href="visualization-with-ggplot2.html#cb145-7" tabindex="-1"></a>  )</span>
+<span id="cb145-8"><a href="visualization-with-ggplot2.html#cb145-8" tabindex="-1"></a><span class="co">#&gt; Warning: `fun.y` is deprecated. Use `fun` instead.</span></span>
+<span id="cb145-9"><a href="visualization-with-ggplot2.html#cb145-9" tabindex="-1"></a><span class="co">#&gt; Warning: `fun.ymin` is deprecated. Use `fun.min` instead.</span></span>
+<span id="cb145-10"><a href="visualization-with-ggplot2.html#cb145-10" tabindex="-1"></a><span class="co">#&gt; Warning: `fun.ymax` is deprecated. Use `fun.max` instead.</span></span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/allstats-1.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="changing-the-position" class="section level2 hasAnchor" number="6.6">
 <h2><span class="header-section-number">6.6</span> Changing the position<a href="visualization-with-ggplot2.html#changing-the-position" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We can also fill, stack, dodge and jitter our geoms:</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="visualization-with-ggplot2.html#cb145-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
-<span id="cb145-2"><a href="visualization-with-ggplot2.html#cb145-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">colour =</span> cut)) <span class="co">#color is the outside</span></span>
-<span id="cb145-3"><a href="visualization-with-ggplot2.html#cb145-3" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
-<span id="cb145-4"><a href="visualization-with-ggplot2.html#cb145-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">fill =</span> cut)) <span class="co">#fill is the inside</span></span>
-<span id="cb145-5"><a href="visualization-with-ggplot2.html#cb145-5" tabindex="-1"></a></span>
-<span id="cb145-6"><a href="visualization-with-ggplot2.html#cb145-6" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
-<span id="cb145-7"><a href="visualization-with-ggplot2.html#cb145-7" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">fill =</span> clarity)) <span class="co">#fill by a group NOT on the x axis</span></span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="visualization-with-ggplot2.html#cb146-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
+<span id="cb146-2"><a href="visualization-with-ggplot2.html#cb146-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">colour =</span> cut)) <span class="co">#color is the outside</span></span>
+<span id="cb146-3"><a href="visualization-with-ggplot2.html#cb146-3" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
+<span id="cb146-4"><a href="visualization-with-ggplot2.html#cb146-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">fill =</span> cut)) <span class="co">#fill is the inside</span></span>
+<span id="cb146-5"><a href="visualization-with-ggplot2.html#cb146-5" tabindex="-1"></a></span>
+<span id="cb146-6"><a href="visualization-with-ggplot2.html#cb146-6" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
+<span id="cb146-7"><a href="visualization-with-ggplot2.html#cb146-7" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">fill =</span> clarity)) <span class="co">#fill by a group NOT on the x axis</span></span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/positions-1.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/positions-2.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/positions-3.png" width="70%" style="display: block; margin: auto;" />
 Remember colorBrewer?</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="visualization-with-ggplot2.html#cb146-1" tabindex="-1"></a><span class="fu">require</span>(RColorBrewer)</span>
-<span id="cb146-2"><a href="visualization-with-ggplot2.html#cb146-2" tabindex="-1"></a><span class="co">#&gt; Loading required package: RColorBrewer</span></span>
-<span id="cb146-3"><a href="visualization-with-ggplot2.html#cb146-3" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
-<span id="cb146-4"><a href="visualization-with-ggplot2.html#cb146-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">fill =</span> clarity)) <span class="sc">+</span> </span>
-<span id="cb146-5"><a href="visualization-with-ggplot2.html#cb146-5" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="dv">4</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="visualization-with-ggplot2.html#cb147-1" tabindex="-1"></a><span class="fu">require</span>(RColorBrewer)</span>
+<span id="cb147-2"><a href="visualization-with-ggplot2.html#cb147-2" tabindex="-1"></a><span class="co">#&gt; Loading required package: RColorBrewer</span></span>
+<span id="cb147-3"><a href="visualization-with-ggplot2.html#cb147-3" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
+<span id="cb147-4"><a href="visualization-with-ggplot2.html#cb147-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">fill =</span> clarity)) <span class="sc">+</span> </span>
+<span id="cb147-5"><a href="visualization-with-ggplot2.html#cb147-5" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="dv">4</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/brewer-1.png" width="70%" style="display: block; margin: auto;" />
 The stacking is performed automatically by the position adjustment specified by the position argument. If you don’t want a stacked bar chart, you can use one of three other options: “identity”, “dodge” or “fill”.</p>
 <p>position = “identity” will place each object exactly where it falls in the context of the graph.
 This is not very useful for bars, because it overlaps them. To see that overlapping we either need to make the bars slightly transparent by setting alpha to a small value, or completely transparent by setting fill = NA.</p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="visualization-with-ggplot2.html#cb147-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">fill =</span> clarity)) <span class="sc">+</span> </span>
-<span id="cb147-2"><a href="visualization-with-ggplot2.html#cb147-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">5</span>, <span class="at">position =</span> <span class="st">&quot;identity&quot;</span>)</span>
-<span id="cb147-3"><a href="visualization-with-ggplot2.html#cb147-3" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">colour =</span> clarity)) <span class="sc">+</span> </span>
-<span id="cb147-4"><a href="visualization-with-ggplot2.html#cb147-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">position =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="visualization-with-ggplot2.html#cb148-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">fill =</span> clarity)) <span class="sc">+</span> </span>
+<span id="cb148-2"><a href="visualization-with-ggplot2.html#cb148-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">5</span>, <span class="at">position =</span> <span class="st">&quot;identity&quot;</span>)</span>
+<span id="cb148-3"><a href="visualization-with-ggplot2.html#cb148-3" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">colour =</span> clarity)) <span class="sc">+</span> </span>
+<span id="cb148-4"><a href="visualization-with-ggplot2.html#cb148-4" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">position =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span> <span class="fu">theme_classic</span>()</span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/bars-1.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/bars-2.png" width="70%" style="display: block; margin: auto;" />
 The identity position adjustment is more useful for 2d geoms, like points, where it is the default.</p>
 <p>position = “fill” works like stacking, but makes each set of stacked bars the same height.
 This makes it easier to compare proportions across groups.</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="visualization-with-ggplot2.html#cb148-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
-<span id="cb148-2"><a href="visualization-with-ggplot2.html#cb148-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">fill =</span> clarity), <span class="at">position =</span> <span class="st">&quot;fill&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="visualization-with-ggplot2.html#cb149-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
+<span id="cb149-2"><a href="visualization-with-ggplot2.html#cb149-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">fill =</span> clarity), <span class="at">position =</span> <span class="st">&quot;fill&quot;</span>)</span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/masbars-1.png" width="70%" style="display: block; margin: auto;" />
 position = “dodge” places overlapping objects directly beside one another.
 This makes it easier to compare individual values.</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="visualization-with-ggplot2.html#cb149-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
-<span id="cb149-2"><a href="visualization-with-ggplot2.html#cb149-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">fill =</span> clarity), <span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
-<span id="cb149-3"><a href="visualization-with-ggplot2.html#cb149-3" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb149-4"><a href="visualization-with-ggplot2.html#cb149-4" tabindex="-1"></a></span>
-<span id="cb149-5"><a href="visualization-with-ggplot2.html#cb149-5" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> price, <span class="at">y =</span> carat)) <span class="sc">+</span></span>
-<span id="cb149-6"><a href="visualization-with-ggplot2.html#cb149-6" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="st">&quot;jitter&quot;</span>) <span class="sc">+</span> <span class="fu">theme_light</span>() <span class="co">#position jitter adds randomness</span></span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="visualization-with-ggplot2.html#cb150-1" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
+<span id="cb150-2"><a href="visualization-with-ggplot2.html#cb150-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">fill =</span> clarity), <span class="at">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
+<span id="cb150-3"><a href="visualization-with-ggplot2.html#cb150-3" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb150-4"><a href="visualization-with-ggplot2.html#cb150-4" tabindex="-1"></a></span>
+<span id="cb150-5"><a href="visualization-with-ggplot2.html#cb150-5" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> price, <span class="at">y =</span> carat)) <span class="sc">+</span></span>
+<span id="cb150-6"><a href="visualization-with-ggplot2.html#cb150-6" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="st">&quot;jitter&quot;</span>) <span class="sc">+</span> <span class="fu">theme_light</span>() <span class="co">#position jitter adds randomness</span></span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/jitter-1.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/jitter-2.png" width="70%" style="display: block; margin: auto;" />
 There are packages that deal with overplotting, but some geoms make this easy as well.</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="visualization-with-ggplot2.html#cb150-1" tabindex="-1"></a>mprice <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb150-2"><a href="visualization-with-ggplot2.html#cb150-2" tabindex="-1"></a>  <span class="fu">group_by</span>(cut,<span class="fu">round</span>(carat, <span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb150-3"><a href="visualization-with-ggplot2.html#cb150-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mprice =</span> <span class="fu">mean</span>(price))</span>
-<span id="cb150-4"><a href="visualization-with-ggplot2.html#cb150-4" tabindex="-1"></a><span class="co">#&gt; `summarise()` has grouped output by &#39;cut&#39;. You can override using the `.groups`</span></span>
-<span id="cb150-5"><a href="visualization-with-ggplot2.html#cb150-5" tabindex="-1"></a><span class="co">#&gt; argument.</span></span>
-<span id="cb150-6"><a href="visualization-with-ggplot2.html#cb150-6" tabindex="-1"></a></span>
-<span id="cb150-7"><a href="visualization-with-ggplot2.html#cb150-7" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> price, <span class="at">y =</span> carat)) <span class="sc">+</span></span>
-<span id="cb150-8"><a href="visualization-with-ggplot2.html#cb150-8" tabindex="-1"></a>  <span class="fu">geom_bin2d</span>() </span>
-<span id="cb150-9"><a href="visualization-with-ggplot2.html#cb150-9" tabindex="-1"></a></span>
-<span id="cb150-10"><a href="visualization-with-ggplot2.html#cb150-10" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> price, <span class="at">y =</span> carat)) <span class="sc">+</span></span>
-<span id="cb150-11"><a href="visualization-with-ggplot2.html#cb150-11" tabindex="-1"></a>  <span class="fu">geom_density2d</span>() <span class="sc">+</span> <span class="fu">theme_classic</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="visualization-with-ggplot2.html#cb151-1" tabindex="-1"></a>mprice <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb151-2"><a href="visualization-with-ggplot2.html#cb151-2" tabindex="-1"></a>  <span class="fu">group_by</span>(cut,<span class="fu">round</span>(carat, <span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb151-3"><a href="visualization-with-ggplot2.html#cb151-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mprice =</span> <span class="fu">mean</span>(price))</span>
+<span id="cb151-4"><a href="visualization-with-ggplot2.html#cb151-4" tabindex="-1"></a><span class="co">#&gt; `summarise()` has grouped output by &#39;cut&#39;. You can override using the `.groups`</span></span>
+<span id="cb151-5"><a href="visualization-with-ggplot2.html#cb151-5" tabindex="-1"></a><span class="co">#&gt; argument.</span></span>
+<span id="cb151-6"><a href="visualization-with-ggplot2.html#cb151-6" tabindex="-1"></a></span>
+<span id="cb151-7"><a href="visualization-with-ggplot2.html#cb151-7" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> price, <span class="at">y =</span> carat)) <span class="sc">+</span></span>
+<span id="cb151-8"><a href="visualization-with-ggplot2.html#cb151-8" tabindex="-1"></a>  <span class="fu">geom_bin2d</span>() </span>
+<span id="cb151-9"><a href="visualization-with-ggplot2.html#cb151-9" tabindex="-1"></a></span>
+<span id="cb151-10"><a href="visualization-with-ggplot2.html#cb151-10" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> price, <span class="at">y =</span> carat)) <span class="sc">+</span></span>
+<span id="cb151-11"><a href="visualization-with-ggplot2.html#cb151-11" tabindex="-1"></a>  <span class="fu">geom_density2d</span>() <span class="sc">+</span> <span class="fu">theme_classic</span>()</span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/bin2d-1.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/bin2d-2.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="coordinates" class="section level2 hasAnchor" number="6.7">
 <h2><span class="header-section-number">6.7</span> Coordinates<a href="visualization-with-ggplot2.html#coordinates" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="visualization-with-ggplot2.html#cb151-1" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> depth)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
-<span id="cb151-2"><a href="visualization-with-ggplot2.html#cb151-2" tabindex="-1"></a></span>
-<span id="cb151-3"><a href="visualization-with-ggplot2.html#cb151-3" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> depth)) <span class="sc">+</span> </span>
-<span id="cb151-4"><a href="visualization-with-ggplot2.html#cb151-4" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb151-5"><a href="visualization-with-ggplot2.html#cb151-5" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="visualization-with-ggplot2.html#cb152-1" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> depth)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
+<span id="cb152-2"><a href="visualization-with-ggplot2.html#cb152-2" tabindex="-1"></a></span>
+<span id="cb152-3"><a href="visualization-with-ggplot2.html#cb152-3" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">y =</span> depth)) <span class="sc">+</span> </span>
+<span id="cb152-4"><a href="visualization-with-ggplot2.html#cb152-4" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb152-5"><a href="visualization-with-ggplot2.html#cb152-5" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/coords-1.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/coords-2.png" width="70%" style="display: block; margin: auto;" /></p>
 <div id="plot-maps-if-you-want" class="section level3 hasAnchor" number="6.7.1">
 <h3><span class="header-section-number">6.7.1</span> Plot maps if you want<a href="visualization-with-ggplot2.html#plot-maps-if-you-want" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="visualization-with-ggplot2.html#cb152-1" tabindex="-1"></a><span class="co"># install.packages(&quot;maps&quot;)</span></span>
-<span id="cb152-2"><a href="visualization-with-ggplot2.html#cb152-2" tabindex="-1"></a><span class="fu">require</span>(maps)</span>
-<span id="cb152-3"><a href="visualization-with-ggplot2.html#cb152-3" tabindex="-1"></a><span class="co">#&gt; Loading required package: maps</span></span>
-<span id="cb152-4"><a href="visualization-with-ggplot2.html#cb152-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb152-5"><a href="visualization-with-ggplot2.html#cb152-5" tabindex="-1"></a><span class="co">#&gt; Attaching package: &#39;maps&#39;</span></span>
-<span id="cb152-6"><a href="visualization-with-ggplot2.html#cb152-6" tabindex="-1"></a><span class="co">#&gt; The following object is masked from &#39;package:purrr&#39;:</span></span>
-<span id="cb152-7"><a href="visualization-with-ggplot2.html#cb152-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb152-8"><a href="visualization-with-ggplot2.html#cb152-8" tabindex="-1"></a><span class="co">#&gt;     map</span></span>
-<span id="cb152-9"><a href="visualization-with-ggplot2.html#cb152-9" tabindex="-1"></a>globe <span class="ot">&lt;-</span> <span class="fu">map_data</span>(<span class="at">map =</span> <span class="st">&quot;world&quot;</span>)</span>
-<span id="cb152-10"><a href="visualization-with-ggplot2.html#cb152-10" tabindex="-1"></a></span>
-<span id="cb152-11"><a href="visualization-with-ggplot2.html#cb152-11" tabindex="-1"></a><span class="fu">ggplot</span>(globe, <span class="fu">aes</span>(long, lat, <span class="at">group =</span> group)) <span class="sc">+</span></span>
-<span id="cb152-12"><a href="visualization-with-ggplot2.html#cb152-12" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="at">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>)</span>
-<span id="cb152-13"><a href="visualization-with-ggplot2.html#cb152-13" tabindex="-1"></a></span>
-<span id="cb152-14"><a href="visualization-with-ggplot2.html#cb152-14" tabindex="-1"></a><span class="fu">unique</span>(globe<span class="sc">$</span>region)[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
-<span id="cb152-15"><a href="visualization-with-ggplot2.html#cb152-15" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;Aruba&quot;                &quot;Afghanistan&quot;          &quot;Angola&quot;              </span></span>
-<span id="cb152-16"><a href="visualization-with-ggplot2.html#cb152-16" tabindex="-1"></a><span class="co">#&gt;  [4] &quot;Anguilla&quot;             &quot;Albania&quot;              &quot;Finland&quot;             </span></span>
-<span id="cb152-17"><a href="visualization-with-ggplot2.html#cb152-17" tabindex="-1"></a><span class="co">#&gt;  [7] &quot;Andorra&quot;              &quot;United Arab Emirates&quot; &quot;Argentina&quot;           </span></span>
-<span id="cb152-18"><a href="visualization-with-ggplot2.html#cb152-18" tabindex="-1"></a><span class="co">#&gt; [10] &quot;Armenia&quot;</span></span>
-<span id="cb152-19"><a href="visualization-with-ggplot2.html#cb152-19" tabindex="-1"></a></span>
-<span id="cb152-20"><a href="visualization-with-ggplot2.html#cb152-20" tabindex="-1"></a>newplaces <span class="ot">&lt;-</span> <span class="fu">map_data</span>(<span class="at">map =</span> <span class="st">&quot;world&quot;</span>, <span class="at">region =</span> <span class="st">&quot;Vanuatu&quot;</span>)</span>
-<span id="cb152-21"><a href="visualization-with-ggplot2.html#cb152-21" tabindex="-1"></a></span>
-<span id="cb152-22"><a href="visualization-with-ggplot2.html#cb152-22" tabindex="-1"></a><span class="fu">ggplot</span>(newplaces, <span class="fu">aes</span>(long, lat, <span class="at">group =</span> group)) <span class="sc">+</span></span>
-<span id="cb152-23"><a href="visualization-with-ggplot2.html#cb152-23" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="at">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
-<span id="cb152-24"><a href="visualization-with-ggplot2.html#cb152-24" tabindex="-1"></a>  <span class="fu">coord_quickmap</span>() <span class="co">#This adds lat and long</span></span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="visualization-with-ggplot2.html#cb153-1" tabindex="-1"></a><span class="co"># install.packages(&quot;maps&quot;)</span></span>
+<span id="cb153-2"><a href="visualization-with-ggplot2.html#cb153-2" tabindex="-1"></a><span class="fu">require</span>(maps)</span>
+<span id="cb153-3"><a href="visualization-with-ggplot2.html#cb153-3" tabindex="-1"></a><span class="co">#&gt; Loading required package: maps</span></span>
+<span id="cb153-4"><a href="visualization-with-ggplot2.html#cb153-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb153-5"><a href="visualization-with-ggplot2.html#cb153-5" tabindex="-1"></a><span class="co">#&gt; Attaching package: &#39;maps&#39;</span></span>
+<span id="cb153-6"><a href="visualization-with-ggplot2.html#cb153-6" tabindex="-1"></a><span class="co">#&gt; The following object is masked from &#39;package:purrr&#39;:</span></span>
+<span id="cb153-7"><a href="visualization-with-ggplot2.html#cb153-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb153-8"><a href="visualization-with-ggplot2.html#cb153-8" tabindex="-1"></a><span class="co">#&gt;     map</span></span>
+<span id="cb153-9"><a href="visualization-with-ggplot2.html#cb153-9" tabindex="-1"></a>globe <span class="ot">&lt;-</span> <span class="fu">map_data</span>(<span class="at">map =</span> <span class="st">&quot;world&quot;</span>)</span>
+<span id="cb153-10"><a href="visualization-with-ggplot2.html#cb153-10" tabindex="-1"></a></span>
+<span id="cb153-11"><a href="visualization-with-ggplot2.html#cb153-11" tabindex="-1"></a><span class="fu">ggplot</span>(globe, <span class="fu">aes</span>(long, lat, <span class="at">group =</span> group)) <span class="sc">+</span></span>
+<span id="cb153-12"><a href="visualization-with-ggplot2.html#cb153-12" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="at">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>)</span>
+<span id="cb153-13"><a href="visualization-with-ggplot2.html#cb153-13" tabindex="-1"></a></span>
+<span id="cb153-14"><a href="visualization-with-ggplot2.html#cb153-14" tabindex="-1"></a><span class="fu">unique</span>(globe<span class="sc">$</span>region)[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
+<span id="cb153-15"><a href="visualization-with-ggplot2.html#cb153-15" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;Aruba&quot;                &quot;Afghanistan&quot;          &quot;Angola&quot;              </span></span>
+<span id="cb153-16"><a href="visualization-with-ggplot2.html#cb153-16" tabindex="-1"></a><span class="co">#&gt;  [4] &quot;Anguilla&quot;             &quot;Albania&quot;              &quot;Finland&quot;             </span></span>
+<span id="cb153-17"><a href="visualization-with-ggplot2.html#cb153-17" tabindex="-1"></a><span class="co">#&gt;  [7] &quot;Andorra&quot;              &quot;United Arab Emirates&quot; &quot;Argentina&quot;           </span></span>
+<span id="cb153-18"><a href="visualization-with-ggplot2.html#cb153-18" tabindex="-1"></a><span class="co">#&gt; [10] &quot;Armenia&quot;</span></span>
+<span id="cb153-19"><a href="visualization-with-ggplot2.html#cb153-19" tabindex="-1"></a></span>
+<span id="cb153-20"><a href="visualization-with-ggplot2.html#cb153-20" tabindex="-1"></a>newplaces <span class="ot">&lt;-</span> <span class="fu">map_data</span>(<span class="at">map =</span> <span class="st">&quot;world&quot;</span>, <span class="at">region =</span> <span class="st">&quot;Vanuatu&quot;</span>)</span>
+<span id="cb153-21"><a href="visualization-with-ggplot2.html#cb153-21" tabindex="-1"></a></span>
+<span id="cb153-22"><a href="visualization-with-ggplot2.html#cb153-22" tabindex="-1"></a><span class="fu">ggplot</span>(newplaces, <span class="fu">aes</span>(long, lat, <span class="at">group =</span> group)) <span class="sc">+</span></span>
+<span id="cb153-23"><a href="visualization-with-ggplot2.html#cb153-23" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="at">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb153-24"><a href="visualization-with-ggplot2.html#cb153-24" tabindex="-1"></a>  <span class="fu">coord_quickmap</span>() <span class="co">#This adds lat and long</span></span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/maps-1.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/maps-2.png" width="70%" style="display: block; margin: auto;" />
 Plot with flipped axes or in polar coordinates…</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="visualization-with-ggplot2.html#cb153-1" tabindex="-1"></a>bar <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
-<span id="cb153-2"><a href="visualization-with-ggplot2.html#cb153-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(</span>
-<span id="cb153-3"><a href="visualization-with-ggplot2.html#cb153-3" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">fill =</span> cut), </span>
-<span id="cb153-4"><a href="visualization-with-ggplot2.html#cb153-4" tabindex="-1"></a>    <span class="at">show.legend =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb153-5"><a href="visualization-with-ggplot2.html#cb153-5" tabindex="-1"></a>    <span class="at">width =</span> <span class="dv">1</span></span>
-<span id="cb153-6"><a href="visualization-with-ggplot2.html#cb153-6" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
-<span id="cb153-7"><a href="visualization-with-ggplot2.html#cb153-7" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">aspect.ratio =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb153-8"><a href="visualization-with-ggplot2.html#cb153-8" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span>
-<span id="cb153-9"><a href="visualization-with-ggplot2.html#cb153-9" tabindex="-1"></a></span>
-<span id="cb153-10"><a href="visualization-with-ggplot2.html#cb153-10" tabindex="-1"></a>bar <span class="sc">+</span> <span class="fu">coord_flip</span>()</span>
-<span id="cb153-11"><a href="visualization-with-ggplot2.html#cb153-11" tabindex="-1"></a>bar <span class="sc">+</span> <span class="fu">coord_polar</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="visualization-with-ggplot2.html#cb154-1" tabindex="-1"></a>bar <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> df) <span class="sc">+</span> </span>
+<span id="cb154-2"><a href="visualization-with-ggplot2.html#cb154-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(</span>
+<span id="cb154-3"><a href="visualization-with-ggplot2.html#cb154-3" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> cut, <span class="at">fill =</span> cut), </span>
+<span id="cb154-4"><a href="visualization-with-ggplot2.html#cb154-4" tabindex="-1"></a>    <span class="at">show.legend =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb154-5"><a href="visualization-with-ggplot2.html#cb154-5" tabindex="-1"></a>    <span class="at">width =</span> <span class="dv">1</span></span>
+<span id="cb154-6"><a href="visualization-with-ggplot2.html#cb154-6" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb154-7"><a href="visualization-with-ggplot2.html#cb154-7" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">aspect.ratio =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb154-8"><a href="visualization-with-ggplot2.html#cb154-8" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span>
+<span id="cb154-9"><a href="visualization-with-ggplot2.html#cb154-9" tabindex="-1"></a></span>
+<span id="cb154-10"><a href="visualization-with-ggplot2.html#cb154-10" tabindex="-1"></a>bar <span class="sc">+</span> <span class="fu">coord_flip</span>()</span>
+<span id="cb154-11"><a href="visualization-with-ggplot2.html#cb154-11" tabindex="-1"></a>bar <span class="sc">+</span> <span class="fu">coord_polar</span>()</span></code></pre></div>
 <p><img src="05_Visualize_files/figure-html/polar-1.png" width="70%" style="display: block; margin: auto;" /><img src="05_Visualize_files/figure-html/polar-2.png" width="70%" style="display: block; margin: auto;" />
 So much you can do!</p>
 

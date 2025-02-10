@@ -159,6 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.11" data-path="syllabus.html"><a href="syllabus.html#student-support-accommodations"><i class="fa fa-check"></i><b>1.11</b> Student Support &amp; Accommodations</a></li>
 <li class="chapter" data-level="1.12" data-path="syllabus.html"><a href="syllabus.html#academic-calendar"><i class="fa fa-check"></i><b>1.12</b> Academic Calendar</a></li>
 <li class="chapter" data-level="1.13" data-path="syllabus.html"><a href="syllabus.html#course-schedule"><i class="fa fa-check"></i><b>1.13</b> Course Schedule</a></li>
+<li class="chapter" data-level="1.14" data-path="syllabus.html"><a href="syllabus.html#end-of-syllabus"><i class="fa fa-check"></i><b>1.14</b> End of Syllabus</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
 <ul>
@@ -176,10 +177,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="importing-data.html"><a href="importing-data.html"><i class="fa fa-check"></i><b>3</b> Importing Data</a>
 <ul>
+<li class="chapter" data-level="3.1" data-path="importing-data.html"><a href="importing-data.html#winner-jacob-bates"><i class="fa fa-check"></i><b>3.1</b> WINNER!!!!! Jacob Bates</a></li>
 <li class="chapter" data-level="" data-path="importing-data.html"><a href="importing-data.html#reading-files-into-r"><i class="fa fa-check"></i>Reading files into R</a></li>
-<li class="chapter" data-level="3.1" data-path="importing-data.html"><a href="importing-data.html#whats-a-tibble"><i class="fa fa-check"></i><b>3.1</b> What’s a tibble?</a></li>
-<li class="chapter" data-level="3.2" data-path="importing-data.html"><a href="importing-data.html#save-your-dataset"><i class="fa fa-check"></i><b>3.2</b> Save your dataset:</a></li>
-<li class="chapter" data-level="3.3" data-path="importing-data.html"><a href="importing-data.html#cleaning-your-data-file"><i class="fa fa-check"></i><b>3.3</b> Cleaning your data file</a></li>
+<li class="chapter" data-level="3.2" data-path="importing-data.html"><a href="importing-data.html#whats-a-tibble"><i class="fa fa-check"></i><b>3.2</b> What’s a tibble?</a></li>
+<li class="chapter" data-level="3.3" data-path="importing-data.html"><a href="importing-data.html#save-your-dataset"><i class="fa fa-check"></i><b>3.3</b> Save your dataset:</a></li>
+<li class="chapter" data-level="3.4" data-path="importing-data.html"><a href="importing-data.html#cleaning-your-data-file"><i class="fa fa-check"></i><b>3.4</b> Cleaning your data file</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>4</b> Data Transformation</a>
 <ul>
@@ -310,12 +312,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 that can be hosted on websites or from your R console.</p>
 <p><strong>Challenge 1</strong></p>
 <p>Install shiny app:</p>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="shiny-applications.html#cb263-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;shiny&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="shiny-applications.html#cb264-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;shiny&quot;</span>)</span></code></pre></div>
 <p>Optional installs</p>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="shiny-applications.html#cb264-1" tabindex="-1"></a></span>
-<span id="cb264-2"><a href="shiny-applications.html#cb264-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;shinyjs&quot;</span>)</span>
-<span id="cb264-3"><a href="shiny-applications.html#cb264-3" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;shinystan&quot;</span>)</span>
-<span id="cb264-4"><a href="shiny-applications.html#cb264-4" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;shinythemes&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="shiny-applications.html#cb265-1" tabindex="-1"></a></span>
+<span id="cb265-2"><a href="shiny-applications.html#cb265-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;shinyjs&quot;</span>)</span>
+<span id="cb265-3"><a href="shiny-applications.html#cb265-3" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;shinystan&quot;</span>)</span>
+<span id="cb265-4"><a href="shiny-applications.html#cb265-4" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;shinythemes&quot;</span>)</span></code></pre></div>
 <p>Open the folder code and open 01-template.R and click run app</p>
 <p>Run the lines there to see the structure of a shiny app.</p>
 <p>This is the simplest version of a shiny app that can be made.
@@ -326,72 +328,72 @@ outputs.</p>
 <p>Now you see inputs and output</p>
 <p><strong>Challenge 2</strong></p>
 <p>Run this shiny app. Screenshot the app.</p>
-<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="shiny-applications.html#cb265-1" tabindex="-1"></a></span>
-<span id="cb265-2"><a href="shiny-applications.html#cb265-2" tabindex="-1"></a></span>
-<span id="cb265-3"><a href="shiny-applications.html#cb265-3" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
-<span id="cb265-4"><a href="shiny-applications.html#cb265-4" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(<span class="st">&quot;hello world&quot;</span>) <span class="co">#This is the User Interface (ui),</span></span>
-<span id="cb265-5"><a href="shiny-applications.html#cb265-5" tabindex="-1"></a><span class="co"># it generates html for you so you don&#39;t have to do it. Run this line by itself</span></span>
-<span id="cb265-6"><a href="shiny-applications.html#cb265-6" tabindex="-1"></a><span class="co"># and then type ui into your console and hit enter.</span></span>
-<span id="cb265-7"><a href="shiny-applications.html#cb265-7" tabindex="-1"></a></span>
-<span id="cb265-8"><a href="shiny-applications.html#cb265-8" tabindex="-1"></a><span class="co">#What do you see?</span></span>
-<span id="cb265-9"><a href="shiny-applications.html#cb265-9" tabindex="-1"></a></span>
-<span id="cb265-10"><a href="shiny-applications.html#cb265-10" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {} <span class="co">#This is where the R code does work.</span></span>
-<span id="cb265-11"><a href="shiny-applications.html#cb265-11" tabindex="-1"></a><span class="co"># Run this line by itself and then hit enter</span></span>
-<span id="cb265-12"><a href="shiny-applications.html#cb265-12" tabindex="-1"></a></span>
-<span id="cb265-13"><a href="shiny-applications.html#cb265-13" tabindex="-1"></a><span class="co">#What do you see?</span></span>
-<span id="cb265-14"><a href="shiny-applications.html#cb265-14" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server) <span class="co">#This starts the app running </span></span>
-<span id="cb265-15"><a href="shiny-applications.html#cb265-15" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb265-16"><a href="shiny-applications.html#cb265-16" tabindex="-1"></a><span class="co">#&gt; Listening on http://127.0.0.1:8301</span></span></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="shiny-applications.html#cb266-1" tabindex="-1"></a></span>
+<span id="cb266-2"><a href="shiny-applications.html#cb266-2" tabindex="-1"></a></span>
+<span id="cb266-3"><a href="shiny-applications.html#cb266-3" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb266-4"><a href="shiny-applications.html#cb266-4" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(<span class="st">&quot;hello world&quot;</span>) <span class="co">#This is the User Interface (ui),</span></span>
+<span id="cb266-5"><a href="shiny-applications.html#cb266-5" tabindex="-1"></a><span class="co"># it generates html for you so you don&#39;t have to do it. Run this line by itself</span></span>
+<span id="cb266-6"><a href="shiny-applications.html#cb266-6" tabindex="-1"></a><span class="co"># and then type ui into your console and hit enter.</span></span>
+<span id="cb266-7"><a href="shiny-applications.html#cb266-7" tabindex="-1"></a></span>
+<span id="cb266-8"><a href="shiny-applications.html#cb266-8" tabindex="-1"></a><span class="co">#What do you see?</span></span>
+<span id="cb266-9"><a href="shiny-applications.html#cb266-9" tabindex="-1"></a></span>
+<span id="cb266-10"><a href="shiny-applications.html#cb266-10" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {} <span class="co">#This is where the R code does work.</span></span>
+<span id="cb266-11"><a href="shiny-applications.html#cb266-11" tabindex="-1"></a><span class="co"># Run this line by itself and then hit enter</span></span>
+<span id="cb266-12"><a href="shiny-applications.html#cb266-12" tabindex="-1"></a></span>
+<span id="cb266-13"><a href="shiny-applications.html#cb266-13" tabindex="-1"></a><span class="co">#What do you see?</span></span>
+<span id="cb266-14"><a href="shiny-applications.html#cb266-14" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server) <span class="co">#This starts the app running </span></span>
+<span id="cb266-15"><a href="shiny-applications.html#cb266-15" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb266-16"><a href="shiny-applications.html#cb266-16" tabindex="-1"></a><span class="co">#&gt; Listening on http://127.0.0.1:8301</span></span></code></pre></div>
 <p><img src="11_ShinyApps_files/figure-html/unnamed-chunk-3-1.png" width="70%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="shiny-applications.html#cb266-1" tabindex="-1"></a><span class="co">#from you laptop. While it is running, you can see that it has opened</span></span>
-<span id="cb266-2"><a href="shiny-applications.html#cb266-2" tabindex="-1"></a><span class="co"># a port to your local laptop in the console. To stop it, close the</span></span>
-<span id="cb266-3"><a href="shiny-applications.html#cb266-3" tabindex="-1"></a><span class="co"># window or hit the stop sign.</span></span></code></pre></div>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="shiny-applications.html#cb267-1" tabindex="-1"></a><span class="co"># library(shiny)</span></span>
-<span id="cb267-2"><a href="shiny-applications.html#cb267-2" tabindex="-1"></a></span>
-<span id="cb267-3"><a href="shiny-applications.html#cb267-3" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
-<span id="cb267-4"><a href="shiny-applications.html#cb267-4" tabindex="-1"></a>  <span class="fu">sliderInput</span>(<span class="at">inputId =</span> <span class="st">&quot;num&quot;</span>, <span class="co">#Here you can see we set up a slider for the user</span></span>
-<span id="cb267-5"><a href="shiny-applications.html#cb267-5" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">&quot;Choose a number&quot;</span>, <span class="co">#It has a label, which are instructions</span></span>
-<span id="cb267-6"><a href="shiny-applications.html#cb267-6" tabindex="-1"></a>    <span class="at">value =</span> <span class="dv">25</span>, <span class="at">min =</span> <span class="dv">1</span>, <span class="at">max =</span> <span class="dv">100</span>), <span class="co">#It has a default value, a min and a max</span></span>
-<span id="cb267-7"><a href="shiny-applications.html#cb267-7" tabindex="-1"></a>  <span class="fu">plotOutput</span>(<span class="st">&quot;hist&quot;</span>), <span class="co">#And you  have to make sure to plot it</span></span>
-<span id="cb267-8"><a href="shiny-applications.html#cb267-8" tabindex="-1"></a>  <span class="fu">sliderInput</span>(<span class="at">inputId =</span> <span class="st">&quot;num2&quot;</span>, <span class="co">#Here you can see we set up a slider for the user</span></span>
-<span id="cb267-9"><a href="shiny-applications.html#cb267-9" tabindex="-1"></a>              <span class="at">label =</span> <span class="st">&quot;Choose a number&quot;</span>, <span class="co">#It has a label, which are instructions</span></span>
-<span id="cb267-10"><a href="shiny-applications.html#cb267-10" tabindex="-1"></a>              <span class="at">value =</span> <span class="dv">25</span>, <span class="at">min =</span> <span class="dv">1</span>, <span class="at">max =</span> <span class="dv">100</span>), <span class="co">#It has a default value, a min and a max</span></span>
-<span id="cb267-11"><a href="shiny-applications.html#cb267-11" tabindex="-1"></a>  <span class="fu">plotOutput</span>(<span class="st">&quot;hist2&quot;</span>) <span class="co">#And you  have to make sure to plot it</span></span>
-<span id="cb267-12"><a href="shiny-applications.html#cb267-12" tabindex="-1"></a>)</span>
-<span id="cb267-13"><a href="shiny-applications.html#cb267-13" tabindex="-1"></a></span>
-<span id="cb267-14"><a href="shiny-applications.html#cb267-14" tabindex="-1"></a><span class="co">#This is what ui looks like:</span></span>
-<span id="cb267-15"><a href="shiny-applications.html#cb267-15" tabindex="-1"></a><span class="co"># &lt;div class=&quot;container-fluid&quot;&gt;</span></span>
-<span id="cb267-16"><a href="shiny-applications.html#cb267-16" tabindex="-1"></a><span class="co">#   &lt;div class=&quot;form-group shiny-input-container&quot;&gt;</span></span>
-<span id="cb267-17"><a href="shiny-applications.html#cb267-17" tabindex="-1"></a><span class="co">#   &lt;label class=&quot;control-label&quot; for=&quot;num&quot;&gt;Choose a number&lt;/label&gt;</span></span>
-<span id="cb267-18"><a href="shiny-applications.html#cb267-18" tabindex="-1"></a><span class="co">#   &lt;input class=&quot;js-range-slider&quot; id=&quot;num&quot; </span></span>
-<span id="cb267-19"><a href="shiny-applications.html#cb267-19" tabindex="-1"></a><span class="co">#           data-min=&quot;1&quot; data-max=&quot;100&quot; data-from=&quot;25&quot; </span></span>
-<span id="cb267-20"><a href="shiny-applications.html#cb267-20" tabindex="-1"></a><span class="co">#           data-step=&quot;1&quot; data-grid=&quot;true&quot; data-grid-num=&quot;9.9&quot; </span></span>
-<span id="cb267-21"><a href="shiny-applications.html#cb267-21" tabindex="-1"></a><span class="co">#           data-grid-snap=&quot;false&quot; data-prettify-separator=&quot;,&quot; </span></span>
-<span id="cb267-22"><a href="shiny-applications.html#cb267-22" tabindex="-1"></a><span class="co">#           data-prettify-enabled=&quot;true&quot; data-keyboard=&quot;true&quot; </span></span>
-<span id="cb267-23"><a href="shiny-applications.html#cb267-23" tabindex="-1"></a><span class="co">#           data-data-type=&quot;number&quot;/&gt;</span></span>
-<span id="cb267-24"><a href="shiny-applications.html#cb267-24" tabindex="-1"></a><span class="co">#   &lt;/div&gt;</span></span>
-<span id="cb267-25"><a href="shiny-applications.html#cb267-25" tabindex="-1"></a><span class="co">#   &lt;div id=&quot;hist&quot; class=&quot;shiny-plot-output&quot; style=&quot;width: 100% ; height: 400px&quot;&gt;&lt;/div&gt;</span></span>
-<span id="cb267-26"><a href="shiny-applications.html#cb267-26" tabindex="-1"></a><span class="co">#   &lt;/div&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="shiny-applications.html#cb267-1" tabindex="-1"></a><span class="co">#from you laptop. While it is running, you can see that it has opened</span></span>
+<span id="cb267-2"><a href="shiny-applications.html#cb267-2" tabindex="-1"></a><span class="co"># a port to your local laptop in the console. To stop it, close the</span></span>
+<span id="cb267-3"><a href="shiny-applications.html#cb267-3" tabindex="-1"></a><span class="co"># window or hit the stop sign.</span></span></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="shiny-applications.html#cb268-1" tabindex="-1"></a><span class="co"># library(shiny)</span></span>
+<span id="cb268-2"><a href="shiny-applications.html#cb268-2" tabindex="-1"></a></span>
+<span id="cb268-3"><a href="shiny-applications.html#cb268-3" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb268-4"><a href="shiny-applications.html#cb268-4" tabindex="-1"></a>  <span class="fu">sliderInput</span>(<span class="at">inputId =</span> <span class="st">&quot;num&quot;</span>, <span class="co">#Here you can see we set up a slider for the user</span></span>
+<span id="cb268-5"><a href="shiny-applications.html#cb268-5" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">&quot;Choose a number&quot;</span>, <span class="co">#It has a label, which are instructions</span></span>
+<span id="cb268-6"><a href="shiny-applications.html#cb268-6" tabindex="-1"></a>    <span class="at">value =</span> <span class="dv">25</span>, <span class="at">min =</span> <span class="dv">1</span>, <span class="at">max =</span> <span class="dv">100</span>), <span class="co">#It has a default value, a min and a max</span></span>
+<span id="cb268-7"><a href="shiny-applications.html#cb268-7" tabindex="-1"></a>  <span class="fu">plotOutput</span>(<span class="st">&quot;hist&quot;</span>), <span class="co">#And you  have to make sure to plot it</span></span>
+<span id="cb268-8"><a href="shiny-applications.html#cb268-8" tabindex="-1"></a>  <span class="fu">sliderInput</span>(<span class="at">inputId =</span> <span class="st">&quot;num2&quot;</span>, <span class="co">#Here you can see we set up a slider for the user</span></span>
+<span id="cb268-9"><a href="shiny-applications.html#cb268-9" tabindex="-1"></a>              <span class="at">label =</span> <span class="st">&quot;Choose a number&quot;</span>, <span class="co">#It has a label, which are instructions</span></span>
+<span id="cb268-10"><a href="shiny-applications.html#cb268-10" tabindex="-1"></a>              <span class="at">value =</span> <span class="dv">25</span>, <span class="at">min =</span> <span class="dv">1</span>, <span class="at">max =</span> <span class="dv">100</span>), <span class="co">#It has a default value, a min and a max</span></span>
+<span id="cb268-11"><a href="shiny-applications.html#cb268-11" tabindex="-1"></a>  <span class="fu">plotOutput</span>(<span class="st">&quot;hist2&quot;</span>) <span class="co">#And you  have to make sure to plot it</span></span>
+<span id="cb268-12"><a href="shiny-applications.html#cb268-12" tabindex="-1"></a>)</span>
+<span id="cb268-13"><a href="shiny-applications.html#cb268-13" tabindex="-1"></a></span>
+<span id="cb268-14"><a href="shiny-applications.html#cb268-14" tabindex="-1"></a><span class="co">#This is what ui looks like:</span></span>
+<span id="cb268-15"><a href="shiny-applications.html#cb268-15" tabindex="-1"></a><span class="co"># &lt;div class=&quot;container-fluid&quot;&gt;</span></span>
+<span id="cb268-16"><a href="shiny-applications.html#cb268-16" tabindex="-1"></a><span class="co">#   &lt;div class=&quot;form-group shiny-input-container&quot;&gt;</span></span>
+<span id="cb268-17"><a href="shiny-applications.html#cb268-17" tabindex="-1"></a><span class="co">#   &lt;label class=&quot;control-label&quot; for=&quot;num&quot;&gt;Choose a number&lt;/label&gt;</span></span>
+<span id="cb268-18"><a href="shiny-applications.html#cb268-18" tabindex="-1"></a><span class="co">#   &lt;input class=&quot;js-range-slider&quot; id=&quot;num&quot; </span></span>
+<span id="cb268-19"><a href="shiny-applications.html#cb268-19" tabindex="-1"></a><span class="co">#           data-min=&quot;1&quot; data-max=&quot;100&quot; data-from=&quot;25&quot; </span></span>
+<span id="cb268-20"><a href="shiny-applications.html#cb268-20" tabindex="-1"></a><span class="co">#           data-step=&quot;1&quot; data-grid=&quot;true&quot; data-grid-num=&quot;9.9&quot; </span></span>
+<span id="cb268-21"><a href="shiny-applications.html#cb268-21" tabindex="-1"></a><span class="co">#           data-grid-snap=&quot;false&quot; data-prettify-separator=&quot;,&quot; </span></span>
+<span id="cb268-22"><a href="shiny-applications.html#cb268-22" tabindex="-1"></a><span class="co">#           data-prettify-enabled=&quot;true&quot; data-keyboard=&quot;true&quot; </span></span>
+<span id="cb268-23"><a href="shiny-applications.html#cb268-23" tabindex="-1"></a><span class="co">#           data-data-type=&quot;number&quot;/&gt;</span></span>
+<span id="cb268-24"><a href="shiny-applications.html#cb268-24" tabindex="-1"></a><span class="co">#   &lt;/div&gt;</span></span>
+<span id="cb268-25"><a href="shiny-applications.html#cb268-25" tabindex="-1"></a><span class="co">#   &lt;div id=&quot;hist&quot; class=&quot;shiny-plot-output&quot; style=&quot;width: 100% ; height: 400px&quot;&gt;&lt;/div&gt;</span></span>
+<span id="cb268-26"><a href="shiny-applications.html#cb268-26" tabindex="-1"></a><span class="co">#   &lt;/div&gt;</span></span></code></pre></div>
 <p>Now for the server function. You use the previously learned R syntax to
 create a function. You give it the arguments input and output.
 Then if you have outputs, you need to save the output to “output$name” with the
 assignment operator &lt;-</p>
 <p><strong>Challenge 3</strong></p>
 <p>Run this shiny app. Screenshot the app.</p>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="shiny-applications.html#cb268-1" tabindex="-1"></a></span>
-<span id="cb268-2"><a href="shiny-applications.html#cb268-2" tabindex="-1"></a></span>
-<span id="cb268-3"><a href="shiny-applications.html#cb268-3" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) { <span class="co">#Now we&#39;ve added input and output to the arguments</span></span>
-<span id="cb268-4"><a href="shiny-applications.html#cb268-4" tabindex="-1"></a>  output<span class="sc">$</span>hist <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({ <span class="co">#output$hist is the saved plot, renderPlot builds it</span></span>
-<span id="cb268-5"><a href="shiny-applications.html#cb268-5" tabindex="-1"></a>    <span class="fu">hist</span>(<span class="fu">rnorm</span>(input<span class="sc">$</span>num)) <span class="co">#This creates the histogram with information from input</span></span>
-<span id="cb268-6"><a href="shiny-applications.html#cb268-6" tabindex="-1"></a>  })</span>
-<span id="cb268-7"><a href="shiny-applications.html#cb268-7" tabindex="-1"></a>  output<span class="sc">$</span>hist2 <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({ <span class="co">#output$hist is the saved plot, renderPlot builds it</span></span>
-<span id="cb268-8"><a href="shiny-applications.html#cb268-8" tabindex="-1"></a>    <span class="fu">hist</span>(<span class="fu">rnorm</span>(input<span class="sc">$</span>num2)) <span class="co">#This creates the histogram with information from input  </span></span>
-<span id="cb268-9"><a href="shiny-applications.html#cb268-9" tabindex="-1"></a>  }) </span>
-<span id="cb268-10"><a href="shiny-applications.html#cb268-10" tabindex="-1"></a>}</span>
-<span id="cb268-11"><a href="shiny-applications.html#cb268-11" tabindex="-1"></a></span>
-<span id="cb268-12"><a href="shiny-applications.html#cb268-12" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)<span class="co">#This creates and runs the app</span></span>
-<span id="cb268-13"><a href="shiny-applications.html#cb268-13" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb268-14"><a href="shiny-applications.html#cb268-14" tabindex="-1"></a><span class="co">#&gt; Listening on http://127.0.0.1:4023</span></span></code></pre></div>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="shiny-applications.html#cb269-1" tabindex="-1"></a></span>
+<span id="cb269-2"><a href="shiny-applications.html#cb269-2" tabindex="-1"></a></span>
+<span id="cb269-3"><a href="shiny-applications.html#cb269-3" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) { <span class="co">#Now we&#39;ve added input and output to the arguments</span></span>
+<span id="cb269-4"><a href="shiny-applications.html#cb269-4" tabindex="-1"></a>  output<span class="sc">$</span>hist <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({ <span class="co">#output$hist is the saved plot, renderPlot builds it</span></span>
+<span id="cb269-5"><a href="shiny-applications.html#cb269-5" tabindex="-1"></a>    <span class="fu">hist</span>(<span class="fu">rnorm</span>(input<span class="sc">$</span>num)) <span class="co">#This creates the histogram with information from input</span></span>
+<span id="cb269-6"><a href="shiny-applications.html#cb269-6" tabindex="-1"></a>  })</span>
+<span id="cb269-7"><a href="shiny-applications.html#cb269-7" tabindex="-1"></a>  output<span class="sc">$</span>hist2 <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({ <span class="co">#output$hist is the saved plot, renderPlot builds it</span></span>
+<span id="cb269-8"><a href="shiny-applications.html#cb269-8" tabindex="-1"></a>    <span class="fu">hist</span>(<span class="fu">rnorm</span>(input<span class="sc">$</span>num2)) <span class="co">#This creates the histogram with information from input  </span></span>
+<span id="cb269-9"><a href="shiny-applications.html#cb269-9" tabindex="-1"></a>  }) </span>
+<span id="cb269-10"><a href="shiny-applications.html#cb269-10" tabindex="-1"></a>}</span>
+<span id="cb269-11"><a href="shiny-applications.html#cb269-11" tabindex="-1"></a></span>
+<span id="cb269-12"><a href="shiny-applications.html#cb269-12" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)<span class="co">#This creates and runs the app</span></span>
+<span id="cb269-13"><a href="shiny-applications.html#cb269-13" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb269-14"><a href="shiny-applications.html#cb269-14" tabindex="-1"></a><span class="co">#&gt; Listening on http://127.0.0.1:4023</span></span></code></pre></div>
 <p><img src="11_ShinyApps_files/figure-html/unnamed-chunk-5-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>Note: the name in plotOutput() “hist” of the ui function is the same as
 output$hist. These are mapped together to provide the information for the graph.
