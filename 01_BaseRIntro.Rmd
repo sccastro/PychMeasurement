@@ -153,13 +153,11 @@ dim(cars)[1] #subset the dim
 
 There are 5 basic types of objects in the R language:
 
-  * Vectors - Atomic vectors can store homogeneous data types such as character, doubles, integers, raw, logical, and complex. A single element variable is also said to be vector.
-  * Data Frames - Data frames are 2-dimensional tabular data object in R programming. Data frames consists of multiple columns and each column represents a vector. Columns in data frame can have different modes of data unlike matrices.
-  * Lists - List can contain heterogeneous data types such as vectors or another lists.
-  * Matrices - To store values as 2-Dimensional array, matrices are used in R. Data, number of rows and columns are defined in the matrix() function.
-  * Arrays - array() function is used to create n-dimensional array. This function takes dim attribute as an argument and creates required length of each dimension as specified in the attribute.
-
-
+-   Vectors - Atomic vectors can store homogeneous data types such as character, doubles, integers, raw, logical, and complex. A single element variable is also said to be vector.
+-   Data Frames - Data frames are 2-dimensional tabular data object in R programming. Data frames consists of multiple columns and each column represents a vector. Columns in data frame can have different modes of data unlike matrices.
+-   Lists - List can contain heterogeneous data types such as vectors or another lists.
+-   Matrices - To store values as 2-Dimensional array, matrices are used in R. Data, number of rows and columns are defined in the matrix() function.
+-   Arrays - array() function is used to create n-dimensional array. This function takes dim attribute as an argument and creates required length of each dimension as specified in the attribute.
 
 Also like many programming languages you can measure how long code takes to run by checking the system time of your computer
 
