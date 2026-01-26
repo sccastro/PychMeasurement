@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>9 Multilevel Models | Data Analysis and Optimization in R</title>
   <meta name="description" content="As modern Data Scientists, we cannot be content with untested assumptions, decisions based on the “gut feelings” of a CEO, poorly leveraged data insights, or small sample sizes; now we must strive to be methodologically sound, balance experimental design against convenient populations, keep up with the ever-changing landscape of statistical tests and their caveats, and learn rudimentary computer programming on top of that! Therefore we need a tool that balances the comprehensibility of human language with the flexibility to keep up with developing statistical methods and the power to analyze and vizualize any dataset. Enter R, the open-source statistical computing and graphics language with a powerful Integrated Development Environment (the Rstudio IDE), a robust community of developers, data scientists, and experts (who respond to questions!), and too many reputable online resources to read in a lifetime. The impetus to learn something new on top of your ongoing research may be hard to summon, but this course is designed to integrate your ongoing projects and goals into mastering R, and to provide tools for streamlining projects in the future." />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="9 Multilevel Models | Data Analysis and Optimization in R" />
   <meta property="og:type" content="book" />
@@ -53,11 +53,10 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
-<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -449,55 +448,56 @@ tutorial 1. This function is going to construct mixed models for us.</p>
 <span id="cb241-2"><a href="multilevel-models.html#cb241-2" tabindex="-1"></a>                          (<span class="dv">1</span><span class="sc">|</span>subject) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>scenario), <span class="at">data=</span>df)</span>
 <span id="cb241-3"><a href="multilevel-models.html#cb241-3" tabindex="-1"></a></span>
 <span id="cb241-4"><a href="multilevel-models.html#cb241-4" tabindex="-1"></a></span>
-<span id="cb241-5"><a href="multilevel-models.html#cb241-5" tabindex="-1"></a><span class="fu">summary</span>(politeness.model)</span>
-<span id="cb241-6"><a href="multilevel-models.html#cb241-6" tabindex="-1"></a><span class="co">#&gt; Linear mixed model fit by REML [&#39;lmerMod&#39;]</span></span>
-<span id="cb241-7"><a href="multilevel-models.html#cb241-7" tabindex="-1"></a><span class="co">#&gt; Formula: frequency ~ attitude + (1 | subject) + (1 | scenario)</span></span>
-<span id="cb241-8"><a href="multilevel-models.html#cb241-8" tabindex="-1"></a><span class="co">#&gt;    Data: df</span></span>
-<span id="cb241-9"><a href="multilevel-models.html#cb241-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb241-10"><a href="multilevel-models.html#cb241-10" tabindex="-1"></a><span class="co">#&gt; REML criterion at convergence: 794</span></span>
-<span id="cb241-11"><a href="multilevel-models.html#cb241-11" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb241-12"><a href="multilevel-models.html#cb241-12" tabindex="-1"></a><span class="co">#&gt; Scaled residuals: </span></span>
-<span id="cb241-13"><a href="multilevel-models.html#cb241-13" tabindex="-1"></a><span class="co">#&gt;    Min     1Q Median     3Q    Max </span></span>
-<span id="cb241-14"><a href="multilevel-models.html#cb241-14" tabindex="-1"></a><span class="co">#&gt; -2.201 -0.582 -0.064  0.563  3.439 </span></span>
-<span id="cb241-15"><a href="multilevel-models.html#cb241-15" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb241-16"><a href="multilevel-models.html#cb241-16" tabindex="-1"></a><span class="co">#&gt; Random effects:</span></span>
-<span id="cb241-17"><a href="multilevel-models.html#cb241-17" tabindex="-1"></a><span class="co">#&gt;  Groups   Name        Variance Std.Dev.</span></span>
-<span id="cb241-18"><a href="multilevel-models.html#cb241-18" tabindex="-1"></a><span class="co">#&gt;  scenario (Intercept)  219     14.8    </span></span>
-<span id="cb241-19"><a href="multilevel-models.html#cb241-19" tabindex="-1"></a><span class="co">#&gt;  subject  (Intercept) 4015     63.4    </span></span>
-<span id="cb241-20"><a href="multilevel-models.html#cb241-20" tabindex="-1"></a><span class="co">#&gt;  Residual              646     25.4    </span></span>
-<span id="cb241-21"><a href="multilevel-models.html#cb241-21" tabindex="-1"></a><span class="co">#&gt; Number of obs: 83, groups:  scenario, 7; subject, 6</span></span>
-<span id="cb241-22"><a href="multilevel-models.html#cb241-22" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb241-23"><a href="multilevel-models.html#cb241-23" tabindex="-1"></a><span class="co">#&gt; Fixed effects:</span></span>
-<span id="cb241-24"><a href="multilevel-models.html#cb241-24" tabindex="-1"></a><span class="co">#&gt;             Estimate Std. Error t value</span></span>
-<span id="cb241-25"><a href="multilevel-models.html#cb241-25" tabindex="-1"></a><span class="co">#&gt; (Intercept)   202.59      26.75    7.57</span></span>
-<span id="cb241-26"><a href="multilevel-models.html#cb241-26" tabindex="-1"></a><span class="co">#&gt; attitudepol   -19.69       5.58   -3.53</span></span>
-<span id="cb241-27"><a href="multilevel-models.html#cb241-27" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb241-28"><a href="multilevel-models.html#cb241-28" tabindex="-1"></a><span class="co">#&gt; Correlation of Fixed Effects:</span></span>
-<span id="cb241-29"><a href="multilevel-models.html#cb241-29" tabindex="-1"></a><span class="co">#&gt;             (Intr)</span></span>
-<span id="cb241-30"><a href="multilevel-models.html#cb241-30" tabindex="-1"></a><span class="co">#&gt; attitudepol -0.103</span></span>
-<span id="cb241-31"><a href="multilevel-models.html#cb241-31" tabindex="-1"></a></span>
-<span id="cb241-32"><a href="multilevel-models.html#cb241-32" tabindex="-1"></a><span class="fu">coef</span>(politeness.model)</span>
-<span id="cb241-33"><a href="multilevel-models.html#cb241-33" tabindex="-1"></a><span class="co">#&gt; $scenario</span></span>
-<span id="cb241-34"><a href="multilevel-models.html#cb241-34" tabindex="-1"></a><span class="co">#&gt;   (Intercept) attitudepol</span></span>
-<span id="cb241-35"><a href="multilevel-models.html#cb241-35" tabindex="-1"></a><span class="co">#&gt; 1         189       -19.7</span></span>
-<span id="cb241-36"><a href="multilevel-models.html#cb241-36" tabindex="-1"></a><span class="co">#&gt; 2         209       -19.7</span></span>
-<span id="cb241-37"><a href="multilevel-models.html#cb241-37" tabindex="-1"></a><span class="co">#&gt; 3         214       -19.7</span></span>
-<span id="cb241-38"><a href="multilevel-models.html#cb241-38" tabindex="-1"></a><span class="co">#&gt; 4         223       -19.7</span></span>
-<span id="cb241-39"><a href="multilevel-models.html#cb241-39" tabindex="-1"></a><span class="co">#&gt; 5         201       -19.7</span></span>
-<span id="cb241-40"><a href="multilevel-models.html#cb241-40" tabindex="-1"></a><span class="co">#&gt; 6         190       -19.7</span></span>
-<span id="cb241-41"><a href="multilevel-models.html#cb241-41" tabindex="-1"></a><span class="co">#&gt; 7         192       -19.7</span></span>
-<span id="cb241-42"><a href="multilevel-models.html#cb241-42" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb241-43"><a href="multilevel-models.html#cb241-43" tabindex="-1"></a><span class="co">#&gt; $subject</span></span>
-<span id="cb241-44"><a href="multilevel-models.html#cb241-44" tabindex="-1"></a><span class="co">#&gt;    (Intercept) attitudepol</span></span>
-<span id="cb241-45"><a href="multilevel-models.html#cb241-45" tabindex="-1"></a><span class="co">#&gt; F1         241       -19.7</span></span>
-<span id="cb241-46"><a href="multilevel-models.html#cb241-46" tabindex="-1"></a><span class="co">#&gt; F2         267       -19.7</span></span>
-<span id="cb241-47"><a href="multilevel-models.html#cb241-47" tabindex="-1"></a><span class="co">#&gt; F3         260       -19.7</span></span>
-<span id="cb241-48"><a href="multilevel-models.html#cb241-48" tabindex="-1"></a><span class="co">#&gt; M3         179       -19.7</span></span>
-<span id="cb241-49"><a href="multilevel-models.html#cb241-49" tabindex="-1"></a><span class="co">#&gt; M4         155       -19.7</span></span>
-<span id="cb241-50"><a href="multilevel-models.html#cb241-50" tabindex="-1"></a><span class="co">#&gt; M7         113       -19.7</span></span>
-<span id="cb241-51"><a href="multilevel-models.html#cb241-51" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb241-52"><a href="multilevel-models.html#cb241-52" tabindex="-1"></a><span class="co">#&gt; attr(,&quot;class&quot;)</span></span>
-<span id="cb241-53"><a href="multilevel-models.html#cb241-53" tabindex="-1"></a><span class="co">#&gt; [1] &quot;coef.mer&quot;</span></span></code></pre></div>
+<span id="cb241-5"><a href="multilevel-models.html#cb241-5" tabindex="-1"></a></span>
+<span id="cb241-6"><a href="multilevel-models.html#cb241-6" tabindex="-1"></a><span class="fu">summary</span>(politeness.model)</span>
+<span id="cb241-7"><a href="multilevel-models.html#cb241-7" tabindex="-1"></a><span class="co">#&gt; Linear mixed model fit by REML [&#39;lmerMod&#39;]</span></span>
+<span id="cb241-8"><a href="multilevel-models.html#cb241-8" tabindex="-1"></a><span class="co">#&gt; Formula: frequency ~ attitude + (1 | subject) + (1 | scenario)</span></span>
+<span id="cb241-9"><a href="multilevel-models.html#cb241-9" tabindex="-1"></a><span class="co">#&gt;    Data: df</span></span>
+<span id="cb241-10"><a href="multilevel-models.html#cb241-10" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb241-11"><a href="multilevel-models.html#cb241-11" tabindex="-1"></a><span class="co">#&gt; REML criterion at convergence: 794</span></span>
+<span id="cb241-12"><a href="multilevel-models.html#cb241-12" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb241-13"><a href="multilevel-models.html#cb241-13" tabindex="-1"></a><span class="co">#&gt; Scaled residuals: </span></span>
+<span id="cb241-14"><a href="multilevel-models.html#cb241-14" tabindex="-1"></a><span class="co">#&gt;    Min     1Q Median     3Q    Max </span></span>
+<span id="cb241-15"><a href="multilevel-models.html#cb241-15" tabindex="-1"></a><span class="co">#&gt; -2.201 -0.582 -0.064  0.563  3.439 </span></span>
+<span id="cb241-16"><a href="multilevel-models.html#cb241-16" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb241-17"><a href="multilevel-models.html#cb241-17" tabindex="-1"></a><span class="co">#&gt; Random effects:</span></span>
+<span id="cb241-18"><a href="multilevel-models.html#cb241-18" tabindex="-1"></a><span class="co">#&gt;  Groups   Name        Variance Std.Dev.</span></span>
+<span id="cb241-19"><a href="multilevel-models.html#cb241-19" tabindex="-1"></a><span class="co">#&gt;  scenario (Intercept)  219     14.8    </span></span>
+<span id="cb241-20"><a href="multilevel-models.html#cb241-20" tabindex="-1"></a><span class="co">#&gt;  subject  (Intercept) 4015     63.4    </span></span>
+<span id="cb241-21"><a href="multilevel-models.html#cb241-21" tabindex="-1"></a><span class="co">#&gt;  Residual              646     25.4    </span></span>
+<span id="cb241-22"><a href="multilevel-models.html#cb241-22" tabindex="-1"></a><span class="co">#&gt; Number of obs: 83, groups:  scenario, 7; subject, 6</span></span>
+<span id="cb241-23"><a href="multilevel-models.html#cb241-23" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb241-24"><a href="multilevel-models.html#cb241-24" tabindex="-1"></a><span class="co">#&gt; Fixed effects:</span></span>
+<span id="cb241-25"><a href="multilevel-models.html#cb241-25" tabindex="-1"></a><span class="co">#&gt;             Estimate Std. Error t value</span></span>
+<span id="cb241-26"><a href="multilevel-models.html#cb241-26" tabindex="-1"></a><span class="co">#&gt; (Intercept)   202.59      26.75    7.57</span></span>
+<span id="cb241-27"><a href="multilevel-models.html#cb241-27" tabindex="-1"></a><span class="co">#&gt; attitudepol   -19.69       5.58   -3.53</span></span>
+<span id="cb241-28"><a href="multilevel-models.html#cb241-28" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb241-29"><a href="multilevel-models.html#cb241-29" tabindex="-1"></a><span class="co">#&gt; Correlation of Fixed Effects:</span></span>
+<span id="cb241-30"><a href="multilevel-models.html#cb241-30" tabindex="-1"></a><span class="co">#&gt;             (Intr)</span></span>
+<span id="cb241-31"><a href="multilevel-models.html#cb241-31" tabindex="-1"></a><span class="co">#&gt; attitudepol -0.103</span></span>
+<span id="cb241-32"><a href="multilevel-models.html#cb241-32" tabindex="-1"></a></span>
+<span id="cb241-33"><a href="multilevel-models.html#cb241-33" tabindex="-1"></a><span class="fu">coef</span>(politeness.model)</span>
+<span id="cb241-34"><a href="multilevel-models.html#cb241-34" tabindex="-1"></a><span class="co">#&gt; $scenario</span></span>
+<span id="cb241-35"><a href="multilevel-models.html#cb241-35" tabindex="-1"></a><span class="co">#&gt;   (Intercept) attitudepol</span></span>
+<span id="cb241-36"><a href="multilevel-models.html#cb241-36" tabindex="-1"></a><span class="co">#&gt; 1         189       -19.7</span></span>
+<span id="cb241-37"><a href="multilevel-models.html#cb241-37" tabindex="-1"></a><span class="co">#&gt; 2         209       -19.7</span></span>
+<span id="cb241-38"><a href="multilevel-models.html#cb241-38" tabindex="-1"></a><span class="co">#&gt; 3         214       -19.7</span></span>
+<span id="cb241-39"><a href="multilevel-models.html#cb241-39" tabindex="-1"></a><span class="co">#&gt; 4         223       -19.7</span></span>
+<span id="cb241-40"><a href="multilevel-models.html#cb241-40" tabindex="-1"></a><span class="co">#&gt; 5         201       -19.7</span></span>
+<span id="cb241-41"><a href="multilevel-models.html#cb241-41" tabindex="-1"></a><span class="co">#&gt; 6         190       -19.7</span></span>
+<span id="cb241-42"><a href="multilevel-models.html#cb241-42" tabindex="-1"></a><span class="co">#&gt; 7         192       -19.7</span></span>
+<span id="cb241-43"><a href="multilevel-models.html#cb241-43" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb241-44"><a href="multilevel-models.html#cb241-44" tabindex="-1"></a><span class="co">#&gt; $subject</span></span>
+<span id="cb241-45"><a href="multilevel-models.html#cb241-45" tabindex="-1"></a><span class="co">#&gt;    (Intercept) attitudepol</span></span>
+<span id="cb241-46"><a href="multilevel-models.html#cb241-46" tabindex="-1"></a><span class="co">#&gt; F1         241       -19.7</span></span>
+<span id="cb241-47"><a href="multilevel-models.html#cb241-47" tabindex="-1"></a><span class="co">#&gt; F2         267       -19.7</span></span>
+<span id="cb241-48"><a href="multilevel-models.html#cb241-48" tabindex="-1"></a><span class="co">#&gt; F3         260       -19.7</span></span>
+<span id="cb241-49"><a href="multilevel-models.html#cb241-49" tabindex="-1"></a><span class="co">#&gt; M3         179       -19.7</span></span>
+<span id="cb241-50"><a href="multilevel-models.html#cb241-50" tabindex="-1"></a><span class="co">#&gt; M4         155       -19.7</span></span>
+<span id="cb241-51"><a href="multilevel-models.html#cb241-51" tabindex="-1"></a><span class="co">#&gt; M7         113       -19.7</span></span>
+<span id="cb241-52"><a href="multilevel-models.html#cb241-52" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb241-53"><a href="multilevel-models.html#cb241-53" tabindex="-1"></a><span class="co">#&gt; attr(,&quot;class&quot;)</span></span>
+<span id="cb241-54"><a href="multilevel-models.html#cb241-54" tabindex="-1"></a><span class="co">#&gt; [1] &quot;coef.mer&quot;</span></span></code></pre></div>
 <p>Let’s focus on the output for the random effects first:</p>
 <div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="multilevel-models.html#cb242-1" tabindex="-1"></a><span class="co"># Random effects:</span></span>
 <span id="cb242-2"><a href="multilevel-models.html#cb242-2" tabindex="-1"></a><span class="co">#   Groups   Name       Variance Std.Dev.</span></span>
@@ -748,42 +748,42 @@ determine that?</p>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/sccastro/PsychMeasurement/docs/08_MultilevelModels.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["_main.pdf"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/sccastro/PsychMeasurement/docs/08_MultilevelModels.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  }
 });
 });
 </script>
