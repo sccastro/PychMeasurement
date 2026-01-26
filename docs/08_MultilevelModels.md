@@ -183,9 +183,10 @@ is the mixed model equivalent of the function <code>lm()</code> in
 tutorial 1. This function is going to construct mixed models for us.
 
 
-```r
+``` r
 politeness.model = lmer(frequency ~ attitude +
                           (1|subject) + (1|scenario), data=df)
+
 
 
 summary(politeness.model)

@@ -230,10 +230,10 @@ Requests for accommodation should be filled out with a SAS Service Request Form 
 require(chron)
 require(lubridate)
 #Goal: auto-fill dates for a class for a semester.
-clssdays <- function(classday,Semester = "Spring", Year = "2025") {
+clssdays <- function(classday,Semester = "Spring", Year = "2026") {
   if (Semester == "Spring"){
-    allclass <- seq(ymd(paste0(Year,'-01-21')),ymd(paste0(Year,'-05-09')), by = 'day')
-    holidays <- c(ymd(paste0(Year,'-01-20')),ymd(paste0(Year,'-02-17')),seq.Date(from = ymd(paste0(Year,'-03-24')),to = ymd(paste0(Year,'-03-27')),by = 'day'))
+    allclass <- seq(ymd(paste0(Year,'-01-20')),ymd(paste0(Year,'-05-08')), by = 'day')
+    holidays <- c(ymd(paste0(Year,'-01-19')),ymd(paste0(Year,'-02-16')),seq.Date(from = ymd(paste0(Year,'-03-23')),to = ymd(paste0(Year,'-03-26')),by = 'day'))
     Dates <- format(allclass[classday == weekdays(allclass) & allclass %ni% holidays],"%b %d")
     dfdate <- data.frame(Dates)
     return(dfdate)
@@ -262,7 +262,7 @@ urls <- c("https://github.com/rstudio/cheatsheets/blob/main/base-r.pdf",
           "https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_purrr.pdf",
           "http://edrub.in/CheatSheets/cheatSheetStringr.pdf")
 
-schedule <- cbind(clssdays(classday = "Monday",Semester = "Spring",Year = "2025"),
+schedule <- cbind(clssdays(classday = "Monday",Semester = "Spring",Year = "2026"),
       "Topic/Description" = c("Introduction/Installation","R commands/tricks","Intro to reading data/Data Workshop","Cleaning data/Data Workshop", "Dplyr and Tidyr","Visualizing with ggplot/Data
 Workshop","Intro to stats in R","More stats in R","Still more stats in R","Rmarkdown","Report Generation and Optimization","Rmarkdown help",
 "Bonus Material – Shiny?"),

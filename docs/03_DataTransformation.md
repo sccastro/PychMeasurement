@@ -84,20 +84,19 @@ helpful thing about <code>.RData</code> files. They can contain all of
 the dataframes you need for a project or analysis.
 
 
-```r
-df <- as_tibble(ccolor %>%
+``` r
+df <- as_tibble(ccolor |>
   select(subject = s, congruency = con, stimulus =S,
           response = R, reactionTime = RT))
 ```
 
 
-```r
-
+``` r
 tbl_df(ccolor) #Converts data to tbl class - Easier to view
 #> Warning: `tbl_df()` was deprecated in dplyr 1.0.0.
-#> Please use `tibble::as_tibble()` instead.
-#> This warning is displayed once every 8 hours.
-#> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.
+#> ℹ Please use `tibble::as_tibble()` instead.
+#> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+#> generated.
 #> # A tibble: 6,400 × 5
 #>   s     con         S     R        RT
 #>   <fct> <chr>       <fct> <chr> <dbl>
@@ -107,7 +106,7 @@ tbl_df(ccolor) #Converts data to tbl class - Easier to view
 #> 4 1     congruent   blue  blue    955
 #> 5 1     incongruent red   blue    792
 #> 6 1     congruent   red   red     452
-#> # … with 6,394 more rows
+#> # ℹ 6,394 more rows
 ```
 
 You can compare the classes...
@@ -240,7 +239,6 @@ Above I used <code>group_by(s)</code>, which groups by participant,
 <code>summarise()</code> with <code>n()</code>, which counts the number
 of rows, and <code>pivot_wider()</code>, which takes the column s, turns
 each row into a column, and puts the value argument in that column.
-
 
 There's also <code>filter()</code>, <code>gather()</code>,
 <code>separate()</code>, <code>unite()</code>, <code>select()</code>,
@@ -409,7 +407,9 @@ anticipatory, and the late responses as outliers.
 "newdf"
 
 
-```r
+``` r
+load(file = "data/ready.RData")
+
 newdf <- ...
 ```
 
@@ -615,9 +615,8 @@ stocks <- tibble(
 )
 ```
 
-<code>pivot_longer</code> and
-<code>pivot_wider</code> are not opposites.
-
+<code>pivot_longer</code> and <code>pivot_wider</code> are not
+opposites.
 
 
 ```r
@@ -667,7 +666,8 @@ newpeople <- people %>%
   pivot_wider(...)
 ```
 
-**Challenge 7**: gather newpeople so that height and age are back together
+**Challenge 7**: gather newpeople so that height and age are back
+together
 
 
 ```r
@@ -781,12 +781,14 @@ dfclean %>%
 
 **Challenge 6**: spread people so height and age have their own column
 
+
 ```r
 newpeople <- people %>%
   pivot_wider(names_from = key, values_from = value)
 ```
 
-**Challenge 7**: gather newpeople so that height and age are back together
+**Challenge 7**: gather newpeople so that height and age are back
+together
 
 
 ```r

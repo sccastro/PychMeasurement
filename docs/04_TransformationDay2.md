@@ -71,7 +71,7 @@ View(gss_cat)
 ```
 
 
-```r
+``` r
 gss_cat %>%
   count(race) #We can see counts of each race or religion
 #> # A tibble: 3 × 2
@@ -93,7 +93,7 @@ gss_cat %>%
 #> 4 Christian    689
 #> 5 Jewish       388
 #> 6 Other        224
-#> # … with 9 more rows
+#> # ℹ 9 more rows
 
 gss_cat %>%
   count(age) #Or we can count by age...
@@ -106,18 +106,18 @@ gss_cat %>%
 #> 4    21   278
 #> 5    22   298
 #> 6    23   361
-#> # … with 67 more rows
+#> # ℹ 67 more rows
 
 
 gss_cat %>%
   count(race) %>%
-  mutate(freq = (n / sum(n))*100) #We can see relative proportions in the sample
-#> # A tibble: 3 × 3
-#>   race      n  freq
-#>   <fct> <int> <dbl>
-#> 1 Other  1959  9.12
-#> 2 Black  3129 14.6 
-#> 3 White 16395 76.3
+  mutate(freq = (n / sum(n))*100, 1) #We can see relative proportions in the sample
+#> # A tibble: 3 × 4
+#>   race      n  freq   `1`
+#>   <fct> <int> <dbl> <dbl>
+#> 1 Other  1959  9.12     1
+#> 2 Black  3129 14.6      1
+#> 3 White 16395 76.3      1
 
 levels(gss_cat$rincome)
 #>  [1] "No answer"      "Don't know"     "Refused"        "$25000 or more"
@@ -129,7 +129,7 @@ df <- forcats::gss_cat
 ```
 
 
-```r
+``` r
 #Remember, none of these outcomes are being saved into any objects with <- 
 #This is just for visualizing and exploring the data.
 
@@ -143,9 +143,10 @@ ggplot(data = gss_cat, mapping = aes(x =race)) +
 
 # By default, ggplot2 will drop levels that don’t have any values. 
 # You can force them to display with:
-ggplot(gss_cat, aes(race)) +
+ggplot(gss_cat, aes(relig)) +
   geom_bar() +
   scale_x_discrete(drop = FALSE)
+
 ```
 
 <img src="04_TransformationDay2_files/figure-html/ggplotintro-1.png" width="70%" style="display: block; margin: auto;" /><img src="04_TransformationDay2_files/figure-html/ggplotintro-2.png" width="70%" style="display: block; margin: auto;" />
@@ -235,7 +236,7 @@ moving them out of aes() and into a separate mutate() step. For example,
 you could rewrite the plot above as:
 
 
-```r
+``` r
 relig_summary %>%
   mutate(relig = fct_reorder(relig, tvhours)) %>%
   ggplot(aes(tvhours, relig)) +
@@ -246,16 +247,7 @@ mtv <- relig_summary %>%
 
 relig_summary %>% ggplot(aes(x = tvhours, y = relig, color = relig)
 ) + geom_point() + geom_vline(aes(xintercept = mtv$mtv)) 
-
-levels(relig_summary$relig)
-#>  [1] "No answer"               "Don't know"             
-#>  [3] "Inter-nondenominational" "Native american"        
-#>  [5] "Christian"               "Orthodox-christian"     
-#>  [7] "Moslem/islam"            "Other eastern"          
-#>  [9] "Hinduism"                "Buddhism"               
-#> [11] "Other"                   "None"                   
-#> [13] "Jewish"                  "Catholic"               
-#> [15] "Protestant"              "Not applicable"
+# geom_vline(aes(xintercept = mean(gss_cat$tvhours, na.rm = T))) + levels(relig_summary$relig)
 
 (testlevel <- relig_summary %>%
   mutate(relig = fct_reorder(relig, tvhours)))
@@ -268,7 +260,7 @@ levels(relig_summary$relig)
 #> 4 Native american          38.9    3.46    23
 #> 5 Christian                40.1    2.79   689
 #> 6 Orthodox-christian       50.4    2.42    95
-#> # … with 9 more rows
+#> # ℹ 9 more rows
 
 levels(testlevel$relig) #The levels have changed even if the visualization did not.
 #>  [1] "Other eastern"           "Hinduism"               

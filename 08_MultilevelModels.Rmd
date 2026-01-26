@@ -178,6 +178,7 @@ politeness.model = lmer(frequency ~ attitude +
                           (1|subject) + (1|scenario), data=df)
 
 
+
 summary(politeness.model)
 
 coef(politeness.model)

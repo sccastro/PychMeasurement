@@ -190,12 +190,12 @@ df[1,1:11] #This is subsetting, row = 1, columns equal 1:11 (1 to 11)
 Looks like we have some messy columns. We can clean them up.
 
 
-```r
+``` r
 
-cleaner <- df %>% #This is a pipe (%>%). See the link below to learn about pipes
-  select(-10, -11) %>% #This select function is from dplyr. Type ?dplyr into the console to learn more
-  na.omit() #%>% # I've commented out the pipe, so the last call is to omit NAs. Delete the first # to run the lines below.
-  # group_by(Participant) %>% # This code doesn't run now. Delete the first # to run it.
+cleaner <- df |> #This is a pipe (|>). See the link below to learn about pipes
+  select(-10, -11) |> #This select function is from dplyr. Type ?dplyr into the console to learn more
+  na.omit() #|> # I've commented out the pipe, so the last call is to omit NAs. Delete the first # to run the lines below.
+  # group_by(Participant) |> # This code doesn't run now. Delete the first # to run it.
   # summarise(count1 = n()) # This code doesn't run now. Delete the first # to run it.
 ```
 (to learn about [pipes](https://style.tidyverse.org/pipes.html)...)
@@ -203,7 +203,7 @@ cleaner <- df %>% #This is a pipe (%>%). See the link below to learn about pipes
 We can coerce columns in the data.frame to a factor...
 
 
-```r
+``` r
 df$Participant <- as.factor(df$Participant)
 
 class(df$Participant)

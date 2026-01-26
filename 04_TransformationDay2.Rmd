@@ -87,7 +87,7 @@ gss_cat %>%
 
 gss_cat %>%
   count(race) %>%
-  mutate(freq = (n / sum(n))*100) #We can see relative proportions in the sample
+  mutate(freq = (n / sum(n))*100, 1) #We can see relative proportions in the sample
 
 levels(gss_cat$rincome)
 #Releveling factors with forcats
@@ -108,7 +108,7 @@ ggplot(data = gss_cat, mapping = aes(x =race)) +
 
 # By default, ggplot2 will drop levels that don’t have any values. 
 # You can force them to display with:
-ggplot(gss_cat, aes(race)) +
+ggplot(gss_cat, aes(relig)) +
   geom_bar() +
   scale_x_discrete(drop = FALSE)
 
@@ -191,8 +191,7 @@ mtv <- relig_summary %>%
 
 relig_summary %>% ggplot(aes(x = tvhours, y = relig, color = relig)
 ) + geom_point() + geom_vline(aes(xintercept = mtv$mtv)) 
-
-levels(relig_summary$relig)
+# geom_vline(aes(xintercept = mean(gss_cat$tvhours, na.rm = T))) + levels(relig_summary$relig)
 
 (testlevel <- relig_summary %>%
   mutate(relig = fct_reorder(relig, tvhours)))

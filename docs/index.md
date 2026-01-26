@@ -2,7 +2,7 @@
 knit: "bookdown::render_book"
 title: "Data Analysis and Optimization in R"
 author: ["[Spencer Castro](https://www.spencercastro.com)"]
-date: "Mon Feb 10 2025"
+date: "Sun Jan 25 2026"
 description: 'As modern Data Scientists, we cannot be content with untested assumptions, decisions based on the "gut feelings" of a CEO, poorly leveraged data insights, or small sample sizes; now we must strive to be methodologically sound, balance experimental design against convenient populations, keep up with the ever-changing landscape of statistical tests and their caveats, and learn rudimentary computer programming on top of that! Therefore we need a tool that balances the comprehensibility of human language with the flexibility to keep up with developing statistical methods and the power to analyze and vizualize any dataset. Enter R, the open-source statistical computing and graphics language with a powerful Integrated Development Environment (the Rstudio IDE), a robust community of developers, data scientists, and experts (who respond to questions!), and too many reputable online resources to read in a lifetime. The impetus to learn something new on top of your ongoing research may be hard to summon, but this course is designed to integrate your ongoing projects and goals into mastering R, and to provide tools for streamlining projects in the future.'
 url: 'https\://spencercastro.com'
 github-repo: sccastro/PsychMeasurement
@@ -25,7 +25,7 @@ always_allow_html: true
 
 
 
-Spring, 2025
+Spring, 2026
 
 *This syllabus is not a binding legal contract. With reasonable notice to students, the instructor may modify the syllabus and course schedule at any time, to accommodate the needs of the class. Should you have any questions or concerns, it is your responsibility to contact the instructor for clarification.*
 
@@ -217,80 +217,80 @@ Requests for accommodation should be filled out with a SAS Service Request Form 
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;width: 7em; "> Jan 27 </td>
+   <td style="text-align:left;width: 7em; "> Jan 26 </td>
    <td style="text-align:left;"> Introduction/Installation </td>
    <td style="text-align:left;"> syllabus Swirl tutorial/[base-R](https://github.com/rstudio/cheatsheets/blob/main/base-r.pdf) </td>
    <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 7em; "> Feb 03 </td>
+   <td style="text-align:left;width: 7em; "> Feb 02 </td>
    <td style="text-align:left;"> R commands/tricks </td>
    <td style="text-align:left;"> Swirl tutorial/[data-import](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_data-import.pdf) </td>
    <td style="text-align:left;"> Obtaining a Dataset </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 7em; "> Feb 10 </td>
+   <td style="text-align:left;width: 7em; "> Feb 09 </td>
    <td style="text-align:left;"> Intro to reading data/Data Workshop </td>
    <td style="text-align:left;"> Swirl tutorial/[data-wrangling](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf) </td>
    <td style="text-align:left;"> Ask your first question on StackOverflow </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 7em; "> Feb 24 </td>
+   <td style="text-align:left;width: 7em; "> Feb 23 </td>
    <td style="text-align:left;"> Cleaning data/Data Workshop </td>
    <td style="text-align:left;"> Swirl tutorial/[data-transformation](https://nyu-cdsc.github.io/learningr/assets/data-transformation.pdf) </td>
    <td style="text-align:left;"> Dataset Read into R </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 7em; "> Mar 03 </td>
+   <td style="text-align:left;width: 7em; "> Mar 02 </td>
    <td style="text-align:left;"> Dplyr and Tidyr </td>
    <td style="text-align:left;"> Swirl tutorial/[data-vizualization-2.1](https://www.maths.usyd.edu.au/u/UG/SM/STAT3022/r/current/Misc/data-visualization-2.1.pdf) </td>
    <td style="text-align:left;"> Make an Rproject </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 7em; "> Mar 10 </td>
+   <td style="text-align:left;width: 7em; "> Mar 09 </td>
    <td style="text-align:left;"> Visualizing with ggplot/Data
 Workshop </td>
    <td style="text-align:left;"> Stats challenge/[Navarro](http://www.fon.hum.uva.nl/paul/lot2015/Navarro2014.pdf) </td>
    <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 7em; "> Mar 17 </td>
+   <td style="text-align:left;width: 7em; "> Mar 16 </td>
    <td style="text-align:left;"> Intro to stats in R </td>
    <td style="text-align:left;"> Stats challenge/[MLM tutorial](http://www.bodowinter.com/tutorial/bw_LME_tutorial1.pdf) </td>
    <td style="text-align:left;"> Tidy Dataset </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 7em; "> Mar 31 </td>
+   <td style="text-align:left;width: 7em; "> Mar 30 </td>
    <td style="text-align:left;"> More stats in R </td>
    <td style="text-align:left;"> Stats challenge/[MLM tutorial](http://www.bodowinter.com/tutorial/bw_LME_tutorial2.pdf) </td>
    <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 7em; "> Apr 07 </td>
+   <td style="text-align:left;width: 7em; "> Apr 06 </td>
    <td style="text-align:left;"> Still more stats in R </td>
    <td style="text-align:left;"> Report challenge/[Rmarkdown-2.0](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) </td>
    <td style="text-align:left;"> Analysis Complete </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 7em; "> Apr 14 </td>
+   <td style="text-align:left;width: 7em; "> Apr 13 </td>
    <td style="text-align:left;"> Rmarkdown </td>
    <td style="text-align:left;"> Report challenge/[rmarkdown-reference](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf) </td>
    <td style="text-align:left;">  </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 7em; "> Apr 21 </td>
+   <td style="text-align:left;width: 7em; "> Apr 20 </td>
    <td style="text-align:left;"> Report Generation and Optimization </td>
    <td style="text-align:left;"> Shiny app build/[shiny](https://shiny.rstudio.com/images/shiny-cheatsheet.pdf) </td>
    <td style="text-align:left;"> Rmarkdown Document </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 7em; "> Apr 28 </td>
+   <td style="text-align:left;width: 7em; "> Apr 27 </td>
    <td style="text-align:left;"> Rmarkdown help </td>
    <td style="text-align:left;"> Regular expression challenge/[purrr](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_purrr.pdf)/[strings](http://edrub.in/CheatSheets/cheatSheetStringr.pdf) </td>
    <td style="text-align:left;"> Methods &amp; Results Due </td>
   </tr>
   <tr>
-   <td style="text-align:left;width: 7em; "> May 05 </td>
+   <td style="text-align:left;width: 7em; "> May 04 </td>
    <td style="text-align:left;"> Bonus Material – Shiny? </td>
    <td style="text-align:left;"> Presentations of Data Analysis </td>
    <td style="text-align:left;"> Final Projects Due </td>
